@@ -1,0 +1,338 @@
+package org.cbg.panel;
+
+import java.awt.Graphics;
+import org.come.Frame.ZhuFrame;
+import org.cbg.frame.TrslationMainJframe;
+import org.come.socket.SendMessageUntil;
+import org.come.socket.Agreement;
+import org.cbg.bean.SearchGoodsBean;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseAdapter;
+import com.tool.tcpimg.UIUtils;
+import java.awt.Color;
+import org.cbg.until.TraslationTableUntil;
+import java.awt.Dimension;
+import com.updateNew.MyIsif;
+import javax.swing.ImageIcon;
+import javax.swing.JScrollPane;
+import org.cbg.btn.TrslationBtn;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class TraslationWantBuyShoucangJpanel extends JPanel
+{
+    private JLabel yema;
+    private TrslationBtn shouye;
+    private TrslationBtn moye;
+    private TrslationBtn leftArrows;
+    private TrslationBtn rightArrows;
+    private TrslationBtn refurbish;
+    private int dangqianyeshu;
+    private int zuidayema;
+    private JScrollPane jScrollPane;
+    private ImageIcon icon1;
+    
+    public TraslationWantBuyShoucangJpanel() {
+        this.dangqianyeshu = 1;
+        this.zuidayema = 50;
+        if (MyIsif.getStyle().equals("水墨")) {
+            this.setPreferredSize(new Dimension(590, 380));
+            this.setOpaque(false);
+            this.setLayout(null);
+            (this.jScrollPane = new JScrollPane()).setOpaque(false);
+            this.jScrollPane.setBounds(8, 47, 571, 302);
+            this.jScrollPane.setBorder(null);
+            TraslationTableUntil.TableModel(this.jScrollPane, 10);
+            this.jScrollPane.getVerticalScrollBar().setUnitIncrement(50);
+            this.add(this.jScrollPane);
+            (this.yema = new JLabel(this.dangqianyeshu + "/" + this.zuidayema)).setBounds(258, 356, 58, 17);
+            this.yema.setForeground(Color.white);
+            this.yema.setOpaque(false);
+            this.yema.setHorizontalAlignment(0);
+            this.add(this.yema);
+            (this.shouye = new TrslationBtn("inkImg/button/2.png", 1, UIUtils.COLOR_BTNTEXT, UIUtils.TEXT_FONT, "首页")).setBounds(196, 354, 34, 17);
+            this.add(this.shouye);
+            this.shouye.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (TraslationWantBuyShoucangJpanel.this.dangqianyeshu != 1) {
+                        TraslationWantBuyShoucangJpanel.this.dangqianyeshu = 1;
+                        TraslationWantBuyShoucangJpanel.this.yema.setText(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "/" + TraslationWantBuyShoucangJpanel.this.zuidayema);
+                        SearchGoodsBean searchGoodsBean = new SearchGoodsBean();
+                        String sendmes = Agreement.getAgreement().searchCollectionQueryAgreement(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "");
+                        SendMessageUntil.toServer(sendmes);
+                        TrslationMainJframe.getTrslationMainJframe().setPanelOpen(8);
+                    }
+                    else {
+                        ZhuFrame.getZhuJpanel().addPrompt2("已在首页");
+                    }
+                }
+            });
+            (this.leftArrows = new TrslationBtn("inkImg/button/10.png", 1)).setBounds(235, 354, 19, 20);
+            this.add(this.leftArrows);
+            this.leftArrows.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (TraslationWantBuyShoucangJpanel.this.dangqianyeshu > 1) {
+                        TraslationWantBuyShoucangJpanel.this.dangqianyeshu--;
+                        TraslationWantBuyShoucangJpanel.this.yema.setText(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "/" + TraslationWantBuyShoucangJpanel.this.zuidayema);
+                        SearchGoodsBean searchGoodsBean = new SearchGoodsBean();
+                        String sendmes = Agreement.getAgreement().searchCollectionQueryAgreement(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "");
+                        SendMessageUntil.toServer(sendmes);
+                        TrslationMainJframe.getTrslationMainJframe().setPanelOpen(8);
+                    }
+                    else {
+                        ZhuFrame.getZhuJpanel().addPrompt2("已经没有上一页了");
+                    }
+                }
+            });
+            (this.moye = new TrslationBtn("inkImg/button/2.png", 1, UIUtils.COLOR_BTNTEXT, UIUtils.TEXT_FONT, "末页")).setBounds(342, 354, 34, 17);
+            this.add(this.moye);
+            this.moye.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (TraslationWantBuyShoucangJpanel.this.dangqianyeshu != TraslationWantBuyShoucangJpanel.this.zuidayema) {
+                        TraslationWantBuyShoucangJpanel.this.dangqianyeshu = TraslationWantBuyShoucangJpanel.this.zuidayema;
+                        TraslationWantBuyShoucangJpanel.this.yema.setText(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "/" + TraslationWantBuyShoucangJpanel.this.zuidayema);
+                        SearchGoodsBean searchGoodsBean = new SearchGoodsBean();
+                        String sendmes = Agreement.getAgreement().searchCollectionQueryAgreement(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "");
+                        SendMessageUntil.toServer(sendmes);
+                        TrslationMainJframe.getTrslationMainJframe().setPanelOpen(8);
+                    }
+                    else {
+                        ZhuFrame.getZhuJpanel().addPrompt2("已在末页");
+                    }
+                }
+            });
+            (this.rightArrows = new TrslationBtn("inkImg/button/9.png", 1)).setBounds(320, 354, 19, 20);
+            this.add(this.rightArrows);
+            this.rightArrows.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (TraslationWantBuyShoucangJpanel.this.dangqianyeshu < TraslationWantBuyShoucangJpanel.this.zuidayema) {
+                        TraslationWantBuyShoucangJpanel.this.dangqianyeshu++;
+                        TraslationWantBuyShoucangJpanel.this.yema.setText(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "/" + TraslationWantBuyShoucangJpanel.this.zuidayema);
+                        SearchGoodsBean searchGoodsBean = new SearchGoodsBean();
+                        String sendmes = Agreement.getAgreement().searchCollectionQueryAgreement(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "");
+                        SendMessageUntil.toServer(sendmes);
+                        TrslationMainJframe.getTrslationMainJframe().setPanelOpen(8);
+                    }
+                    else {
+                        ZhuFrame.getZhuJpanel().addPrompt2("已经没有下一页了");
+                    }
+                }
+            });
+            (this.refurbish = new TrslationBtn("inkImg/button/2.png", 1, UIUtils.COLOR_BTNTEXT, UIUtils.TEXT_FONT, "刷新")).setBounds(546, 8, 34, 17);
+            this.add(this.refurbish);
+            this.refurbish.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    SearchGoodsBean searchGoodsBean = new SearchGoodsBean();
+                    String sendmes = Agreement.getAgreement().searchCollectionQueryAgreement(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "");
+                    SendMessageUntil.toServer(sendmes);
+                    TrslationMainJframe.getTrslationMainJframe().setPanelOpen(8);
+                }
+            });
+        }
+        else {
+            this.setPreferredSize(new Dimension(590, 380));
+            this.setOpaque(false);
+            this.setLayout(null);
+            (this.jScrollPane = new JScrollPane()).setOpaque(false);
+            this.jScrollPane.setBounds(8, 47, 571, 302);
+            this.jScrollPane.setBorder(null);
+            TraslationTableUntil.TableModel(this.jScrollPane, 10);
+            this.jScrollPane.getVerticalScrollBar().setUnitIncrement(50);
+            this.add(this.jScrollPane);
+            (this.yema = new JLabel(this.dangqianyeshu + "/" + this.zuidayema)).setBounds(258, 356, 58, 17);
+            this.yema.setForeground(Color.white);
+            this.yema.setOpaque(false);
+            this.yema.setHorizontalAlignment(0);
+            this.add(this.yema);
+            (this.shouye = new TrslationBtn("inkImg/hongmu/21_png.button.tab_nex.png", 1, UIUtils.COLOR_BTNTEXT, UIUtils.TEXT_FONT, "首页")).setBounds(196, 354, 34, 17);
+            this.add(this.shouye);
+            this.shouye.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (TraslationWantBuyShoucangJpanel.this.dangqianyeshu != 1) {
+                        TraslationWantBuyShoucangJpanel.this.dangqianyeshu = 1;
+                        TraslationWantBuyShoucangJpanel.this.yema.setText(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "/" + TraslationWantBuyShoucangJpanel.this.zuidayema);
+                        SearchGoodsBean searchGoodsBean = new SearchGoodsBean();
+                        String sendmes = Agreement.getAgreement().searchCollectionQueryAgreement(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "");
+                        SendMessageUntil.toServer(sendmes);
+                        TrslationMainJframe.getTrslationMainJframe().setPanelOpen(8);
+                    }
+                    else {
+                        ZhuFrame.getZhuJpanel().addPrompt2("已在首页");
+                    }
+                }
+            });
+            (this.leftArrows = new TrslationBtn("img/xy2uiimg/30_png.button.btn_8.png", 1)).setBounds(235, 354, 19, 20);
+            this.add(this.leftArrows);
+            this.leftArrows.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (TraslationWantBuyShoucangJpanel.this.dangqianyeshu > 1) {
+                        TraslationWantBuyShoucangJpanel.this.dangqianyeshu--;
+                        TraslationWantBuyShoucangJpanel.this.yema.setText(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "/" + TraslationWantBuyShoucangJpanel.this.zuidayema);
+                        SearchGoodsBean searchGoodsBean = new SearchGoodsBean();
+                        String sendmes = Agreement.getAgreement().searchCollectionQueryAgreement(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "");
+                        SendMessageUntil.toServer(sendmes);
+                        TrslationMainJframe.getTrslationMainJframe().setPanelOpen(8);
+                    }
+                    else {
+                        ZhuFrame.getZhuJpanel().addPrompt2("已经没有上一页了");
+                    }
+                }
+            });
+            (this.moye = new TrslationBtn("inkImg/hongmu/21_png.button.tab_nex.png", 1, UIUtils.COLOR_BTNTEXT, UIUtils.TEXT_FONT, "末页")).setBounds(342, 354, 34, 17);
+            this.add(this.moye);
+            this.moye.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (TraslationWantBuyShoucangJpanel.this.dangqianyeshu != TraslationWantBuyShoucangJpanel.this.zuidayema) {
+                        TraslationWantBuyShoucangJpanel.this.dangqianyeshu = TraslationWantBuyShoucangJpanel.this.zuidayema;
+                        TraslationWantBuyShoucangJpanel.this.yema.setText(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "/" + TraslationWantBuyShoucangJpanel.this.zuidayema);
+                        SearchGoodsBean searchGoodsBean = new SearchGoodsBean();
+                        String sendmes = Agreement.getAgreement().searchCollectionQueryAgreement(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "");
+                        SendMessageUntil.toServer(sendmes);
+                        TrslationMainJframe.getTrslationMainJframe().setPanelOpen(8);
+                    }
+                    else {
+                        ZhuFrame.getZhuJpanel().addPrompt2("已在末页");
+                    }
+                }
+            });
+            (this.rightArrows = new TrslationBtn("img/xy2uiimg/36_png.button.btn_7.png", 1)).setBounds(320, 354, 19, 20);
+            this.add(this.rightArrows);
+            this.rightArrows.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if (TraslationWantBuyShoucangJpanel.this.dangqianyeshu < TraslationWantBuyShoucangJpanel.this.zuidayema) {
+                        TraslationWantBuyShoucangJpanel.this.dangqianyeshu++;
+                        TraslationWantBuyShoucangJpanel.this.yema.setText(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "/" + TraslationWantBuyShoucangJpanel.this.zuidayema);
+                        SearchGoodsBean searchGoodsBean = new SearchGoodsBean();
+                        String sendmes = Agreement.getAgreement().searchCollectionQueryAgreement(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "");
+                        SendMessageUntil.toServer(sendmes);
+                        TrslationMainJframe.getTrslationMainJframe().setPanelOpen(8);
+                    }
+                    else {
+                        ZhuFrame.getZhuJpanel().addPrompt2("已经没有下一页了");
+                    }
+                }
+            });
+            (this.refurbish = new TrslationBtn("inkImg/hongmu/21_png.button.tab_nex.png", 1, UIUtils.COLOR_BTNTEXT, UIUtils.TEXT_FONT, "刷新")).setBounds(540, 11, 34, 17);
+            this.add(this.refurbish);
+            this.refurbish.addMouseListener(new MouseAdapter() {
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    SearchGoodsBean searchGoodsBean = new SearchGoodsBean();
+                    String sendmes = Agreement.getAgreement().searchCollectionQueryAgreement(TraslationWantBuyShoucangJpanel.this.dangqianyeshu + "");
+                    SendMessageUntil.toServer(sendmes);
+                    TrslationMainJframe.getTrslationMainJframe().setPanelOpen(8);
+                }
+            });
+        }
+    }
+    
+    @Override
+    protected void paintComponent(Graphics g) {
+        if (MyIsif.getStyle().equals("水墨")) {
+            if (this.icon1 == null) {
+                this.icon1 = new ImageIcon("inkImg/background/167.png");
+            }
+            g.drawImage(this.icon1.getImage(), 0, 0, 590, 380, this);
+        }
+        else {
+            if (this.icon1 == null) {
+                this.icon1 = new ImageIcon("img/xy2uiimg/新我要买-灵宝w590,h380px，top97,left22px (1).png");
+            }
+            g.drawImage(this.icon1.getImage(), 0, 0, 590, 380, this);
+        }
+    }
+    
+    public void setPage(int zuidayema) {
+        this.zuidayema = zuidayema;
+        this.yema.setText(this.dangqianyeshu + "/" + this.zuidayema);
+    }
+    
+    public JLabel getYema() {
+        return this.yema;
+    }
+    
+    public void setYema(JLabel yema) {
+        this.yema = yema;
+    }
+    
+    public int getDangqianyeshu() {
+        return this.dangqianyeshu;
+    }
+    
+    public void setDangqianyeshu(int dangqianyeshu) {
+        this.dangqianyeshu = dangqianyeshu;
+    }
+    
+    public int getZuidayema() {
+        return this.zuidayema;
+    }
+    
+    public void setZuidayema(int zuidayema) {
+        this.zuidayema = zuidayema;
+    }
+    
+    public TrslationBtn getShouye() {
+        return this.shouye;
+    }
+    
+    public void setShouye(TrslationBtn shouye) {
+        this.shouye = shouye;
+    }
+    
+    public TrslationBtn getMoye() {
+        return this.moye;
+    }
+    
+    public void setMoye(TrslationBtn moye) {
+        this.moye = moye;
+    }
+    
+    public TrslationBtn getLeftArrows() {
+        return this.leftArrows;
+    }
+    
+    public void setLeftArrows(TrslationBtn leftArrows) {
+        this.leftArrows = leftArrows;
+    }
+    
+    public TrslationBtn getRightArrows() {
+        return this.rightArrows;
+    }
+    
+    public void setRightArrows(TrslationBtn rightArrows) {
+        this.rightArrows = rightArrows;
+    }
+    
+    public TrslationBtn getRefurbish() {
+        return this.refurbish;
+    }
+    
+    public void setRefurbish(TrslationBtn refurbish) {
+        this.refurbish = refurbish;
+    }
+    
+    public ImageIcon getIcon1() {
+        return this.icon1;
+    }
+    
+    public void setIcon1(ImageIcon icon1) {
+        this.icon1 = icon1;
+    }
+    
+    public JScrollPane getjScrollPane() {
+        return this.jScrollPane;
+    }
+    
+    public void setjScrollPane(JScrollPane jScrollPane) {
+        this.jScrollPane = jScrollPane;
+    }
+}

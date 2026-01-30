@@ -1,0 +1,53 @@
+package come.tool.FightingSpellAction;
+
+import java.util.List;
+import org.come.model.Skill;
+import come.tool.FightingData.FightingPackage;
+import come.tool.FightingData.ChangeFighting;
+import come.tool.FightingData.FightingState;
+import come.tool.FightingData.SummonType;
+import come.tool.FightingData.MixDeal;
+import java.util.ArrayList;
+import org.come.server.GameServer;
+import come.tool.FightingData.Battlefield;
+import come.tool.FightingData.FightingEvents;
+import come.tool.FightingData.FightingSkill;
+import come.tool.FightingData.ManData;
+
+public class TJ_CFXSAction implements SpellAction
+{
+    @Override
+    public void spellAction(ManData manData, FightingSkill skill, FightingEvents events, Battlefield battlefield) {
+        Skill skillXls = GameServer.getSkill("1270");
+        List<FightingState> Accepterlist = new ArrayList<>();
+        List<ManData> datas = MixDeal.getjieshou(events, skill, manData, Accepterlist, battlefield, (int)skillXls.getValue1());
+        FightingState Originator = events.getOriginator();
+        SummonType.xianzhi(manData, skill);
+        Originator.setStartState("法术攻击");
+        Originator.setSkillsy(skill.getSkillname());
+        String type = skill.getSkilltype();
+        for (int j = 0; j < datas.size(); ++j) {
+            ManData data = (ManData)datas.get(j);
+            if (data.getType() == 0) {
+                FightingState Accepter = new FightingState();
+                ChangeFighting changeFighting = new ChangeFighting();
+                changeFighting.setChangetype("清除异常状态");
+                data.ChangeData(changeFighting, Accepter);
+                changeFighting.setChangetype("隐身");
+                changeFighting.setChangesum(2);
+                data.ChangeData(changeFighting, Accepter);
+                Originator.setText("藏锋蓄势#2");
+                Accepter.setSkillskin("112731");
+                FightingPackage.ChangeProcess(changeFighting, manData, data, Accepter, type, Accepterlist, battlefield);
+            }
+        }
+        if (events.getOriginator() != null) {
+            Accepterlist.add(Originator);
+        }
+        events.setOriginator(null);
+        if (Accepterlist.size() != 0) {
+            events.setAccepterlist(Accepterlist);
+            battlefield.NewEvents.add(events);
+        }
+    }
+}

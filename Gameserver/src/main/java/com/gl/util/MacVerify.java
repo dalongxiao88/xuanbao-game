@@ -1,0 +1,17 @@
+package com.gl.util;
+
+import java.util.Date;
+import java.util.Calendar;
+
+public class MacVerify
+{
+    public static void main(String[] args) {
+        System.out.println(System.currentTimeMillis());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date());
+        calendar.add(5, 100);
+        Date date = calendar.getTime();
+        System.out.println(date);
+        System.out.println(date.getTime());
+    }
+}

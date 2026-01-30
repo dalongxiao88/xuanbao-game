@@ -1,0 +1,28 @@
+package org.come.redis;
+
+public class RedisObject<T>
+{
+    private T t;
+    private Boolean is;
+    
+    public RedisObject(T t) {
+        this.t = t;
+        this.is = Boolean.TRUE;
+    }
+    
+    public T getT() {
+        return this.t;
+    }
+    
+    public void setT(T t) {
+        this.t = t;
+    }
+    
+    public Boolean getIs() {
+        return this.is;
+    }
+    
+    public void setIs(Boolean is) {
+        this.is = is;
+    }
+}
