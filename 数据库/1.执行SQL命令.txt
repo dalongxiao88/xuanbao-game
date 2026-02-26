@@ -1,0 +1,6 @@
+create tablespace user_data
+datafile 'C:/pack/db/use_data.dbf' size 10M 
+autoextend on next 10M maxsize unlimited ;
+create user wjtest identified by wjtest default tablespace USER_DATA;
+
+grant create session,create table,unlimited tablespace to wjtest;

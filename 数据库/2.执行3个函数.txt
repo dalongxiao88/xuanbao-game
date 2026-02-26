@@ -1,0 +1,99 @@
+CREATE OR REPLACE FUNCTION "SPLIT" 
+(p_list CLOB, p_sep VARCHAR2 := '|')
+RETURN SYS.ODCIVARCHAR2LIST PIPELINED IS
+    l_idx PLS_INTEGER;
+    v_list VARCHAR2 (32676) := p_list;
+BEGIN
+    LOOP
+        l_idx := INSTR (v_list, p_sep);
+        IF l_idx > 0
+        THEN
+            PIPE ROW (SUBSTR (v_list, 1, l_idx - 1));
+            v_list := SUBSTR (v_list, l_idx + LENGTH (p_sep));
+        ELSE
+            PIPE ROW (v_list);
+            EXIT;
+        END IF;
+    END LOOP;
+    RETURN;
+END;
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE FUNCTION          
+"SPLITSTR" (str IN VARCHAR2,inter in varchar2
+ )
+    RETURN NUMBER
+IS
+t_count   NUMBER;
+t_str     varchar2(2000);
+t_internal number(8,0);
+BEGIN
+if str is NULL
+then
+t_internal :=0;
+elsIF INSTR (str, inter) = 0
+THEN
+t_internal   := 0;
+ELSE
+SELECT sstr
+INTO t_str
+FROM (SELECT ROWNUM AS item, COLUMN_VALUE AS sstr
+FROM table (split (str, '|')))
+WHERE instr(sstr,inter) <> 0;
+t_internal := to_number(substr(t_str,instr(t_str,'=')+1));
+END IF;
+
+RETURN t_internal;
+END;
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+CREATE OR REPLACE FUNCTION
+ "SPLITTASK"
+(
+  str IN VARCHAR2,
+  inter in varchar2
+)
+RETURN number
+IS
+  lv_str varchar2(2000);
+  lv_srtNum number;
+  lv_value varchar2(200);
+  lv_valueNum number;
+  t_internal number(8,0):=0;
+  is_head BOOLEAN := TRUE;
+BEGIN
+if str is NOT NULL AND INSTR (str, inter) <> 0 THEN
+  lv_str:=str;
+  lv_srtNum:=instr(lv_str,'|');
+  while lv_srtNum<>0 or is_head loop
+     if lv_srtNum<>0 THEN
+       lv_value:=substr(lv_str,0,lv_srtNum-1);
+     ELSE
+       is_head:=FALSE;
+       lv_value:=lv_str;
+     END IF;
+     if length(lv_value)>length(inter)+1 AND substr(lv_value,0,length(inter)+1)=CONCAT(inter,'-') THEN
+        lv_valueNum:=0;
+        while instr(lv_value,'-')<>0 loop
+          lv_valueNum:=lv_valueNum+1;
+          lv_value:=substr(lv_value,instr(lv_value,'-')+1,length(lv_value));
+        end loop;
+        if lv_valueNum=3 THEN
+             t_internal :=to_number(lv_value);
+             RETURN t_internal;
+        END IF;
+     END IF;
+     if lv_srtNum<>0 THEN
+       lv_str:=substr(lv_str,lv_srtNum+1,length(lv_str));
+       lv_srtNum:=instr(lv_str,'|');
+     END IF;
+  end loop;
+END IF;
+
+RETURN t_internal;
+END;
+
+
+
