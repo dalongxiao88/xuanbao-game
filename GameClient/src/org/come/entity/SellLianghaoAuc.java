@@ -2,6 +2,9 @@ package org.come.entity;
 
 import java.math.BigDecimal;
 
+/**
+ * 客户端靓号拍卖订单实体。
+ */
 public class SellLianghaoAuc
 {
     private BigDecimal id;
@@ -16,9 +19,18 @@ public class SellLianghaoAuc
     public Integer getOriginalprice() {
         return this.originalprice;
     }
+
+    /** 语义化别名：原价。 */
+    public Integer getOriginalPrice() {
+        return this.originalprice;
+    }
     
     public void setOriginalprice(Integer originalprice) {
         this.originalprice = originalprice;
+    }
+
+    public void setOriginalPrice(Integer originalPrice) {
+        this.originalprice = originalPrice;
     }
     
     public BigDecimal getId() {

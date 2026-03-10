@@ -7,31 +7,31 @@ import java.math.BigDecimal;
 
 public interface ISellLianghaoAucService
 {
-    SellLianghaoAuc selectOneByID(BigDecimal p0);
+    SellLianghaoAuc selectOneByID(BigDecimal auctionId);
     
-    int insertOrder(SellLianghaoAuc p0);
+    int insertOrder(SellLianghaoAuc sellLianghaoAuc);
     
-    List<SellLianghaoAuc> selectAllByToday(String p0, Short p1);
+    List<SellLianghaoAuc> selectAllByToday(String today, Short status);
     
-    List<SellLianghaoAuc> selectAllByDateAndLhAndStatus(String p0, String p1, Short p2);
+    List<SellLianghaoAuc> selectAllByDateAndLhAndStatus(String date, String lianghao, Short status);
     
-    List<SellLianghaoAuc> selectAllByDateAndRoleIdLhAndStatus(BigDecimal p0, String p1, String p2, Short p3);
+    List<SellLianghaoAuc> selectAllByDateAndRoleIdLhAndStatus(BigDecimal roleId, String startDate, String lianghao, Short status);
     
-    List<SellLianghaoAuc> selectAllByDateAndRoleIdLh(BigDecimal p0, String p1, String p2);
+    List<SellLianghaoAuc> selectAllByDateAndRoleIdLh(BigDecimal roleId, String startDate, String lianghao);
     
-    int updateStauts(SellLianghaoAuc p0);
+    int updateStauts(SellLianghaoAuc sellLianghaoAuc);
     
-    void calSelfBuyLh(ChannelHandlerContext p0);
+    void calSelfBuyLh(ChannelHandlerContext channelHandlerContext);
     
-    List<SellLianghaoAuc> selectAllByRoleIdAndStatus(BigDecimal p0, Short p1);
+    List<SellLianghaoAuc> selectAllByRoleIdAndStatus(BigDecimal roleId, Short status);
     
-    List<SellLianghaoAuc> selectAllByRoleId(BigDecimal p0);
+    List<SellLianghaoAuc> selectAllByRoleId(BigDecimal roleId);
     
-    List<SellLianghaoAuc> selectAllByStatus(Short p0);
+    List<SellLianghaoAuc> selectAllByStatus(Short status);
     
-    List<SellLianghaoAuc> selectByPrice(SellLianghaoAuc p0);
+    List<SellLianghaoAuc> selectByPrice(SellLianghaoAuc sellLianghaoAuc);
     
-    void updateByPrimaryKeySelective(SellLianghaoAuc p0);
+    void updateByPrimaryKeySelective(SellLianghaoAuc sellLianghaoAuc);
     
-    void deleteByPrimaryKey(BigDecimal p0);
+    void deleteByPrimaryKey(BigDecimal auctionId);
 }

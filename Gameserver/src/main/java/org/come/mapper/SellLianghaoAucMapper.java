@@ -10,27 +10,27 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface SellLianghaoAucMapper
 {
-    int countByExample(SellLianghaoAucExample p0);
+    int countByExample(SellLianghaoAucExample sellLianghaoAucExample);
     
-    int deleteByExample(SellLianghaoAucExample p0);
+    int deleteByExample(SellLianghaoAucExample sellLianghaoAucExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal auctionId);
     
-    int insert(SellLianghaoAuc p0);
+    int insert(SellLianghaoAuc sellLianghaoAuc);
     
-    int insertSelective(SellLianghaoAuc p0);
+    int insertSelective(SellLianghaoAuc sellLianghaoAuc);
     
-    List<SellLianghaoAuc> selectByExample(SellLianghaoAucExample p0);
+    List<SellLianghaoAuc> selectByExample(SellLianghaoAucExample sellLianghaoAucExample);
     
-    SellLianghaoAuc selectByPrimaryKey(BigDecimal p0);
+    SellLianghaoAuc selectByPrimaryKey(BigDecimal auctionId);
     
-    int updateByExampleSelective(@Param("record") SellLianghaoAuc p0, @Param("example") SellLianghaoAucExample p1);
+    int updateByExampleSelective(@Param("record") SellLianghaoAuc sellLianghaoAuc, @Param("example") SellLianghaoAucExample sellLianghaoAucExample);
     
-    int updateByExample(@Param("record") SellLianghaoAuc p0, @Param("example") SellLianghaoAucExample p1);
+    int updateByExample(@Param("record") SellLianghaoAuc sellLianghaoAuc, @Param("example") SellLianghaoAucExample sellLianghaoAucExample);
     
-    int updateByPrimaryKeySelective(SellLianghaoAuc p0);
+    int updateByPrimaryKeySelective(SellLianghaoAuc sellLianghaoAuc);
     
-    int updateByPrimaryKey(SellLianghaoAuc p0);
+    int updateByPrimaryKey(SellLianghaoAuc sellLianghaoAuc);
     
-    List<SellLianghaoAuc> selectByPrice(SellLianghaoAuc p0);
+    List<SellLianghaoAuc> selectByPrice(SellLianghaoAuc sellLianghaoAuc);
 }
