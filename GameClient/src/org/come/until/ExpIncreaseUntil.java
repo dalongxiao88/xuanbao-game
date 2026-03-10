@@ -391,7 +391,7 @@ public class ExpIncreaseUntil
     
     public static void showMountValue(Mount mount) {
         mountJPanel mountJPanel = MountJframe.getMountjframe().getMountjpanel();
-        int lvl = (int)mount.getMountlvl();
+        int lvl = (int)mount.getMountLevel();
         if (lvl > 100) {
             lvl -= 100;
         }
@@ -404,7 +404,7 @@ public class ExpIncreaseUntil
         mountJPanel.getLabmountpower().setText(liliang + "");
         mountJPanel.getLabmountRootbone().setText(gengu + "");
         if (lvl < 100) {
-            mountJPanel.getLabmountexp().setText(mount.getExp() + "/" + GetExp.getMountExp((int)mount.getMountlvl()));
+            mountJPanel.getLabmountexp().setText(mount.getExp() + "/" + GetExp.getMountExp((int)mount.getMountLevel()));
         }
         else {
             mountJPanel.getLabmountexp().setText(mount.getExp() + "/999999");

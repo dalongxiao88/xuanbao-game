@@ -12,33 +12,33 @@ public interface MountMapper
 {
     List<Mount> selectAllMounts();
     
-    List<Mount> selectMountsByRoleID(BigDecimal p0);
+    List<Mount> selectMountsByRoleID(BigDecimal roleId);
     
-    Mount selectMountByRoleIDAndMountID(Mount p0);
+    Mount selectMountByRoleIDAndMountID(Mount mount);
     
-    Mount selectMountsByMID(BigDecimal p0);
+    Mount selectMountsByMID(BigDecimal mountId);
     
-    void deleteMountsByMid(BigDecimal p0);
+    void deleteMountsByMid(BigDecimal mountId);
     
-    void updateMount(Mount p0);
+    void updateMount(Mount mount);
     
-    int updateMountForRid(Mount p0);
+    int updateMountForRid(Mount mount);
     
-    int selectMountRole(Mount p0);
+    int selectMountRole(Mount mount);
     
-    void insertMount(Mount p0);
+    void insertMount(Mount mount);
     
     BigDecimal selectMaxID();
     
-    List<MountRoleUser> selectMount(@Param("mru") MountRoleUser p0);
+    List<MountRoleUser> selectMount(@Param("mru") MountRoleUser mountRoleUser);
     
-    Integer selectMountCount(@Param("mru") MountRoleUser p0);
+    Integer selectMountCount(@Param("mru") MountRoleUser mountRoleUser);
     
-    void deleteMountsByMidList(List<BigDecimal> p0);
+    void deleteMountsByMidList(List<BigDecimal> mountIds);
     
-    void updateMountList(List<Mount> p0);
+    void updateMountList(List<Mount> mountList);
     
-    void insertMountList(List<Mount> p0);
+    void insertMountList(List<Mount> mountList);
     
-    void insertMountSingle(Mount p0);
+    void insertMountSingle(Mount mount);
 }

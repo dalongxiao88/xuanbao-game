@@ -221,20 +221,20 @@ public class AccessNedanMsgUntil
                 Mount mount = (Mount)ZhuJpanel.getListMount().get(l);
                 if (mount.isID(pet.getSid())) {
                     up += 20;
-                    inster(ql, "狂暴率", (double)PetAddPointMouslisten.value("狂暴率", (int)mount.getMountid())[1]);
-                    inster(ql, "命中率", (double)PetAddPointMouslisten.value("命中率", (int)mount.getMountid())[1]);
-                    inster(ql, "抗致命率", (double)PetAddPointMouslisten.value("抗致命率", (int)mount.getMountid())[1]);
-                    inster(ql, "抗风法狂暴", (double)PetAddPointMouslisten.value("抗仙法鬼火狂暴几率", (int)mount.getMountid())[1]);
-                    inster(ql, "抗火法狂暴", (double)PetAddPointMouslisten.value("抗仙法鬼火狂暴几率", (int)mount.getMountid())[1]);
-                    inster(ql, "抗水法狂暴", (double)PetAddPointMouslisten.value("抗仙法鬼火狂暴几率", (int)mount.getMountid())[1]);
-                    inster(ql, "抗雷法狂暴", (double)PetAddPointMouslisten.value("抗仙法鬼火狂暴几率", (int)mount.getMountid())[1]);
-                    inster(ql, "抗鬼火狂暴", (double)PetAddPointMouslisten.value("抗仙法鬼火狂暴几率", (int)mount.getMountid())[1]);
-                    inster(ql, "物理吸收率", (double)PetAddPointMouslisten.value("物理吸收率", (int)mount.getMountid())[1]);
-                    inster(ql, "法术躲闪", (double)PetAddPointMouslisten.value("法术躲闪几率", (int)mount.getMountid())[1]);
-                    inster(ql, "忽视抗风", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountid())[1]);
-                    inster(ql, "忽视抗雷", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountid())[1]);
-                    inster(ql, "忽视抗水", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountid())[1]);
-                    inster(ql, "忽视抗火", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountid())[1]);
+                    inster(ql, "狂暴率", (double)PetAddPointMouslisten.value("狂暴率", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "命中率", (double)PetAddPointMouslisten.value("命中率", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "抗致命率", (double)PetAddPointMouslisten.value("抗致命率", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "抗风法狂暴", (double)PetAddPointMouslisten.value("抗仙法鬼火狂暴几率", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "抗火法狂暴", (double)PetAddPointMouslisten.value("抗仙法鬼火狂暴几率", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "抗水法狂暴", (double)PetAddPointMouslisten.value("抗仙法鬼火狂暴几率", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "抗雷法狂暴", (double)PetAddPointMouslisten.value("抗仙法鬼火狂暴几率", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "抗鬼火狂暴", (double)PetAddPointMouslisten.value("抗仙法鬼火狂暴几率", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "物理吸收率", (double)PetAddPointMouslisten.value("物理吸收率", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "法术躲闪", (double)PetAddPointMouslisten.value("法术躲闪几率", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "忽视抗风", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "忽视抗雷", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "忽视抗水", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountTypeId())[1]);
+                    inster(ql, "忽视抗火", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountTypeId())[1]);
                     inster(ql, "忽视抗鬼火", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountid())[1]);
                     if (mount.getShouhu() != 0) {
                         Ql finalQl = ql;

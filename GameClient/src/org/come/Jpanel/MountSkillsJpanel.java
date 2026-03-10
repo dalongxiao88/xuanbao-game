@@ -193,7 +193,7 @@ public class MountSkillsJpanel extends JPanel
                 buffer.append(mount.getProficiency());
                 buffer.append("/");
                 int up = 100000;
-                if ((int)mount.getMountlvl() > 100) {
+                if ((int)mount.getMountLevel() > 100) {
                     ConfigureBean allConfigure = UserMessUntil.getConfigureBean();
                     Map<BigDecimal, Configure> item = allConfigure.getAllConfigure();
                     Configure configure = (Configure)item.get(new BigDecimal(1));

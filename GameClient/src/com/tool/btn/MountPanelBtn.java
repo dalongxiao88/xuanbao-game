@@ -199,7 +199,7 @@ public class MountPanelBtn extends MoBanBtn
                     mountJPanel.getModelmount().set(index, "( * ) " + (String)mountJPanel.getModelmount().get(index));
                     int i = 0;
                     while (i < ZhuJpanel.getListMount().size()) {
-                        if ((int)((Mount)ZhuJpanel.getListMount().get(i)).getMountid() == roleShow.getMount_id()) {
+                        if ((int)((Mount)ZhuJpanel.getListMount().get(i)).getMountTypeId() == roleShow.getMount_id()) {
                             mountJPanel.getModelmount().set(i, ((Mount)ZhuJpanel.getListMount().get(i)).getMountname());
                             break;
                         }
@@ -207,11 +207,11 @@ public class MountPanelBtn extends MoBanBtn
                             ++i;
                         }
                     }
-                    roleShow.setMount_id((int)((Mount)ZhuJpanel.getListMount().get(index)).getMountid());
+                    roleShow.setMount_id((int)((Mount)ZhuJpanel.getListMount().get(index)).getMountTypeId());
                 }
                 else {
                     mountJPanel.getModelmount().set(index, "( * ) " + (String)mountJPanel.getModelmount().get(index));
-                    roleShow.setMount_id((int)((Mount)ZhuJpanel.getListMount().get(index)).getMountid());
+                    roleShow.setMount_id((int)((Mount)ZhuJpanel.getListMount().get(index)).getMountTypeId());
                 }
                 ExpIncreaseUntil.showMountValue((Mount)ZhuJpanel.getListMount().get(index));
                 ImageMixDeal.userimg.changeskin(null);
@@ -274,7 +274,7 @@ public class MountPanelBtn extends MoBanBtn
             mount.setOthrersid(pet.getSid());
             type = 2;
         }
-        else if ((int)mount.getMountlvl() > 100 && mount.getSid3() == null) {
+        else if ((int)mount.getMountLevel() > 100 && mount.getSid3() == null) {
             mount.setSid3(pet.getSid());
             type = 3;
         }
@@ -330,7 +330,7 @@ public class MountPanelBtn extends MoBanBtn
         }
         int index = MountJframe.getMountjframe().getMountjpanel().getListmount().getSelectedIndex();
         Mount mount = (Mount)ZhuJpanel.getListMount().get(index);
-        if (ImageMixDeal.userimg.getRoleShow().getMount_id() != 0 && ImageMixDeal.userimg.getRoleShow().getMount_id() == (int)mount.getMountid()) {
+        if (ImageMixDeal.userimg.getRoleShow().getMount_id() != 0 && ImageMixDeal.userimg.getRoleShow().getMount_id() == (int)mount.getMountTypeId()) {
             ZhuFrame.getZhuJpanel().addPrompt("您的坐骑还被您骑着呢！");
             return;
         }
