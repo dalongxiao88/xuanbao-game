@@ -50,18 +50,27 @@ public class ApiValid
     }
     
     public static String getToken(String userName) {
+        if (userName == null || userName.trim().isEmpty()) {
+            return "";
+        }
         String uuid = UUID.randomUUID().toString();
-        Jedis jedis = RedisPoolUntil.getJedis();
-        jedis.set("dhToken:" + userName, uuid);
-        jedis.expire("dhToken:" + userName, 1800);
+        try (Jedis jedis = RedisPoolUntil.getJedis()) {
+            jedis.set("dhToken:" + userName, uuid);
+            jedis.expire("dhToken:" + userName, 1800);
+        }
         return uuid;
     }
     
     public static boolean vaildToken(String token, String userName) {
-        Jedis jedis = RedisPoolUntil.getJedis();
-        if (jedis.get("dhToken:" + userName).equals(token)) {
-            jedis.expire("dhToken:" + userName, 1800);
-            return true;
+        if (token == null || token.trim().isEmpty() || userName == null || userName.trim().isEmpty()) {
+            return false;
+        }
+        try (Jedis jedis = RedisPoolUntil.getJedis()) {
+            String redisToken = jedis.get("dhToken:" + userName);
+            if (token.equals(redisToken)) {
+                jedis.expire("dhToken:" + userName, 1800);
+                return true;
+            }
         }
         return false;
     }
