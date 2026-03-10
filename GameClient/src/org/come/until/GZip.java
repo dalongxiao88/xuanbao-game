@@ -5,8 +5,12 @@ import java.io.ByteArrayInputStream;
 import java.util.zip.GZIPOutputStream;
 import java.io.ByteArrayOutputStream;
 
+/**
+ * 客户端 GZip 压缩工具。
+ */
 public class GZip
 {
+    /** 压缩字节数组。 */
     public static byte[] gZip(byte[] data) {
         byte[] b = null;
         try {
@@ -18,12 +22,13 @@ public class GZip
             b = bos.toByteArray();
             bos.close();
         }
-        catch (Exception var4) {
-            var4.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
         return b;
     }
     
+    /** 解压字节数组。 */
     public static byte[] unGZip(byte[] data) {
         byte[] b = null;
         try {
@@ -41,12 +46,13 @@ public class GZip
             gzip.close();
             bis.close();
         }
-        catch (Exception var7) {
-            var7.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
         return b;
     }
     
+    /** 将字节数组转为大写十六进制字符串。 */
     public static String bytesToHexString(byte[] bArray) {
         StringBuffer sb = new StringBuffer(bArray.length);
         for (int i = 0; i < bArray.length; ++i) {
