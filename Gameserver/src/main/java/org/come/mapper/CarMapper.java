@@ -13,33 +13,33 @@ public interface CarMapper
 {
     List<Car> selectAllMounts();
     
-    List<Car> selectMountsByRoleID(BigDecimal p0);
+    List<Car> selectMountsByRoleID(BigDecimal roleId);
 
-    Car selectMountByRoleIDAndMountID(Car p0);
+    Car selectMountByRoleIDAndMountID(Car car);
 
-    Car selectMountsByMID(BigDecimal p0);
+    Car selectMountsByMID(BigDecimal carId);
     
-    void deleteMountsByMid(BigDecimal p0);
+    void deleteMountsByMid(BigDecimal carId);
     
-    void updateMount(Car p0);
+    void updateMount(Car car);
     
-    int updateMountForRid(Car p0);
+    int updateMountForRid(Car car);
     
-    int selectMountRole(Car p0);
+    int selectMountRole(Car car);
     
-    void insertMount(Car p0);
+    void insertMount(Car car);
     
     BigDecimal selectMaxID();
     
-    List<CarRoleUser> selectMount(@Param("mru") CarRoleUser p0);
+    List<CarRoleUser> selectMount(@Param("mru") CarRoleUser carRoleUser);
     
-    Integer selectMountCount(@Param("mru") CarRoleUser p0);
+    Integer selectMountCount(@Param("mru") CarRoleUser carRoleUser);
     
-    void deleteMountsByMidList(List<BigDecimal> p0);
+    void deleteMountsByMidList(List<BigDecimal> carIds);
     
-    void updateMountList(List<Car> p0);
+    void updateMountList(List<Car> carList);
     
-    void insertMountList(List<Car> p0);
+    void insertMountList(List<Car> carList);
     
-    void insertMountSingle(Car p0);
+    void insertMountSingle(Car car);
 }

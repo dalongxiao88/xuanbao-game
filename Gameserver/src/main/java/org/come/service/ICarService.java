@@ -10,39 +10,39 @@ public interface ICarService
 {
     List<Car> selectAllMounts();
     
-    List<Car> selectMountsByRoleID(BigDecimal p0);
+    List<Car> selectMountsByRoleID(BigDecimal roleId);
 
-    Car selectMountByRoleIDAndMountID(Car p0);
+    Car selectMountByRoleIDAndMountID(Car car);
 
-    Car selectMountsByMID(BigDecimal p0);
+    Car selectMountsByMID(BigDecimal carId);
     
-    void deleteMountsByMid(BigDecimal p0);
+    void deleteMountsByMid(BigDecimal carId);
     
-    void updateMount(Car p0);
+    void updateMount(Car car);
     
-    int updateMountForRid(Car p0);
+    int updateMountForRid(Car car);
     
-    void updateMountRedis(Car p0);
+    void updateMountRedis(Car car);
     
-    void insertMount(Car p0);
+    void insertMount(Car car);
     
-    void deleteMountsByMidsql(BigDecimal p0);
+    void deleteMountsByMidsql(BigDecimal carId);
     
-    void updateMountsql(Car p0);
+    void updateMountsql(Car car);
     
-    void insertMountsql(Car p0);
+    void insertMountsql(Car car);
     
     BigDecimal selectMaxID();
     
-    List<CarRoleUser> selectMount(CarRoleUser p0);
+    List<CarRoleUser> selectMount(CarRoleUser carRoleUser);
     
-    Integer selectMountCount(CarRoleUser p0);
+    Integer selectMountCount(CarRoleUser carRoleUser);
     
-    void deleteMountsByMidList(List<BigDecimal> p0);
+    void deleteMountsByMidList(List<BigDecimal> carIds);
     
-    void updateMountList(List<Car> p0);
+    void updateMountList(List<Car> carList);
     
-    void insertMountList(List<Car> p0);
+    void insertMountList(List<Car> carList);
     
-    void insertMountSingle(Car p0);
+    void insertMountSingle(Car car);
 }

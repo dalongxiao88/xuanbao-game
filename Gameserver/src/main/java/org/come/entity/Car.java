@@ -3,6 +3,9 @@ package org.come.entity;
 import java.math.BigDecimal;
 import java.util.List;
 
+/**
+ * 服务端座驾实体。
+ */
 public class Car implements Cloneable
 {
     private BigDecimal mid;
@@ -44,9 +47,18 @@ public class Car implements Cloneable
     public Integer getMountid() {
         return this.mountid;
     }
+
+    /** 语义化别名：座驾模板 ID。 */
+    public Integer getCarTypeId() {
+        return this.mountid;
+    }
     
     public void setMountid(Integer mountid) {
         this.mountid = mountid;
+    }
+
+    public void setCarTypeId(Integer carTypeId) {
+        this.mountid = carTypeId;
     }
     
     public String getMountname() {
@@ -60,9 +72,18 @@ public class Car implements Cloneable
     public Integer getMountlvl() {
         return this.mountlvl;
     }
+
+    /** 语义化别名：座驾等级。 */
+    public Integer getCarLevel() {
+        return this.mountlvl;
+    }
     
     public void setMountlvl(Integer mountlvl) {
         this.mountlvl = mountlvl;
+    }
+
+    public void setCarLevel(Integer carLevel) {
+        this.mountlvl = carLevel;
     }
     
     public Integer getLive() {
