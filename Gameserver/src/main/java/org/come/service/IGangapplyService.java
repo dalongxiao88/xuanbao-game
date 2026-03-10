@@ -8,15 +8,15 @@ import org.come.entity.Gangapply;
 
 public interface IGangapplyService
 {
-    void insertIntGangapple(Gangapply p0);
+    void insertIntGangapple(Gangapply gangapply);
     
-    Gangapply selectGangApply(@Param("roleid") BigDecimal p0, @Param("gangid") BigDecimal p1);
+    Gangapply selectGangApply(@Param("roleid") BigDecimal roleId, @Param("gangid") BigDecimal gangId);
     
-    void deleteGangappleAll(BigDecimal p0);
+    void deleteGangappleAll(BigDecimal roleId);
     
-    void deleteGangapple(@Param("roleid") BigDecimal p0, @Param("gangid") BigDecimal p1);
+    void deleteGangapple(@Param("roleid") BigDecimal roleId, @Param("gangid") BigDecimal gangId);
     
-    void deleteGangappleGang(BigDecimal p0);
+    void deleteGangappleGang(BigDecimal gangId);
     
-    List<Gangapplytable> getGangapplytables(BigDecimal p0);
+    List<Gangapplytable> getGangapplytables(BigDecimal gangId);
 }

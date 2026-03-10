@@ -230,8 +230,8 @@ public class FactionBtn extends MoBanBtn
                         else {
                             int selectedRow = this.factionMemberJpanel.getTable().getSelectedRow();
                             if (selectedRow != -1) {
-                                Gangapplytable gangapplytable = (Gangapplytable)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangapplytables().get(selectedRow);
-                                PlayerMonitor.addFriend(gangapplytable.getRole_id(), gangapplytable.getRolename());
+                                Gangapplytable gangapplytable = (Gangapplytable)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangApplyTables().get(selectedRow);
+                                PlayerMonitor.addFriend(gangapplytable.getRoleId(), gangapplytable.getRolename());
                             }
                         }
                     }
@@ -463,8 +463,8 @@ public class FactionBtn extends MoBanBtn
                     else {
                         int selectedRow = this.factionMemberJpanel.getTable().getSelectedRow();
                         if (selectedRow != -1) {
-                            Gangapplytable gangapplytable = (Gangapplytable)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangapplytables().get(selectedRow);
-                            PlayerMonitor.addFriend(gangapplytable.getRole_id(), gangapplytable.getRolename());
+                            Gangapplytable gangapplytable = (Gangapplytable)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangApplyTables().get(selectedRow);
+                            PlayerMonitor.addFriend(gangapplytable.getRoleId(), gangapplytable.getRolename());
                         }
                     }
                 }
@@ -667,10 +667,10 @@ public class FactionBtn extends MoBanBtn
     
     public void tongyi(int index) {
         try {
-            String sendMes = Agreement.GangAgreeAgreement(((Gangapplytable)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangapplytables().get(index)).getRole_id().toString());
+            String sendMes = Agreement.GangAgreeAgreement(((Gangapplytable)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangApplyTables().get(index)).getRoleId().toString());
             SendMessageUntil.toServer(sendMes);
             this.factionMemberJpanel.getTableModel().removeRow(index);
-            this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangapplytables().remove(index);
+            this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangApplyTables().remove(index);
         }
         catch (Exception ex) {}
     }
@@ -691,10 +691,10 @@ public class FactionBtn extends MoBanBtn
     
     public void jujue(int index) {
         try {
-            String sendMes = Agreement.GangRefuseAgreement(((Gangapplytable)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangapplytables().get(index)).getRole_id().toString());
+            String sendMes = Agreement.GangRefuseAgreement(((Gangapplytable)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangApplyTables().get(index)).getRoleId().toString());
             SendMessageUntil.toServer(sendMes);
             this.factionMemberJpanel.getTableModel().removeRow(index);
-            this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangapplytables().remove(index);
+            this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getGangApplyTables().remove(index);
         }
         catch (Exception ex) {}
     }

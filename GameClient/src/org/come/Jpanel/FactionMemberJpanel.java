@@ -104,7 +104,7 @@ public class FactionMemberJpanel extends JPanel
             return;
         }
         if (this.menuType == 5) {
-            List<LoginResult> roleTables = gangResultBean.getRoleTables();
+            List<LoginResult> roleTables = gangResultBean.getRoleTableList();
             Icon icon2 = this.labCheck.getIcon();
             for (int i = 0; i < roleTables.size(); ++i) {
                 LoginResult loginResult = (LoginResult)roleTables.get(i);
@@ -127,7 +127,7 @@ public class FactionMemberJpanel extends JPanel
             }
         }
         else if (this.menuType == 6) {
-            List<LoginResult> roleTables = gangResultBean.getRoleTables();
+            List<LoginResult> roleTables = gangResultBean.getRoleTableList();
             Icon icon2 = this.labCheck.getIcon();
             for (int i = 0; i < roleTables.size(); ++i) {
                 LoginResult loginResult = (LoginResult)roleTables.get(i);
@@ -150,12 +150,12 @@ public class FactionMemberJpanel extends JPanel
             }
         }
         else if (this.menuType == 7) {
-            List<Gangapplytable> gangapplytables = gangResultBean.getGangapplytables();
+            List<Gangapplytable> gangapplytables = gangResultBean.getGangApplyTables();
             for (int j = 0; j < gangapplytables.size(); ++j) {
                 Gangapplytable gangapplytable = (Gangapplytable)gangapplytables.get(j);
                 Vector<String> rowData2 = new Vector<>();
                 rowData2.add(gangapplytable.getRolename());
-                rowData2.add(gangapplytable.getRace_name());
+                rowData2.add(gangapplytable.getRaceName());
                 rowData2.add(AnalysisString.lvl(gangapplytable.getGrade().intValue()));
                 this.tableModel.addRow(rowData2);
             }

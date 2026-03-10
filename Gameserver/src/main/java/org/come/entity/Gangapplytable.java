@@ -2,6 +2,9 @@ package org.come.entity;
 
 import java.math.BigDecimal;
 
+/**
+ * 服务端帮派申请展示对象。
+ */
 public class Gangapplytable
 {
     private BigDecimal role_id;
@@ -13,9 +16,18 @@ public class Gangapplytable
     public BigDecimal getRole_id() {
         return this.role_id;
     }
+
+    /** 语义化别名：申请人角色 ID。 */
+    public BigDecimal getRoleId() {
+        return this.role_id;
+    }
     
     public void setRole_id(BigDecimal role_id) {
         this.role_id = role_id;
+    }
+
+    public void setRoleId(BigDecimal roleId) {
+        this.role_id = roleId;
     }
     
     public String getRolename() {
@@ -29,9 +41,18 @@ public class Gangapplytable
     public String getRace_name() {
         return this.race_name;
     }
+
+    /** 语义化别名：种族名称。 */
+    public String getRaceName() {
+        return this.race_name;
+    }
     
     public void setRace_name(String race_name) {
         this.race_name = race_name;
+    }
+
+    public void setRaceName(String raceName) {
+        this.race_name = raceName;
     }
     
     public BigDecimal getGrade() {
@@ -45,8 +66,17 @@ public class Gangapplytable
     public BigDecimal getGangid() {
         return this.gangid;
     }
+
+    /** 语义化别名：帮派 ID。 */
+    public BigDecimal getGangId() {
+        return this.gangid;
+    }
     
     public void setGangid(BigDecimal gangid) {
         this.gangid = gangid;
+    }
+
+    public void setGangId(BigDecimal gangId) {
+        this.gangid = gangId;
     }
 }
