@@ -23,7 +23,13 @@ import org.come.bean.LoginResult;
 
 public class WingCompose
 {
-    public static void type31(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 翅膀培养。
+     *
+     * 原始反编译方法名为 `type31`，这里恢复为明确的业务语义名，
+     * 同时在类尾部保留兼容入口，避免旧分发链路直接失效。
+     */
+    public static void trainWing(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -56,7 +62,7 @@ public class WingCompose
         String[] vs = good.getValue().split("\\|");
         long exp = Long.parseLong(vs[2].split("=")[1]);
         int ylvl = getWingLevel(exp);
-        int pexp = wingTraining(pGood, jade.getPartId());
+        int pexp = calculateWingTrainingExp(pGood, jade.getPartId());
         exp += (long)pexp;
         if (exp >= 4000000L) {
             exp = 4000000L;
@@ -138,7 +144,10 @@ public class WingCompose
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static int wingTraining(Goodstable pGood, int sum) {
+    /**
+     * 计算翅膀培养经验。
+     */
+    public static int calculateWingTrainingExp(Goodstable pGood, int sum) {
         if (pGood.getType() == 8891L) {
             return Integer.parseInt(pGood.getValue().split("\\|")[0].split("=")[1]) * sum;
         }
@@ -171,7 +180,10 @@ public class WingCompose
         return (int)(base * (double)sum * (double)value / (double)wingTraining.getValue() * gl) + sum;
     }
     
-    public static void type32(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 翅膀升星。
+     */
+    public static void upgradeWingStar(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -232,7 +244,10 @@ public class WingCompose
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type33(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 翅膀品质升级。
+     */
+    public static void upgradeWingQuality(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -297,7 +312,10 @@ public class WingCompose
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type34(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 翅膀重铸。
+     */
+    public static void recastWingAttributes(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -388,7 +406,10 @@ public class WingCompose
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type35(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 翅膀炼化。
+     */
+    public static void refineWing(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -461,7 +482,13 @@ public class WingCompose
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type355(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 靓号炼化槽位重洗。
+     *
+     * 该逻辑历史上被放在 `WingCompose` 中，但实际写入的是 `LianghaoValue`。
+     * 当前阶段仅恢复语义，不调整类归属。
+     */
+    public static void refineLianghaoSlot(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -576,7 +603,10 @@ public class WingCompose
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type36(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 合成翅膀升星材料。
+     */
+    public static void composeWingStarStone(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -657,5 +687,45 @@ public class WingCompose
     public static long getLevelLastExp(long exp) {
         int lvl = getWingLevel(exp);
         return exp - getLevelNowExp(lvl);
+    }
+
+    /** 兼容旧协议分发入口：翅膀培养。 */
+    public static void type31(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+        trainWing(loginResult, ctx, suitOperBean);
+    }
+
+    /** 兼容旧协议分发入口：翅膀升星。 */
+    public static void type32(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+        upgradeWingStar(loginResult, ctx, suitOperBean);
+    }
+
+    /** 兼容旧协议分发入口：翅膀品质升级。 */
+    public static void type33(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+        upgradeWingQuality(loginResult, ctx, suitOperBean);
+    }
+
+    /** 兼容旧协议分发入口：翅膀重铸。 */
+    public static void type34(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+        recastWingAttributes(loginResult, ctx, suitOperBean);
+    }
+
+    /** 兼容旧协议分发入口：翅膀炼化。 */
+    public static void type35(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+        refineWing(loginResult, ctx, suitOperBean);
+    }
+
+    /** 兼容旧协议分发入口：靓号炼化槽位重洗。 */
+    public static void type355(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+        refineLianghaoSlot(loginResult, ctx, suitOperBean);
+    }
+
+    /** 兼容旧协议分发入口：合成翅膀升星材料。 */
+    public static void type36(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+        composeWingStarStone(loginResult, ctx, suitOperBean);
+    }
+
+    /** 兼容旧内部调用入口：计算翅膀培养经验。 */
+    public static int wingTraining(Goodstable pGood, int sum) {
+        return calculateWingTrainingExp(pGood, sum);
     }
 }

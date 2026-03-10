@@ -151,34 +151,34 @@ public class SuitComposeAction implements IAction
                 break;
             }
             case 31: {
-                WingCompose.type31(loginResult, ctx, suitOperBean);
+                WingCompose.trainWing(loginResult, ctx, suitOperBean);
                 break;
             }
             case 32: {
-                WingCompose.type32(loginResult, ctx, suitOperBean);
+                WingCompose.upgradeWingStar(loginResult, ctx, suitOperBean);
                 break;
             }
             case 33: {
-                WingCompose.type33(loginResult, ctx, suitOperBean);
+                WingCompose.upgradeWingQuality(loginResult, ctx, suitOperBean);
                 break;
             }
             case 34: {
-                WingCompose.type34(loginResult, ctx, suitOperBean);
+                WingCompose.recastWingAttributes(loginResult, ctx, suitOperBean);
                 break;
             }
             case 35: {
-                WingCompose.type35(loginResult, ctx, suitOperBean);
+                WingCompose.refineWing(loginResult, ctx, suitOperBean);
                 break;
             }
             case 361:
             case 362:
             case 363:
             case 364: {
-                WingCompose.type355(loginResult, ctx, suitOperBean);
+                WingCompose.refineLianghaoSlot(loginResult, ctx, suitOperBean);
                 break;
             }
             case 36: {
-                WingCompose.type36(loginResult, ctx, suitOperBean);
+                WingCompose.composeWingStarStone(loginResult, ctx, suitOperBean);
                 break;
             }
             case 41: {

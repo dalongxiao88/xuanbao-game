@@ -39,6 +39,19 @@ import javax.swing.JPanel;
 
 public class WingMainPanel extends JPanel
 {
+    /** 翅膀总览页。 */
+    private static final int RIGHT_VIEW_OVERVIEW = 5;
+    /** 翅膀培养页。 */
+    private static final int RIGHT_VIEW_TRAIN = 2;
+    /** 翅膀升星页。 */
+    private static final int RIGHT_VIEW_STAR = 3;
+    /** 翅膀品质页。 */
+    private static final int RIGHT_VIEW_QUALITY = 4;
+    /** 翅膀重铸页。 */
+    private static final int RIGHT_VIEW_RECAST = 6;
+    /** 翅膀炼化页。 */
+    private static final int RIGHT_VIEW_REFINERY = 7;
+
     private WingBtn wingMenuBtn;
     private WingBtn upgradeBtn;
     private WingBtn amtyuranusBtn;
@@ -181,6 +194,12 @@ public class WingMainPanel extends JPanel
         }
     }
     
+    /**
+     * 切换左侧主菜单。
+     *
+     * 左侧按钮与右侧视图不是 1:1 的数字映射，
+     * 这里通过常量明确每个页面的业务含义。
+     */
     public void changLeftType(int type) {
         if (type == -1) {
             if (this.leftType == -1) {
@@ -192,32 +211,43 @@ public class WingMainPanel extends JPanel
         }
         switch (this.leftType = type) {
             case 1: {
-                this.changRightType(5);
+                this.changRightType(RIGHT_VIEW_OVERVIEW);
                 break;
             }
             case 2: {
-                this.changRightType(2);
+                this.changRightType(RIGHT_VIEW_TRAIN);
                 break;
             }
             case 3: {
-                this.changRightType(3);
+                this.changRightType(RIGHT_VIEW_STAR);
                 break;
             }
             case 4: {
-                this.changRightType(4);
+                this.changRightType(RIGHT_VIEW_QUALITY);
                 break;
             }
             case 5: {
-                this.changRightType(6);
+                this.changRightType(RIGHT_VIEW_RECAST);
                 break;
             }
             case 6: {
-                this.changRightType(7);
+                this.changRightType(RIGHT_VIEW_REFINERY);
                 break;
             }
         }
     }
     
+    /**
+     * 切换右侧功能视图。
+     *
+     * 右侧视图编号含义：
+     * - 2：培养
+     * - 3：升星
+     * - 4：品质
+     * - 5：总览
+     * - 6：重铸
+     * - 7：炼化
+     */
     public void changRightType(int type) {
         if (MyIsif.getStyle().equals("水墨")) {
             if (type == this.rightType) {
@@ -243,7 +273,7 @@ public class WingMainPanel extends JPanel
             }
             else {
                 switch (this.rightType = type) {
-                    case 2: {
+                    case RIGHT_VIEW_TRAIN: {
                         this.iconBackRight = CutButtonImage.getImage("inkImg/background1/B274.png", -1, -1);
                         this.upSatrView(false);
                         this.qualityViewControl(false);
@@ -253,7 +283,7 @@ public class WingMainPanel extends JPanel
                         this.goodsCultivateView(true);
                         break;
                     }
-                    case 3: {
+                    case RIGHT_VIEW_STAR: {
                         this.iconBackRight = CutButtonImage.getImage("inkImg/background1/B275.png", -1, -1);
                         this.goodsCultivateView(false);
                         this.wingViewControl(false);
@@ -263,7 +293,7 @@ public class WingMainPanel extends JPanel
                         this.upSatrView(true);
                         break;
                     }
-                    case 4: {
+                    case RIGHT_VIEW_QUALITY: {
                         this.iconBackRight = CutButtonImage.getImage("inkImg/background1/B276.png", -1, -1);
                         this.goodsCultivateView(false);
                         this.upSatrView(false);
@@ -273,7 +303,7 @@ public class WingMainPanel extends JPanel
                         this.qualityViewControl(true);
                         break;
                     }
-                    case 5: {
+                    case RIGHT_VIEW_OVERVIEW: {
                         this.iconBackRight = CutButtonImage.getImage("inkImg/background1/B273.png", -1, -1);
                         this.goodsCultivateView(false);
                         this.upSatrView(false);
@@ -283,7 +313,7 @@ public class WingMainPanel extends JPanel
                         this.wingViewControl(true);
                         break;
                     }
-                    case 6: {
+                    case RIGHT_VIEW_RECAST: {
                         this.iconBackRight = CutButtonImage.getImage("inkImg/background1/B277.png", -1, -1);
                         this.goodsCultivateView(false);
                         this.upSatrView(false);
@@ -293,7 +323,7 @@ public class WingMainPanel extends JPanel
                         this.recastViewControl(true);
                         break;
                     }
-                    case 7: {
+                    case RIGHT_VIEW_REFINERY: {
                         this.iconBackRight = CutButtonImage.getImage("inkImg/background1/B278.png", -1, -1);
                         this.goodsCultivateView(false);
                         this.upSatrView(false);
@@ -329,7 +359,7 @@ public class WingMainPanel extends JPanel
         }
         else {
             switch (this.rightType = type) {
-                case 2: {
+                case RIGHT_VIEW_TRAIN: {
                     this.iconBackRight = CutButtonImage.getImage("img/wing/翅膀_升级_物品培养_w278,h431.png", 278, 431);
                     this.upSatrView(false);
                     this.qualityViewControl(false);
@@ -339,7 +369,7 @@ public class WingMainPanel extends JPanel
                     this.goodsCultivateView(true);
                     break;
                 }
-                case 3: {
+                case RIGHT_VIEW_STAR: {
                     this.iconBackRight = CutButtonImage.getImage("img/wing/翅膀_升级_属性_w278,h431.png", 278, 431);
                     this.goodsCultivateView(false);
                     this.wingViewControl(false);
@@ -349,7 +379,7 @@ public class WingMainPanel extends JPanel
                     this.upSatrView(true);
                     break;
                 }
-                case 4: {
+                case RIGHT_VIEW_QUALITY: {
                     this.iconBackRight = CutButtonImage.getImage("img/wing/翅膀_品质_属性_w278,h431.png", 278, 431);
                     this.goodsCultivateView(false);
                     this.upSatrView(false);
@@ -359,7 +389,7 @@ public class WingMainPanel extends JPanel
                     this.qualityViewControl(true);
                     break;
                 }
-                case 5: {
+                case RIGHT_VIEW_OVERVIEW: {
                     this.iconBackRight = CutButtonImage.getImage("img/wing/翅膀_翅膀_w278,h431.png", 278, 431);
                     this.goodsCultivateView(false);
                     this.upSatrView(false);
@@ -369,7 +399,7 @@ public class WingMainPanel extends JPanel
                     this.wingViewControl(true);
                     break;
                 }
-                case 6: {
+                case RIGHT_VIEW_RECAST: {
                     this.iconBackRight = CutButtonImage.getImage("img/wing/翅膀_重铸_w278,h431.png", 278, 431);
                     this.goodsCultivateView(false);
                     this.upSatrView(false);
@@ -379,7 +409,7 @@ public class WingMainPanel extends JPanel
                     this.recastViewControl(true);
                     break;
                 }
-                case 7: {
+                case RIGHT_VIEW_REFINERY: {
                     this.iconBackRight = CutButtonImage.getImage("img/wing/翅膀_炼化_w278,h431.png", 278, 431);
                     this.goodsCultivateView(false);
                     this.upSatrView(false);
@@ -654,6 +684,9 @@ public class WingMainPanel extends JPanel
         }
     }
     
+    /**
+     * 从翅膀属性串中提取指定字段的值。
+     */
     public String getGoodsValue(String[] values, String type) {
         for (int i = 0; i < values.length; ++i) {
             if (values[i].startsWith(type)) {
@@ -764,6 +797,9 @@ public class WingMainPanel extends JPanel
         }
     }
     
+    /**
+     * 根据基础属性、星级和品质计算客户端展示值。
+     */
     public static int getUpStarData(String DataStr, int starLvl, String qualityAttr) {
         double parseDouble = Double.parseDouble(DataStr);
         if (qualityAttr == null) {
@@ -1148,6 +1184,9 @@ public class WingMainPanel extends JPanel
         }
     }
     
+    /**
+     * 根据经验字符串换算翅膀等级。
+     */
     public static int getWingLevel(String exp) {
         int parseInt;
         int i;
