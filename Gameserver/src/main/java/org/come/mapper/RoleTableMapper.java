@@ -13,75 +13,75 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface RoleTableMapper
 {
-    LoginResult selectRoleID(BigDecimal p0);
+    LoginResult selectRoleID(BigDecimal roleId);
     
-    RoleAttribute selectRoleAttributeRoleId(BigDecimal p0);
+    RoleAttribute selectRoleAttributeRoleId(BigDecimal roleId);
     
-    void updateRoleAttributeRoleId(RoleAttribute p0);
+    void updateRoleAttributeRoleId(RoleAttribute roleAttribute);
     
-    void insertRoleAttribute(RoleAttribute p0);
+    void insertRoleAttribute(RoleAttribute roleAttribute);
     
-    List<LoginResult> selectOrderByType(Integer p0);
+    List<LoginResult> selectOrderByType(Integer orderType);
     
     List<LoginResult> selectSLDH();
     
-    RoleTable selectRoleTableByRoleName(@Param("rolename") String p0);
+    RoleTable selectRoleTableByRoleName(@Param("rolename") String roleName);
     
-    boolean insertIntoRoleTable(LoginResult p0);
+    boolean insertIntoRoleTable(LoginResult loginResult);
     
-    List<LoginResult> findGangManberByGangID(BigDecimal p0);
+    List<LoginResult> findGangManberByGangID(BigDecimal gangId);
     
-    boolean updateRole(RoleTable p0);
+    boolean updateRole(RoleTable roleTable);
     
-    void updateRoleWhenExit(LoginResult p0);
+    void updateRoleWhenExit(LoginResult loginResult);
     
-    BigDecimal selectMoneyRoleID(@Param("role_id") BigDecimal p0);
+    BigDecimal selectMoneyRoleID(@Param("role_id") BigDecimal roleId);
     
-    int updateMoneyRoleID(@Param("role_id") BigDecimal p0, @Param("gold") BigDecimal p1);
+    int updateMoneyRoleID(@Param("role_id") BigDecimal roleId, @Param("gold") BigDecimal gold);
     
-    int updateMoneyUserID(@Param("USER_ID") BigDecimal p0, @Param("MONEY") BigDecimal p1);
+    int updateMoneyUserID(@Param("USER_ID") BigDecimal userId, @Param("MONEY") BigDecimal money);
     
-    UserTable selectForUserId(BigDecimal p0);
+    UserTable selectForUserId(BigDecimal userId);
     
-    void updateByPrimaryKey(RoleTable p0);
+    void updateByPrimaryKey(RoleTable roleTable);
     
-    int updateRolePwdForRid(RoleTable p0);
+    int updateRolePwdForRid(RoleTable roleTable);
     
-    int updateRoleGMForRid(RoleTable p0);
+    int updateRoleGMForRid(RoleTable roleTable);
     
-    int deleteRolePwdForRid(RoleTable p0);
+    int deleteRolePwdForRid(RoleTable roleTable);
     
-    RoleTable selectGang(BigDecimal p0);
+    RoleTable selectGang(BigDecimal roleId);
     
-    int updateGang(RoleTable p0);
+    int updateGang(RoleTable roleTable);
     
-    int deleteSQL(RoleTable p0);
+    int deleteSQL(RoleTable roleTable);
     
     BigDecimal selectRoleMax();
     
-    List<LoginResult> selectRoleByUserid(@Param("userid") BigDecimal p0, @Param("fuserid") BigDecimal p1);
+    List<LoginResult> selectRoleByUserid(@Param("userid") BigDecimal userId, @Param("fuserid") BigDecimal fromUserId);
     
-    int updateRoleStatues(@Param("roleid") BigDecimal p0);
+    int updateRoleStatues(@Param("roleid") BigDecimal roleId);
     
-    LoginResult selectRoleByRoleId(@Param("roleid") BigDecimal p0);
+    LoginResult selectRoleByRoleId(@Param("roleid") BigDecimal roleId);
     
-    int updateRoleBelong(@Param("roleid") BigDecimal p0, @Param("userid") BigDecimal p1);
+    int updateRoleBelong(@Param("roleid") BigDecimal roleId, @Param("userid") BigDecimal userId);
     
-    LoginResult selectRoleName(String p0);
+    LoginResult selectRoleName(String roleName);
     
-    void addQMJJ(@Param("roleid") BigDecimal p0, @Param("add") int p1);
+    void addQMJJ(@Param("roleid") BigDecimal roleId, @Param("add") int addValue);
     
     List<Map<String, Object>> selectConfigure();
     
-    List<Map<String, Object>> selectadminUserList(Map<String, Object> p0);
+    List<Map<String, Object>> selectadminUserList(Map<String, Object> queryMap);
     
-    int insertUser(Map<String, Object> p0);
+    int insertUser(Map<String, Object> userMap);
     
-    void deleteUser(Map<String, Object> p0);
+    void deleteUser(Map<String, Object> userMap);
     
-    void updateUserAmount(Map<String, Object> p0);
+    void updateUserAmount(Map<String, Object> userMap);
     
-    List<LoginResult> selectRoleByRoleNum(@Param("count") int p0, @Param("notInStr") String p1);
+    List<LoginResult> selectRoleByRoleNum(@Param("count") int count, @Param("notInStr") String excludedRoleIds);
     
 //    void deleteTableSQL1(RoleTable p0);
 //

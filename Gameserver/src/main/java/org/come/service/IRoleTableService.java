@@ -11,45 +11,45 @@ import java.math.BigDecimal;
 
 public interface IRoleTableService
 {
-    LoginResult selectRoleID(BigDecimal p0);
+    LoginResult selectRoleID(BigDecimal roleId);
     
-    List<LoginResult> selectOrderByType(Integer p0);
+    List<LoginResult> selectOrderByType(Integer orderType);
     
     List<LoginResult> selectSLDH();
     
-    RoleTable selectRoleTableByRoleName(String p0);
+    RoleTable selectRoleTableByRoleName(String roleName);
     
-    boolean insertIntoRoleTable(LoginResult p0);
+    boolean insertIntoRoleTable(LoginResult loginResult);
     
-    List<LoginResult> findGangManberByGangID(BigDecimal p0);
+    List<LoginResult> findGangManberByGangID(BigDecimal gangId);
     
-    boolean updateRole(RoleTable p0);
+    boolean updateRole(RoleTable roleTable);
     
-    void updateRoleWhenExit(LoginResult p0);
+    void updateRoleWhenExit(LoginResult loginResult);
     
-    BigDecimal selectMoneyRoleID(@Param("role_id") BigDecimal p0);
+    BigDecimal selectMoneyRoleID(@Param("role_id") BigDecimal roleId);
     
-    int updateMoneyRoleID(@Param("role_id") BigDecimal p0, @Param("gold") BigDecimal p1);
+    int updateMoneyRoleID(@Param("role_id") BigDecimal roleId, @Param("gold") BigDecimal gold);
     
-    int updateMoneyUserID(@Param("USER_ID") BigDecimal p0, @Param("MONEY") BigDecimal p1);
+    int updateMoneyUserID(@Param("USER_ID") BigDecimal userId, @Param("MONEY") BigDecimal money);
     
-    void updateByPrimaryKey(RoleTable p0);
+    void updateByPrimaryKey(RoleTable roleTable);
     
-    int updateRolePwdForRid(RoleTable p0);
+    int updateRolePwdForRid(RoleTable roleTable);
     
-    int updateRoleGMForRid(RoleTable p0);
+    int updateRoleGMForRid(RoleTable roleTable);
     
-    int deleteRolePwdForRid(RoleTable p0);
+    int deleteRolePwdForRid(RoleTable roleTable);
     
-    RoleTable selectGang(BigDecimal p0);
+    RoleTable selectGang(BigDecimal roleId);
     
-    int updateGang(RoleTable p0);
+    int updateGang(RoleTable roleTable);
     
     BigDecimal selectRoleMax();
     
-    List<LoginResult> selectRoleByUserid(BigDecimal p0, BigDecimal p1);
+    List<LoginResult> selectRoleByUserid(BigDecimal userId, BigDecimal fromUserId);
     
-    int updateRoleStatues(BigDecimal p0);
+    int updateRoleStatues(BigDecimal roleId);
     
     LoginResult selectRoleByRoleId(BigDecimal p0);
     

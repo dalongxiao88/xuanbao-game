@@ -15,7 +15,7 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface UsertableMapper
 {
-    List<LoginResult> selectLogintableByCondition(LoginResult p0);
+    List<LoginResult> selectLogintableByCondition(LoginResult loginCondition);
     
     List<LoginResult> findAllUserRoles();
     
@@ -23,47 +23,47 @@ public interface UsertableMapper
     
     List<UserTable> selectGolemUser();
     
-    UserTable findUserByUserNameAndUserPassword(@Param("username") String p0, @Param("userpwd") String p1);
+    UserTable findUserByUserNameAndUserPassword(@Param("username") String username, @Param("userpwd") String userPassword);
     
-    List<LoginResult> findRoleByUserNameAndPassword(@Param("userName") String p0, @Param("userPwd") String p1, @Param("serverMeString") String p2);
+    List<LoginResult> findRoleByUserNameAndPassword(@Param("userName") String userName, @Param("userPwd") String userPassword, @Param("serverMeString") String serverMessage);
     
-    int insertIntoUser(UserTable p0);
+    int insertIntoUser(UserTable userTable);
     
-    void updateUser(UserTable p0);
+    void updateUser(UserTable userTable);
     
-    UserTable selectForUsername(String p0);
+    UserTable selectForUsername(String username);
     
-    UserTable selectByPrimaryKey(BigDecimal p0);
+    UserTable selectByPrimaryKey(BigDecimal userId);
     
-    List<RoleTable> selectByCondition(@Param("qid") String p0, @Param("rolename") String p1);
+    List<RoleTable> selectByCondition(@Param("qid") String qid, @Param("rolename") String roleName);
     
-    int selectSumForRoleUserHaterNumber(RoleTable p0);
+    int selectSumForRoleUserHaterNumber(RoleTable roleTable);
     
-    List<RoleTable> selectSumForRoleUserHaterList(RoleTable p0);
+    List<RoleTable> selectSumForRoleUserHaterList(RoleTable roleTable);
     
-    int selectUsterTableForConcition(UserTable p0);
+    int selectUsterTableForConcition(UserTable userTable);
     
-    List<UserTable> selectForConditionForUsertable(UserTable p0);
+    List<UserTable> selectForConditionForUsertable(UserTable userTable);
     
-    int updateUsterWithUid(UserTable p0);
+    int updateUsterWithUid(UserTable userTable);
     
-    int updatePwdUserForRid(UserTable p0);
+    int updatePwdUserForRid(UserTable userTable);
     
-    int updateUsterWithUidforuserpasswd(UserTable p0);
+    int updateUsterWithUidforuserpasswd(UserTable userTable);
     
-    int delectUsertableForUsername(String p0);
+    int delectUsertableForUsername(String username);
     
-    int deleteRoletableForUid(BigDecimal p0);
+    int deleteRoletableForUid(BigDecimal userId);
     
-    Ipaddressmac selectFromIpaddressmac(String p0);
+    Ipaddressmac selectFromIpaddressmac(String ipAddress);
     
-    int insertFromIpaddressmac(String p0);
+    int insertFromIpaddressmac(String ipAddress);
     
-    int deleteFromIpaddressmac(String p0);
+    int deleteFromIpaddressmac(String ipAddress);
     
-    List<RoleTable> selectAllRoleTable(String p0);
+    List<RoleTable> selectAllRoleTable(String username);
     
-    int roleChangeUser(@Param("userName") String p0, @Param("user_id") BigDecimal p1, @Param("roleId") String p2);
+    int roleChangeUser(@Param("userName") String username, @Param("user_id") BigDecimal userId, @Param("roleId") String roleId);
     
     long selectAllCodecard();
     
@@ -71,41 +71,41 @@ public interface UsertableMapper
     
     long selectAllGold();
     
-    int selectPhoneNumberSum(String p0);
+    int selectPhoneNumberSum(String phoneNumber);
     
-    List<UserxyandroledhbcrEntity> selectAccountRechargeList(@Param("time") String p0, @Param("weekendsum") String p1, @Param("username") String p2);
+    List<UserxyandroledhbcrEntity> selectAccountRechargeList(@Param("time") String timeRange, @Param("weekendsum") String weekendSummary, @Param("username") String username);
     
-    List<UserxyandroledhbcrEntity> selectAccountRechargeUser(BigDecimal p0);
+    List<UserxyandroledhbcrEntity> selectAccountRechargeUser(BigDecimal userId);
     
     List<UserxyandroledhbcrEntity> selectUserRoleXianyuDahuabiList();
     
-    int addUserRoleXianyuDahuabi(UserxyandroledhbcrEntity p0);
+    int addUserRoleXianyuDahuabi(UserxyandroledhbcrEntity rechargeRecord);
     
-    int addRufenghaoControl(@Param("userTable") UserTable p0, @Param("roleName") String p1, @Param("reason") String p2, @Param("controlname") String p3, @Param("type") int p4);
+    int addRufenghaoControl(@Param("userTable") UserTable userTable, @Param("roleName") String roleName, @Param("reason") String reason, @Param("controlname") String controlName, @Param("type") int type);
     
-    List<Rufenghaocontrol> selectRufenghaoControlList(@Param("type") String p0, @Param("time") String p1, @Param("userName") String p2, @Param("roleName") String p3, @Param("sort") int p4);
+    List<Rufenghaocontrol> selectRufenghaoControlList(@Param("type") String type, @Param("time") String timeRange, @Param("userName") String userName, @Param("roleName") String roleName, @Param("sort") int sortType);
     
-    int deleteFenghaoRecord(BigDecimal p0);
+    int deleteFenghaoRecord(BigDecimal recordId);
     
-    List<UserxyandroledhbcrEntity> selectRechargeConsumeSum(String p0);
+    List<UserxyandroledhbcrEntity> selectRechargeConsumeSum(String queryType);
     
     int selectRechargeConsumeSumNum();
     
     UserxyandroledhbcrEntity selectRechargeConsumeNowSum();
     
-    List<UserTable> findUserByPhoneNum(@Param("phonenum") String p0);
+    List<UserTable> findUserByPhoneNum(@Param("phonenum") String phoneNumber);
     
     BigDecimal selectUserMax();
     
-    int updateUnSeal(String p0);
+    int updateUnSeal(String flag);
     
-    UserTable selectByFlag(@Param("flag") String p0);
+    UserTable selectByFlag(@Param("flag") String flag);
     
-    UserTable selectByBinding(@Param("username") String p0, @Param("userpasw") String p1, @Param("safety") String p2);
+    UserTable selectByBinding(@Param("username") String username, @Param("userpasw") String userPassword, @Param("safety") String safetyPassword);
     
-    int updateByBinding(@Param("userTable") UserTable p0);
+    int updateByBinding(@Param("userTable") UserTable userTable);
     
-    String selectUserFlagById(@Param("userid") BigDecimal p0);
+    String selectUserFlagById(@Param("userid") BigDecimal userId);
     
-    int updateConfigure(Map<String, Object> p0);
+    int updateConfigure(Map<String, Object> configureMap);
 }

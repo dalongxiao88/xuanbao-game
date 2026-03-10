@@ -15,9 +15,9 @@ import java.math.BigDecimal;
 
 public interface IUserTableService
 {
-    UserTable selectByPrimaryKey(BigDecimal p0);
+    UserTable selectByPrimaryKey(BigDecimal userId);
     
-    PageInfo<LoginResult> selectLogintableByCondition(Integer p0, String p1);
+    PageInfo<LoginResult> selectLogintableByCondition(Integer pageNum, String condition);
     
     List<LoginResult> findAllUserRoles();
     
@@ -25,45 +25,45 @@ public interface IUserTableService
     
     List<UserTable> selectGolemUser();
     
-    UserTable findUserByUserNameAndUserPassword(@Param("userName") String p0, @Param("userpwd") String p1);
+    UserTable findUserByUserNameAndUserPassword(@Param("userName") String userName, @Param("userpwd") String userPassword);
     
-    List<LoginResult> findRoleByUserNameAndPassword(@Param("username") String p0, @Param("userpwd") String p1, @Param("serverMeString") String p2);
+    List<LoginResult> findRoleByUserNameAndPassword(@Param("username") String username, @Param("userpwd") String userPassword, @Param("serverMeString") String serverMessage);
     
-    int insertIntoUser(UserTable p0);
+    int insertIntoUser(UserTable userTable);
     
-    void updateUser(UserTable p0);
+    void updateUser(UserTable userTable);
     
-    UserTable selectForUsername(String p0);
+    UserTable selectForUsername(String username);
     
-    BackRoleInfo selectByCondition(String p0, String p1, int p2, String p3);
+    BackRoleInfo selectByCondition(String qid, String roleName, int pageNum, String userName);
     
-    int selectSumForRoleUserHaterNumber(RoleTable p0);
+    int selectSumForRoleUserHaterNumber(RoleTable roleTable);
     
-    List<RoleTable> selectSumForRoleUserHaterList(RoleTable p0);
+    List<RoleTable> selectSumForRoleUserHaterList(RoleTable roleTable);
     
-    int selectUsterTableForConcition(UserTable p0);
+    int selectUsterTableForConcition(UserTable userTable);
     
-    List<UserTable> selectForConditionForUsertable(UserTable p0);
+    List<UserTable> selectForConditionForUsertable(UserTable userTable);
     
-    int updateUsterWithUid(UserTable p0);
+    int updateUsterWithUid(UserTable userTable);
     
-    int updateUsterWithUidforuserpasswd(UserTable p0);
+    int updateUsterWithUidforuserpasswd(UserTable userTable);
     
-    int updatePwdUserForRid(UserTable p0);
+    int updatePwdUserForRid(UserTable userTable);
     
-    int delectUsertableForUsername(String p0);
+    int delectUsertableForUsername(String username);
     
-    int deleteRoletableForUid(BigDecimal p0);
+    int deleteRoletableForUid(BigDecimal userId);
     
-    Ipaddressmac selectFromIpaddressmac(String p0);
+    Ipaddressmac selectFromIpaddressmac(String ipAddress);
     
-    int insertFromIpaddressmac(String p0);
+    int insertFromIpaddressmac(String ipAddress);
     
-    int deleteFromIpaddressmac(String p0);
+    int deleteFromIpaddressmac(String ipAddress);
     
-    List<RoleTable> selectAllRoleTable(String p0);
+    List<RoleTable> selectAllRoleTable(String username);
     
-    int roleChangeUser(String p0, BigDecimal p1, String p2);
+    int roleChangeUser(String username, BigDecimal userId, String roleId);
     
     long selectAllCodecard();
     
@@ -71,23 +71,23 @@ public interface IUserTableService
     
     long selectAllGold();
     
-    int selectPhoneNumberSum(String p0);
+    int selectPhoneNumberSum(String phoneNumber);
     
-    List<UserxyandroledhbcrEntity> selectAccountRechargeList(String p0, String p1, int p2, String p3);
+    List<UserxyandroledhbcrEntity> selectAccountRechargeList(String timeRange, String weekendSummary, int pageNum, String username);
     
-    List<UserxyandroledhbcrEntity> selectAccountRechargeUser(BigDecimal p0);
+    List<UserxyandroledhbcrEntity> selectAccountRechargeUser(BigDecimal userId);
     
     List<UserxyandroledhbcrEntity> selectUserRoleXianyuDahuabiList();
     
-    int addUserRoleXianyuDahuabi(UserxyandroledhbcrEntity p0);
+    int addUserRoleXianyuDahuabi(UserxyandroledhbcrEntity rechargeRecord);
     
-    int addRufenghaoControl(UserTable p0, String p1, String p2, String p3, int p4);
+    int addRufenghaoControl(UserTable userTable, String roleName, String reason, String controlName, int type);
     
-    List<Rufenghaocontrol> selectRufenghaoControlList(String p0, String p1, String p2, String p3, int p4, int p5);
+    List<Rufenghaocontrol> selectRufenghaoControlList(String type, String timeRange, String userName, String roleName, int sortType, int pageNum);
     
-    int deleteFenghaoRecord(BigDecimal p0);
+    int deleteFenghaoRecord(BigDecimal recordId);
     
-    List<UserxyandroledhbcrEntity> selectRechargeConsumeSum(String p0);
+    List<UserxyandroledhbcrEntity> selectRechargeConsumeSum(String queryType);
     
     int selectRechargeConsumeSumNum();
     
@@ -95,17 +95,17 @@ public interface IUserTableService
     
     BigDecimal selectUserMax();
     
-    List<UserTable> findUserByPhoneNum(String p0);
+    List<UserTable> findUserByPhoneNum(String phoneNumber);
     
-    int updateUnSeal(String p0);
+    int updateUnSeal(String flag);
     
-    UserTable selectByFlag(String p0);
+    UserTable selectByFlag(String flag);
     
-    UserTable selectByBinding(String p0, String p1, String p2);
+    UserTable selectByBinding(String username, String userPassword, String safetyPassword);
     
-    int updateByBinding(UserTable p0);
+    int updateByBinding(UserTable userTable);
     
-    String selectUserFlagById(BigDecimal p0);
+    String selectUserFlagById(BigDecimal userId);
     
-    int updateConfigure(Map<String, Object> p0);
+    int updateConfigure(Map<String, Object> configureMap);
 }
