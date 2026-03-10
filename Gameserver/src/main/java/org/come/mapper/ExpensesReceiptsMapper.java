@@ -11,31 +11,31 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface ExpensesReceiptsMapper
 {
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal receiptsId);
     
-    int insert(ExpensesReceipts p0);
+    int insert(ExpensesReceipts expensesReceipts);
     
-    int insertSelective(ExpensesReceipts p0);
+    int insertSelective(ExpensesReceipts expensesReceipts);
     
-    int insert1(ExpensesReceipts p0);
+    int insert1(ExpensesReceipts expensesReceipts);
     
-    ExpensesReceipts selectByPrimaryKey(BigDecimal p0);
+    ExpensesReceipts selectByPrimaryKey(BigDecimal receiptsId);
     
-    int updateByPrimaryKeySelective(ExpensesReceipts p0);
+    int updateByPrimaryKeySelective(ExpensesReceipts expensesReceipts);
     
-    int updateByPrimaryKey(ExpensesReceipts p0);
+    int updateByPrimaryKey(ExpensesReceipts expensesReceipts);
     
-    List<ExpensesReceipts> selectTimeAll(@Param("start") String p0, @Param("end") String p1);
+    List<ExpensesReceipts> selectTimeAll(@Param("start") String start, @Param("end") String end);
     
-    List<ExpensesReceipts> selectAllForAreaId(ExpensesReceipts p0);
+    List<ExpensesReceipts> selectAllForAreaId(ExpensesReceipts expensesReceipts);
     
-    OneAreaServiceMonthBean selectChartForMoneth(OneAreaServiceMonthBean p0);
+    OneAreaServiceMonthBean selectChartForMoneth(OneAreaServiceMonthBean monthBean);
     
-    DayForOneAreaServiceMonthBean selectChartForDayWithSid(DayForOneAreaServiceMonthBean p0);
+    DayForOneAreaServiceMonthBean selectChartForDayWithSid(DayForOneAreaServiceMonthBean dayBean);
     
-    List<Integer> selectAllfyId(@Param("sid") Integer p0, @Param("start") String p1, @Param("end") String p2);
+    List<Integer> selectAllfyId(@Param("sid") Integer sid, @Param("start") String start, @Param("end") String end);
     
-    int selectAllTotal(ExpensesReceipts p0);
+    int selectAllTotal(ExpensesReceipts expensesReceipts);
     
-    List<ExpensesReceipts> selectAll(ExpensesReceipts p0);
+    List<ExpensesReceipts> selectAll(ExpensesReceipts expensesReceipts);
 }
