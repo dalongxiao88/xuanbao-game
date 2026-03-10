@@ -424,6 +424,8 @@ public class GameServer implements ServletContextListener
         GameServer.QZ = properties.getProperty("server.QZ");
         GameServer.qh = Integer.parseInt(properties.getProperty("server.qh"));
         GameServer.zhifu = properties.getProperty("zhifu");
+        // 安全收口：签名盐优先从配置读取，保留静态默认值仅用于兼容旧部署。
+        GameServer.signNum = properties.getProperty("security.api.sign", GameServer.signNum);
         GameServer.tablePath = properties.getProperty("server.tablePath");
         GameServer.tableZone = (Map)GsonUtil.getGsonUtil().getgson().fromJson(properties.getProperty("server.tableZone"), Map.class);
         String version = properties.getProperty("server.version");
@@ -2471,6 +2473,7 @@ public class GameServer implements ServletContextListener
 
     static {
         GameServer.time = "2028-04-01-0-0-0";//授权时间
+        // 默认签名盐仅作为兼容保底值，部署时应通过配置覆盖。
         GameServer.signNum = "ae82a5a093ef80266dc4fe0f5c70e98a";
         GameServer.redisIp = "127.0.0.1";
         GameServer.redisPort = 6379;
