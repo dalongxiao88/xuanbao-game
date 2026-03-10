@@ -12,35 +12,35 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface ImportantgoodtrcordMapper
 {
-    List<ImportantgoodssumrecordBean> selectImportantgoodsrecordList(@Param("time") String p0, @Param("weekendsum") String p1);
+    List<ImportantgoodssumrecordBean> selectImportantgoodsrecordList(@Param("time") String timeRange, @Param("weekendsum") String weekendSummary);
     
-    List<ImportantgoodssumrecordBean> selectImportantgoodsrecordGoods(BigDecimal p0);
+    List<ImportantgoodssumrecordBean> selectImportantgoodsrecordGoods(BigDecimal goodsId);
     
-    List<ImportantgoodsluEntity> selectImportantGoodsLuList(@Param("goodsid") String p0, @Param("goodsname") String p1);
+    List<ImportantgoodsluEntity> selectImportantGoodsLuList(@Param("goodsid") String goodsId, @Param("goodsname") String goodsName);
     
-    int updateImportantGoodsLu(ImportantgoodsluEntity p0);
+    int updateImportantGoodsLu(ImportantgoodsluEntity importantGoodsLu);
     
-    int addImportantGoodsLu(ImportantgoodsluEntity p0);
+    int addImportantGoodsLu(ImportantgoodsluEntity importantGoodsLu);
     
-    int deleteImportantGoodsLu(ImportantgoodsluEntity p0);
+    int deleteImportantGoodsLu(ImportantgoodsluEntity importantGoodsLu);
     
-    List<BuytypeEntity> selectBuyTypeList(@Param("typename") String p0, @Param("type") String p1);
+    List<BuytypeEntity> selectBuyTypeList(@Param("typename") String typeName, @Param("type") String type);
     
-    int updateBuyType(BuytypeEntity p0);
+    int updateBuyType(BuytypeEntity buyType);
     
-    int deleteBuyType(BuytypeEntity p0);
+    int deleteBuyType(BuytypeEntity buyType);
     
-    int addBuyType(BuytypeEntity p0);
+    int addBuyType(BuytypeEntity buyType);
     
     List<ImportantgoodssumrecordEntity> selectImportantGoods();
     
-    int addImporatantGoodsSum(ImportantgoodssumrecordEntity p0);
+    int addImporatantGoodsSum(ImportantgoodssumrecordEntity importantGoodsSumRecord);
     
-    void addImporatantGoodsLuTableSpace(@Param("time") String p0);
+    void addImporatantGoodsLuTableSpace(@Param("time") String time);
     
-    void addTableImporatantGoodsLuTableSpace(@Param("time") String p0);
+    void addTableImporatantGoodsLuTableSpace(@Param("time") String time);
     
-    int selectTableSapce(@Param("tableSpaceName") String p0);
+    int selectTableSapce(@Param("tableSpaceName") String tableSpaceName);
     
-    int selectTablePartition(@Param("partitionName") String p0, @Param("tableName") String p1);
+    int selectTablePartition(@Param("partitionName") String partitionName, @Param("tableName") String tableName);
 }

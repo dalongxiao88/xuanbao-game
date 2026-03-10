@@ -9,35 +9,35 @@ import java.util.List;
 
 public interface IImportantgoodtrcordService
 {
-    List<ImportantgoodssumrecordBean> selectImportantgoodsrecordList(String p0, String p1, int p2);
+    List<ImportantgoodssumrecordBean> selectImportantgoodsrecordList(String timeRange, String weekendSummary, int pageNum);
     
-    List<ImportantgoodssumrecordBean> selectImportantgoodsrecordGoods(BigDecimal p0);
+    List<ImportantgoodssumrecordBean> selectImportantgoodsrecordGoods(BigDecimal goodsId);
     
-    List<ImportantgoodsluEntity> selectImportantGoodsLuList(String p0, String p1, int p2);
+    List<ImportantgoodsluEntity> selectImportantGoodsLuList(String goodsId, String goodsName, int pageNum);
     
-    int updateImportantGoodsLu(ImportantgoodsluEntity p0);
+    int updateImportantGoodsLu(ImportantgoodsluEntity importantGoodsLu);
     
-    int addImportantGoodsLu(ImportantgoodsluEntity p0);
+    int addImportantGoodsLu(ImportantgoodsluEntity importantGoodsLu);
     
-    int deleteImportantGoodsLu(ImportantgoodsluEntity p0);
+    int deleteImportantGoodsLu(ImportantgoodsluEntity importantGoodsLu);
     
-    List<BuytypeEntity> selectBuyTypeList(String p0, String p1, int p2);
+    List<BuytypeEntity> selectBuyTypeList(String typeName, String type, int pageNum);
     
-    int updateBuyType(BuytypeEntity p0);
+    int updateBuyType(BuytypeEntity buyType);
     
-    int deleteBuyType(BuytypeEntity p0);
+    int deleteBuyType(BuytypeEntity buyType);
     
-    int addBuyType(BuytypeEntity p0);
+    int addBuyType(BuytypeEntity buyType);
     
     List<ImportantgoodssumrecordEntity> selectImportantGoods();
     
-    int addImporatantGoodsSum(ImportantgoodssumrecordEntity p0);
+    int addImporatantGoodsSum(ImportantgoodssumrecordEntity importantGoodsSumRecord);
     
-    void addImporatantGoodsLuTableSpace(String p0, String p1, String p2);
+    void addImporatantGoodsLuTableSpace(String time, String goodsId, String goodsName);
     
-    void addTableImporatantGoodsLuTableSpace(String p0, String p1, String p2);
+    void addTableImporatantGoodsLuTableSpace(String time, String goodsId, String goodsName);
     
-    int selectTableSapce(String p0);
+    int selectTableSapce(String tableSpaceName);
     
-    int selectTablePartition(String p0, String p1);
+    int selectTablePartition(String partitionName, String tableName);
 }
