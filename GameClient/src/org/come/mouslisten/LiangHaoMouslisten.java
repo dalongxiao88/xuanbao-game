@@ -495,11 +495,11 @@ public class LiangHaoMouslisten implements MouseListener
         ConfigureBean allConfigure = UserMessUntil.getConfigureBean();
         Map<BigDecimal, Configure> item = allConfigure.getAllConfigure();
         Configure configure = (Configure)item.get(new BigDecimal(1));
-        if (mount.getMountskill().size() >= Integer.parseInt(configure.getZqjnsx()) && (int)mount.getMountid() < 8) {
+        if (mount.getMountskill().size() >= Integer.parseInt(configure.getZqjnsx()) && (int)mount.getMountTypeId() < 8) {
             ZhuFrame.getZhuJpanel().addPrompt("普通坐骑最多可拥有" + Integer.parseInt(configure.getZqjnsx()) + "个技能！！！");
             return;
         }
-        if (mount.getMountskill().size() >= Integer.parseInt(configure.getZqjnsx()) + 1 && (int)mount.getMountid() > 7) {
+        if (mount.getMountskill().size() >= Integer.parseInt(configure.getZqjnsx()) + 1 && (int)mount.getMountTypeId() > 7) {
             ZhuFrame.getZhuJpanel().addPrompt("飞行坐骑最多可拥有" + (Integer.parseInt(configure.getZqjnsx()) + 1) + "个技能");
             return;
         }
@@ -721,7 +721,7 @@ public class LiangHaoMouslisten implements MouseListener
                 if (ZhuJpanel.getListMount() != null && ZhuJpanel.getListMount().size() != 0) {
                     for (int i = ZhuJpanel.getListMount().size() - 1; i >= 0; --i) {
                         Mount mount = (Mount)ZhuJpanel.getListMount().get(i);
-                        if ((int)mount.getMountid() == lvl) {
+                        if ((int)mount.getMountTypeId() == lvl) {
                             ZhuFrame.getZhuJpanel().addPrompt("你已有这种坐骑！");
                             return;
                         }
@@ -738,7 +738,7 @@ public class LiangHaoMouslisten implements MouseListener
             if (ZhuJpanel.getListFly() != null && ZhuJpanel.getListFly().size() != 0) {
                 for (int j = ZhuJpanel.getListFly().size() - 1; j >= 0; --j) {
                     Fly fly = (Fly)ZhuJpanel.getListFly().get(j);
-                    if (fly.getFlytid().toString().equals(flyId)) {
+                    if (fly.getFlyTypeId().toString().equals(flyId)) {
                         ZhuFrame.getZhuJpanel().addPrompt("你已有这种飞行器");
                         return;
                     }
@@ -1284,7 +1284,7 @@ public class LiangHaoMouslisten implements MouseListener
             }
         }
         else if (type == 801L) {
-            int lvl = (int)mount.getMountlvl();
+            int lvl = (int)mount.getMountLevel();
             if (lvl == 100 || lvl >= 200) {
                 ZhuFrame.getZhuJpanel().addPrompt2("坐骑" + mount.getMountname() + "已达最高等级100级！！");
                 return;
@@ -1292,7 +1292,7 @@ public class LiangHaoMouslisten implements MouseListener
         }
         else if (type == 802L) {
             int up = 100000;
-            if ((int)mount.getMountlvl() > 100) {
+            if ((int)mount.getMountLevel() > 100) {
                 ConfigureBean allConfigure2 = UserMessUntil.getConfigureBean();
                 Map<BigDecimal, Configure> item2 = allConfigure2.getAllConfigure();
                 Configure configure2 = (Configure)item2.get(new BigDecimal(1));
@@ -1360,7 +1360,7 @@ public class LiangHaoMouslisten implements MouseListener
     public static void useFly(Goodstable good, Fly fly) {
         long type = (long)good.getType();
         if (type == 1101L) {
-            int lvl = (int)fly.getFlylvl();
+            int lvl = (int)fly.getFlyLevel();
             int stat = (int)fly.getFlystate();
             if (lvl >= 100) {
                 ZhuFrame.getZhuJpanel().addPrompt2("飞行器" + fly.getFlyname() + "已达到最高级！");
@@ -1389,4 +1389,6 @@ public class LiangHaoMouslisten implements MouseListener
         LiangHaoMouslisten.goodarr = new GoodsResultArrBean();
     }
 }
+
+
 

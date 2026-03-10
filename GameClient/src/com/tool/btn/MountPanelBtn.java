@@ -1,4 +1,4 @@
-package com.tool.btn;
+﻿package com.tool.btn;
 
 import com.tool.role.RoleData;
 import com.tool.role.RoleProperty;
@@ -371,7 +371,7 @@ public class MountPanelBtn extends MoBanBtn
                     carjpanel1.getModelmount().set(index, "( * ) " + (String)carjpanel1.getModelmount().get(index));
                     int i = 0;
                     while (i < ZhuJpanel.getListCar().size()) {
-                        if ((int)((Car)ZhuJpanel.getListCar().get(i)).getMountid() == roleShow.getCar_id()) {
+                        if ((int)((Car)ZhuJpanel.getListCar().get(i)).getMountTypeId() == roleShow.getCar_id()) {
                             carjpanel1.getModelmount().set(i, ((Car)ZhuJpanel.getListCar().get(i)).getMountname());
                             break;
                         }
@@ -379,11 +379,11 @@ public class MountPanelBtn extends MoBanBtn
                             ++i;
                         }
                     }
-                    roleShow.setCar_id((int)((Car)ZhuJpanel.getListCar().get(index)).getMountid());
+                    roleShow.setCar_id((int)((Car)ZhuJpanel.getListCar().get(index)).getMountTypeId());
                 }
                 else {
                     carjpanel1.getModelmount().set(index, "( * ) " + (String)carjpanel1.getModelmount().get(index));
-                    roleShow.setCar_id((int)((Car)ZhuJpanel.getListCar().get(index)).getMountid());
+                    roleShow.setCar_id((int)((Car)ZhuJpanel.getListCar().get(index)).getMountTypeId());
                 }
                 ExpIncreaseUntil.showCarValue((Car)ZhuJpanel.getListCar().get(index));
                 ImageMixDeal.userimg.changeskin(null);
@@ -437,3 +437,4 @@ public class MountPanelBtn extends MoBanBtn
         }
     }
 }
+

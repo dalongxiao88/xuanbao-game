@@ -133,7 +133,7 @@ public class carJPanel extends JPanel
                         if (listmount.getSelectedIndex()>=0) {
                             Car mount=ZhuJpanel.getListCar().get(listmount.getSelectedIndex());
                             ExpIncreaseUntil.showCarValue(mount);
-                            if (mount.getMountid()==ImageMixDeal.userimg.getRoleShow().getCar_id()) {
+                            if (mount.getCarTypeId()==ImageMixDeal.userimg.getRoleShow().getCar_id()) {
                                 btnRiding.setText("休息");
                             }else {
                                 btnRiding.setText("骑乘");
@@ -212,7 +212,7 @@ public class carJPanel extends JPanel
                         if (listmount.getSelectedIndex()>=0) {
                             Car mount=ZhuJpanel.getListCar().get(listmount.getSelectedIndex());
                             ExpIncreaseUntil.showCarValue(mount);
-                            if (mount.getMountid()==ImageMixDeal.userimg.getRoleShow().getCar_id()) {
+                            if (mount.getCarTypeId()==ImageMixDeal.userimg.getRoleShow().getCar_id()) {
                                 btnRiding.setText("休息");
                             }else {
                                 btnRiding.setText("骑乘");
@@ -275,13 +275,13 @@ public class carJPanel extends JPanel
                 if (ZhuJpanel.getListCar().size() > index) {
                     Car mount = (Car)ZhuJpanel.getListCar().get(index);
                     if (this.newPart == null) {
-                        this.mountid = (int)mount.getMountid();
+                        this.mountid = (int)mount.getCarTypeId();
                         this.se = ImageMixDeal.userimg.getRoleShow().getSpecies_id();
                         long skin = Long.parseLong(this.se.longValue()+"999"+this.mountid);
                         this.newPart = SpriteFactory.createPart(skin, 2, 1, null);
                     }
-                    else if (this.mountid != (int)mount.getMountid() || this.se.compareTo(ImageMixDeal.userimg.getRoleShow().getSpecies_id()) != 0) {
-                        this.mountid = (int)mount.getMountid();
+                    else if (this.mountid != (int)mount.getCarTypeId() || this.se.compareTo(ImageMixDeal.userimg.getRoleShow().getSpecies_id()) != 0) {
+                        this.mountid = (int)mount.getCarTypeId();
                         this.se = ImageMixDeal.userimg.getRoleShow().getSpecies_id();
                         long skin = Long.parseLong(this.se.longValue()+"999"+this.mountid);
                         this.newPart = SpriteFactory.createPart(skin, 2, 1, null);
@@ -315,13 +315,13 @@ public class carJPanel extends JPanel
                 if (ZhuJpanel.getListCar().size() > index) {
                     Car mount = (Car)ZhuJpanel.getListCar().get(index);
                     if (this.newPart == null) {
-                        this.mountid = (int)mount.getMountid();
+                        this.mountid = (int)mount.getCarTypeId();
                         this.se = ImageMixDeal.userimg.getRoleShow().getSpecies_id();
                         long skin = Long.parseLong(this.se.longValue()+"999"+this.mountid);
                         this.newPart = SpriteFactory.createPart(skin, 2, 1, null);
                     }
-                    else if (this.mountid != (int)mount.getMountid() || this.se.compareTo(ImageMixDeal.userimg.getRoleShow().getSpecies_id()) != 0) {
-                        this.mountid = (int)mount.getMountid();
+                    else if (this.mountid != (int)mount.getCarTypeId() || this.se.compareTo(ImageMixDeal.userimg.getRoleShow().getSpecies_id()) != 0) {
+                        this.mountid = (int)mount.getCarTypeId();
                         this.se = ImageMixDeal.userimg.getRoleShow().getSpecies_id();
                         long skin = Long.parseLong(this.se.longValue()+"999"+this.mountid);
                         this.newPart = SpriteFactory.createPart(skin, 2, 1, null);

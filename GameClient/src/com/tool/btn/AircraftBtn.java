@@ -1,4 +1,4 @@
-package com.tool.btn;
+﻿package com.tool.btn;
 
 import org.come.entity.Goodstable;
 import org.come.mouslisten.GoodsMouslisten;
@@ -163,7 +163,7 @@ public class AircraftBtn extends MoBanBtn
                         aircraftJPanel.getmodelfly().set(index, "( * ) " + (String)aircraftJPanel.getmodelfly().get(index));
                         int i = 0;
                         while (i < ZhuJpanel.getListFly().size()) {
-                            if ((int)((Fly)ZhuJpanel.getListFly().get(i)).getFlytid() == roleShow.getFly_id()) {
+                            if ((int)((Fly)ZhuJpanel.getListFly().get(i)).getFlyTypeId() == roleShow.getFly_id()) {
                                 aircraftJPanel.getmodelfly().set(i, ((Fly)ZhuJpanel.getListFly().get(i)).getFlyname());
                                 break;
                             }
@@ -171,11 +171,11 @@ public class AircraftBtn extends MoBanBtn
                                 ++i;
                             }
                         }
-                        roleShow.setFly_id((int)((Fly)ZhuJpanel.getListFly().get(index)).getFlytid());
+                        roleShow.setFly_id((int)((Fly)ZhuJpanel.getListFly().get(index)).getFlyTypeId());
                     }
                     else {
                         aircraftJPanel.getmodelfly().set(index, "( * ) " + (String)aircraftJPanel.getmodelfly().get(index));
-                        roleShow.setFly_id((int)((Fly)ZhuJpanel.getListFly().get(index)).getFlytid());
+                        roleShow.setFly_id((int)((Fly)ZhuJpanel.getListFly().get(index)).getFlyTypeId());
                     }
                     ExpIncreaseUntil.ShouFlyValue((Fly)ZhuJpanel.getListFly().get(index));
                     ManimgAttribute.flyskin = this.aircraftJPanel.getSkin();
@@ -303,10 +303,10 @@ public class AircraftBtn extends MoBanBtn
             if (stste.equals("飞行")) {
                 roleShow.setFly_id(Util.oldFly_id);
                 if (roleShow.getFly_id() != 0) {
-                    roleShow.setFly_id((int)((Fly)ZhuJpanel.getListFly().get(index)).getFlytid());
+                    roleShow.setFly_id((int)((Fly)ZhuJpanel.getListFly().get(index)).getFlyTypeId());
                 }
                 else {
-                    roleShow.setFly_id((int)((Fly)ZhuJpanel.getListFly().get(index)).getFlytid());
+                    roleShow.setFly_id((int)((Fly)ZhuJpanel.getListFly().get(index)).getFlyTypeId());
                 }
                 ExpIncreaseUntil.ShouFlyValue((Fly)ZhuJpanel.getListFly().get(index));
                 ManimgAttribute.flyskin = ((Fly)ZhuJpanel.getListFly().get(index)).getSkin();
@@ -343,3 +343,4 @@ public class AircraftBtn extends MoBanBtn
         }
     }
 }
+

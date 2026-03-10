@@ -1,4 +1,4 @@
-package org.come.mouslisten;
+﻿package org.come.mouslisten;
 
 import javax.swing.ImageIcon;
 import org.come.socket.SendMessageUntil;
@@ -202,7 +202,7 @@ public class MountMouslisten implements MouseListener, MouseMotionListener
             }
             type = 2;
         }
-        else if ((int)mount.getMountlvl() > 100 && mount.getSid3() == null) {
+        else if ((int)mount.getMountLevel() > 100 && mount.getSid3() == null) {
             mount.setSid3(pet.getSid());
             String path = "img/head/p" + pet.getSummoningskin() + ".png";
             File file = new File(path);
@@ -232,3 +232,4 @@ public class MountMouslisten implements MouseListener, MouseMotionListener
         SendMessageUntil.toServer(sendmes);
     }
 }
+

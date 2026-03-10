@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import com.tool.tcp.SpriteFactory;
 import org.come.Frame.TestSetupJframe;
@@ -110,10 +110,10 @@ public class mountJPanel extends JPanel
                         int c = 35;
                         if (mountJPanel.this.listmount.getSelectedIndex() >= 0) {
                             Mount mount = (Mount)ZhuJpanel.getListMount().get(mountJPanel.this.listmount.getSelectedIndex());
-                            if (mount != null && (int)mount.getMountlvl() > 100) {
+                            if (mount != null && (int)mount.getMountLevel() > 100) {
                                 c = 64;
                             }
-                            else if (mount != null && (int)mount.getMountlvl() <= 100) {
+                            else if (mount != null && (int)mount.getMountLevel() <= 100) {
                                 c = 97;
                             }
                         }
@@ -171,10 +171,10 @@ public class mountJPanel extends JPanel
                     int c = 35;
                     if (mountJPanel.this.listmount.getSelectedIndex() >= 0) {
                         Mount mount = (Mount)ZhuJpanel.getListMount().get(mountJPanel.this.listmount.getSelectedIndex());
-                        if (mount != null && (int)mount.getMountlvl() > 100) {
+                        if (mount != null && (int)mount.getMountLevel() > 100) {
                             c = 64;
                         }
-                        else if (mount != null && (int)mount.getMountlvl() <= 100) {
+                        else if (mount != null && (int)mount.getMountLevel() <= 100) {
                             c = 97;
                         }
                     }
@@ -265,7 +265,7 @@ public class mountJPanel extends JPanel
                     if (mountJPanel.this.listmount.getSelectedIndex() >= 0) {
                         Mount mount = (Mount)ZhuJpanel.getListMount().get(mountJPanel.this.listmount.getSelectedIndex());
                         ExpIncreaseUntil.showMountValue(mount);
-                        if ((int)mount.getMountlvl() > 100) {
+                        if ((int)mount.getMountLevel() > 100) {
                             mountJPanel.this.iconH = new ImageIcon("inkImg/Client/坐骑背景_飞升后.png");
                             for (int i = 0; i <= mountJPanel.this.petlist.length - 1; ++i) {
                                 mountJPanel.this.petlist[i].setBounds(643, 64 + i * 68, 45, 45);
@@ -277,7 +277,7 @@ public class mountJPanel extends JPanel
                             }
                             mountJPanel.this.iconH = new ImageIcon("inkImg/Client/坐骑背景_飞升前.png");
                         }
-                        if ((int)mount.getMountid() == ImageMixDeal.userimg.getRoleShow().getMount_id()) {
+                        if ((int)mount.getMountTypeId() == ImageMixDeal.userimg.getRoleShow().getMount_id()) {
                             mountJPanel.this.btnRiding.setText("休息");
                         }
                         else {
@@ -442,12 +442,12 @@ public class mountJPanel extends JPanel
             if (ZhuJpanel.getListMount().size() > index) {
                 Mount mount = (Mount)ZhuJpanel.getListMount().get(index);
                 if (this.newPart == null) {
-                    this.mountid = (int)mount.getMountid();
+                    this.mountid = (int)mount.getMountTypeId();
                     this.se = ImageMixDeal.userimg.getRoleShow().getSpecies_id();
                     this.newPart = SpriteFactory.createPart((long)this.mountid << 40 | this.se.longValue(), 2, 1, null);
                 }
-                else if (this.mountid != (int)mount.getMountid() || this.se.compareTo(ImageMixDeal.userimg.getRoleShow().getSpecies_id()) != 0) {
-                    this.mountid = (int)mount.getMountid();
+                else if (this.mountid != (int)mount.getMountTypeId() || this.se.compareTo(ImageMixDeal.userimg.getRoleShow().getSpecies_id()) != 0) {
+                    this.mountid = (int)mount.getMountTypeId();
                     this.se = ImageMixDeal.userimg.getRoleShow().getSpecies_id();
                     this.newPart = SpriteFactory.createPart((long)this.mountid << 40 | this.se.longValue(), 2, 1, null);
                 }
@@ -643,7 +643,7 @@ public class mountJPanel extends JPanel
         this.se = se;
     }
     
-    public int getMountid() {
+    public int getMountTypeId() {
         return this.mountid;
     }
     
@@ -709,3 +709,4 @@ public class mountJPanel extends JPanel
         mountJPanel.idxx = -1;
     }
 }
+

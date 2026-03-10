@@ -1,4 +1,4 @@
-package come.tool.JDialog;
+﻿package come.tool.JDialog;
 
 import com.google.gson.Gson;
 import java.util.List;
@@ -19,7 +19,7 @@ public class SHSXXJDialog implements TiShiChuLi
         if (tishi) {
             List<Mount> list = UserMessUntil.getMountlsit();
             for (int i1 = 0; i1 <= list.size() - 1; ++i1) {
-                if ((int)((Mount)list.get(i1)).getMountid() == (int)object) {
+                if ((int)((Mount)list.get(i1)).getMountTypeId() == (int)object) {
                     int f = 0;
                     while (true) {
                         int n = f;
@@ -58,3 +58,4 @@ public class SHSXXJDialog implements TiShiChuLi
         }
     }
 }
+

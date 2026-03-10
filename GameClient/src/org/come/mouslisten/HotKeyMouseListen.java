@@ -1348,7 +1348,7 @@ public class HotKeyMouseListen implements MouseListener
     public static void useFly(Goodstable good, Fly fly) {
         long type = (long)good.getType();
         if (type == 1101L) {
-            int lvl = (int)fly.getFlylvl();
+            int lvl = (int)fly.getFlyLevel();
             if (lvl >= 100) {
                 ZhuFrame.getZhuJpanel().addPrompt("飞行器" + fly.getFlyname() + "已达到最高级！");
                 return;
@@ -1373,4 +1373,5 @@ public class HotKeyMouseListen implements MouseListener
         HotKeyMouseListen.goodarr = new GoodsResultArrBean();
     }
 }
+
 

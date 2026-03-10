@@ -928,10 +928,10 @@ public class Util
     
     public static String returnsCalculation(String mes, Mount mount, String skillname) {
         double zjxz = 1.0;
-        if ((int)mount.getMountid() == 2 || (int)mount.getMountid() == 4) {
+        if ((int)mount.getMountTypeId() == 2 || (int)mount.getMountTypeId() == 4) {
             zjxz = 1.2;
         }
-        int grade = (int)mount.getMountlvl();
+        int grade = (int)mount.getMountLevel();
         if (grade > 100) {
             grade -= 100;
         }
@@ -1843,4 +1843,5 @@ public class Util
         }
     }
 }
+
 

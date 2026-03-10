@@ -1,4 +1,4 @@
-package org.come.until;
+﻿package org.come.until;
 
 import org.come.Frame.*;
 import org.come.Jpanel.*;
@@ -416,7 +416,7 @@ public class ExpIncreaseUntil
     }
     public static void showCarValue(Car car) {
         carJPanel mountJPanel = CarJframe.getMountjframe().getCarjpanel();
-//        int lvl = (int)car.getMountlvl();
+//        int lvl = (int)car.getMountLevel();
 //        if (lvl > 100) {
 //            lvl -= 100;
 //        }
@@ -474,7 +474,7 @@ public class ExpIncreaseUntil
     
     public static void ShouFlyValue(Fly fly) {
         AircraftJPanel aircraftJPanel = AircraftJframe.getAircraftJframe().getAircraftJPanel();
-        int lvl = (int)fly.getFlylvl();
+        int lvl = (int)fly.getFlyLevel();
         if (lvl > 100) {
             lvl -= 100;
         }
@@ -484,7 +484,7 @@ public class ExpIncreaseUntil
         aircraftJPanel.getLabflytili().setText(fly.getFuel().toString());
         aircraftJPanel.getLabStage().setText(fly.getFlystate().toString());
         if (lvl < 100) {
-            aircraftJPanel.getLabExp().setText(fly.getExp() + "/" + GetExp.getFlyExp((int)fly.getFlylvl()));
+            aircraftJPanel.getLabExp().setText(fly.getExp() + "/" + GetExp.getFlyExp((int)fly.getFlyLevel()));
         }
         else {
             aircraftJPanel.getLabExp().setText(fly.getExp() + "/999999");
@@ -498,3 +498,5 @@ public class ExpIncreaseUntil
         PetAddPointMouslisten.getplayerValue();
     }
 }
+
+

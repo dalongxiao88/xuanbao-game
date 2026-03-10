@@ -1,4 +1,4 @@
-package com.tool.role;
+﻿package com.tool.role;
 
 import org.come.entity.RoleSummoning;
 import org.come.model.Title;
@@ -570,7 +570,7 @@ public class RoleData
         if (this.fly != null) {
             for (int i = 0; i < this.fly.size(); ++i) {
                 Fly fly2 = (Fly)this.fly.get(i);
-                if (fly2.getFlytid().compareTo(fid) == 0) {
+                if (fly2.getFlyTypeId().compareTo(fid) == 0) {
                     return fly2;
                 }
             }
@@ -602,3 +602,4 @@ public class RoleData
         this.helpFs = helpFs;
     }
 }
+

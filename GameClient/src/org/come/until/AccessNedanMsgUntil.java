@@ -1,4 +1,4 @@
-package org.come.until;
+﻿package org.come.until;
 
 import org.come.bean.Skill;
 import java.util.List;
@@ -235,7 +235,7 @@ public class AccessNedanMsgUntil
                     inster(ql, "忽视抗雷", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountTypeId())[1]);
                     inster(ql, "忽视抗水", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountTypeId())[1]);
                     inster(ql, "忽视抗火", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountTypeId())[1]);
-                    inster(ql, "忽视抗鬼火", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountid())[1]);
+                    inster(ql, "忽视抗鬼火", (double)PetAddPointMouslisten.value("忽视抗仙法鬼火", (int)mount.getMountTypeId())[1]);
                     if (mount.getShouhu() != 0) {
                         Ql finalQl = ql;
                         ShouhuPackJframe.getShouhuPackJframe().getShouhuPackJpanel();
@@ -1045,3 +1045,4 @@ public class AccessNedanMsgUntil
         return 1;
     }
 }
+

@@ -1,4 +1,4 @@
-package come.tool.JDialog;
+﻿package come.tool.JDialog;
 
 import org.come.until.FormsManagement;
 import org.come.until.ExpIncreaseUntil;
@@ -71,7 +71,7 @@ public class ReleaseJDialog implements TiShiChuLi
                 else {
                     exi = 0;
                     for (int i = 0; i < ZhuJpanel.getListMount().size(); ++i) {
-                        if ((int)((Mount)ZhuJpanel.getListMount().get(i)).getMountid() == ImageMixDeal.userimg.getRoleShow().getMount_id()) {
+                        if ((int)((Mount)ZhuJpanel.getListMount().get(i)).getMountTypeId() == ImageMixDeal.userimg.getRoleShow().getMount_id()) {
                             exi = i;
                         }
                     }
@@ -83,3 +83,4 @@ public class ReleaseJDialog implements TiShiChuLi
         }
     }
 }
+

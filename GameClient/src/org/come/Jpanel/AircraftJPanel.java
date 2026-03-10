@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import org.come.until.CutButtonImage;
 import org.come.entity.Goodstable;
@@ -114,7 +114,7 @@ public class AircraftJPanel extends JPanel
                     if (AircraftJPanel.this.listfly.getSelectedIndex() >= 0) {
                         Fly fly = (Fly)ZhuJpanel.getListFly().get(AircraftJPanel.this.listfly.getSelectedIndex());
                         ExpIncreaseUntil.ShouFlyValue(fly);
-                        if ((int)fly.getFlytid() == ImageMixDeal.userimg.getRoleShow().getFly_id()) {
+                        if ((int)fly.getFlyTypeId() == ImageMixDeal.userimg.getRoleShow().getFly_id()) {
                             AircraftJPanel.this.btnFight.setText("待机");
                         }
                         else {
@@ -207,14 +207,14 @@ public class AircraftJPanel extends JPanel
             if (ZhuJpanel.getListFly().size() > index) {
                 Fly fly = (Fly)ZhuJpanel.getListFly().get(index);
                 if (this.newPart == null) {
-                    this.flyId = fly.getFlytid();
+                    this.flyId = fly.getFlyTypeId();
                     this.se = ImageMixDeal.userimg.getRoleShow().getSpecies_id();
                     (this.newPart = SpriteFactory.createPart(RoleData.getRoleData().getLoginResult().getSpecies_id().longValue(), 2, 1, null)).setFly(this.skin, 2, Boolean.valueOf(true));
                     this.newPart.setFlyShadow(this.skin + "1", 2);
                     this.getLabName().setText(fly.getFlyname() + "(" + getJieshu((int)fly.getFlystate()) + "阶)");
                 }
-                else if (this.flyId != fly.getFlytid()) {
-                    this.flyId = fly.getFlytid();
+                else if (this.flyId != fly.getFlyTypeId()) {
+                    this.flyId = fly.getFlyTypeId();
                     this.se = ImageMixDeal.userimg.getRoleShow().getSpecies_id();
                     (this.newPart = SpriteFactory.createPart(RoleData.getRoleData().getLoginResult().getSpecies_id().longValue(), 2, 1, null)).setFly(this.skin, 2, Boolean.valueOf(true));
                     this.newPart.setFlyShadow(this.skin + "1", 2);
@@ -627,3 +627,4 @@ public class AircraftJPanel extends JPanel
         return l;
     }
 }
+

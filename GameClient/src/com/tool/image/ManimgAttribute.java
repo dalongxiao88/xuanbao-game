@@ -1,4 +1,4 @@
-package com.tool.image;
+﻿package com.tool.image;
 
 import org.come.until.ScrenceUntil;
 import org.come.socket.SendMessageUntil;
@@ -828,7 +828,7 @@ public class ManimgAttribute
                 double m = (this.roleShow.getMount_id() == 7) ? 0.27 : 0.21;//坐骑+走路速度
                 if (this.roleShow.getFly_id() != 0 && ZhuJpanel.getListFly() != null && ZhuJpanel.getListFly().size() > 0) {
                     for (Fly fly : ZhuJpanel.getListFly()) {
-                        if ((int)fly.getFlytid() == this.roleShow.getFly_id() && (int)fly.getFlystate() > 0) {
+                        if ((int)fly.getFlyTypeId() == this.roleShow.getFly_id() && (int)fly.getFlystate() > 0) {
                             m = 0.26 + 0.026 * (double)(int)fly.getFlystate();//飞行器速度
                         }
                     }
@@ -1543,3 +1543,4 @@ public class ManimgAttribute
         }
     }
 }
+

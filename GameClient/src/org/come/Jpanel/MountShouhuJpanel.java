@@ -732,9 +732,9 @@ public class MountShouhuJpanel extends JPanel
                 List<Mount> mountList = UserMessUntil.getMountlsit();
                 if (mes[1].equals("1") || mes[1].equals("2") || mes[1].equals("3") || mes[1].equals("4") || mes[1].equals("5") || mes[1].equals("6") || mes[1].equals("7")) {
                     mountList.forEach(e/* org.come.entity.Mount, */ -> {
-                        if ((int)e.getMountid() == Integer.parseInt(mes[1])) {
+                        if ((int)e.getMountTypeId() == Integer.parseInt(mes[1])) {
                             g.setColor(new Color(13221254));
-                            g.drawString(" " + MountShouhuJpanel.CN_UPPER_NUMBER[(int)e.getMountid()] + "·" + e.getMountname().split(" ")[0], 350, 230);
+                            g.drawString(" " + MountShouhuJpanel.CN_UPPER_NUMBER[(int)e.getMountTypeId()] + "·" + e.getMountname().split(" ")[0], 350, 230);
                         }
                         return;
                     });
@@ -749,9 +749,9 @@ public class MountShouhuJpanel extends JPanel
                 }
                 if (mes[2].equals("1") || mes[2].equals("2") || mes[2].equals("3") || mes[2].equals("4") || mes[2].equals("5") || mes[2].equals("6") || mes[2].equals("7")) {
                     mountList.forEach(e/* org.come.entity.Mount, */ -> {
-                        if ((int)e.getMountid() == Integer.parseInt(mes[2])) {
+                        if ((int)e.getMountTypeId() == Integer.parseInt(mes[2])) {
                             g.setColor(new Color(13221254));
-                            g.drawString(" " + MountShouhuJpanel.CN_UPPER_NUMBER[(int)e.getMountid()] + "·" + e.getMountname().split(" ")[0], 580, 230);
+                            g.drawString(" " + MountShouhuJpanel.CN_UPPER_NUMBER[(int)e.getMountTypeId()] + "·" + e.getMountname().split(" ")[0], 580, 230);
                         }
                         return;
                     });
@@ -833,7 +833,7 @@ public class MountShouhuJpanel extends JPanel
                             else if (mes2[i].equals("1") || mes2[i].equals("2") || mes2[i].equals("3") || mes2[i].equals("4") || mes2[i].equals("5") || mes2[i].equals("6") || mes2[i].equals("7")) {
                                 int finalI = i;
                                 mountList2.forEach(element/* org.come.entity.Mount, */ -> {
-                                    if (Integer.parseInt(mes2[finalI]) == (int)element.getMountid()) {
+                                    if (Integer.parseInt(mes2[finalI]) == (int)element.getMountTypeId()) {
                                         g.drawString(" " + MountShouhuJpanel.CN_UPPER_NUMBER[Integer.parseInt(mes2[finalI])] + "·" + element.getMountname().split(" ")[0], this.sixiang[finalI].getX() - 10, this.sixiang[finalI].getY() + 90);
                                         if (element.getShouhu() != 0) {
                                             try {

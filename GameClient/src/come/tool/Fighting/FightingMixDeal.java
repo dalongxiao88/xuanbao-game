@@ -1,4 +1,4 @@
-package come.tool.Fighting;
+﻿package come.tool.Fighting;
 
 import java.util.HashMap;
 import org.come.bean.PrivateData;
@@ -628,7 +628,7 @@ public class FightingMixDeal
         ImageMixDeal.userimg.getRoleShow().getPlayer_Paths().clear();
         if (ImageMixDeal.userimg.getRoleShow().getFly_id() > 0 && ZhuJpanel.getListFly() != null && ZhuJpanel.getListFly().size() > 0) {
             for (Fly fly : ZhuJpanel.getListFly()) {
-                if ((int)fly.getFlytid() == ImageMixDeal.userimg.getRoleShow().getFly_id()) {
+                if ((int)fly.getFlyTypeId() == ImageMixDeal.userimg.getRoleShow().getFly_id()) {
                     System.out.println(fly.getFuel());
                     if ((long)fly.getFuel() > 0L) {
                         String sendMesa = Agreement.useflyAgreement("flyxh|" + fly.getMid());
@@ -1022,3 +1022,4 @@ public class FightingMixDeal
         FightingMixDeal.y = -1;
     }
 }
+

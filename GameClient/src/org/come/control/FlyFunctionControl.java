@@ -1,4 +1,4 @@
-package org.come.control;
+﻿package org.come.control;
 
 import org.come.Jpanel.AircraftJPanel;
 import org.come.until.FormsManagement;
@@ -26,11 +26,11 @@ public class FlyFunctionControl implements FromServerAction
             for (int i = 0; i < flyResult.getFlys().size(); ++i) {
                 Fly fly = (Fly)flyResult.getFlys().get(i);
                 ZhuJpanel.getListFly().add(fly);
-                if ((int)fly.getFlytid() == ImageMixDeal.userimg.getRoleShow().getFly_id()) {
+                if ((int)fly.getFlyTypeId() == ImageMixDeal.userimg.getRoleShow().getFly_id()) {
                     index = i;
                     FlyJPanel.getmodelfly().addElement("*" + fly.getFlyname());
                     FlyJPanel.setSkin(fly.getSkin());
-                    FlyJPanel.getLabStage().setText(fly.getFlytid().toString());
+                    FlyJPanel.getLabStage().setText(fly.getFlyTypeId().toString());
                     FlyJPanel.getLabName().setText(fly.getFlyname().toString());
                 }
                 else {
@@ -54,3 +54,4 @@ public class FlyFunctionControl implements FromServerAction
         FormsManagement.showForm(119);
     }
 }
+
