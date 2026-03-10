@@ -6,6 +6,11 @@ import org.come.bean.RoleTxBean;
 import org.come.until.UserMessUntil;
 import java.math.BigDecimal;
 
+/**
+ * 客户端背包扩展记录对象。
+ *
+ * 保存套装、特效、辅助宝宝、辅助灵宝等附加信息。
+ */
 public class PackRecord
 {
     private BigDecimal roleId;

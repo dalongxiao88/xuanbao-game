@@ -5,6 +5,11 @@ import java.util.ArrayList;
 import java.util.List;
 import java.math.BigDecimal;
 
+/**
+ * 服务端背包扩展记录对象。
+ *
+ * 保存套装、特效、辅助宝宝、辅助灵宝等附加信息。
+ */
 public class PackRecord
 {
     private BigDecimal roleId;

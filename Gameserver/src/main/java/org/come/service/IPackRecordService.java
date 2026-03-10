@@ -6,31 +6,34 @@ import org.come.entity.PackRecord;
 import java.math.BigDecimal;
 import org.come.entity.PackRecordExample;
 
+/**
+ * 背包记录服务接口。
+ */
 public interface IPackRecordService
 {
-    int countByExample(PackRecordExample p0);
+    int countByExample(PackRecordExample packRecordExample);
     
-    int deleteByExample(PackRecordExample p0);
+    int deleteByExample(PackRecordExample packRecordExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal roleId);
     
-    int insert(PackRecord p0);
+    int insert(PackRecord packRecord);
     
-    int insertSelective(PackRecord p0);
+    int insertSelective(PackRecord packRecord);
     
-    List<PackRecord> selectByExample(PackRecordExample p0);
+    List<PackRecord> selectByExample(PackRecordExample packRecordExample);
     
-    PackRecord selectByPrimaryKey(BigDecimal p0);
+    PackRecord selectByPrimaryKey(BigDecimal roleId);
     
-    int updateByExampleSelective(@Param("record") PackRecord p0, @Param("example") PackRecordExample p1);
+    int updateByExampleSelective(@Param("record") PackRecord packRecord, @Param("example") PackRecordExample packRecordExample);
     
-    int updateByExample(@Param("record") PackRecord p0, @Param("example") PackRecordExample p1);
+    int updateByExample(@Param("record") PackRecord packRecord, @Param("example") PackRecordExample packRecordExample);
     
-    int updateByPrimaryKeySelective(PackRecord p0);
+    int updateByPrimaryKeySelective(PackRecord packRecord);
     
-    int updateByPrimaryKey(PackRecord p0);
+    int updateByPrimaryKey(PackRecord packRecord);
     
-    void addSLDH(@Param("roleid") BigDecimal p0, @Param("add") int p1);
+    void addSLDH(@Param("roleid") BigDecimal roleId, @Param("add") int addValue);
     
     void emptySLDH();
 }
