@@ -1,4 +1,4 @@
-package org.come.servlet.sale;
+﻿package org.come.servlet.sale;
 
 import java.util.Iterator;
 import java.util.List;
@@ -41,7 +41,7 @@ public class UserLoginServlet extends HttpServlet
 //        Result ipCheckResult = UserController.IPstop(request);
 //        if (ipCheckResult != null) {
 //            PrintWriter pwPrintWriter = response.getWriter();
-//            pwPrintWriter.write("caonima");
+//            pwPrintWriter.write("{\"code\":403,\"message\":\"Access denied\"}");
 //            pwPrintWriter.flush();
 //            pwPrintWriter.close();
 //            return;
@@ -123,3 +123,4 @@ public class UserLoginServlet extends HttpServlet
     public void init() throws ServletException {
     }
 }
+

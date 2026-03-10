@@ -1,4 +1,4 @@
-package org.come;
+﻿package org.come;
 
 import com.gl.controller.UserController;
 import com.gl.model.Result;
@@ -38,7 +38,7 @@ public class MyCorsFilter implements Filter
 //        Result ipCheckResult = UserController.IPstop(request);
 //        if (ipCheckResult != null) {
 //            PrintWriter pwPrintWriter = response.getWriter();
-//            pwPrintWriter.write("caonima");
+//            pwPrintWriter.write("{\"code\":403,\"message\":\"Access denied\"}");
 //            pwPrintWriter.flush();
 //            pwPrintWriter.close();
 //            return;
@@ -59,3 +59,4 @@ public class MyCorsFilter implements Filter
     public void destroy() {
     }
 }
+

@@ -1,4 +1,4 @@
-package org.come.servlet;
+﻿package org.come.servlet;
 
 import java.io.PrintWriter;
 import com.auth0.jwt.JWTVerifier;
@@ -58,7 +58,7 @@ public class ControlFromClientForMesServlet extends HttpServlet
 //        Result ipCheckResult = UserController.IPstop(request);
 //        if (ipCheckResult != null) {
 //            PrintWriter pwPrintWriter = response.getWriter();
-//            pwPrintWriter.write("caonima");
+//            pwPrintWriter.write("{\"code\":403,\"message\":\"Access denied\"}");
 //            pwPrintWriter.flush();
 //            pwPrintWriter.close();
 //            return;
@@ -113,3 +113,4 @@ public class ControlFromClientForMesServlet extends HttpServlet
     public void init() throws ServletException {
     }
 }
+

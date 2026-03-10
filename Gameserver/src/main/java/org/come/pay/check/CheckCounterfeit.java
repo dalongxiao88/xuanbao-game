@@ -1,4 +1,4 @@
-package org.come.pay.check;
+﻿package org.come.pay.check;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -20,7 +20,7 @@ public class CheckCounterfeit extends HttpServlet
 //        Result ipCheckResult = UserController.IPstop(request);
 //        if (ipCheckResult != null) {
 //            PrintWriter pwPrintWriter = response.getWriter();
-//            pwPrintWriter.write("caonima");
+//            pwPrintWriter.write("{\"code\":403,\"message\":\"Access denied\"}");
 //            pwPrintWriter.flush();
 //            pwPrintWriter.close();
 //            return;
@@ -75,3 +75,4 @@ public class CheckCounterfeit extends HttpServlet
         return "1";
     }
 }
+

@@ -1,4 +1,4 @@
-package org.come.servlet;
+﻿package org.come.servlet;
 
 import java.io.OutputStream;
 import java.util.Iterator;
@@ -57,8 +57,11 @@ public class UpXlsAndTxtFile extends HttpServlet
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Result ipCheckResult = UserController.IPstop(request);
         if (ipCheckResult != null) {
+            // 安全修复：统一返回标准拒绝响应，替换原有不当文本内容。
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            response.setContentType("application/json;charset=utf-8");
             PrintWriter pwPrintWriter = response.getWriter();
-            pwPrintWriter.write("caonima");
+            pwPrintWriter.write("{\"code\":403,\"message\":\"Access denied\"}");
             pwPrintWriter.flush();
             pwPrintWriter.close();
             return;
@@ -276,3 +279,5 @@ public class UpXlsAndTxtFile extends HttpServlet
         UpXlsAndTxtFile.XLSmap.put("car.xls", 72);
     }
 }
+
+

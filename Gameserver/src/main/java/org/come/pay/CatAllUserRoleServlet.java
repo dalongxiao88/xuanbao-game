@@ -1,4 +1,4 @@
-package org.come.pay;
+﻿package org.come.pay;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -24,7 +24,7 @@ public class CatAllUserRoleServlet extends HttpServlet
 //        Result ipCheckResult = UserController.IPstop(request);
 //        if (ipCheckResult != null) {
 //            PrintWriter pwPrintWriter = response.getWriter();
-//            pwPrintWriter.write("caonima");
+//            pwPrintWriter.write("{\"code\":403,\"message\":\"Access denied\"}");
 //            pwPrintWriter.flush();
 //            pwPrintWriter.close();
 //            return;
@@ -53,3 +53,4 @@ public class CatAllUserRoleServlet extends HttpServlet
         pwPrintWriter.close();
     }
 }
+
