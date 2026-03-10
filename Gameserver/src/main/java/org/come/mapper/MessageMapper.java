@@ -10,25 +10,25 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface MessageMapper
 {
-    int countByExample(MessageExample p0);
+    int countByExample(MessageExample messageExample);
     
-    int deleteByExample(MessageExample p0);
+    int deleteByExample(MessageExample messageExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal messageId);
     
-    int insert(Message p0);
+    int insert(Message message);
     
-    int insertSelective(Message p0);
+    int insertSelective(Message message);
     
-    List<Message> selectByExample(MessageExample p0);
+    List<Message> selectByExample(MessageExample messageExample);
     
-    Message selectByPrimaryKey(BigDecimal p0);
+    Message selectByPrimaryKey(BigDecimal messageId);
     
-    int updateByExampleSelective(@Param("record") Message p0, @Param("example") MessageExample p1);
+    int updateByExampleSelective(@Param("record") Message message, @Param("example") MessageExample messageExample);
     
-    int updateByExample(@Param("record") Message p0, @Param("example") MessageExample p1);
+    int updateByExample(@Param("record") Message message, @Param("example") MessageExample messageExample);
     
-    int updateByPrimaryKeySelective(Message p0);
+    int updateByPrimaryKeySelective(Message message);
     
-    int updateByPrimaryKey(Message p0);
+    int updateByPrimaryKey(Message message);
 }

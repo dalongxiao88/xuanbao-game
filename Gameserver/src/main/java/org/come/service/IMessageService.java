@@ -7,25 +7,25 @@ import org.come.entity.MessageExample;
 
 public interface IMessageService
 {
-    int countByExample(MessageExample p0);
+    int countByExample(MessageExample messageExample);
     
-    int deleteByExample(MessageExample p0);
+    int deleteByExample(MessageExample messageExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal messageId);
     
-    int insert(Message p0);
+    int insert(Message message);
     
-    int insertSelective(Message p0);
+    int insertSelective(Message message);
     
-    List<Message> selectByExample(MessageExample p0);
+    List<Message> selectByExample(MessageExample messageExample);
     
-    Message selectByPrimaryKey(BigDecimal p0);
+    Message selectByPrimaryKey(BigDecimal messageId);
     
-    int updateByExampleSelective(Message p0, MessageExample p1);
+    int updateByExampleSelective(Message message, MessageExample messageExample);
     
-    int updateByExample(Message p0, MessageExample p1);
+    int updateByExample(Message message, MessageExample messageExample);
     
-    int updateByPrimaryKeySelective(Message p0);
+    int updateByPrimaryKeySelective(Message message);
     
-    int updateByPrimaryKey(Message p0);
+    int updateByPrimaryKey(Message message);
 }
