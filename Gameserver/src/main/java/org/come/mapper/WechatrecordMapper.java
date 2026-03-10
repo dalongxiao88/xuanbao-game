@@ -10,27 +10,27 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface WechatrecordMapper
 {
-    int countByExample(WechatrecordExample p0);
+    int countByExample(WechatrecordExample wechatrecordExample);
     
-    int deleteByExample(WechatrecordExample p0);
+    int deleteByExample(WechatrecordExample wechatrecordExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal chatId);
     
-    int insert(Wechatrecord p0);
+    int insert(Wechatrecord wechatrecord);
     
-    int insertSelective(Wechatrecord p0);
+    int insertSelective(Wechatrecord wechatrecord);
     
-    List<Wechatrecord> selectByExample(WechatrecordExample p0);
+    List<Wechatrecord> selectByExample(WechatrecordExample wechatrecordExample);
     
-    Wechatrecord selectByPrimaryKey(BigDecimal p0);
+    Wechatrecord selectByPrimaryKey(BigDecimal chatId);
     
-    int updateByExampleSelective(@Param("record") Wechatrecord p0, @Param("example") WechatrecordExample p1);
+    int updateByExampleSelective(@Param("record") Wechatrecord wechatrecord, @Param("example") WechatrecordExample wechatrecordExample);
     
-    int updateByExample(@Param("record") Wechatrecord p0, @Param("example") WechatrecordExample p1);
+    int updateByExample(@Param("record") Wechatrecord wechatrecord, @Param("example") WechatrecordExample wechatrecordExample);
     
-    int updateByPrimaryKeySelective(Wechatrecord p0);
+    int updateByPrimaryKeySelective(Wechatrecord wechatrecord);
     
-    int updateByPrimaryKey(Wechatrecord p0);
+    int updateByPrimaryKey(Wechatrecord wechatrecord);
     
-    List<Wechatrecord> selectAll(com.gl.model.Param p0);
+    List<Wechatrecord> selectAll(com.gl.model.Param queryParam);
 }

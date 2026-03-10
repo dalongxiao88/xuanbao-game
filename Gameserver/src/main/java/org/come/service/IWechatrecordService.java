@@ -8,27 +8,27 @@ import org.come.entity.WechatrecordExample;
 
 public interface IWechatrecordService
 {
-    int countByExample(WechatrecordExample p0);
+    int countByExample(WechatrecordExample wechatrecordExample);
     
-    int deleteByExample(WechatrecordExample p0);
+    int deleteByExample(WechatrecordExample wechatrecordExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal chatId);
     
-    int insert(Wechatrecord p0);
+    int insert(Wechatrecord wechatrecord);
     
-    int insertSelective(Wechatrecord p0);
+    int insertSelective(Wechatrecord wechatrecord);
     
-    List<Wechatrecord> selectByExample(WechatrecordExample p0);
+    List<Wechatrecord> selectByExample(WechatrecordExample wechatrecordExample);
     
-    Wechatrecord selectByPrimaryKey(BigDecimal p0);
+    Wechatrecord selectByPrimaryKey(BigDecimal chatId);
     
-    int updateByExampleSelective(Wechatrecord p0, WechatrecordExample p1);
+    int updateByExampleSelective(Wechatrecord wechatrecord, WechatrecordExample wechatrecordExample);
     
-    int updateByExample(Wechatrecord p0, WechatrecordExample p1);
+    int updateByExample(Wechatrecord wechatrecord, WechatrecordExample wechatrecordExample);
     
-    int updateByPrimaryKeySelective(Wechatrecord p0);
+    int updateByPrimaryKeySelective(Wechatrecord wechatrecord);
     
-    int updateByPrimaryKey(Wechatrecord p0);
+    int updateByPrimaryKey(Wechatrecord wechatrecord);
     
-    List<Wechatrecord> selectAll(Param p0);
+    List<Wechatrecord> selectAll(Param queryParam);
 }
