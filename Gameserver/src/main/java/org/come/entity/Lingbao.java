@@ -4,6 +4,12 @@ import org.come.server.GameServer;
 import org.come.model.Skill;
 import java.math.BigDecimal;
 
+/**
+ * 服务端灵宝实体。
+ *
+ * 该类包含灵宝基础属性、技能、符石、抗性与培养信息。
+ * 其中部分字段沿用历史拼音/缩写命名，当前阶段通过补充语义化别名降低理解成本。
+ */
 public class Lingbao implements Cloneable
 {
     private String baoname;
@@ -82,25 +88,52 @@ public class Lingbao implements Cloneable
     public String getGethard() {
         return this.gethard;
     }
+
+    /** 语义化别名：灵宝获得途径。 */
+    public String getAcquireSource() {
+        return this.gethard;
+    }
     
     public void setGethard(String gethard) {
         this.gethard = gethard;
     }
+
+    public void setAcquireSource(String acquireSource) {
+        this.gethard = acquireSource;
+    }
     
     public String getBaotype() {
+        return this.baotype;
+    }
+
+    /** 语义化别名：灵宝类型。 */
+    public String getBaoType() {
         return this.baotype;
     }
     
     public void setBaotype(String baotype) {
         this.baotype = baotype;
     }
+
+    public void setBaoType(String baoType) {
+        this.baotype = baoType;
+    }
     
     public Integer getBaoactive() {
+        return this.baoactive;
+    }
+
+    /** 语义化别名：灵宝活跃值。 */
+    public Integer getBaoActive() {
         return this.baoactive;
     }
     
     public void setBaoactive(Integer baoactive) {
         this.baoactive = baoactive;
+    }
+
+    public void setBaoActive(Integer baoActive) {
+        this.baoactive = baoActive;
     }
     
     public String getBaospeed() {
@@ -138,9 +171,18 @@ public class Lingbao implements Cloneable
     public String getResistshot() {
         return this.resistshot;
     }
+
+    /** 语义化别名：抗落宝属性。 */
+    public String getResistShot() {
+        return this.resistshot;
+    }
     
     public void setResistshot(String resistshot) {
         this.resistshot = resistshot;
+    }
+
+    public void setResistShot(String resistShot) {
+        this.resistshot = resistShot;
     }
     
     public String getAssistance() {

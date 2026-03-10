@@ -20,6 +20,13 @@ import org.come.entity.Goodstable;
 import java.math.BigDecimal;
 import org.come.Jpanel.spot.Commodity;
 
+/**
+ * 客户端灵宝实体。
+ *
+ * 当前类既承担灵宝属性展示，也参与技能、抗性、培养面板的公式计算。
+ * 历史上存在 `gethard`、`baotype`、`getResistshop` 等不够直观的命名，
+ * 当前阶段通过增加语义化别名保持兼容并提升可读性。
+ */
 public class Lingbao implements Commodity
 {
     private String baoname;
@@ -562,25 +569,52 @@ public class Lingbao implements Commodity
     public String getGethard() {
         return this.gethard;
     }
+
+    /** 语义化别名：灵宝获得途径。 */
+    public String getAcquireSource() {
+        return this.gethard;
+    }
     
     public void setGethard(String gethard) {
         this.gethard = gethard;
     }
+
+    public void setAcquireSource(String acquireSource) {
+        this.gethard = acquireSource;
+    }
     
     public String getBaotype() {
+        return this.baotype;
+    }
+
+    /** 语义化别名：灵宝类型。 */
+    public String getBaoType() {
         return this.baotype;
     }
     
     public void setBaotype(String baotype) {
         this.baotype = baotype;
     }
+
+    public void setBaoType(String baoType) {
+        this.baotype = baoType;
+    }
     
     public Integer getBaoactive() {
+        return this.baoactive;
+    }
+
+    /** 语义化别名：灵宝活跃值。 */
+    public Integer getBaoActive() {
         return this.baoactive;
     }
     
     public void setBaoactive(Integer baoactive) {
         this.baoactive = baoactive;
+    }
+
+    public void setBaoActive(Integer baoActive) {
+        this.baoactive = baoActive;
     }
     
     public String getBaospeed() {
@@ -618,9 +652,18 @@ public class Lingbao implements Commodity
     public double getResistshop() {
         return Double.parseDouble(this.resistshot);
     }
+
+    /** 语义化别名：抗落宝属性。 */
+    public double getResistShot() {
+        return Double.parseDouble(this.resistshot);
+    }
     
     public void setResistshop(String resistshop) {
         this.resistshot = resistshop;
+    }
+
+    public void setResistShot(String resistShot) {
+        this.resistshot = resistShot;
     }
     
     public double getAssistance() {
