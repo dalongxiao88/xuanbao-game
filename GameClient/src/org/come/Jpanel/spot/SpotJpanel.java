@@ -8,6 +8,9 @@ import java.awt.Graphics;
 import com.tool.Stall.CommodityBean;
 import javax.swing.JPanel;
 
+/**
+ * 摆摊/购买模块公共面板基类。
+ */
 public abstract class SpotJpanel extends JPanel
 {
     private SwitchBtn[] switchBtns;
@@ -23,7 +26,7 @@ public abstract class SpotJpanel extends JPanel
         }
     }
     
-    protected abstract SwitchBtn[] initSwitchBtns(String p0);
+    protected abstract SwitchBtn[] initSwitchBtns(String type);
     
     public abstract void updateCommoditys();
     

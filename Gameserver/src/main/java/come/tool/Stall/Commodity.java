@@ -4,6 +4,9 @@ import org.come.entity.Lingbao;
 import org.come.entity.RoleSummoning;
 import org.come.entity.Goodstable;
 
+/**
+ * 服务端摆摊商品传输对象。
+ */
 public class Commodity
 {
     private Goodstable good;

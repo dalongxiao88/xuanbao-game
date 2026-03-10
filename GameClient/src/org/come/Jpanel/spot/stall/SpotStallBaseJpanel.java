@@ -71,7 +71,7 @@ public abstract class SpotStallBaseJpanel extends SpotStallJpanel implements Inp
     
     public abstract void withdraw();
     
-    abstract void setCommodityBounds(JTextField p0, JTextField p1, JLabel p2, JLabel p3);
+    abstract void setCommodityBounds(JTextField numberField, JTextField unitPriceField, JLabel totalPriceLabel, JLabel commodityLabel);
     
     @Override
     public void updateCommoditys() {
@@ -110,7 +110,7 @@ public abstract class SpotStallBaseJpanel extends SpotStallJpanel implements Inp
         }
     }
     
-    public abstract CommodityBean getCommodity(Commodity p0);
+    public abstract CommodityBean getCommodity(Commodity commodity);
     
     @Override
     public void setCurrentCommodity(CommodityBean commodity, int sum) {
@@ -145,7 +145,7 @@ public abstract class SpotStallBaseJpanel extends SpotStallJpanel implements Inp
         }
     }
     
-    protected abstract void changePublishBtn(boolean p0);
+    protected abstract void changePublishBtn(boolean published);
     
     public int getNumber() {
         String text = this.textNumber.getText();
