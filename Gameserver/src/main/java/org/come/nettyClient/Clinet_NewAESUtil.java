@@ -75,7 +75,9 @@ public class Clinet_NewAESUtil
     }
     
     static {
-        Clinet_NewAESUtil.sKey = "PiaoMIAO77778888";//zheli
+        // 双端同步修复：该密钥用于服务端向客户端发送主动推送消息，
+        // 必须与客户端 NewAESForServerUtil 保持一致，避免协议链路漂移。
+        Clinet_NewAESUtil.sKey = "SecureAESKey1234";
         Clinet_NewAESUtil.AES = "AES";
         Clinet_NewAESUtil.UTF_8 = "UTF-8";
         Clinet_NewAESUtil.GB2312 = "GBK";

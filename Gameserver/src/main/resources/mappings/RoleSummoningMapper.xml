@@ -273,7 +273,7 @@
 			#{item.dragon},#{item.petSkills},#{item.turnRount},#{item.revealNum},#{item.flyupNum},
 			#{item.beastSkills},#{item.fourattributes},#{item.skillData},#{item.lyk},#{item.alchemynum},
 			#{item.growUpDanNum},#{item.draC},#{item.trainNum},#{item.petlock}
-			form dual
+			from dual
 		</foreach>
 	</insert>
 

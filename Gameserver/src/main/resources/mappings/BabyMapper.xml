@@ -89,7 +89,7 @@
 			,#{item.panni},#{item.wanxing},#{item.qingmi},#{item.xiaoxin}
 			,#{item.wenbao},#{item.pilao},#{item.yangyujin},#{item.roleid}
 			,#{item.babyage},#{item.childSex},#{item.outcome},#{item.Talents}
-			,#{item.parts} form dual
+			,#{item.parts} from dual
 		</foreach>
 	</insert>
 

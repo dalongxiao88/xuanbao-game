@@ -43,8 +43,17 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServlet;
 
+/**
+ * 充值回调Servlet
+ * 处理充值和积分回调请求
+ *
+ * @author Game Server Team
+ * @version 2.0
+ * @since 2026-02-26
+ */
 public class CallBackServlet extends HttpServlet
 {
+    /** 回调URL地址 */
     private String URL;
     
     public CallBackServlet() {
@@ -56,15 +65,28 @@ public class CallBackServlet extends HttpServlet
         super.destroy();
     }
     
+    /**
+     * 处理GET请求，转发到POST处理
+     */
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         this.doPost(request, response);
     }
     
+    /**
+     * 处理POST请求
+     * 验证IP、用户身份和JWT token后处理充值回调
+     *
+     * @param request HTTP请求
+     * @param response HTTP响应
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // IP检查 - 修复：替换不当响应内容为专业的JSON错误响应
         Result ipCheckResult = UserController.IPstop(request);
         if (ipCheckResult != null) {
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            response.setContentType("application/json;charset=utf-8");
             PrintWriter pwPrintWriter = response.getWriter();
-            pwPrintWriter.write("caonima");
+            pwPrintWriter.write("{\"code\":403,\"message\":\"Access denied\"}");
             pwPrintWriter.flush();
             pwPrintWriter.close();
             return;
@@ -110,6 +132,14 @@ public class CallBackServlet extends HttpServlet
         pwPrintWriter.close();
     }
     
+    /**
+     * 充值回调处理方法
+     * 处理用户充值后的业务逻辑，包括VIP等级、月卡、礼包等
+     *
+     * @param expensesReceipts 充值记录
+     * @param sid 服务器ID
+     * @param userTable 用户表信息
+     */
     public void rechargeCallBack(ExpensesReceipts expensesReceipts, BigDecimal sid, UserTable userTable) {
         Jedis jedis = RedisPoolUntil.getJedis();
         expensesReceipts.setSid(userTable.getQid());
@@ -307,6 +337,13 @@ public class CallBackServlet extends HttpServlet
         AllServiceUtil.getRecordService().insert(new Record(8, GsonUtil.getGsonUtil().getgson().toJson(expensesReceipts)));
     }
     
+    /**
+     * 积分回调处理方法
+     * 处理用户积分充值后的业务逻辑
+     *
+     * @param expensesReceipts 充值记录
+     * @param userTable 用户表信息
+     */
     public void integralCallBack(ExpensesReceipts expensesReceipts, UserTable userTable) {
         Jedis jedis = RedisPoolUntil.getJedis();
         expensesReceipts.setSid(userTable.getQid());

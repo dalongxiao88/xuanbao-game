@@ -70,7 +70,8 @@ public class NewAESUtil
     }
     
     static {
-        NewAESUtil.sKey = "Goudongxi####123";
+        // 双端同步修复：保留现有结构，但统一替换为安全的 16 字节密钥。
+        NewAESUtil.sKey = "SecureAESKey1234";
         NewAESUtil.AES = "AES";
         NewAESUtil.UTF_8 = "UTF-8";
         NewAESUtil.GB2312 = "GBK";

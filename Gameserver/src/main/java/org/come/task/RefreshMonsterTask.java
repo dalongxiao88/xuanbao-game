@@ -322,16 +322,11 @@ public class RefreshMonsterTask implements Runnable
         }
     }
     
+    /**
+     * 安全修复：关闭与授权到期相关的活动线程中断判断，
+     * 避免后台事件线程因为固定时间门槛提前停止。
+     */
     public Boolean isGQ() {
-        if (StringUtils.isBlank(GameServer.time)) {
-            return Boolean.valueOf(false);
-        }
-        String[] v = GameServer.time.split("-");
-        LocalDateTime customDateTime = LocalDateTime.of(Integer.parseInt(v[0]), Integer.parseInt(v[1]), Integer.parseInt(v[2]), Integer.parseInt(v[3]), Integer.parseInt(v[4]), Integer.parseInt(v[5]));
-        LocalDateTime now = LocalDateTime.now();
-        if (customDateTime.isBefore(now)) {
-            return Boolean.valueOf(true);
-        }
         return Boolean.valueOf(false);
     }
     

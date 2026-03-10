@@ -45,6 +45,7 @@ import org.come.init.CheckUpdate;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 
 public class LanderJPanel extends JPanel
 {
@@ -322,15 +323,13 @@ public class LanderJPanel extends JPanel
                 if (LanderJPanel.kais.getText().equals("更新中")) {
                     return;
                 }
-                String ur = System.getProperty("user.dir");
-                try {
-                    Runtime.getRuntime().exec(ur + "/MYDATAS22.dat");
-                }
-                catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-                LanderJFrame.frame.setVisible(false);
-                System.exit(1);
+                // 安全修复：原逻辑会把伪装成数据文件的外部文件直接作为程序执行。
+                // 该行为属于高危启动链路，先在保留现有界面结构的前提下禁用，
+                // 后续再补一条可审计的安全启动流程。
+                JOptionPane.showMessageDialog(LanderJFrame.frame,
+                        "已禁用不安全的外部启动逻辑，请改为安全启动链路后再启用。",
+                        "安全提示",
+                        JOptionPane.WARNING_MESSAGE);
             }
             
             @Override

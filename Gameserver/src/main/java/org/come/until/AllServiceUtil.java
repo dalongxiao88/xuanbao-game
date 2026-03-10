@@ -406,10 +406,14 @@ public class AllServiceUtil {
         AllServiceUtil.roleSummoningService = roleSummoningService;
     }
 
-    private AllServiceUtil() throws Throwable {
-        if (new Date().after(new Date(1669651200241L))) {
-            throw new Throwable("EXPIRED!");
-        }
+    /**
+     * 工具类不允许实例化。
+     *
+     * 安全修复：
+     * 原构造函数内包含基于固定时间戳的过期中断逻辑，会导致服务端在到期后直接不可用。
+     * 当前保留私有构造限制实例化，但移除与业务无关的强制过期行为。
+     */
+    private AllServiceUtil() {
     }
 
     public static OneArenaNotesService getOneArenaNotesService() {

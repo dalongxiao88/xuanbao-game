@@ -18,6 +18,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServlet;
 
+/**
+ * 仙玉商品查询接口
+ * 功能：查询仙玉商品购买记录，支持按时间、商品名称、类型等条件筛选
+ * 用于后台管理系统查看商品交易数据和统计信息
+ */
 public class XianYuGoodsServlet extends HttpServlet
 {
     @Override
@@ -41,11 +46,23 @@ public class XianYuGoodsServlet extends HttpServlet
         out.close();
     }
     
+    /**
+     * 处理POST请求
+     * 功能：查询闲鱼商品购买记录，支持多条件筛选和分页
+     *
+     * @param request HTTP请求对象，包含time(时间)、goodsname(商品名)、page(页码)、type(类型)参数
+     * @param response HTTP响应对象
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // IP访问控制检查
+        // 功能：验证请求来源IP是否在白名单中，防止未授权访问后台管理接口
         Result ipCheckResult = UserController.IPstop(request);
         if (ipCheckResult != null) {
+            // 修复：替换不当响应内容为专业的JSON错误响应
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            response.setContentType("application/json;charset=utf-8");
             PrintWriter pwPrintWriter = response.getWriter();
-            pwPrintWriter.write("caonima");
+            pwPrintWriter.write("{\"code\":403,\"message\":\"Access denied\"}");
             pwPrintWriter.flush();
             pwPrintWriter.close();
             return;

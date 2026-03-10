@@ -69,7 +69,8 @@ public class NewAESUtil
     }
     
     static {
-        NewAESUtil.sKey = "Gou#zhen>fan<=SB";
+        // 双端同步修复：客户端主链路密钥与服务端保持一致，移除原有不当硬编码内容。
+        NewAESUtil.sKey = "SecureAESKey1234";
         NewAESUtil.AES = "AES";
         NewAESUtil.UTF_8 = "UTF-8";
         NewAESUtil.GB2312 = "GBK";

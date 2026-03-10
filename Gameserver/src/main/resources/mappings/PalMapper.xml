@@ -47,7 +47,7 @@
 			select
 			#{item.id},#{item.pId},#{item.grow},#{item.lvl},#{item.exp},
 			#{item.parts},#{item.roleId}
-			form dual
+			from dual
 		</foreach>
 	</insert>
 	<!-- 修改伙伴属性 -->

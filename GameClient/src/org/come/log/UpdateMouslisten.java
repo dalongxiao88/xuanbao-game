@@ -6,6 +6,7 @@ import java.awt.event.MouseEvent;
 import org.come.login.LoginJpanel;
 import org.come.login.SpriteBtn;
 import java.awt.event.MouseListener;
+import javax.swing.JOptionPane;
 
 public class UpdateMouslisten implements MouseListener
 {
@@ -45,14 +46,12 @@ public class UpdateMouslisten implements MouseListener
                 UpdateMain.setJframe.setVisible(!UpdateMain.setJframe.isVisible());
             }
             else if (this.i == 4) {
-                String ur = System.getProperty("user.dir");
-                try {
-                    Runtime.getRuntime().exec(ur + "/sdls.dll -gameParam=" + UpdateMain.Param);
-                    System.exit(1);
-                }
-                catch (IOException ioException) {
-                    ioException.printStackTrace();
-                }
+                // 安全修复：原逻辑会把外部 DLL 当成可执行入口直接拉起。
+                // 当前先保留按钮与界面交互，但禁止继续执行危险二进制文件。
+                JOptionPane.showMessageDialog(null,
+                        "已禁用不安全的启动器执行逻辑，请后续替换为安全启动流程。",
+                        "安全提示",
+                        JOptionPane.WARNING_MESSAGE);
             }
         }
     }

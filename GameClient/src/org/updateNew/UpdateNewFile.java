@@ -339,40 +339,10 @@ public class UpdateNewFile
             e3.printStackTrace();
         }
         if (!in.equals(inOld)) {
-            MyJFrame.downloadFile2("http://" + ip + ":"+ LoginJpanel.Webport+"/updateNewFile/sdls.dll", ur);
-            downloadFile22("http://" + ip + ":"+ LoginJpanel.Webport+"/updateNewFile/Multiple.exe", ur);
-            try {
-                updateName2(ur + "/resource/TXT/ifupdateOld.txt");
-                System.err.println("启动登录器");
-                Runtime.getRuntime().exec(ur + "/gatU.bat");
-                System.exit(0);
-            }
-            catch (IOException ex) {}
-            File file = null;
-            FileWriter fw = null;
-            file = new File(filePathOld);
-            try {
-                if (!file.exists()) {
-                    file.createNewFile();
-                }
-                fw = new FileWriter(file);
-                fw.write(in);
-                fw.flush();
-            }
-            catch (IOException e4) {
-                e4.printStackTrace();
-            }
-            finally {
-                if (fw != null) {
-                    try {
-                        fw.close();
-                    }
-                    catch (IOException e5) {
-                        e5.printStackTrace();
-                    }
-                }
-            }
-            deleteFile(filePathOld);
+            // 安全修复：原逻辑会下载 DLL、EXE 与 BAT 并在本地直接执行。
+            // 该流程缺少完整校验与可信来源验证，先降级为人工更新提示，
+            // 避免客户端在热更阶段执行外部二进制文件。
+            System.err.println("检测到登录器更新，但自动下载与执行已被禁用，请改为人工审核后更新。");
         }
         else {
             deleteFile(filePathOld);

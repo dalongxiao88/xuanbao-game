@@ -410,30 +410,14 @@ public class UpdateNewFile
                             }
                         }
                         else if (k1.toString().startsWith("exe2")) {
-                            LinkedTreeMap s2 = (LinkedTreeMap)v1;
-                            try {
-                                MyJFrame.downloadFileDK(s2.get("url").toString(), ur + "/");
-                            }
-                            catch (Exception e9) {
-                                LanderJPanel.getKais().setText("开始游戏");
-                                LanderJPanel.getKais().setVisible(false);
-                                LanderJPanel.labtext1.setVisible(false);
-                                errorFlag.set(Boolean.valueOf(true));
-                                return;
-                            }
+                            // 安全修复：禁用热更阶段自动下载可执行程序。
+                            // 当前仅允许资源型更新，涉及 EXE 的更新需要改为人工审核与分发。
+                            System.err.println("已跳过 exe2 类型的可执行更新项: " + k1);
                         }
                         else if (k1.toString().startsWith("exe")) {
-                            LinkedTreeMap s3 = (LinkedTreeMap)v1;
-                            try {
-                                MyJFrame.downloadFile2(s3.get("url").toString(), ur + "/");
-                            }
-                            catch (Exception e10) {
-                                LanderJPanel.getKais().setText("开始游戏");
-                                LanderJPanel.getKais().setVisible(false);
-                                LanderJPanel.labtext1.setVisible(false);
-                                errorFlag.set(Boolean.valueOf(true));
-                                return;
-                            }
+                            // 安全修复：禁用热更阶段自动下载可执行程序。
+                            // 这样可以保留资源包更新链路，同时阻断不可信二进制落地。
+                            System.err.println("已跳过 exe 类型的可执行更新项: " + k1);
                         }
                         return;
                     });

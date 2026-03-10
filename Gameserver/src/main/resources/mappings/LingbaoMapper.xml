@@ -194,7 +194,7 @@
 			#{item.baoreply},#{item.baoshot},#{item.baoap},#{item.resistshot},#{item.assistance},
 			#{item.goodskill},#{item.roleid},#{item.skin},#{item.skillsum},#{item.fusum},#{item.lingbaolvl},
 			#{item.lingbaoexe},#{item.lingbaoqihe},#{item.skills},#{item.kangxing},#{item.equipment},
-			#{item.baoquality},#{item.tianfuskill}, #{item.fushis} form dual
+			#{item.baoquality},#{item.tianfuskill}, #{item.fushis} from dual
 		</foreach>
 	</insert>
 	<!-- 批量修改灵宝属性 -->

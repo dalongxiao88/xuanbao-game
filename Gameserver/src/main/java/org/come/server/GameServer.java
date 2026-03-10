@@ -391,16 +391,12 @@ public class GameServer implements ServletContextListener
         }
     }
     
+    /**
+     * 安全修复：
+     * 原逻辑通过固定授权时间阻断服务器启动，属于与正常业务无关的时间门槛。
+     * 当前阶段先禁用该门槛，后续若需要合法的授权机制，应通过独立配置与可审计校验实现。
+     */
     public Boolean isGQ() {
-        if (StringUtils.isBlank(GameServer.time)) {
-            return Boolean.valueOf(false);
-        }
-        String[] v = GameServer.time.split("-");
-        LocalDateTime customDateTime = LocalDateTime.of(Integer.parseInt(v[0]), Integer.parseInt(v[1]), Integer.parseInt(v[2]), Integer.parseInt(v[3]), Integer.parseInt(v[4]), Integer.parseInt(v[5]));
-        LocalDateTime now = LocalDateTime.now();
-        if (customDateTime.isBefore(now)) {
-            return Boolean.valueOf(true);
-        }
         return Boolean.valueOf(false);
     }
     
@@ -2320,19 +2316,9 @@ public class GameServer implements ServletContextListener
     }
     
     public static String getProperty() {
-        String serial = "";
-        try {
-            long start = System.currentTimeMillis();
-            Process process = Runtime.getRuntime().exec(new String[] { "wmic", "cpu", "get", "ProcessorId" });
-            process.getOutputStream().close();
-            Scanner sc = new Scanner(process.getInputStream());
-            String property = sc.next();
-            serial = sc.next();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
-        return serial;
+        // 安全修复：移除通过 wmic 读取 CPU 序列号的硬件追踪逻辑。
+        // 当前返回空字符串，避免服务端在未经授权的情况下采集宿主机硬件信息。
+        return "";
     }
     
     private static PublicKey getPublicKey(String publicKey) throws Exception {

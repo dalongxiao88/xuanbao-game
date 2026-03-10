@@ -19,6 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServlet;
 
+/**
+ * 仙玉商品铸装图查询接口
+ * 功能：查询指定商品的铸装图购买记录统计信息
+ * 用于后台管理系统查看商品的铸装图相关数据
+ */
 public class XianYuGoodsZhuZhuangTuServlet extends HttpServlet
 {
     @Override
@@ -42,11 +47,23 @@ public class XianYuGoodsZhuZhuangTuServlet extends HttpServlet
         out.close();
     }
     
+    /**
+     * 处理POST请求
+     * 功能：查询指定商品的铸装图购买记录
+     *
+     * @param request HTTP请求对象
+     * @param response HTTP响应对象
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // IP访问控制检查
+        // 功能：验证请求来源IP是否在白名单中，防止未授权访问后台管理接口
         Result ipCheckResult = UserController.IPstop(request);
         if (ipCheckResult != null) {
+            // 修复：替换不当响应内容为专业的JSON错误响应
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            response.setContentType("application/json;charset=utf-8");
             PrintWriter pwPrintWriter = response.getWriter();
-            pwPrintWriter.write("caonima");
+            pwPrintWriter.write("{\"code\":403,\"message\":\"Access denied\"}");
             pwPrintWriter.flush();
             pwPrintWriter.close();
             return;

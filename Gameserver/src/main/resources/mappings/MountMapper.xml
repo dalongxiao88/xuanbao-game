@@ -200,7 +200,7 @@
 			select
 			#{item.item.mid},#{item.mountid},#{item.mountname},#{item.mountlvl},#{item.live},#{item.shouhu},
 			#{item.spri},#{item.power},#{item.bone},#{item.exp},#{item.roleid},#{item.sid},#{item.othrersid},#{item.sh},
-			#{item.useNumber},#{item.Proficiency},#{item.sid3},#{item.moveGrade} form dual
+			#{item.useNumber},#{item.Proficiency},#{item.sid3},#{item.moveGrade} from dual
 		</foreach>
 	</insert>
 

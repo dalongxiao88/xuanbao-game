@@ -51,7 +51,9 @@ public class NewAESForServerUtil
     
     static {
         NewAESForServerUtil.Instance = "AES/CBC/PKCS5Padding";
-        NewAESForServerUtil.sKey = "PiaoMIAO77778888";
+        // 双端同步修复：该工具用于客户端处理服务端主动推送的加密消息，
+        // 因此这里必须与服务端的 Clinet_NewAESUtil 保持一致。
+        NewAESForServerUtil.sKey = "SecureAESKey1234";
         NewAESForServerUtil.AES = "AES";
         NewAESForServerUtil.UTF_8 = "UTF-8";
         NewAESForServerUtil.GB2312 = "GBK";

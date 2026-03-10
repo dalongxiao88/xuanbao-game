@@ -781,9 +781,8 @@ public class WorkshopBtn extends MoBanBtn
             ZhuFrame.getZhuJpanel().addPrompt2("暂时无法清理");
             return;
         }
-        try {
-            Runtime.getRuntime().exec("cmd /c start RD %TEMP% /S/Q MKDIR %TEMP% ");
-        }
-        catch (Exception ex) {}
+        // 安全修复：原逻辑会直接调用系统命令清空 TEMP 目录。
+        // 该行为影响范围过大，且缺少用户确认与失败兜底，因此先禁用。
+        ZhuFrame.getZhuJpanel().addPrompt2("已禁用高风险系统清理命令");
     }
 }

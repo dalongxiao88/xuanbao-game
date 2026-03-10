@@ -19,6 +19,11 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServlet;
 
+/**
+ * VIP支付选项管理接口
+ * 功能：管理VIP支付配置选项，支持增删改查操作
+ * 用于后台管理系统配置VIP支付相关参数
+ */
 public class VipPayOptionServlet extends HttpServlet
 {
     @Override
@@ -29,11 +34,23 @@ public class VipPayOptionServlet extends HttpServlet
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     }
     
+    /**
+     * 处理POST请求
+     * 功能：处理VIP支付选项的增删改查操作
+     *
+     * @param request HTTP请求对象，包含type(操作类型)、payvip(支付配置)等参数
+     * @param response HTTP响应对象
+     */
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // IP访问控制检查
+        // 功能：验证请求来源IP是否在白名单中，防止未授权访问后台管理接口
         Result ipCheckResult = UserController.IPstop(request);
         if (ipCheckResult != null) {
+            // 修复：替换不当响应内容为专业的JSON错误响应
+            response.setStatus(HttpServletResponse.SC_FORBIDDEN);
+            response.setContentType("application/json;charset=utf-8");
             PrintWriter pwPrintWriter = response.getWriter();
-            pwPrintWriter.write("caonima");
+            pwPrintWriter.write("{\"code\":403,\"message\":\"Access denied\"}");
             pwPrintWriter.flush();
             pwPrintWriter.close();
             return;
