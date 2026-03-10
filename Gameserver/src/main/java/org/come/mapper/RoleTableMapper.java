@@ -175,31 +175,31 @@ public interface RoleTableMapper
 //
 //    void deleteTableSQL46(RoleTable p0);
     
-    void addTTJJ(@Param("roleid") BigDecimal p0, @Param("add") int p1, @Param("state") int p2);
+    void addTTJJ(@Param("roleid") BigDecimal roleId, @Param("add") int addValue, @Param("state") int state);
     
-    void upTTJJ(@Param("roleid") BigDecimal p0);
+    void upTTJJ(@Param("roleid") BigDecimal roleId);
     
-    void updateTTJiangli(@Param("TTJIANGLI") String p0);
+    void updateTTJiangli(@Param("TTJIANGLI") String ttJiangli);
     
-    void updateRoleExtPoint(RoleTable p0);
+    void updateRoleExtPoint(RoleTable roleTable);
     
-    void updateRoleLiangHao(RoleTable p0);
+    void updateRoleLiangHao(RoleTable roleTable);
     
-    void getLiangHao(RoleTable p0);
+    void getLiangHao(RoleTable roleTable);
     
-    void addLiangHaoExp(RoleTable p0);
+    void addLiangHaoExp(RoleTable roleTable);
     
-    void updateRoleFullGrade(BigDecimal p0);
+    void updateRoleFullGrade(BigDecimal roleId);
     
-    List<RoleTable> getRoleTaleByLiangHao(RoleTable p0);
+    List<RoleTable> getRoleTaleByLiangHao(RoleTable roleTable);
     
     List<String> allLiangHao();
     
-    LoginResult selectRoleIdOrLiangHao(RoleTable p0);
+    LoginResult selectRoleIdOrLiangHao(RoleTable roleTable);
     
-    void updateRoleLiangHaoType(RoleTable p0);
+    void updateRoleLiangHaoType(RoleTable roleTable);
     
-    void dropLiangHao(RoleTable p0);
+    void dropLiangHao(RoleTable roleTable);
     
     List<RoleTable> selectExpLh();
     void updateDifficult(@Param("role_id")BigDecimal role_id);

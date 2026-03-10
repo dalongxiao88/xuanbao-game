@@ -51,59 +51,59 @@ public interface IRoleTableService
     
     int updateRoleStatues(BigDecimal roleId);
     
-    LoginResult selectRoleByRoleId(BigDecimal p0);
+    LoginResult selectRoleByRoleId(BigDecimal roleId);
     
-    UserTable selectForUserId(BigDecimal p0);
+    UserTable selectForUserId(BigDecimal userId);
     
-    int updateRoleBelong(BigDecimal p0, BigDecimal p1);
+    int updateRoleBelong(BigDecimal roleId, BigDecimal userId);
     
-    LoginResult selectRoleName(String p0);
+    LoginResult selectRoleName(String roleName);
     
-    void addQMJJ(@Param("roleid") BigDecimal p0, @Param("add") int p1);
+    void addQMJJ(@Param("roleid") BigDecimal roleId, @Param("add") int addValue);
     
-    void addTTJJ(@Param("roleid") BigDecimal p0, @Param("state") int p1, @Param("add") int p2);
+    void addTTJJ(@Param("roleid") BigDecimal roleId, @Param("state") int state, @Param("add") int addValue);
     
-    void upTTJJ(@Param("roleid") BigDecimal p0);
+    void upTTJJ(@Param("roleid") BigDecimal roleId);
     
-    void updateTTJiangli(String p0);
+    void updateTTJiangli(String ttJiangli);
     
-    List<LoginResult> selectRoleByRoleNum(@Param("notInStr") int p0, @Param("notInStr") String p1);
+    List<LoginResult> selectRoleByRoleNum(@Param("count") int count, @Param("notInStr") String excludedRoleIds);
     
-    void deleteTableSQL(RoleTable p0);
+    void deleteTableSQL(RoleTable roleTable);
     
     List<Map<String, Object>> selectConfigure();
     
-    List<Map<String, Object>> selectadminUserList(Map<String, Object> p0);
+    List<Map<String, Object>> selectadminUserList(Map<String, Object> queryMap);
     
-    int insertUser(Map<String, Object> p0);
+    int insertUser(Map<String, Object> userMap);
     
-    boolean deleteUser(Map<String, Object> p0);
+    boolean deleteUser(Map<String, Object> userMap);
     
-    void updateUserAmount(Map<String, Object> p0);
+    void updateUserAmount(Map<String, Object> userMap);
     
-    RoleAttribute selectRoleAttributeRoleId(BigDecimal p0);
+    RoleAttribute selectRoleAttributeRoleId(BigDecimal roleId);
     
-    void updateRoleAttributeRoleId(RoleAttribute p0);
+    void updateRoleAttributeRoleId(RoleAttribute roleAttribute);
     
-    void insertRoleAttribute(RoleAttribute p0);
+    void insertRoleAttribute(RoleAttribute roleAttribute);
     
-    void updateRoleExtPoint(RoleTable p0);
+    void updateRoleExtPoint(RoleTable roleTable);
     
-    void updateRoleLiangHao(RoleTable p0);
+    void updateRoleLiangHao(RoleTable roleTable);
     
-    void getLiangHao(RoleTable p0);
+    void getLiangHao(RoleTable roleTable);
     
-    void addLiangHaoExp(RoleTable p0);
+    void addLiangHaoExp(RoleTable roleTable);
     
-    void updateRoleLiangHaoType(RoleTable p0);
+    void updateRoleLiangHaoType(RoleTable roleTable);
     
-    void dropLiangHao(RoleTable p0);
+    void dropLiangHao(RoleTable roleTable);
     
-    List<RoleTable> getRoleTaleByLiangHao(RoleTable p0);
+    List<RoleTable> getRoleTaleByLiangHao(RoleTable roleTable);
     
     List<String> allLiangHao();
     
-    LoginResult selectRoleIdOrLiangHao(RoleTable p0);
+    LoginResult selectRoleIdOrLiangHao(RoleTable roleTable);
     
     List<RoleTable> selectExpLh();
     void updateDifficult(@Param("role_id")BigDecimal role_id);
