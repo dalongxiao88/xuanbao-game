@@ -10,42 +10,42 @@ import com.github.pagehelper.PageInfo;
 
 public interface IGoodsrecordService
 {
-    PageInfo<Goodsrecord> selectGoodsRecord(Integer p0, String p1);
+    PageInfo<Goodsrecord> selectGoodsRecord(Integer pageNum, String condition);
     /**
      * 查询物品记录
      * @param goodsrecord
      * @return
      */
     List<Goodsrecord> selectGoodsRecordByType(  Integer type);
-    int countByExample(GoodsrecordExample p0);
+    int countByExample(GoodsrecordExample goodsrecordExample);
     
-    int deleteByExample(GoodsrecordExample p0);
+    int deleteByExample(GoodsrecordExample goodsrecordExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal recordId);
     
-    int insert(Goodstable p0, BigDecimal p1, Integer p2, Integer p3);
+    int insert(Goodstable goodstable, BigDecimal roleId, Integer goodsNumber, Integer recordType);
     
-    int insertGoodsRecordNew(Goodstable p0, BigDecimal p1, BigDecimal p2, Integer p3, Integer p4, String p5, String p6);
+    int insertGoodsRecordNew(Goodstable goodstable, BigDecimal roleId, BigDecimal saleId, Integer goodsNumber, Integer recordType, String goodsName, String remark);
     
-    int insertGoodsrecord(BigDecimal p0, BigDecimal p1, int p2, BigDecimal p3, String p4, String p5, int p6);
+    int insertGoodsrecord(BigDecimal roleId, BigDecimal goodsId, int goodsNumber, BigDecimal saleId, String goodsName, String remark, int recordType);
     
-    int insertSelective(Goodsrecord p0);
+    int insertSelective(Goodsrecord goodsrecord);
     
-    List<Goodsrecord> selectByExample(GoodsrecordExample p0);
+    List<Goodsrecord> selectByExample(GoodsrecordExample goodsrecordExample);
     
-    Goodsrecord selectByPrimaryKey(Integer p0);
+    Goodsrecord selectByPrimaryKey(Integer recordId);
     
-    int updateByExampleSelective(Goodsrecord p0, GoodsrecordExample p1);
+    int updateByExampleSelective(Goodsrecord goodsrecord, GoodsrecordExample goodsrecordExample);
     
-    int updateByExample(Goodsrecord p0, GoodsrecordExample p1);
+    int updateByExample(Goodsrecord goodsrecord, GoodsrecordExample goodsrecordExample);
     
-    int updateByPrimaryKeySelective(Goodsrecord p0);
+    int updateByPrimaryKeySelective(Goodsrecord goodsrecord);
     
-    int updateByPrimaryKey(Goodsrecord p0);
+    int updateByPrimaryKey(Goodsrecord goodsrecord);
     
-    List<Goodsrecord> selectGoodsrecordList(Goodsrecord p0);
+    List<Goodsrecord> selectGoodsrecordList(Goodsrecord goodsrecord);
     
-    int insertGoodsrecordRoel(Goodsrecord p0);
+    int insertGoodsrecordRoel(Goodsrecord goodsrecord);
     
-    PageInfo<Goodsrecord> selectGoodsRecordNew(Param p0);
+    PageInfo<Goodsrecord> selectGoodsRecordNew(Param queryParam);
 }

@@ -9,30 +9,30 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface GoodsrecordMapper
 {
-    List<Goodsrecord> selectGoodsRecord(Goodsrecord p0);
+    List<Goodsrecord> selectGoodsRecord(Goodsrecord goodsrecord);
     
-    int countByExample(GoodsrecordExample p0);
+    int countByExample(GoodsrecordExample goodsrecordExample);
     
-    int insertGoodsrecordRoel(Goodsrecord p0);
+    int insertGoodsrecordRoel(Goodsrecord goodsrecord);
     
-    int deleteByExample(GoodsrecordExample p0);
+    int deleteByExample(GoodsrecordExample goodsrecordExample);
     
-    int deleteByPrimaryKey(Integer p0);
+    int deleteByPrimaryKey(Integer recordId);
     
-    int insert(Goodsrecord p0);
+    int insert(Goodsrecord goodsrecord);
     
-    int insertSelective(Goodsrecord p0);
+    int insertSelective(Goodsrecord goodsrecord);
     
-    List<Goodsrecord> selectByExample(GoodsrecordExample p0);
+    List<Goodsrecord> selectByExample(GoodsrecordExample goodsrecordExample);
     
-    Goodsrecord selectByPrimaryKey(Integer p0);
+    Goodsrecord selectByPrimaryKey(Integer recordId);
     
-    int updateByExampleSelective(@Param("record") Goodsrecord p0, @Param("example") GoodsrecordExample p1);
+    int updateByExampleSelective(@Param("record") Goodsrecord goodsrecord, @Param("example") GoodsrecordExample goodsrecordExample);
     
-    int updateByExample(@Param("record") Goodsrecord p0, @Param("example") GoodsrecordExample p1);
+    int updateByExample(@Param("record") Goodsrecord goodsrecord, @Param("example") GoodsrecordExample goodsrecordExample);
     
-    int updateByPrimaryKeySelective(Goodsrecord p0);
+    int updateByPrimaryKeySelective(Goodsrecord goodsrecord);
     
-    int updateByPrimaryKey(Goodsrecord p0);
+    int updateByPrimaryKey(Goodsrecord goodsrecord);
     List<Goodsrecord> selectGoodsRecordByType(@Param("type") Integer type);
 }
