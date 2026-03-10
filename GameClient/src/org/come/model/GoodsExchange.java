@@ -3,6 +3,9 @@ package org.come.model;
 import org.come.entity.Goodstable;
 import java.math.BigDecimal;
 
+/**
+ * 客户端物品兑换展示对象。
+ */
 public class GoodsExchange
 {
     private int eId;
@@ -35,9 +38,18 @@ public class GoodsExchange
     public int geteId() {
         return this.eId;
     }
+
+    /** 语义化别名：兑换 ID。 */
+    public int getExchangeId() {
+        return this.eId;
+    }
     
     public void seteId(int eId) {
         this.eId = eId;
+    }
+
+    public void setExchangeId(int exchangeId) {
+        this.eId = exchangeId;
     }
     
     public String getType() {
@@ -59,17 +71,35 @@ public class GoodsExchange
     public BigDecimal getGoods() {
         return this.goods;
     }
+
+    /** 语义化别名：物品 ID。 */
+    public BigDecimal getGoodsId() {
+        return this.goods;
+    }
     
     public void setGoods(BigDecimal goods) {
         this.goods = goods;
+    }
+
+    public void setGoodsId(BigDecimal goodsId) {
+        this.goods = goodsId;
     }
     
     public String getGoodsname() {
         return this.goodsname;
     }
+
+    /** 语义化别名：物品名称。 */
+    public String getGoodsName() {
+        return this.goodsname;
+    }
     
     public void setGoodsname(String goodsname) {
         this.goodsname = goodsname;
+    }
+
+    public void setGoodsName(String goodsName) {
+        this.goodsname = goodsName;
     }
     
     public String getSkin() {
