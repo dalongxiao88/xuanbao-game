@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import java.awt.Point;
 import come.tool.Fighting.Fightingimage;
@@ -118,7 +118,7 @@ public class SkillMsgJpaenl extends JPanel
             for (int j = 0; j < list.size(); ++j) {
                 Skill skill = UserMessUntil.getskill1(list.get(j).getType());
                 int id = Integer.parseInt(Objects.requireNonNull(skill).getSkillid());
-                double mv = Double.parseDouble(skill.getDielectric());
+                double mv = skill.getDielectricAsDouble();
                 String skilltype = SkillUtil.getSkillDoor(list.get(j).getType());
                 int p = 5;
                 if (skilltype != null) {
@@ -281,8 +281,8 @@ public class SkillMsgJpaenl extends JPanel
                         if (skill == null) {
                             return;
                         }
-                        int id = Integer.parseInt(skill.getSkillid());
-                        double mv = Double.parseDouble(skill.getDielectric());
+                        int id = skill.getSkillIdAsInt();
+                        double mv = skill.getDielectricAsDouble();
                         int lvl = (int)RoleData.getRoleData().getLoginResult().getGrade();
                         int lvltrue = AnalysisString.lvltrue(lvl);
                         int grade = AnalysisString.lvlint(lvl);
@@ -400,7 +400,7 @@ public class SkillMsgJpaenl extends JPanel
                     if (SkillMsgJpaenl.this.type == 2) {
                         Skill skill = UserMessUntil.getskill1((String)SkillMsgJpaenl.SkillMsg.this.skillModel.get(index));
                         if (skill != null) {
-                            double mv = Double.parseDouble(skill.getDielectric());
+                            double mv = skill.getDielectricAsDouble();
                             RoleSummoning pet = UserMessUntil.getChosePetMes();
                             if (pet != null) {
                                 if (pet.getBasismp() < (long)(int)mv) {
@@ -421,7 +421,7 @@ public class SkillMsgJpaenl extends JPanel
                         Skill skill = UserMessUntil.getskill1((String)SkillMsgJpaenl.SkillMsg.this.skillModel.get(index));
                         if (skill != null) {
                             LoginResult loginResult = RoleData.getRoleData().getLoginResult();
-                            double mv2 = Double.parseDouble(skill.getDielectric());
+                            double mv2 = skill.getDielectricAsDouble();
                             double sld = (double)AnalysisString.shuliandu((int)ImageMixDeal.userimg.getRoleShow().getGrade());
                             if (loginResult.getMp().intValue() < (int)(mv2 * (sld / 25000.0 + 1.0))) {
                                 ImageIcon icon2 = new ImageIcon("img/fighting-skill/" + skill.getSkillid() + ".png");
@@ -430,7 +430,7 @@ public class SkillMsgJpaenl extends JPanel
                                 this.setForeground(Color.red);
                             }
                             Fightingimage fightingimage = FightingMixDeal.CurrentDataImage(FightingMixDeal.camp, FightingMixDeal.man);
-                            if (fightingimage.getFightingManData().getNqz() < new BigDecimal(skill.getDielectric()).intValue() && Integer.parseInt(skill.getSkillid()) >= 9001 && Integer.parseInt(skill.getSkillid()) <= 9812) {
+                            if (fightingimage.getFightingManData().getNqz() < skill.getDielectricAsBigDecimal().intValue() && skill.getSkillIdAsInt() >= 9001 && skill.getSkillIdAsInt() <= 9812) {
                                 this.setForeground(Color.red);
                             }
                             if (loginResult.getMp().intValue() < (int)(mv2 * (sld / 25000.0 + 1.0))) {
@@ -522,3 +522,4 @@ public class SkillMsgJpaenl extends JPanel
         }
     }
 }
+

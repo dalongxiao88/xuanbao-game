@@ -247,12 +247,12 @@ public class AccessNedanMsgUntil
                                         if (mes2[t2].split("=")[0].matches("\\d+") && UserMessUntil.getSkillId(mes2[t2].split("=")[0]) != null) {
                                             Skill skill = UserMessUntil.getSkillById(mes2[t2].split("=")[0]);
                                             if (skill.getSkillid().equals("4022")) {
-                                                QualityZW.insertValues(finalQl, "抗物理", -Double.parseDouble(skill.getValue1()));
-                                                QualityZW.insertValues(finalQl, "抗风", -Double.parseDouble(skill.getValue1()));
+                                                QualityZW.insertValues(finalQl, "抗物理", -skill.getValue1AsDouble());
+                                                QualityZW.insertValues(finalQl, "抗风", -skill.getValue1AsDouble());
                                             }
                                             else if (skill.getSkillid().equals("4022")) {
-                                                QualityZW.insertValues(finalQl, "抗物理", -Double.parseDouble(skill.getValue1()));
-                                                QualityZW.insertValues(finalQl, "抗风", -Double.parseDouble(skill.getValue1()));
+                                                QualityZW.insertValues(finalQl, "抗物理", -skill.getValue1AsDouble());
+                                                QualityZW.insertValues(finalQl, "抗风", -skill.getValue1AsDouble());
                                             }
                                         }
                                     }

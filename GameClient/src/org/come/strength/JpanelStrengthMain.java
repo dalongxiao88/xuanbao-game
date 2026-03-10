@@ -1,4 +1,4 @@
-package org.come.strength;
+﻿package org.come.strength;
 
 import com.tool.tcpimg.UIUtils;
 import org.come.until.CutButtonImage;
@@ -132,7 +132,7 @@ public class JpanelStrengthMain extends JPanel
         public void showSkill(Skill skill) {
             if (skill != null) {
                 this.skill = skill;
-                this.base = (int)Double.parseDouble(skill.getDielectric());
+                this.base = (int)skill.getDielectricAsDouble();
                 this.getNameLab().setText(skill.getSkillname());
                 this.getExpNumLab().setText(skill.getSkilllevel());
                 this.getImgLab().setIcon(CutButtonImage.getImage("img/skill/" + skill.getSkillid() + ".png", -1, -1));
@@ -224,3 +224,4 @@ public class JpanelStrengthMain extends JPanel
         }
     }
 }
+

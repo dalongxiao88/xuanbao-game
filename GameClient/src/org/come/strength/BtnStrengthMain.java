@@ -41,7 +41,7 @@ public class BtnStrengthMain extends MoBanBtn
             DNTGScene scene = (DNTGScene)ImageMixDeal.scene;
             int dn_JB = scene.getDN_JB().intValue();
             Skill skill = this.skillLabel.getSkill();
-            BigDecimal multiply = new BigDecimal(this.skillLabel.getLevel() + 1).multiply(new BigDecimal(skill.getDielectric()));
+            BigDecimal multiply = new BigDecimal(this.skillLabel.getLevel() + 1).multiply(skill.getDielectricAsBigDecimal());
             if (multiply.compareTo(new BigDecimal(dn_JB)) > 0) {
                 ZhuFrame.getZhuJpanel().addPrompt2("金币不足，无法升级");
                 return;

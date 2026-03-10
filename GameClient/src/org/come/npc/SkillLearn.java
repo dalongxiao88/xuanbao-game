@@ -1,4 +1,4 @@
-package org.come.npc;
+﻿package org.come.npc;
 
 import org.come.bean.PrivateData;
 import org.come.bean.Skill;
@@ -38,8 +38,8 @@ public class SkillLearn implements NpcMenuAction
                 }
             }
         }
-        int id = Integer.parseInt(skill.getSkillid());
-        int lvl = Integer.parseInt(skill.getSkilllevel());
+        int id = skill.getSkillIdAsInt();
+        int lvl = skill.getSkillLevelAsInt();
         int leixing = this.learnlimit(id, lvl, vs);
         if (leixing == 0) {
             StringBuffer buffer = new StringBuffer();
@@ -95,3 +95,4 @@ public class SkillLearn implements NpcMenuAction
         return 1;
     }
 }
+

@@ -3,7 +3,14 @@ package org.come.model;
 import java.util.Optional;
 import java.util.Arrays;
 
-public class Skill implements Cloneable{
+/**
+ * 服务端技能定义。
+ *
+ * 该类是技能配置、技能效果计算和宠物技能扩展的基础模型。
+ * 其中 `skillralation` 为历史命名，实际表示技能互斥/关联关系；
+ * `remark2` 与 `petSkillswl` 属于后期扩展字段。
+ */
+public class Skill implements Cloneable {
     private int skillid;
     private String skillname;
     private int skilltype;
@@ -287,6 +294,15 @@ public class Skill implements Cloneable{
 
     public void setSkillralation(String skillralation) {
         this.skillralation = skillralation;
+    }
+
+    /** 语义化别名：技能互斥/关联关系。 */
+    public String getSkillRelation() {
+        return this.skillralation;
+    }
+
+    public void setSkillRelation(String skillRelation) {
+        this.skillralation = skillRelation;
     }
 
     public String getRemark() {

@@ -1,13 +1,16 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package org.come.bean;
 
+import java.math.BigDecimal;
 import org.apache.commons.lang.StringUtils;
 
-public class Skill  implements  Cloneable{
+/**
+ * 客户端技能定义。
+ *
+ * 客户端技能字段大多以字符串形式存储，原因是该对象会直接参与
+ * 文本配置解析、界面展示和公式替换；为避免在调用方重复 `parseInt`
+ * 或 `parseDouble`，本类补充了一组安全解析辅助方法。
+ */
+public class Skill implements Cloneable {
     private String skillid;
     private String skillname;
     private String skilltype;
@@ -27,7 +30,9 @@ public class Skill  implements  Cloneable{
     private String remark;
     private String value4;
     private String remark2;
+    /** 客户端已学熟练度/已学标识。 */
     private Integer Skilled;
+    /** 技能类型的展示名称。 */
     private String skilltype_name;
     public double s1;
     public double s2;
@@ -210,6 +215,117 @@ public class Skill  implements  Cloneable{
         this.skilltype_name = skilltype_name;
     }
 
+    /**
+     * 语义化别名：技能互斥/关联关系。
+     */
+    public String getSkillRelation() {
+        return this.skillralation;
+    }
+
+    public void setSkillRelation(String skillRelation) {
+        this.skillralation = skillRelation;
+    }
+
+    public int getSkillRelationAsInt() {
+        return parseInteger(this.skillralation);
+    }
+
+    /**
+     * 语义化别名：技能类型名称。
+     */
+    public String getSkillTypeName() {
+        return this.skilltype_name;
+    }
+
+    public void setSkillTypeName(String skillTypeName) {
+        this.skilltype_name = skillTypeName;
+    }
+
+    /**
+     * 语义化别名：客户端记录的技能熟练值或已学状态。
+     */
+    public Integer getLearnedValue() {
+        return this.Skilled;
+    }
+
+    public void setLearnedValue(Integer learnedValue) {
+        this.Skilled = learnedValue;
+    }
+
+    public int getSkillIdAsInt() {
+        return parseInteger(this.skillid);
+    }
+
+    public int getSkillTypeAsInt() {
+        return parseInteger(this.skilltype);
+    }
+
+    public int getSkillLevelAsInt() {
+        return parseInteger(this.skilllevel);
+    }
+
+    public double getSkillLevelAsDouble() {
+        return parseDouble(this.skilllevel);
+    }
+
+    public int getCampAsInt() {
+        return parseInteger(this.camp);
+    }
+
+    public double getGrowAsDouble() {
+        return parseDouble(this.grow);
+    }
+
+    public double getDielectricAsDouble() {
+        return parseDouble(this.getDielectric());
+    }
+
+    public BigDecimal getDielectricAsBigDecimal() {
+        return BigDecimal.valueOf(this.getDielectricAsDouble());
+    }
+
+    public double getValueAsDouble() {
+        return parseDouble(this.value);
+    }
+
+    public double getGrow1AsDouble() {
+        return parseDouble(this.grow1);
+    }
+
+    public double getValue1AsDouble() {
+        return parseDouble(this.value1);
+    }
+
+    public double getGrow2AsDouble() {
+        return parseDouble(this.grow2);
+    }
+
+    public double getValue2AsDouble() {
+        return parseDouble(this.value2);
+    }
+
+    public double getGrow3AsDouble() {
+        return parseDouble(this.grow3);
+    }
+
+    public double getValue3AsDouble() {
+        return parseDouble(this.value3);
+    }
+
+    private int parseInteger(String value) {
+        if (StringUtils.isBlank(value)) {
+            return 0;
+        }
+        return Integer.parseInt(value);
+    }
+
+    private double parseDouble(String value) {
+        if (StringUtils.isBlank(value)) {
+            return 0.0;
+        }
+        return Double.parseDouble(value);
+    }
+
     public double getS1() {
         return s1;
     }
@@ -378,9 +494,6 @@ public class Skill  implements  Cloneable{
     public void setE7(double e7) {
         this.e7 = e7;
     }
-
-
-
     public Skill clone() {
         try {
             return (Skill) super.clone();

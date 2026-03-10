@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import com.tool.tcp.SpriteFactory;
 import java.util.List;
@@ -1113,7 +1113,7 @@ public class OpenSkillGridJpanel extends JPanel
         this.box.setText(null);
         StringBuffer buffer = new StringBuffer();
         if (skill != null) {
-            if (Integer.parseInt(skill.getSkillid()) < 1100) {
+            if (skill.getSkillIdAsInt() < 1100) {
                 String setText = this.setText(skill, 1.0, 200);
                 if (setText != null) {
                     this.box.addText(setText);
@@ -1123,9 +1123,9 @@ public class OpenSkillGridJpanel extends JPanel
             }
             else {
                 String msg = skill.getRemark();
-                double sv = Double.parseDouble(skill.getGrow());
+                double sv = skill.getGrowAsDouble();
                 long qm = (long)UserMessUntil.getChosePetMes().getFriendliness();
-                double value = Double.parseDouble(skill.getValue());
+                double value = skill.getValueAsDouble();
                 if (skill.getSkillid().equals("1237")) {
                     msg = msg.replace("{0}", String.format("%.2f", new Object[] { Double.valueOf(value + CustomFunction.XS(qm, sv)) }));
                     msg = msg.replace("{1}", String.format("%.2f", new Object[] { Double.valueOf(25.0 + CustomFunction.XS(qm, sv)) }));
@@ -1168,14 +1168,14 @@ public class OpenSkillGridJpanel extends JPanel
 
     public String setText(Skill skill, double sld, int lvl) {
         String msg = skill.getRemark();
-        int id = Integer.parseInt(skill.getSkillid());
+        int id = skill.getSkillIdAsInt();
         if (id < 1001 || id > 1100) {
             return null;
         }
-        int level = Integer.parseInt(skill.getSkilllevel());
-        double sv = Double.parseDouble(skill.getGrow());
-        double mv = Double.parseDouble(skill.getDielectric());
-        double value = Double.parseDouble(skill.getValue());
+        int level = skill.getSkillLevelAsInt();
+        double sv = skill.getGrowAsDouble();
+        double mv = skill.getDielectricAsDouble();
+        double value = skill.getValueAsDouble();
         String type = (id <= 1005) ? "混乱" : ((id <= 1010) ? "封印" : ((id <= 1015) ? "昏睡" : ((id <= 1020) ? "中毒" : ((id <= 1025) ? "震慑" : ((id <= 1030) ? "力量" : ((id <= 1035) ? "抗性" : ((id <= 1040) ? "加速" : ((id <= 1045) ? "风" : ((id <= 1050) ? "雷" : ((id <= 1055) ? "水" : ((id <= 1060) ? "火" : ((id <= 1065) ? "鬼火" : ((id <= 1070) ? "三尸虫" : ((id <= 1075) ? "遗忘" : ((id <= 1080) ? "smmh" : ((id <= 1085) ? "霹雳" : ((id <= 1090) ? "沧波" : ((id <= 1095) ? "甘霖" : "扶摇"))))))))))))))))));
         msg = msg.replace("|个数|", FBUtil.geshu(level, (int)sld, type) + "");
         if (id <= 1015 || (id >= 1071 && id <= 1075)) {
@@ -1863,3 +1863,4 @@ public class OpenSkillGridJpanel extends JPanel
         OpenSkillGridJpanel.idx = -1;
     }
 }
+

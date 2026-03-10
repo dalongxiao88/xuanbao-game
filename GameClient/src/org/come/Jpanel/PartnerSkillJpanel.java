@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import com.updateNew.MyIsif;
 import java.awt.Graphics;
@@ -175,14 +175,14 @@ public class PartnerSkillJpanel extends JPanel
             PalData palData = UserMessUntil.getPalData(mainJpanel.getPalDataChooseId());
             Pal pal = RoleData.getRoleData().getPal(palData.getPalId());
             String msg = skill.getRemark();
-            int id = Integer.parseInt(skill.getSkillid());
+            int id = skill.getSkillIdAsInt();
             if (id < 1001 || id > 1100) {
                 return;
             }
-            int level = Integer.parseInt(skill.getSkilllevel());
-            double sv = Double.parseDouble(skill.getGrow());
-            double mv = Double.parseDouble(skill.getDielectric());
-            double value = Double.parseDouble(skill.getValue());
+            int level = skill.getSkillLevelAsInt();
+            double sv = skill.getGrowAsDouble();
+            double mv = skill.getDielectricAsDouble();
+            double value = skill.getValueAsDouble();
             Integer grade = RoleData.getRoleData().getLoginResult().getGrade();
             int lvl = AnalysisString.lvlint((int)grade);
             double sld = (double)(lvl * 150);
@@ -386,3 +386,4 @@ public class PartnerSkillJpanel extends JPanel
         PartnerSkillJpanel.AIdataList = new ArrayList<>();
     }
 }
+

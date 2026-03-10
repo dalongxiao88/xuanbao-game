@@ -1,4 +1,4 @@
-package org.skill.panel;
+﻿package org.skill.panel;
 
 import org.come.until.FormsManagement;
 import org.come.Frame.MsgJframe;
@@ -450,7 +450,7 @@ public class LxWLPanel extends JPanel
                     bean.setTableId(Integer.valueOf(Integer.parseInt(vs[1])));
                     Skill skill = UserMessUntil.getSkillId(vs[1]);
                     if (skill != null) {
-                        bean.setMaxPoint(Integer.valueOf(Integer.parseInt(skill.getSkilllevel())));
+                        bean.setMaxPoint(Integer.valueOf(skill.getSkillLevelAsInt()));
                     }
                     else {
                         bean.setMaxPoint(Integer.valueOf(5));
@@ -771,3 +771,4 @@ public class LxWLPanel extends JPanel
         }
     }
 }
+

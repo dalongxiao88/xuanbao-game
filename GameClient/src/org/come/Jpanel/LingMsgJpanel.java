@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import org.come.bean.Skill;
 import come.tool.FightingData.FBUtil;
@@ -261,7 +261,7 @@ public class LingMsgJpanel extends JPanel
         this.bao.addText("#Y道行:#R" + ExpUtil.LFExptoString(lingbao.getLingbaoexe().longValue() + ExpUtil.LFExp2(lingbao.getLingbaolvl().intValue() - 1)) + "/" + ExpUtil.LFExptoString(ExpUtil.LFExp2(lingbao.getLingbaolvl().intValue())), 350, UIUtils.TEXT_FONT1);
         Skill skill = UserMessUntil.getskill1(lingbao.getBaoname());
         if (skill != null) {
-            int id = Integer.parseInt(skill.getSkillid());
+            int id = skill.getSkillIdAsInt();
             int born = ImageMixDeal.userimg.getRoleShow().getTurnAround();
             int lvl = AnalysisString.lvlint((int)ImageMixDeal.userimg.getRoleShow().getGrade());
             int bzlvl = RoleLingFa.getRoleLingFa().getFaPJ();
@@ -271,10 +271,10 @@ public class LingMsgJpanel extends JPanel
             double grow = 0.0;
             double value = 0.0;
             if (skill.getGrow() != null && !skill.getGrow().equals("")) {
-                grow = Double.parseDouble(skill.getGrow());
+                grow = skill.getGrowAsDouble();
             }
             if (skill.getValue() != null && !skill.getGrow().equals("")) {
-                value = Double.parseDouble(skill.getValue());
+                value = skill.getValueAsDouble();
             }
             String v1 = UserData.xiaoshu(value + (double)pz * grow);
             String v2 = String.valueOf(FBUtil.getFBcx(id, blvl));
@@ -422,3 +422,4 @@ public class LingMsgJpanel extends JPanel
         this.skillname = skillname;
     }
 }
+

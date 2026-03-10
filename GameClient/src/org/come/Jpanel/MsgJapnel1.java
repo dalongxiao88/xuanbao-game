@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import org.come.until.FormsManagement;
 import org.come.Frame.MsgJframe1;
@@ -92,7 +92,7 @@ public class MsgJapnel1 extends JPanel
             remark = remark.replace("{公式三}", String.valueOf(Arith.mul(Arith.mul(Arith.div((double)Double.valueOf(skillAll.getGrow()), 4.0), 1.5), (double)Double.valueOf(skillAll.getSkilllevel()))));
         }
         else if (id == 9372) {
-            remark = remark.replace("{公式二十九}", String.valueOf(Arith.sub(100.0, (Integer.parseInt(skillAll.getSkilllevel()) <= 2) ? Arith.mul((double)Double.valueOf(skillAll.getSkilllevel()), Arith.mul((double)Double.valueOf(skillAll.getGrow()), 10.0)) : Arith.add(10.0, Arith.mul((double)Double.valueOf(skillAll.getSkilllevel()), 5.0)))));
+            remark = remark.replace("{公式二十九}", String.valueOf(Arith.sub(100.0, (skillAll.getSkillLevelAsInt() <= 2) ? Arith.mul((double)Double.valueOf(skillAll.getSkilllevel()), Arith.mul((double)Double.valueOf(skillAll.getGrow()), 10.0)) : Arith.add(10.0, Arith.mul((double)Double.valueOf(skillAll.getSkilllevel()), 5.0)))));
         }
         else if (id == 9370) {
             remark = remark.replace("{公式二十八}", String.valueOf(Arith.add(Arith.mul(Arith.mul((double)Double.valueOf(skillAll.getGrow()), 3000.0), (double)Double.valueOf(skillAll.getSkilllevel())), Arith.mul((double)Double.valueOf(skillAll.getValue()), 1500.0))));
@@ -122,12 +122,12 @@ public class MsgJapnel1 extends JPanel
             remark = remark.replace("{公式十九}", String.valueOf(Arith.mul((double)Double.valueOf(skillAll.getSkilllevel()), Arith.mul((double)Double.valueOf(skillAll.getGrow()), 1000.0))));
         }
         else if (id == 9269) {
-            remark = remark.replace("{公式十八}", String.valueOf(Arith.add(Arith.mul((double)Double.valueOf(skillAll.getGrow()), Arith.mul((Integer.parseInt(skillAll.getSkilllevel()) <= 4) ? ((double)Double.valueOf(skillAll.getSkilllevel())) : Arith.add((double)Double.valueOf(skillAll.getSkilllevel()), 1.0), 500.0)), 13000.0)));
+            remark = remark.replace("{公式十八}", String.valueOf(Arith.add(Arith.mul((double)Double.valueOf(skillAll.getGrow()), Arith.mul((skillAll.getSkillLevelAsInt() <= 4) ? ((double)Double.valueOf(skillAll.getSkilllevel())) : Arith.add((double)Double.valueOf(skillAll.getSkilllevel()), 1.0), 500.0)), 13000.0)));
             remark = remark.replace("{公式十七}", String.valueOf(Arith.add(Arith.mul((double)Double.valueOf(skillAll.getGrow()), Arith.mul((double)Double.valueOf(skillAll.getSkilllevel()), 250.0)), 10000.0)));
         }
         else if (id == 9251) {
-            remark = remark.replace("{公式十六}", String.valueOf(Arith.sub(Arith.add((double)Double.valueOf(skillAll.getValue()), (Integer.parseInt(skillAll.getSkilllevel()) > 3) ? Arith.sub((double)Double.valueOf(skillAll.getSkilllevel()), 3.0) : 0.0), 2.0)));
-            remark = remark.replace("{公式十五}", String.valueOf(Arith.add((double)Double.valueOf(skillAll.getValue()), (Integer.parseInt(skillAll.getSkilllevel()) <= 3) ? ((double)Double.valueOf(skillAll.getSkilllevel())) : 3.0)));
+            remark = remark.replace("{公式十六}", String.valueOf(Arith.sub(Arith.add((double)Double.valueOf(skillAll.getValue()), (skillAll.getSkillLevelAsInt() > 3) ? Arith.sub((double)Double.valueOf(skillAll.getSkilllevel()), 3.0) : 0.0), 2.0)));
+            remark = remark.replace("{公式十五}", String.valueOf(Arith.add((double)Double.valueOf(skillAll.getValue()), (skillAll.getSkillLevelAsInt() <= 3) ? ((double)Double.valueOf(skillAll.getSkilllevel())) : 3.0)));
         }
         else if (id == 9250) {
             remark = remark.replace("{公式十四}", String.valueOf(Arith.div(Arith.mul((double)Double.valueOf(skillAll.getGrow()), (double)Double.valueOf(skillAll.getSkilllevel())), 6.0)));
@@ -161,20 +161,20 @@ public class MsgJapnel1 extends JPanel
             remark = remark.replace("{公式三}", String.valueOf(Arith.mul(Arith.mul(Arith.div((double)Double.valueOf(skillAll.getGrow()), 4.0), 1.5), (double)Double.valueOf(skillAll.getSkilllevel()))));
         }
         else if (id == 9508) {
-            remark = remark.replace("{公式三十四}", String.valueOf(Arith.mul(Double.parseDouble(skillAll.getGrow()), Arith.mul(600.0, Arith.mul(Double.parseDouble(skillAll.getSkilllevel()), Double.parseDouble(skillAll.getValue()))))));
+            remark = remark.replace("{公式三十四}", String.valueOf(Arith.mul(skillAll.getGrowAsDouble(), Arith.mul(600.0, Arith.mul(skillAll.getSkillLevelAsDouble(), skillAll.getValueAsDouble())))));
         }
         else if (id == 9510) {
-            remark = remark.replace("{公式三十五}", String.valueOf(Arith.add(60.0, Arith.mul(Double.parseDouble(skillAll.getGrow()), Arith.mul(Double.parseDouble(skillAll.getSkilllevel()), 5.0)))));
+            remark = remark.replace("{公式三十五}", String.valueOf(Arith.add(60.0, Arith.mul(skillAll.getGrowAsDouble(), Arith.mul(skillAll.getSkillLevelAsDouble(), 5.0)))));
         }
         else if (id == 9511) {
-            remark = remark.replace("{公式三十六}", String.valueOf(Arith.mul(Double.parseDouble(skillAll.getGrow()), Arith.add(Double.parseDouble(skillAll.getSkilllevel()), 1.0))));
-            remark = remark.replace("{公式三十七}", String.valueOf(Arith.mul(10000.0, Arith.mul(Double.parseDouble(skillAll.getGrow()), Arith.add(Double.parseDouble(skillAll.getSkilllevel()), 1.0)))));
+            remark = remark.replace("{公式三十六}", String.valueOf(Arith.mul(skillAll.getGrowAsDouble(), Arith.add(skillAll.getSkillLevelAsDouble(), 1.0))));
+            remark = remark.replace("{公式三十七}", String.valueOf(Arith.mul(10000.0, Arith.mul(skillAll.getGrowAsDouble(), Arith.add(skillAll.getSkillLevelAsDouble(), 1.0)))));
         }
         else if (id == 9612) {
-            remark = remark.replace("{公式三十八}", String.valueOf((Double.parseDouble(skillAll.getSkilllevel()) <= 2.0) ? 1 : ((Double.parseDouble(skillAll.getSkilllevel()) <= 4.0) ? 2 : 3)));
+            remark = remark.replace("{公式三十八}", String.valueOf((skillAll.getSkillLevelAsDouble() <= 2.0) ? 1 : ((skillAll.getSkillLevelAsDouble() <= 4.0) ? 2 : 3)));
         }
         else if (id == 9191) {
-            remark = remark.replace("{公式十}", String.valueOf(Arith.add(Arith.mul(Double.parseDouble(skillAll.getGrow()), Double.parseDouble(skillAll.getSkilllevel())), Arith.add(50.0, Double.parseDouble(skillAll.getValue())))));
+            remark = remark.replace("{公式十}", String.valueOf(Arith.add(Arith.mul(skillAll.getGrowAsDouble(), skillAll.getSkillLevelAsDouble()), Arith.add(50.0, skillAll.getValueAsDouble()))));
         }
         remark = remark.replace("{公式一}", String.valueOf(Arith.add((double)Double.valueOf(skillAll.getValue()), Arith.mul((double)Double.valueOf(skillAll.getGrow()), (double)Double.valueOf(skillAll.getSkilllevel())))));
         remark = remark.replace("{公式二}", String.valueOf(Arith.mul(Arith.mul(Arith.div((double)Double.valueOf(skillAll.getGrow()), 4.0), 10.0), (double)Double.valueOf(skillAll.getSkilllevel()))));
@@ -190,16 +190,16 @@ public class MsgJapnel1 extends JPanel
         ImageIcon icon = new ImageIcon("img/skill/wxs_" + skillx.getSkillid() + ".png");
         icon.setImage(icon.getImage().getScaledInstance(55, 55, 1));
         String msg = skill.getRemark();
-        int id = Integer.parseInt(skill.getSkillid());
-        double mv = Double.parseDouble(skill.getDielectric());
+        int id = skill.getSkillIdAsInt();
+        double mv = skill.getDielectricAsDouble();
         if (id >= 22000 && id <= 22035) {
             this.goodsImg.setIcon(icon);
         }
         if (id >= 1001 && id <= 1100) {
             this.goodsImg.setIcon(icon);
-            int level = Integer.parseInt(skill.getSkilllevel());
-            double sv = Double.parseDouble(skill.getGrow());
-            double value = Double.parseDouble(skill.getValue());
+            int level = skill.getSkillLevelAsInt();
+            double sv = skill.getGrowAsDouble();
+            double value = skill.getValueAsDouble();
             String type = (id <= 1005) ? "混乱" : ((id <= 1010) ? "封印" : ((id <= 1015) ? "昏睡" : ((id <= 1020) ? "中毒" : ((id <= 1025) ? "震慑" : ((id <= 1030) ? "力量" : ((id <= 1035) ? "抗性" : ((id <= 1040) ? "加速" : ((id <= 1045) ? "风" : ((id <= 1050) ? "雷" : ((id <= 1055) ? "水" : ((id <= 1060) ? "火" : ((id <= 1065) ? "鬼火" : ((id <= 1070) ? "三尸虫" : ((id <= 1075) ? "遗忘" : ((id <= 1080) ? "smmh" : ((id <= 1085) ? "霹雳" : ((id <= 1090) ? "沧波" : ((id <= 1095) ? "甘霖" : "扶摇"))))))))))))))))));
             msg = msg.replace("|个数|", FBUtil.geshu(level, (int)sld, type) + "");
             if (id <= 1015 || (id >= 1071 && id <= 1075)) {
@@ -300,8 +300,8 @@ public class MsgJapnel1 extends JPanel
         }
         if ((id >= 1200 && id <= 1283) || (id==1279||id==1287||id==1288||id==1289)||id == 450050) {
             long qm = (long)UserMessUntil.getChosePetMes().getFriendliness();
-            double value2 = Double.parseDouble(skill.getValue());
-            double sv2 = Double.parseDouble(skill.getGrow());
+            double value2 = skill.getValueAsDouble();
+            double sv2 = skill.getGrowAsDouble();
             this.goodsImg.setIcon(icon);
             if (id == 1200) {
                 msg = "#cFF8C00 " + skill.getSkillname() + "#r#Y【持续回合】3#r#Y【冷却回合】5#r#Y【消耗MP】" + (int)mv + "#r#W 给自方所有在场单位施加庇护状态#r#W（死亡和封印状态除外） #r#W 白泽可为此状态成员承担部分伤害 #r#W 且自身所受伤害弱化";
@@ -401,7 +401,7 @@ public class MsgJapnel1 extends JPanel
     }
     
     private static int getFmsld(Skill skill) {
-        int skillId = Integer.parseInt(skill.getSkillid());
+        int skillId = skill.getSkillIdAsInt();
         if (skillId % 2 == 0) {
             return RoleData.getRoleData().getLoginResult().getScoretype("法门1").intValue();
         }
@@ -474,12 +474,12 @@ public class MsgJapnel1 extends JPanel
         ImageIcon icon = new ImageIcon("img/fighting-skill/" + skillx.getSkillid() + ".png");
         icon.setImage(icon.getImage().getScaledInstance(60, 60, 1));
         String msg = skill.getRemark();
-        int id = Integer.parseInt(skill.getSkillid());
+        int id = skill.getSkillIdAsInt();
         if (id >= 1001 && id <= 1100) {
-            int level = Integer.parseInt(skill.getSkilllevel());
-            double sv = Double.parseDouble(skill.getGrow());
-            double mv = Double.parseDouble(skill.getDielectric());
-            double value = Double.parseDouble(skill.getValue());
+            int level = skill.getSkillLevelAsInt();
+            double sv = skill.getGrowAsDouble();
+            double mv = skill.getDielectricAsDouble();
+            double value = skill.getValueAsDouble();
             this.goodsImg.setIcon(icon);
             String type = (id <= 1005) ? "混乱" : ((id <= 1010) ? "封印" : ((id <= 1015) ? "昏睡" : ((id <= 1020) ? "中毒" : ((id <= 1025) ? "震慑" : ((id <= 1030) ? "力量" : ((id <= 1035) ? "抗性" : ((id <= 1040) ? "加速" : ((id <= 1045) ? "风" : ((id <= 1050) ? "雷" : ((id <= 1055) ? "水" : ((id <= 1060) ? "火" : ((id <= 1065) ? "鬼火" : ((id <= 1070) ? "三尸虫" : ((id <= 1075) ? "遗忘" : ((id <= 1080) ? "smmh" : ((id <= 1085) ? "霹雳" : ((id <= 1090) ? "沧波" : ((id <= 1095) ? "甘霖" : "扶摇"))))))))))))))))));
             msg = msg.replace("|个数|", FBUtil.geshu(level, (int)sld, type) + "");
@@ -525,10 +525,10 @@ public class MsgJapnel1 extends JPanel
             double grow = 0.0;
             double value2 = 0.0;
             if (skill.getGrow() != null && !skill.getGrow().equals("")) {
-                grow = Double.parseDouble(skill.getGrow());
+                grow = skill.getGrowAsDouble();
             }
             if (skill.getValue() != null && !skill.getGrow().equals("")) {
-                value2 = Double.parseDouble(skill.getValue());
+                value2 = skill.getValueAsDouble();
             }
             String v1 = UserData.xiaoshu(value2 + (double)pz * grow);
             String v2 = FBUtil.getFBcx(id, blvl) + "";
@@ -627,3 +627,5 @@ public class MsgJapnel1 extends JPanel
         this.goodsImg = goodsImg;
     }
 }
+
+

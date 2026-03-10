@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import org.come.until.UserData;
 import java.math.BigDecimal;
@@ -252,11 +252,11 @@ public class RoleSkillJpanel extends JPanel
     public static String[] Analysis(String type, Skill skill, int renlvl) {
         String[] CharReplace = new String[4];
         CharReplace[0] = geshu(skill, type);
-        double lvl = Double.parseDouble(skill.getSkilllevel());
+        double lvl = skill.getSkillLevelAsDouble();
         double sld = (double)(int)skill.getSkilled();
-        double sv = Double.parseDouble(skill.getGrow());
-        double mv = Double.parseDouble(skill.getDielectric());
-        double value = Double.parseDouble(skill.getValue());
+        double sv = skill.getGrowAsDouble();
+        double mv = skill.getDielectricAsDouble();
+        double value = skill.getValueAsDouble();
         if (type.equals("混乱") || type.equals("封印") || type.equals("昏睡") || type.equals("遗忘系魔法")) {
             CharReplace[1] = (int)(value + sv * new BigDecimal(Math.pow(sld, 0.3)).setScale(2, 4).doubleValue()) + "%";
             CharReplace[2] = "7";
@@ -296,7 +296,7 @@ public class RoleSkillJpanel extends JPanel
     }
     
     public static String geshu(Skill skill, String type) {
-        int lvl = Integer.parseInt(skill.getSkilllevel());
+        int lvl = skill.getSkillLevelAsInt();
         if (type.equals("鬼火系魔法") || type.equals("火系魔法") || type.equals("水系魔法") || type.equals("雷系魔法") || type.equals("风系魔法")) {
             return xian((int)skill.getSkilled(), lvl) + "";
         }
@@ -608,3 +608,4 @@ public class RoleSkillJpanel extends JPanel
         this.skills = skills;
     }
 }
+

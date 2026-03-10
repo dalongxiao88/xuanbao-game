@@ -1,4 +1,4 @@
-package org.come.model;
+﻿package org.come.model;
 
 import org.apache.commons.lang.StringUtils;
 import org.come.until.Util;
@@ -365,7 +365,7 @@ public class Lingbao implements Commodity
     }
     
     public boolean skilljihe(Skill skill) {
-        int type = Integer.parseInt(skill.getSkilltype());
+        int type = skill.getSkillTypeAsInt();
         if (type == 0 && !this.baotype.equals("攻击")) {
             ZhuFrame.getZhuJpanel().addPrompt2("学习技能失败,攻击灵宝无法学习该类型的技能,请继续学习。");
             return false;
@@ -787,3 +787,4 @@ public class Lingbao implements Commodity
         return this.commodityId;
     }
 }
+

@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import org.come.until.CutButtonImage;
 import org.come.bean.Skill;
@@ -547,7 +547,7 @@ public class PetsMsgJpanel extends JPanel
                         this.labSkillName[m].setText(skill.getSkillname() + "(" + s + "阶)");//启灵阶数
                     } else
                         this.labSkillName[m].setText(skill.getSkillname());
-                    final int skillID = Integer.parseInt(skill.getSkillid());
+                    final int skillID = skill.getSkillIdAsInt();
                     if (skillID == 1815) {
                         pets[0] = 50;
                     } else if (skillID == 1816) {
@@ -726,3 +726,4 @@ public class PetsMsgJpanel extends JPanel
         return skill.getSkillname() + "(" + sld + ")";
     }
 }
+

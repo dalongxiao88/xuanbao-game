@@ -1,4 +1,4 @@
-
+﻿
 package org.come.XuanBao;
 
 
@@ -904,7 +904,7 @@ public class XuanBaoAttributeJpanel extends JPanel {
         Map<Integer, String> xuanBaoSkillMap_xuanyin2 = new HashMap<>();
         Map<Integer, String> xuanBaoSkillMap_xuanyin3 = new HashMap<>();
         if (skill != null) {
-            XuanBaoSkill xuanBaoSkill = xuanBaoSkillMap.get(Integer.parseInt(skill.getSkillid()));
+            XuanBaoSkill xuanBaoSkill = xuanBaoSkillMap.get(skill.getSkillIdAsInt());
             xuanBao.setSkill_1(xuanBao.getSkill1());
             String[] sk1 = xuanBaoSkill.getSkill1().split("&");
             for (String s : sk1) {
@@ -1456,5 +1456,6 @@ public class XuanBaoAttributeJpanel extends JPanel {
     }
 
 }
+
 
 

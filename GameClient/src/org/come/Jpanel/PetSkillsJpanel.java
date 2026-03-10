@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import com.tool.tcp.SpriteFactory;
 import java.util.regex.Matcher;
@@ -2075,11 +2075,11 @@ public class PetSkillsJpanel extends JPanel
 //				box.addText("     等级：" + skillwl + "/10级 #r");
 //			}
 //
-//			else if (Integer.parseInt(skill.getSkillid()) == 1264 || Integer.parseInt(skill.getSkillid()) == 1265 ||
-//					Integer.parseInt(skill.getSkillid()) == 1266 || Integer.parseInt(skill.getSkillid()) == 1267 ||
-//					Integer.parseInt(skill.getSkillid()) == 1268 || Integer.parseInt(skill.getSkillid()) == 1269 ||
-//					Integer.parseInt(skill.getSkillid()) == 1271 ||
-//					Integer.parseInt(skill.getSkillid()) == 1272 || Integer.parseInt(skill.getSkillid()) == 1273) {
+//			else if (skill.getSkillIdAsInt() == 1264 || skill.getSkillIdAsInt() == 1265 ||
+//					skill.getSkillIdAsInt() == 1266 || skill.getSkillIdAsInt() == 1267 ||
+//					skill.getSkillIdAsInt() == 1268 || skill.getSkillIdAsInt() == 1269 ||
+//					skill.getSkillIdAsInt() == 1271 ||
+//					skill.getSkillIdAsInt() == 1272 || skill.getSkillIdAsInt() == 1273) {
 //				box.addText("     此技能可以#G悟灵#r");
 //				box.addText(" #r");
 //			}
@@ -2087,7 +2087,7 @@ public class PetSkillsJpanel extends JPanel
 //
 //			}
 
-            if (Integer.parseInt(skill.getSkillid()) < 1100) {
+            if (skill.getSkillIdAsInt() < 1100) {
                 String setText = this.setText(skill, 1.0, 200);
                 if (setText != null) {
                     this.box.addText(setText);
@@ -2096,9 +2096,9 @@ public class PetSkillsJpanel extends JPanel
                 wuLing.setLocation(jScrollPane2.getX() + 5, WuLingPanel.y + (int) d.getHeight() - 10);
             } else {
                 String msg = skill.getRemark();
-                double sv = Double.parseDouble(skill.getGrow());// 技能成长
+                double sv = skill.getGrowAsDouble();// 技能成长
                 long qm = UserMessUntil.getChosePetMes().getFriendliness();
-                double value = Double.parseDouble(skill.getValue());// 介值
+                double value = skill.getValueAsDouble();// 介值
                 //天降流火
                 if (skill.getSkillid().equals("1237")) {
                     msg = msg.replace("{0}", String.format("%.2f", value + CustomFunction.XS(qm, sv)));
@@ -2154,14 +2154,14 @@ public class PetSkillsJpanel extends JPanel
     
     public String setText(Skill skill, double sld, int lvl) {
         String msg = skill.getRemark();
-        int id = Integer.parseInt(skill.getSkillid());
+        int id = skill.getSkillIdAsInt();
         if (id < 1001 || id > 1100) {
             return null;
         }
-        int level = Integer.parseInt(skill.getSkilllevel());
-        double sv = Double.parseDouble(skill.getGrow());
-        double mv = Double.parseDouble(skill.getDielectric());
-        double value = Double.parseDouble(skill.getValue());
+        int level = skill.getSkillLevelAsInt();
+        double sv = skill.getGrowAsDouble();
+        double mv = skill.getDielectricAsDouble();
+        double value = skill.getValueAsDouble();
         String type = (id <= 1005) ? "混乱" : ((id <= 1010) ? "封印" : ((id <= 1015) ? "昏睡" : ((id <= 1020) ? "中毒" : ((id <= 1025) ? "震慑" : ((id <= 1030) ? "力量" : ((id <= 1035) ? "抗性" : ((id <= 1040) ? "加速" : ((id <= 1045) ? "风" : ((id <= 1050) ? "雷" : ((id <= 1055) ? "水" : ((id <= 1060) ? "火" : ((id <= 1065) ? "鬼火" : ((id <= 1070) ? "三尸虫" : ((id <= 1075) ? "遗忘" : ((id <= 1080) ? "smmh" : ((id <= 1085) ? "霹雳" : ((id <= 1090) ? "沧波" : ((id <= 1095) ? "甘霖" : "扶摇"))))))))))))))))));
         msg = msg.replace("|个数|", FBUtil.geshu(level, (int)sld, type) + "");
         if (id <= 1015 || (id >= 1071 && id <= 1075)) {
@@ -2404,3 +2404,4 @@ public class PetSkillsJpanel extends JPanel
         PetSkillsJpanel.tcp = SpriteFactory.VloadSprite("resource/mouse/flicker.tcp", null);
     }
 }
+

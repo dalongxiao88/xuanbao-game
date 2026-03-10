@@ -1,4 +1,4 @@
-package org.skill.panel;
+﻿package org.skill.panel;
 
 import org.come.until.FormsManagement;
 import org.come.Frame.MsgJframe;
@@ -601,22 +601,22 @@ public class LxPanel extends JPanel
         if (StringUtils.isNotEmpty(skill.getSkillralation())) {
             buffer.append("#r #r#Y与#R" + UserMessUntil.getSkillId(skill.getSkillralation()).getSkillname() + "#Y互斥");
         }
-        if (Integer.parseInt(skill.getSkillid()) >= 11020 && Integer.parseInt(skill.getSkillid()) <= 11022) {
+        if (skill.getSkillIdAsInt() >= 11020 && skill.getSkillIdAsInt() <= 11022) {
             buffer.append("#r #r#Y可同时修炼#R一往无前、有备无患、将功补过#Y中的两种技能");
         }
-        else if (Integer.parseInt(skill.getSkillid()) >= 11023 && Integer.parseInt(skill.getSkillid()) <= 11025) {
+        else if (skill.getSkillIdAsInt() >= 11023 && skill.getSkillIdAsInt() <= 11025) {
             buffer.append("#r #r#Y可同时修炼#R奋不顾身、卷土重来、惊涛骇浪#Y中的两种技能");
         }
-        else if (Integer.parseInt(skill.getSkillid()) >= 11039 && Integer.parseInt(skill.getSkillid()) <= 11041) {
+        else if (skill.getSkillIdAsInt() >= 11039 && skill.getSkillIdAsInt() <= 11041) {
             buffer.append("#r #r#Y可同时修炼#R一飞冲天、展翅欲飞、青云直上#Y中的两种技能");
         }
-        else if (Integer.parseInt(skill.getSkillid()) >= 11042 && Integer.parseInt(skill.getSkillid()) <= 11044) {
+        else if (skill.getSkillIdAsInt() >= 11042 && skill.getSkillIdAsInt() <= 11044) {
             buffer.append("#r #r#Y可同时修炼#R大开杀戒、锥心刺骨、哀兵必败#Y中的两种技能");
         }
-        else if (Integer.parseInt(skill.getSkillid()) >= 11058 && Integer.parseInt(skill.getSkillid()) <= 11060) {
+        else if (skill.getSkillIdAsInt() >= 11058 && skill.getSkillIdAsInt() <= 11060) {
             buffer.append("#r #r#Y可同时修炼#R有仇必报、春色满园、步步相逼#Y中的两种技能");
         }
-        else if (Integer.parseInt(skill.getSkillid()) >= 11061 && Integer.parseInt(skill.getSkillid()) <= 11063) {
+        else if (skill.getSkillIdAsInt() >= 11061 && skill.getSkillIdAsInt() <= 11063) {
             buffer.append("#r #r#Y可同时修炼#R飘然出尘、碧荷凝露、焕然新生#Y中的两种技能");
         }
         if (xSkillLx.getLv() != 0 && xSkillLx.getLv() < xSkillLx.getMaxLv()) {
@@ -709,7 +709,7 @@ public class LxPanel extends JPanel
                     return;
                 }
             }
-            if (StringUtils.isNotEmpty(skill.getSkillralation()) && this.getCountTemp(Integer.parseInt(skill.getSkillralation()), xSkilllx.getType()) > 0) {
+            if (StringUtils.isNotEmpty(skill.getSkillralation()) && this.getCountTemp(skill.getSkillRelationAsInt(), xSkilllx.getType()) > 0) {
                 ZhuFrame.getZhuJpanel().addPrompt2("此技能与#R" + UserMessUntil.getSkillId(skill.getSkillralation()).getSkillname() + "#Y为互斥关系，无法同时修炼");
                 return;
             }
@@ -1565,3 +1565,4 @@ public class LxPanel extends JPanel
         }
     }
 }
+

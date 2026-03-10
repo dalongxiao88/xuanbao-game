@@ -1,4 +1,4 @@
-package org.come.XuanBao;
+﻿package org.come.XuanBao;
 
 import com.sun.org.apache.bcel.internal.generic.BIPUSH;
 import com.tool.image.ImageMixDeal;
@@ -172,11 +172,11 @@ public class XBMsgJapnel extends JPanel {
 //        this.petbox.removemsg();
 //        this.box.removemsg();
         final Skill skill = UserMessUntil.getskill1(xuanBao.getName());
-        XuanBaoSkill xuanBaoSkill = xuanBaoSkillMap.get(Integer.parseInt(skill.getSkillid()));
+        XuanBaoSkill xuanBaoSkill = xuanBaoSkillMap.get(skill.getSkillIdAsInt());
         xuanBao.setSkill_1(xuanBao.getSkill1());
 
         StringBuffer stringBuffer = new StringBuffer();
-        stringBuffer.append("#c5C462C【消耗】" + new BigDecimal(skill.getDielectric()).intValue() + "玄元");
+        stringBuffer.append("#c5C462C【消耗】" + skill.getDielectricAsBigDecimal().intValue() + "玄元");
         stringBuffer.append("#r【冷却回合】" + new BigDecimal(skill.getValue()).intValue() + "#r");
         if (xuanBao.getSkill1() != null) {
             String skill_1 = xuanBao.getSkill_1();
@@ -291,3 +291,4 @@ public class XBMsgJapnel extends JPanel {
 
 
 }
+

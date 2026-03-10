@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import com.tool.tcp.SpriteFactory;
 import org.come.XuanBao.XuanBaoJframe;
@@ -1368,18 +1368,18 @@ public class GoodsMsgJpanel extends JPanel
                         Skill skill = UserMessUntil.getSkillById(String.valueOf(skillId) + "");
                         if (skillId >= 4023) {
                             if (v3[1].contains("{守护石1}")) {
-                                v3[1] = v3[1].replace("{守护石1}", "#R" + String.format("%.1f", new Object[] { Double.valueOf(Double.parseDouble(skill.getValue1())) }) + "%#ca098c8");
+                                v3[1] = v3[1].replace("{守护石1}", "#R" + String.format("%.1f", new Object[] { Double.valueOf(skill.getValue1AsDouble()) }) + "%#ca098c8");
                             }
                             if (v3[1].contains("{守护石2}")) {
-                                v3[1] = v3[1].replace("{守护石2}", "#R" + String.format("%.1f", new Object[] { Double.valueOf(Double.parseDouble(skill.getValue2())) }) + "%#ca098c8");
+                                v3[1] = v3[1].replace("{守护石2}", "#R" + String.format("%.1f", new Object[] { Double.valueOf(skill.getValue2AsDouble()) }) + "%#ca098c8");
                             }
                         }
                         else {
                             if (v3[1].contains("{守护石1}")) {
-                                v3[1] = v3[1].replace("{守护石1}", "#R" + String.format("%.1f", new Object[] { Double.valueOf(Double.parseDouble(skill.getValue1())) }) + "%#ca098c8");
+                                v3[1] = v3[1].replace("{守护石1}", "#R" + String.format("%.1f", new Object[] { Double.valueOf(skill.getValue1AsDouble()) }) + "%#ca098c8");
                             }
                             if (v3[1].contains("{守护石2}")) {
-                                v3[1] = v3[1].replace("{守护石2}", "#R" + String.format("%.1f", new Object[] { Double.valueOf(Double.parseDouble(skill.getValue2())) }) + "%#ca098c8");
+                                v3[1] = v3[1].replace("{守护石2}", "#R" + String.format("%.1f", new Object[] { Double.valueOf(skill.getValue2AsDouble()) }) + "%#ca098c8");
                             }
                         }
                     }
@@ -1743,19 +1743,19 @@ public class GoodsMsgJpanel extends JPanel
     }
     
     public static String SummonSkillRemark(String remark, Skill skill, String sld, String lvl) {
-        remark = remark.replace("{公式一}", "#R" + (int)Arith.mul(Arith.div(Arith.mul(Double.parseDouble(skill.getValue()), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))) + "#G");
-        remark = remark.replace("{公式二}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(Double.parseDouble(skill.getValue()), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.8")) + "#G");
-        remark = remark.replace("{公式三}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(Double.parseDouble(skill.getValue()), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.7")) + "#G");
-        remark = remark.replace("{公式四}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(Double.parseDouble(skill.getValue()), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.3")) + "#G");
-        remark = remark.replace("{公式五}", "#R" + (int)Arith.sub(Double.parseDouble("100"), Arith.mul(Arith.div(Arith.mul(Double.parseDouble(skill.getValue()), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl)))) + "#G");
-        remark = remark.replace("{公式六}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(Double.parseDouble(skill.getValue()), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.25")) + "#G");
-        remark = remark.replace("{公式七}", "#R" + (int)Arith.add(Double.parseDouble("100"), Arith.mul(Arith.div(Arith.mul(Double.parseDouble(skill.getValue()), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl)))) + "#G");
-        remark = remark.replace("{公式八}", "#R" + (int)Arith.add(Double.parseDouble("1"), Arith.mul(Arith.mul(Arith.div(Arith.mul(Double.parseDouble(skill.getValue()), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.07"))) + "#G");
-        remark = remark.replace("{公式九}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(Double.parseDouble(skill.getValue()), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.5")) + "#G");
-        remark = remark.replace("{公式十}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(Double.parseDouble(skill.getValue()), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.05")) + "#G");
+        remark = remark.replace("{公式一}", "#R" + (int)Arith.mul(Arith.div(Arith.mul(skill.getValueAsDouble(), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))) + "#G");
+        remark = remark.replace("{公式二}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(skill.getValueAsDouble(), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.8")) + "#G");
+        remark = remark.replace("{公式三}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(skill.getValueAsDouble(), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.7")) + "#G");
+        remark = remark.replace("{公式四}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(skill.getValueAsDouble(), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.3")) + "#G");
+        remark = remark.replace("{公式五}", "#R" + (int)Arith.sub(Double.parseDouble("100"), Arith.mul(Arith.div(Arith.mul(skill.getValueAsDouble(), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl)))) + "#G");
+        remark = remark.replace("{公式六}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(skill.getValueAsDouble(), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.25")) + "#G");
+        remark = remark.replace("{公式七}", "#R" + (int)Arith.add(Double.parseDouble("100"), Arith.mul(Arith.div(Arith.mul(skill.getValueAsDouble(), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl)))) + "#G");
+        remark = remark.replace("{公式八}", "#R" + (int)Arith.add(Double.parseDouble("1"), Arith.mul(Arith.mul(Arith.div(Arith.mul(skill.getValueAsDouble(), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.07"))) + "#G");
+        remark = remark.replace("{公式九}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(skill.getValueAsDouble(), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.5")) + "#G");
+        remark = remark.replace("{公式十}", "#R" + (int)Arith.mul(Arith.mul(Arith.div(Arith.mul(skill.getValueAsDouble(), Double.parseDouble(sld)), 5.0, 0), Math.sqrt(Double.parseDouble(lvl))), Double.parseDouble("0.05")) + "#G");
         //灯火阑珊技能描述
-        remark = remark.replace("{公式十一}", "#R" + (int) (Double.parseDouble(skill.getValue()) * Double.parseDouble(sld) * Double.parseDouble(lvl)) + "#G");
-        remark = remark.replace("{公式十二}", "#R" + (int) (Double.parseDouble(skill.getGrow()) * Double.parseDouble(sld) * Double.parseDouble(lvl)) + "#G");
+        remark = remark.replace("{公式十一}", "#R" + (int) (skill.getValueAsDouble() * Double.parseDouble(sld) * Double.parseDouble(lvl)) + "#G");
+        remark = remark.replace("{公式十二}", "#R" + (int) (skill.getGrowAsDouble() * Double.parseDouble(sld) * Double.parseDouble(lvl)) + "#G");
         return remark;
     }
     
@@ -2217,7 +2217,7 @@ public class GoodsMsgJpanel extends JPanel
         int xiaohao = 0;
         Skill skill = UserMessUntil.getskillformname(xuanBao.name);
         if (skill != null) {
-            xiaohao = (int) Double.parseDouble(skill.getDielectric());
+            xiaohao = (int) skill.getDielectricAsDouble();
 
         }
         buffer.append("【").append("技能消耗").append("】").append(xiaohao);
@@ -2387,3 +2387,4 @@ public class GoodsMsgJpanel extends JPanel
         GoodsMsgJpanel.tcp18 = SpriteFactory.VloadSprite("resource/NewRoleUi/36角色/最新特效/17.tcp", null);
     }
 }
+
