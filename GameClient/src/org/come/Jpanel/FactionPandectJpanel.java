@@ -81,16 +81,16 @@ public class FactionPandectJpanel extends JPanel
     }
     
     public void showFactionMessage(Gang gang, GangGroup gangGroup) {
-        this.labFactionName.setText(gang.getGangname());
+        this.labFactionName.setText(gang.getGangName());
         this.labFactionLvl.setText(gang.getGanggrade().toString());
         this.labFactionMoney.setText(gang.getBuilder().toString());
         this.labFactionNum.setText(gang.getGangnumber().toString());
-        this.labFactionWang.setText(gang.getGangbelong());
+        this.labFactionWang.setText(gang.getGangBelong());
         this.textArea.setText(gang.getIntroduction());
         this.btnBase.setLvl(gang.getGanggrade().intValue());
         if (gangGroup != null) {
-            this.btnDye.setLvl(gangGroup.getXy());
-            this.btnTechfun.setLvl(gangGroup.getKj());
+            this.btnDye.setLvl(gangGroup.getTrainingLevel());
+            this.btnTechfun.setLvl(gangGroup.getTechLevel());
         }
     }
     

@@ -223,7 +223,7 @@ public class FactionBtn extends MoBanBtn
                         if (this.factionMemberJpanel.getMenuType() != 7) {
                             int selectedRow = this.factionMemberJpanel.getTable().getSelectedRow();
                             if (selectedRow != -1) {
-                                LoginResult loginResult = (LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTables().get(selectedRow);
+                                LoginResult loginResult = (LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTableList().get(selectedRow);
                                 PlayerMonitor.addFriend(loginResult.getRole_id(), loginResult.getRolename());
                             }
                         }
@@ -456,7 +456,7 @@ public class FactionBtn extends MoBanBtn
                     if (this.factionMemberJpanel.getMenuType() != 7) {
                         int selectedRow = this.factionMemberJpanel.getTable().getSelectedRow();
                         if (selectedRow != -1) {
-                            LoginResult loginResult = (LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTables().get(selectedRow);
+                            LoginResult loginResult = (LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTableList().get(selectedRow);
                             PlayerMonitor.addFriend(loginResult.getRole_id(), loginResult.getRolename());
                         }
                     }
@@ -717,11 +717,11 @@ public class FactionBtn extends MoBanBtn
                 ZhuFrame.getZhuJpanel().addPrompt2("请选择一个帮派人员！");
                 return false;
             }
-            if (((LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTables().get(index)).getRole_id().compareTo(RoleData.getRoleData().getLoginResult().getRole_id()) != 0) {
+            if (((LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTableList().get(index)).getRole_id().compareTo(RoleData.getRoleData().getLoginResult().getRole_id()) != 0) {
                 ApointJpanel apointJpanel = ApointJframe.getApointJframe().getApointJpanel();
-                apointJpanel.getLabname().setText(((LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTables().get(index)).getRolename());
-                apointJpanel.getLabRace().setText(((LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTables().get(index)).getRace_name());
-                apointJpanel.getLabLevel().setText(AnalysisString.lvl((int)((LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTables().get(index)).getGrade()));
+                apointJpanel.getLabname().setText(((LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTableList().get(index)).getRolename());
+                apointJpanel.getLabRace().setText(((LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTableList().get(index)).getRace_name());
+                apointJpanel.getLabLevel().setText(AnalysisString.lvl((int)((LoginResult)this.factionMemberJpanel.getFactionCardJpanel().getGangResultBean().getRoleTableList().get(index)).getGrade()));
                 ApointJpanel.index = index;
                 return true;
             }

@@ -33,16 +33,16 @@ public class GangChangeControl implements FromServerAction
             FactionCardJpanel factionCardJpanel = FactionMainJframe.getFactionMainJframe().getFactionMainJpanel().getFactionCardJpanel();
             GangResultBean gangResultBean = factionCardJpanel.getGangResultBean();
             if ("帮主".equals(changeBean.getPost())) {
-                for (int i = 0; i < gangResultBean.getRoleTables().size(); ++i) {
-                    LoginResult loginResult2 = (LoginResult)gangResultBean.getRoleTables().get(i);
+                for (int i = 0; i < gangResultBean.getRoleTableList().size(); ++i) {
+                    LoginResult loginResult2 = (LoginResult)gangResultBean.getRoleTableList().get(i);
                     if ("帮主".equals(loginResult2.getGangpost())) {
                         loginResult2.setGangpost(post);
                     }
                 }
             }
             int i = 0;
-            while (i < gangResultBean.getRoleTables().size()) {
-                LoginResult loginResult2 = (LoginResult)gangResultBean.getRoleTables().get(i);
+            while (i < gangResultBean.getRoleTableList().size()) {
+                LoginResult loginResult2 = (LoginResult)gangResultBean.getRoleTableList().get(i);
                 if (loginResult2.getRole_id().compareTo(loginResult.getRole_id()) == 0) {
                     loginResult2.setGang_id(changeBean.getGangid());
                     loginResult2.setGangname(changeBean.getGangName());
