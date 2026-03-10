@@ -13,23 +13,23 @@ import org.come.entity.XuanBao;
 public interface xuanbaoMapper {
     List<XuanBao> selectAllLingbao();
 
-    void insertLingbao(XuanBao var1);
+    void insertLingbao(XuanBao xuanBao);
 
-    List<XuanBao> selectLingbaoByRoleID(BigDecimal var1);
+    List<XuanBao> selectLingbaoByRoleID(BigDecimal roleId);
 
-    void updateLingbao(XuanBao var1);
+    void updateLingbao(XuanBao xuanBao);
 
-    void deleteLingbao(BigDecimal var1);
+    void deleteLingbao(BigDecimal xuanBaoId);
 
     BigDecimal selectMaxID();
 
-    List<LingbaoRoleUser> selectLingBaoRU(@Param("lru") LingbaoRoleUser var1);
+    List<LingbaoRoleUser> selectLingBaoRU(@Param("lru") LingbaoRoleUser lingbaoRoleUser);
 
-    Integer selectLingBaoRUCount(@Param("lru") LingbaoRoleUser var1);
+    Integer selectLingBaoRUCount(@Param("lru") LingbaoRoleUser lingbaoRoleUser);
 
-    void deleteLingbaoList(List<BigDecimal> var1);
+    void deleteLingbaoList(List<BigDecimal> xuanBaoIds);
 
-    void insertLingbaoList(List<XuanBao> var1);
+    void insertLingbaoList(List<XuanBao> xuanBaoList);
 
-    void updateLingbaoList(List<XuanBao> var1);
+    void updateLingbaoList(List<XuanBao> xuanBaoList);
 }

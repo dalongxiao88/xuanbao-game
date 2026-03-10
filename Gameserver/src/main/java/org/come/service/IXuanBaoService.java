@@ -10,33 +10,33 @@ import org.come.entity.XuanBao;
 public interface IXuanBaoService {
     List<XuanBao> selectAllLingbao();
 
-    void insertLingbao(XuanBao var1);
+    void insertLingbao(XuanBao xuanBao);
 
-    List<XuanBao> selectLingbaoByRoleID(BigDecimal var1);
+    List<XuanBao> selectLingbaoByRoleID(BigDecimal roleId);
 
-    XuanBao selectLingbaoByID(BigDecimal var1);
+    XuanBao selectLingbaoByID(BigDecimal xuanBaoId);
 
-    void updateLingbaoIndex(XuanBao var1, BigDecimal var2);
+    void updateLingbaoIndex(XuanBao xuanBao, BigDecimal roleId);
 
-    void updateLingbaoRedis(XuanBao var1);
+    void updateLingbaoRedis(XuanBao xuanBao);
 
-    void deleteLingbao(BigDecimal var1);
+    void deleteLingbao(BigDecimal xuanBaoId);
 
     BigDecimal selectMaxID();
 
-    void updateLingbaosql(XuanBao var1);
+    void updateLingbaosql(XuanBao xuanBao);
 
-    void deleteLingbaosql(BigDecimal var1);
+    void deleteLingbaosql(BigDecimal xuanBaoId);
 
-    void insertLingbaosql(XuanBao var1);
+    void insertLingbaosql(XuanBao xuanBao);
 
-    List<LingbaoRoleUser> selectLingBaoRU(LingbaoRoleUser var1);
+    List<LingbaoRoleUser> selectLingBaoRU(LingbaoRoleUser lingbaoRoleUser);
 
-    Integer selectLingBaoRUCount(LingbaoRoleUser var1);
+    Integer selectLingBaoRUCount(LingbaoRoleUser lingbaoRoleUser);
 
-    void deleteLingbaoList(List<BigDecimal> var1);
+    void deleteLingbaoList(List<BigDecimal> xuanBaoIds);
 
-    void insertLingbaoList(List<XuanBao> var1);
+    void insertLingbaoList(List<XuanBao> xuanBaoList);
 
-    void updateLingbaoList(List<XuanBao> var1);
+    void updateLingbaoList(List<XuanBao> xuanBaoList);
 }
