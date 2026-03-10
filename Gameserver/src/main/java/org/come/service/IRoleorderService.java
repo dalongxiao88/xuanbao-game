@@ -7,27 +7,27 @@ import java.math.BigDecimal;
 
 public interface IRoleorderService
 {
-    List<Roleorder> selectRoleOrders(BigDecimal p0);
+    List<Roleorder> selectRoleOrders(BigDecimal roleId);
     
-    int countByExample(RoleorderExample p0);
+    int countByExample(RoleorderExample roleorderExample);
     
-    int deleteByExample(RoleorderExample p0);
+    int deleteByExample(RoleorderExample roleorderExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal orderId);
     
-    int insert(Roleorder p0);
+    int insert(Roleorder roleorder);
     
-    int insertSelective(Roleorder p0);
+    int insertSelective(Roleorder roleorder);
     
-    List<Roleorder> selectByExample(RoleorderExample p0);
+    List<Roleorder> selectByExample(RoleorderExample roleorderExample);
     
-    Roleorder selectByPrimaryKey(BigDecimal p0);
+    Roleorder selectByPrimaryKey(BigDecimal orderId);
     
-    int updateByExampleSelective(Roleorder p0, RoleorderExample p1);
+    int updateByExampleSelective(Roleorder roleorder, RoleorderExample roleorderExample);
     
-    int updateByExample(Roleorder p0, RoleorderExample p1);
+    int updateByExample(Roleorder roleorder, RoleorderExample roleorderExample);
     
-    int updateByPrimaryKeySelective(Roleorder p0);
+    int updateByPrimaryKeySelective(Roleorder roleorder);
     
-    int updateByPrimaryKey(Roleorder p0);
+    int updateByPrimaryKey(Roleorder roleorder);
 }
