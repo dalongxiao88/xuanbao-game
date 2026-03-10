@@ -185,7 +185,10 @@ public class DianJpanel extends JPanel
         }
     }
     
-    public void TH(QualityClBean clBean) {
+    /**
+     * 按新的点粹结果刷新面板显示。
+     */
+    public void copyFrom(QualityClBean clBean) {
         Goodstable good = GoodsListFromServerUntil.getRgid(clBean.getRgid());
         assert good != null;
         String[] value = good.getValue().split("\\|");
@@ -231,6 +234,11 @@ public class DianJpanel extends JPanel
             DianJpanel.teji2 = 0;
             this.teji[1].setVisible(false);
         }
+    }
+
+    /** 兼容旧命名：刷新点粹面板。 */
+    public void TH(QualityClBean clBean) {
+        this.copyFrom(clBean);
     }
     
     public static double dianchizhi() {

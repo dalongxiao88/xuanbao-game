@@ -5,10 +5,11 @@ import java.util.List;
 import java.math.BigDecimal;
 import org.come.Jpanel.spot.Commodity;
 /**
- * 角色背包物品bean
+ * 客户端背包物品实体。
  *
- * @author 叶豪芳
- * @date : 2017年11月27日 上午10:06:42
+ * 当前类既服务于背包、装备、摆摊，也服务于翅膀、灵宝等面板的物品展示。
+ * 历史方法 `goodxh` 实际表示“扣减使用次数/叠加数量”，
+ * `TH` 实际表示“从另一个物品对象复制数据”。
  */
 public class Goodstable implements Cloneable, Commodity
 {
@@ -68,11 +69,22 @@ public class Goodstable implements Cloneable, Commodity
         return typeOrder;
     }
     
+    /**
+     * 扣减物品使用次数或叠加数量。
+     */
+    public void consumeUseTime(int amount) {
+        this.setUsetime(Integer.valueOf((int)this.getUsetime() - amount));
+    }
+
+    /** 兼容旧命名：扣减使用次数。 */
     public void goodxh(int i) {
-        this.setUsetime(Integer.valueOf((int)this.getUsetime() - i));
+        this.consumeUseTime(i);
     }
     
-    public void TH(Goodstable good) {
+    /**
+     * 从另一个物品对象复制主要展示与状态字段。
+     */
+    public void copyFrom(Goodstable good) {
         this.rgid = good.rgid;
         this.role_id = good.role_id;
         this.goodsid = good.goodsid;
@@ -85,6 +97,11 @@ public class Goodstable implements Cloneable, Commodity
         this.status = good.status;
         this.usetime = good.usetime;
         this.goodlock = good.goodlock;
+    }
+
+    /** 兼容旧命名：复制物品对象。 */
+    public void TH(Goodstable good) {
+        this.copyFrom(good);
     }
     
     public Goodstable(BigDecimal rgid, BigDecimal role_id, BigDecimal goodsid, String goodsname, String skin, Long type, Long quality, String value, String instruction, Integer status, Integer usetime) {
@@ -107,17 +124,35 @@ public class Goodstable implements Cloneable, Commodity
     public BigDecimal getRole_id() {
         return this.role_id;
     }
+
+    /** 语义化别名：所属角色 ID。 */
+    public BigDecimal getRoleId() {
+        return this.role_id;
+    }
     
     public void setRole_id(BigDecimal role_id) {
         this.role_id = role_id;
+    }
+
+    public void setRoleId(BigDecimal roleId) {
+        this.role_id = roleId;
     }
     
     public BigDecimal getGoodsid() {
         return this.goodsid;
     }
+
+    /** 语义化别名：物品模板 ID。 */
+    public BigDecimal getGoodsId() {
+        return this.goodsid;
+    }
     
     public void setGoodsid(BigDecimal goodsid) {
         this.goodsid = goodsid;
+    }
+
+    public void setGoodsId(BigDecimal goodsId) {
+        this.goodsid = goodsId;
     }
     
     public String getGoodsname() {

@@ -1,4 +1,4 @@
-package com.tool.btn;
+﻿package com.tool.btn;
 
 import org.come.bean.WitchComposeBean;
 import org.come.until.Util;
@@ -112,7 +112,7 @@ public class RefineOperBtn extends MoBanBtn
                     if (DianQJframe.getDdianQJframe().getDianJpanel().clBean != null) {
                         String senmes = Agreement.extrAttrOperAgreement(GsonUtil.getGsonUtil().getgson().toJson(DianQJframe.getDdianQJframe().getDianJpanel().clBean));
                         SendMessageUntil.toServer(senmes);
-                        DianQJframe.getDdianQJframe().getDianJpanel().TH(DianQJframe.getDdianQJframe().getDianJpanel().clBean);
+                        DianQJframe.getDdianQJframe().getDianJpanel().copyFrom(DianQJframe.getDdianQJframe().getDianJpanel().clBean);
                     }
                     FormsManagement.HideForm(128);
                 }
@@ -126,17 +126,17 @@ public class RefineOperBtn extends MoBanBtn
                 if (DdianJframe.getDdianJframe().getDianJpanel().clBean != null && EJpanel.getType() == 2) {
                     String senmes2 = Agreement.extrAttrOperAgreement(GsonUtil.getGsonUtil().getgson().toJson(DdianJframe.getDdianJframe().getDianJpanel().clBean));
                     SendMessageUntil.toServer(senmes2);
-                    DdianJframe.getDdianJframe().getDianJpanel().TH(DdianJframe.getDdianJframe().getDianJpanel().clBean);
+                    DdianJframe.getDdianJframe().getDianJpanel().copyFrom(DdianJframe.getDdianJframe().getDianJpanel().clBean);
                 }
                 else if (DianQJframe.getDdianQJframe().getDianJpanel().clBean != null) {
                     String senmes2 = Agreement.extrAttrOperAgreement(GsonUtil.getGsonUtil().getgson().toJson(DianQJframe.getDdianQJframe().getDianJpanel().clBean));
                     SendMessageUntil.toServer(senmes2);
-                    DianQJframe.getDdianQJframe().getDianJpanel().TH(DianQJframe.getDdianQJframe().getDianJpanel().clBean);
+                    DianQJframe.getDdianQJframe().getDianJpanel().copyFrom(DianQJframe.getDdianQJframe().getDianJpanel().clBean);
                 }
                 else if (this.NrJpanel.clBean != null) {
                     String senmes2 = Agreement.extrAttrOperAgreement(GsonUtil.getGsonUtil().getgson().toJson(this.NrJpanel.clBean));
                     SendMessageUntil.toServer(senmes2);
-                    this.NrJpanel.TH(this.NrJpanel.clBean);
+                    this.NrJpanel.copyFrom(this.NrJpanel.clBean);
                 }
                 else {
                     FormsManagement.HideForm(11);
@@ -1142,3 +1142,4 @@ public class RefineOperBtn extends MoBanBtn
         return true;
     }
 }
+

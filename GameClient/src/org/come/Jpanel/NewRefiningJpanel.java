@@ -430,7 +430,10 @@ public class NewRefiningJpanel extends JPanel
         return count;
     }
     
-    public void TH(QualityClBean clBean) {
+    /**
+     * 按新的炼化结果刷新精炼面板。
+     */
+    public void copyFrom(QualityClBean clBean) {
         if (clBean.getType() >= 71 && clBean.getType() <= 76) {
             this.leixing = 4;
             this.addValues(clBean.getNewAttr(), 0, false);
@@ -464,6 +467,11 @@ public class NewRefiningJpanel extends JPanel
             }
         }
         this.clBean = null;
+    }
+
+    /** 兼容旧命名：刷新精炼面板。 */
+    public void TH(QualityClBean clBean) {
+        this.copyFrom(clBean);
     }
     
     public void addValues(String v, int type, boolean is) {

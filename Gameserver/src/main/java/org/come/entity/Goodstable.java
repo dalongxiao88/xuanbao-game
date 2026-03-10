@@ -1,12 +1,17 @@
 package org.come.entity;
 
 import org.come.tool.JmSum;
-import org.come.bean.LoginResult;
-import org.come.until.AllServiceUtil;
 import java.util.List;
 import come.tool.Calculation.BaseEquip;
 import java.math.BigDecimal;
 
+/**
+ * 服务端物品实体。
+ *
+ * 该类同时承载背包物品、仓库物品、装备与交易物品的基础信息。
+ * 其中历史方法 `goodxh` 实际表示“扣减使用次数/数量”，
+ * 当前阶段保留旧方法并增加语义化别名，避免影响大量旧调用链。
+ */
 public class Goodstable implements Cloneable
 {
     // 物品IDgoodsid
@@ -53,28 +58,50 @@ public class Goodstable implements Cloneable
         this.otherInfo = otherInfo;
     }
     
+    /**
+     * 扣减物品使用次数或叠加数量。
+     */
+    public void consumeUseTime(int amount) {
+        this.setUsetime(Integer.valueOf((int)this.getUsetime() - amount));
+    }
+
+    /** 兼容旧命名：扣减使用次数。 */
     public void goodxh(int i) {
-        this.setUsetime(Integer.valueOf((int)this.getUsetime() - i));
+        this.consumeUseTime(i);
     }
     
     public BigDecimal getRgid() {
         return this.rgid;
     }//1
+
+    /** 语义化别名：物品记录 ID。 */
+    public BigDecimal getRecordId() {
+        return this.rgid;
+    }
     
     public void setRgid(BigDecimal rgid) {
         this.rgid = rgid;
     }
+
+    public void setRecordId(BigDecimal recordId) {
+        this.rgid = recordId;
+    }
     
     public BigDecimal getRole_id() {
-    //    LoginResult loginResult = AllServiceUtil.getRoleTableService().selectRoleByRoleId(this.role_id);
-    //    this.rolename = loginResult.getRolename();
+        return this.role_id;
+    }
+
+    /** 语义化别名：所属角色 ID。 */
+    public BigDecimal getRoleId() {
         return this.role_id;
     }
 
     public void setRole_id(BigDecimal role_id) {
-     //   LoginResult loginResult = AllServiceUtil.getRoleTableService().selectRoleByRoleId(role_id);
-    //    this.rolename = loginResult.getRolename();
         this.role_id = role_id;
+    }
+
+    public void setRoleId(BigDecimal roleId) {
+        this.role_id = roleId;
     }
     
     public String getRolename() {
@@ -88,9 +115,18 @@ public class Goodstable implements Cloneable
     public BigDecimal getGoodsid() {
         return this.goodsid;
     }
+
+    /** 语义化别名：物品模板 ID。 */
+    public BigDecimal getGoodsId() {
+        return this.goodsid;
+    }
     
     public void setGoodsid(BigDecimal goodsid) {
         this.goodsid = goodsid;
+    }
+
+    public void setGoodsId(BigDecimal goodsId) {
+        this.goodsid = goodsId;
     }
     
     public String getGoodsname() {
@@ -131,6 +167,11 @@ public class Goodstable implements Cloneable
             this.baseEquip = new BaseEquip(this.value, this.type);
         }
         return this.baseEquip;
+    }
+
+    /** 语义化别名：解析后的基础装备信息。 */
+    public BaseEquip getBaseEquip() {
+        return this.getEquip();
     }
     
     public String getInstruction() {

@@ -178,7 +178,10 @@ public class DianQJpanel extends JPanel
         this.clBean = clBean;
     }
     
-    public void TH(QualityClBean clBean) {
+    /**
+     * 按新的点粹强化结果刷新面板显示。
+     */
+    public void copyFrom(QualityClBean clBean) {
         Goodstable good = GoodsListFromServerUntil.getRgid(clBean.getRgid());
         assert good != null;
         String[] value = good.getValue().split("\\|");
@@ -214,6 +217,11 @@ public class DianQJpanel extends JPanel
         this.clBean = null;
         this.setYou(false);
         this.setZuo(true);
+    }
+
+    /** 兼容旧命名：刷新点粹强化面板。 */
+    public void TH(QualityClBean clBean) {
+        this.copyFrom(clBean);
     }
     
     public boolean isP() {
