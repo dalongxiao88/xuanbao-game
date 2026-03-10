@@ -2,6 +2,9 @@ package org.come.entity;
 
 import java.math.BigDecimal;
 
+/**
+ * 客户端帮派实体。
+ */
 public class Gang
 {
     private BigDecimal gangid;
@@ -18,17 +21,35 @@ public class Gang
     public BigDecimal getGangid() {
         return this.gangid;
     }
+
+    /** 语义化别名：帮派 ID。 */
+    public BigDecimal getGangId() {
+        return this.gangid;
+    }
     
     public void setGangid(BigDecimal gangid) {
         this.gangid = gangid;
+    }
+
+    public void setGangId(BigDecimal gangId) {
+        this.gangid = gangId;
     }
     
     public String getGangname() {
         return this.gangname;
     }
+
+    /** 语义化别名：帮派名称。 */
+    public String getGangName() {
+        return this.gangname;
+    }
     
     public void setGangname(String gangname) {
         this.gangname = ((gangname == null) ? null : gangname.trim());
+    }
+
+    public void setGangName(String gangName) {
+        this.gangname = ((gangName == null) ? null : gangName.trim());
     }
     
     public BigDecimal getGangnumber() {
