@@ -8,9 +8,9 @@ public interface IMountskillService
 {
     List<MountSkill> selectAllMountskills();
     
-    List<MountSkill> selectMountskillsByMountid(BigDecimal p0);
+    List<MountSkill> selectMountskillsByMountid(BigDecimal mountId);
     
-    void deleteMountskills(BigDecimal p0);
+    void deleteMountskills(BigDecimal mountId);
     
-    void insertMountskills(MountSkill p0);
+    void insertMountskills(MountSkill mountSkill);
 }
