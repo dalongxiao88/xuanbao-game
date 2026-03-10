@@ -14,45 +14,45 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface AppVersionMapper
 {
-    List<AppVersion> selectVersionUrl(@Param("version") String p0, @Param("sign") String p1);
+    List<AppVersion> selectVersionUrl(@Param("version") String version, @Param("sign") String sign);
     
     String selectPhoneVersion();
     
     int deleteUserByCondition();
     
-    List<Goodsrecord2> selectGoodsRecordByPage(@Param("sql") String p0, @Param("start") int p1, @Param("end") int p2);
+    List<Goodsrecord2> selectGoodsRecordByPage(@Param("sql") String querySql, @Param("start") int start, @Param("end") int end);
     
-    List<Goodsrecord2> trackGoods(@Param("rgid") int p0, @Param("quid") int p1, @Param("start") int p2, @Param("end") int p3);
+    List<Goodsrecord2> trackGoods(@Param("rgid") int rgid, @Param("quid") int quid, @Param("start") int start, @Param("end") int end);
     
-    int updatePhoneVersion(String p0);
+    int updatePhoneVersion(String phoneVersion);
     
     List<ShopBuyTypeResult> selectShopBuyType();
     
-    List<ShopBuyRecordResultBean> selectShopBuyRecord(ShopBuyRecordReqBean p0);
+    List<ShopBuyRecordResultBean> selectShopBuyRecord(ShopBuyRecordReqBean requestBean);
     
-    String selectAtbyRoleid(BigDecimal p0);
+    String selectAtbyRoleid(BigDecimal roleId);
     
-    int numRecordInsert(AreaNumRecord p0);
+    int numRecordInsert(AreaNumRecord areaNumRecord);
     
-    List<AreaNumRecord> weekRecordQuery(@Param("start") int p0, @Param("end") int p1);
+    List<AreaNumRecord> weekRecordQuery(@Param("start") int start, @Param("end") int end);
     
-    List<AreaNumRecord> selectRecordByPage(@Param("areaName") String p0, @Param("day") String p1);
+    List<AreaNumRecord> selectRecordByPage(@Param("areaName") String areaName, @Param("day") String day);
     
-    int hequupdate(@Param("newAtid") String p0, @Param("oldAtid") String p1);
+    int hequupdate(@Param("newAtid") String newAtid, @Param("oldAtid") String oldAtid);
     
-    String selectAtid(@Param("quid") String p0, @Param("atid") String p1);
+    String selectAtid(@Param("quid") String quid, @Param("atid") String atid);
     
     List<String> hequSelectUserName();
     
     List<String> hequSelectRoleName();
     
-    int hequupdateUserName(@Param("newName") String p0, @Param("oldName") String p1);
+    int hequupdateUserName(@Param("newName") String newName, @Param("oldName") String oldName);
     
-    int hequupdateRoleName(@Param("newName") String p0, @Param("oldName") String p1);
+    int hequupdateRoleName(@Param("newName") String newName, @Param("oldName") String oldName);
     
-    int insertGoodsRecord(List<Goodsrecord2> p0);
+    int insertGoodsRecord(List<Goodsrecord2> goodsRecords);
     
     BigDecimal selectSequence();
     
-    List<AppVersion> selectVersionBean(String p0);
+    List<AppVersion> selectVersionBean(String versionType);
 }

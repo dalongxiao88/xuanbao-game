@@ -11,45 +11,45 @@ import java.util.List;
 
 public interface AppVersionService
 {
-    List<AppVersion> selectVersionUrl(String p0, String p1);
+    List<AppVersion> selectVersionUrl(String version, String sign);
     
-    List<AppVersion> selectVersionBean(String p0);
+    List<AppVersion> selectVersionBean(String versionType);
     
     String selectPhoneVersion();
     
     int deleteUserByCondition();
     
-    List<Goodsrecord2> selectGoodsRecordByPage(String p0, Integer p1);
+    List<Goodsrecord2> selectGoodsRecordByPage(String querySql, Integer pageNum);
     
-    int updatePhoneVersion(String p0);
+    int updatePhoneVersion(String phoneVersion);
     
-    List<Goodsrecord2> trackGoods(int p0, int p1, int p2);
+    List<Goodsrecord2> trackGoods(int rgid, int quid, int pageNum);
     
     List<ShopBuyTypeResult> selectShopBuyType();
     
-    List<ShopBuyRecordResultBean> selectShopBuyRecord(ShopBuyRecordReqBean p0);
+    List<ShopBuyRecordResultBean> selectShopBuyRecord(ShopBuyRecordReqBean requestBean);
     
-    String selectAtbyRoleid(BigDecimal p0);
+    String selectAtbyRoleid(BigDecimal roleId);
     
-    int numRecordInsert(AreaNumRecord p0);
+    int numRecordInsert(AreaNumRecord areaNumRecord);
     
-    List<AreaNumRecord> weekRecordQuery(int p0);
+    List<AreaNumRecord> weekRecordQuery(int pageNum);
     
-    List<AreaNumRecord> selectRecordByPage(String p0, String p1);
+    List<AreaNumRecord> selectRecordByPage(String areaName, String day);
     
-    int hequupdate(String p0, String p1);
+    int hequupdate(String newAtid, String oldAtid);
     
-    String selectAtid(String p0, String p1);
+    String selectAtid(String quid, String atid);
     
     List<String> hequSelectUserName();
     
     List<String> hequSelectRoleName();
     
-    int hequupdateUserName(String p0, String p1);
+    int hequupdateUserName(String newName, String oldName);
     
-    int hequupdateRoleName(String p0, String p1);
+    int hequupdateRoleName(String newName, String oldName);
     
-    int insertGoodsRecord(List<Goodsrecord2> p0);
+    int insertGoodsRecord(List<Goodsrecord2> goodsRecords);
     
     BigDecimal selectSequence();
 }
