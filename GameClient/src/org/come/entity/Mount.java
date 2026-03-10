@@ -3,6 +3,9 @@ package org.come.entity;
 import java.util.List;
 import java.math.BigDecimal;
 
+/**
+ * 客户端坐骑实体。
+ */
 public class Mount
 {
     private BigDecimal mid;
@@ -63,9 +66,18 @@ public class Mount
     public Integer getMountid() {
         return this.mountid;
     }
+
+    /** 语义化别名：坐骑模板 ID。 */
+    public Integer getMountTypeId() {
+        return this.mountid;
+    }
     
     public void setMountid(Integer mountid) {
         this.mountid = mountid;
+    }
+
+    public void setMountTypeId(Integer mountTypeId) {
+        this.mountid = mountTypeId;
     }
     
     public String getMountname() {
@@ -79,6 +91,11 @@ public class Mount
     public Integer getMountlvl() {
         return this.mountlvl;
     }
+
+    /** 语义化别名：坐骑等级。 */
+    public Integer getMountLevel() {
+        return this.mountlvl;
+    }
     
     public String getMountlvlString() {
         if ((int)this.mountlvl <= 100) {
@@ -89,6 +106,10 @@ public class Mount
     
     public void setMountlvl(Integer mountlvl) {
         this.mountlvl = mountlvl;
+    }
+
+    public void setMountLevel(Integer mountLevel) {
+        this.mountlvl = mountLevel;
     }
     
     public Integer getLive() {
