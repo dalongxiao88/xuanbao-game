@@ -1,4 +1,4 @@
-package org.come.mouslisten;
+﻿package org.come.mouslisten;
 
 import org.come.entity.RoleSummoning;
 import org.come.Jpanel.PetSkillsJpanel;
@@ -30,8 +30,8 @@ public class ChosePetSkillsMouslisten
                 Skill skill = (Skill)UserMessUntil.getSkillBean().getSkillMap().get(petnaturalskill[i]);
                 ImageIcon img = new ImageIcon("img/skill/wxs_" + petnaturalskill[i] + ".png");
                 img.setImage(img.getImage().getScaledInstance(50, 50, 10));
-                if (UserMessUntil.getChosePetMes().getPetSkillswl() != null && !UserMessUntil.getChosePetMes().getPetSkillswl().equals("")) {
-                    String[] petskillswl = UserMessUntil.getChosePetMes().getPetSkillswl().split("\\|");
+                if (UserMessUntil.getChosePetMes().getPetWuLingSkills() != null && !UserMessUntil.getChosePetMes().getPetWuLingSkills().equals("")) {
+                    String[] petskillswl = UserMessUntil.getChosePetMes().getPetWuLingSkills().split("\\|");
                     for (int i2 = 0; i2 < petskillswl.length; ++i2) {
                         String[] level = petskillswl[i2].split("=");
                         if (petnaturalskill[i].equals(level[0])) {
@@ -207,3 +207,4 @@ public class ChosePetSkillsMouslisten
         }
     }
 }
+

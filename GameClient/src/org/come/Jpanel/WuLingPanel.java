@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import com.tool.btn.DeleteSkillBtn;
 import com.tool.btn.GoodPanelBtn;
@@ -158,7 +158,7 @@ public class WuLingPanel extends JPanel {
                 return;
             }
 
-            String petQlSkills = UserMessUntil.getChosePetMes().getPetSkillswl();
+            String petQlSkills = UserMessUntil.getChosePetMes().getPetWuLingSkills();
 
             if (StringUtils.isBlank(petQlSkills))
                 petQlSkills = "";
@@ -297,7 +297,7 @@ public class WuLingPanel extends JPanel {
                 return;
             }
 
-            String petQlSkills = UserMessUntil.getChosePetMes().getPetSkillswl();
+            String petQlSkills = UserMessUntil.getChosePetMes().getPetWuLingSkills();
 
             if (StringUtils.isBlank(petQlSkills))
                 petQlSkills = "";
@@ -393,3 +393,4 @@ public class WuLingPanel extends JPanel {
         }
     }
 }
+

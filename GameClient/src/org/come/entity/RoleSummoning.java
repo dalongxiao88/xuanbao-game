@@ -958,9 +958,18 @@ public class RoleSummoning implements Commodity
     public String getPetSkillswl() {
         return this.petSkillswl;
     }
+
+    /** 语义化别名：召唤兽悟灵技能串。 */
+    public String getPetWuLingSkills() {
+        return this.petSkillswl;
+    }
     
     public void setPetSkillswl(String petSkillswl) {
         this.petSkillswl = petSkillswl;
+    }
+
+    public void setPetWuLingSkills(String petWuLingSkills) {
+        this.petSkillswl = petWuLingSkills;
     }
     
     public String getZqk() {

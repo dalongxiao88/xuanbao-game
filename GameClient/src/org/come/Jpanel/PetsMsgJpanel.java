@@ -530,8 +530,8 @@ public class PetsMsgJpanel extends JPanel
             skills = pet.getPetSkills().split("\\|");
         }
         Map<String, String> qlMap = new HashMap<>();
-        if (StringUtils.isNotBlank(pet.getPetSkillswl())) {
-            String[] v = pet.getPetSkillswl().split("\\|");
+        if (StringUtils.isNotBlank(pet.getPetWuLingSkills())) {
+            String[] v = pet.getPetWuLingSkills().split("\\|");
             for (String s : v) {
                 String[] n = s.split("=");
                 qlMap.put(n[0], n[1]);
@@ -726,4 +726,5 @@ public class PetsMsgJpanel extends JPanel
         return skill.getSkillname() + "(" + sld + ")";
     }
 }
+
 

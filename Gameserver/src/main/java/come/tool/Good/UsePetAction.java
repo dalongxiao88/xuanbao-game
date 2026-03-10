@@ -777,8 +777,8 @@ public class UsePetAction implements IAction
             return;
         }
         List<String> skillswl = new ArrayList<>();
-        if (pet.getPetSkillswl() != null && !pet.getPetSkillswl().equals("")) {
-            String[] vs = pet.getPetSkillswl().split("\\|");
+        if (pet.getPetWuLingSkills() != null && !pet.getPetWuLingSkills().equals("")) {
+            String[] vs = pet.getPetWuLingSkills().split("\\|");
             for (int i = 0; i < vs.length; ++i) {
                 if (!vs[i].equals("") && vs[i].indexOf(value3) == -1) {
                     skillswl.add(vs[i]);
@@ -841,7 +841,7 @@ public class UsePetAction implements IAction
             }
             buffer1.append((String)skillswl.get(i));
         }
-        pet.setPetSkillswl(buffer1.toString());
+        pet.setPetWuLingSkills(buffer1.toString());
         AssetUpdate assetUpdate = new AssetUpdate();
         assetUpdate.setType(AssetUpdate.USEGOOD);
         useGood(good, 1);
@@ -1095,8 +1095,8 @@ public class UsePetAction implements IAction
                         if (!vs2[j].equals("")) {
                             if (vs2[j].equals(types)) {
                                 is = false;
-                                if (pet.getPetSkillswl() != null && !pet.getPetSkillswl().equals("")) {
-                                    vs3 = pet.getPetSkillswl().split("\\|");
+                                if (pet.getPetWuLingSkills() != null && !pet.getPetWuLingSkills().equals("")) {
+                                    vs3 = pet.getPetWuLingSkills().split("\\|");
                                     for (int i2 = 0; i2 < vs3.length; ++i2) {
                                         if (vs3[i2].indexOf(types) == -1) {
                                             if (buffer3.length() != 0) {
@@ -1119,7 +1119,7 @@ public class UsePetAction implements IAction
                     }
                 }
                 pet.setPetSkills((buffer2.length() == 0) ? null : buffer2.toString());
-                pet.setPetSkillswl((buffer3.length() == 0) ? null : buffer3.toString());
+                pet.setPetWuLingSkills((buffer3.length() == 0) ? null : buffer3.toString());
             }
             if (type == 1509 || type == 1609 || type == 1814 || type == 1866) {
                 is = false;
@@ -1536,7 +1536,7 @@ public class UsePetAction implements IAction
             SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().PromptAgreement("召唤兽没有技能"));
             return;
         }
-        if (pet.getPetSkillswl().indexOf(value2) == -1) {
+        if (pet.getPetWuLingSkills().indexOf(value2) == -1) {
             SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().PromptAgreement(skill.getSkillname() + "#R没有开启悟灵模式"));
             return;
         }
@@ -1548,7 +1548,7 @@ public class UsePetAction implements IAction
 
         List<String> skillswl = new ArrayList<>();
 
-        String[] vs = pet.getPetSkillswl().split("\\|");
+        String[] vs = pet.getPetWuLingSkills().split("\\|");
 
 
         //拼接悟灵技能
@@ -1562,7 +1562,7 @@ public class UsePetAction implements IAction
             buffer1.append(vs[i]);
         }
         //保存悟灵技能
-        pet.setPetSkillswl(buffer1.toString());
+        pet.setPetWuLingSkills(buffer1.toString());
         login.setGold(login.getGold().subtract(new BigDecimal(50000000)));//开启悟灵金额
         MonitorUtil.getMoney().useD(50000000);//开启悟灵金额
         //扣除物品
@@ -1597,8 +1597,8 @@ public class UsePetAction implements IAction
 
         List<String> skillswl = new ArrayList<>();
 
-        if (pet.getPetSkillswl() != null && !pet.getPetSkillswl().equals("")) {
-            String[] vs = pet.getPetSkillswl().split("\\|");
+        if (pet.getPetWuLingSkills() != null && !pet.getPetWuLingSkills().equals("")) {
+            String[] vs = pet.getPetWuLingSkills().split("\\|");
             for (int i = 0; i < vs.length; i++) {
                 if (!vs[i].equals("") && vs[i].indexOf(value2) == -1) {
                     skillswl.add(vs[i]);
@@ -1629,7 +1629,7 @@ public class UsePetAction implements IAction
             buffer1.append(skillswl.get(i));
         }
         //保存悟灵技能
-        pet.setPetSkillswl(buffer1.toString());
+        pet.setPetWuLingSkills(buffer1.toString());
         //扣除物品
         AssetUpdate assetUpdate = new AssetUpdate();
         assetUpdate.setType(AssetUpdate.USEGOOD);
@@ -3297,88 +3297,88 @@ public class UsePetAction implements IAction
         else if (id == 1832 && (int)pet.getPower() < 450) {
             return "你的召唤兽力量不足450";
         }
-        if (pet.getPetSkillswl() != null && !pet.getPetSkillswl().equals("")) {
+        if (pet.getPetWuLingSkills() != null && !pet.getPetWuLingSkills().equals("")) {
             if (id == 1600) {
-                if (pet.getPetSkillswl().indexOf("1602") != -1 || pet.getPetSkillswl().indexOf("1603") != -1 || pet.getPetSkillswl().indexOf("1604") != -1 || pet.getPetSkillswl().indexOf("1605") != -1 || pet.getPetSkillswl().indexOf("1601") != -1) {
+                if (pet.getPetWuLingSkills().indexOf("1602") != -1 || pet.getPetWuLingSkills().indexOf("1603") != -1 || pet.getPetWuLingSkills().indexOf("1604") != -1 || pet.getPetWuLingSkills().indexOf("1605") != -1 || pet.getPetWuLingSkills().indexOf("1601") != -1) {
                     return "已开启已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1601) {
-                if (pet.getPetSkillswl().indexOf("1600") != -1 || pet.getPetSkillswl().indexOf("1602") != -1 || pet.getPetSkillswl().indexOf("1603") != -1 || pet.getPetSkillswl().indexOf("1604") != -1 || pet.getPetSkillswl().indexOf("1605") != -1) {
+                if (pet.getPetWuLingSkills().indexOf("1600") != -1 || pet.getPetWuLingSkills().indexOf("1602") != -1 || pet.getPetWuLingSkills().indexOf("1603") != -1 || pet.getPetWuLingSkills().indexOf("1604") != -1 || pet.getPetWuLingSkills().indexOf("1605") != -1) {
                     return "已开启已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1602) {
-                if (pet.getPetSkillswl().indexOf("1600") != -1 || pet.getPetSkillswl().indexOf("1603") != -1 || pet.getPetSkillswl().indexOf("1604") != -1 || pet.getPetSkillswl().indexOf("1605") != -1 || pet.getPetSkillswl().indexOf("1601") != -1) {
+                if (pet.getPetWuLingSkills().indexOf("1600") != -1 || pet.getPetWuLingSkills().indexOf("1603") != -1 || pet.getPetWuLingSkills().indexOf("1604") != -1 || pet.getPetWuLingSkills().indexOf("1605") != -1 || pet.getPetWuLingSkills().indexOf("1601") != -1) {
                     return "已开启已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1603) {
-                if (pet.getPetSkillswl().indexOf("1600") != -1 || pet.getPetSkillswl().indexOf("1602") != -1 || pet.getPetSkillswl().indexOf("1604") != -1 || pet.getPetSkillswl().indexOf("1605") != -1 || pet.getPetSkillswl().indexOf("1601") != -1) {
+                if (pet.getPetWuLingSkills().indexOf("1600") != -1 || pet.getPetWuLingSkills().indexOf("1602") != -1 || pet.getPetWuLingSkills().indexOf("1604") != -1 || pet.getPetWuLingSkills().indexOf("1605") != -1 || pet.getPetWuLingSkills().indexOf("1601") != -1) {
                     return "已开启已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1604) {
-                if (pet.getPetSkillswl().indexOf("1600") != -1 || pet.getPetSkillswl().indexOf("1602") != -1 || pet.getPetSkillswl().indexOf("1603") != -1 || pet.getPetSkillswl().indexOf("1605") != -1 || pet.getPetSkillswl().indexOf("1601") != -1) {
+                if (pet.getPetWuLingSkills().indexOf("1600") != -1 || pet.getPetWuLingSkills().indexOf("1602") != -1 || pet.getPetWuLingSkills().indexOf("1603") != -1 || pet.getPetWuLingSkills().indexOf("1605") != -1 || pet.getPetWuLingSkills().indexOf("1601") != -1) {
                     return "已开启已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1605) {
-                if (pet.getPetSkillswl().indexOf("1600") != -1 || pet.getPetSkillswl().indexOf("1602") != -1 || pet.getPetSkillswl().indexOf("1603") != -1 || pet.getPetSkillswl().indexOf("1604") != -1 || pet.getPetSkillswl().indexOf("1601") != -1) {
+                if (pet.getPetWuLingSkills().indexOf("1600") != -1 || pet.getPetWuLingSkills().indexOf("1602") != -1 || pet.getPetWuLingSkills().indexOf("1603") != -1 || pet.getPetWuLingSkills().indexOf("1604") != -1 || pet.getPetWuLingSkills().indexOf("1601") != -1) {
                     return "已开启已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1611) {
-                if (pet.getPetSkillswl().indexOf(id) != -1) {
+                if (pet.getPetWuLingSkills().indexOf(id) != -1) {
                     return "已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1612) {
-                if (pet.getPetSkillswl().indexOf(id) != -1) {
+                if (pet.getPetWuLingSkills().indexOf(id) != -1) {
                     return "已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1831) {
-                if (pet.getPetSkillswl().indexOf("1831") != -1 || pet.getPetSkillswl().indexOf("1833") != -1) {
+                if (pet.getPetWuLingSkills().indexOf("1831") != -1 || pet.getPetWuLingSkills().indexOf("1833") != -1) {
                     return "已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1834) {
-                if (pet.getPetSkillswl().indexOf("1834") != -1 || pet.getPetSkillswl().indexOf("1836") != -1) {
+                if (pet.getPetWuLingSkills().indexOf("1834") != -1 || pet.getPetWuLingSkills().indexOf("1836") != -1) {
                     return "已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1835) {
-                if (pet.getPetSkillswl().indexOf(id) != -1) {
+                if (pet.getPetWuLingSkills().indexOf(id) != -1) {
                     return "已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1836) {
-                if (pet.getPetSkillswl().indexOf("1834") != -1 || pet.getPetSkillswl().indexOf("1836") != -1) {
+                if (pet.getPetWuLingSkills().indexOf("1834") != -1 || pet.getPetWuLingSkills().indexOf("1836") != -1) {
                     return "已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1833) {
-                if (pet.getPetSkillswl().indexOf("1831") != -1 || pet.getPetSkillswl().indexOf("1833") != -1) {
+                if (pet.getPetWuLingSkills().indexOf("1831") != -1 || pet.getPetWuLingSkills().indexOf("1833") != -1) {
                     return "已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1871) {
-                if (pet.getPetSkillswl().indexOf(id) != -1) {
+                if (pet.getPetWuLingSkills().indexOf(id) != -1) {
                     return "已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1872) {
-                if (pet.getPetSkillswl().indexOf(id) != -1) {
+                if (pet.getPetWuLingSkills().indexOf(id) != -1) {
                     return "已开启悟灵技能替换失败";
                 }
             }
             else if (id == 1880) {
-                if (pet.getPetSkillswl().indexOf(id) != -1) {
+                if (pet.getPetWuLingSkills().indexOf(id) != -1) {
                     return "已开启悟灵技能替换失败";
                 }
             }
-            else if (id == 1838 && pet.getPetSkillswl().indexOf(id) != -1) {
+            else if (id == 1838 && pet.getPetWuLingSkills().indexOf(id) != -1) {
                 return "已开启悟灵技能替换失败";
             }
         }
@@ -4007,4 +4007,5 @@ public class UsePetAction implements IAction
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
 }
+
 

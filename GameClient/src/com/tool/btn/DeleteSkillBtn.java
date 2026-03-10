@@ -1,4 +1,4 @@
-package com.tool.btn;
+﻿package com.tool.btn;
 
 import java.awt.*;
 import java.util.Random;
@@ -86,7 +86,7 @@ public class DeleteSkillBtn extends MoBanBtn
                 ZhuFrame.getZhuJpanel().addPrompt2("请先选中要关闭的技能！！！");
                 return ;
             }
-            String skill = UserMessUntil.getChosePetMes().getPetSkillswl();
+            String skill = UserMessUntil.getChosePetMes().getPetWuLingSkills();
             if (!skill.contains(WuLingPanel.skill.getSkillid())) {
                 ZhuFrame.getZhuJpanel().addPrompt2("当前技能没未开启悟灵！！！");
                 return ;
@@ -444,3 +444,4 @@ public class DeleteSkillBtn extends MoBanBtn
         return value > (double)new Random().nextInt(10000);
     }
 }
+
