@@ -5,11 +5,14 @@ import org.come.entity.Friend;
 import org.come.annotation.MyBatisAnnotation;
 
 @MyBatisAnnotation
+/**
+ * 好友关系数据访问接口。
+ */
 public interface FriendMapper
 {
-    boolean addFriend(Friend p0);
+    boolean addFriend(Friend friend);
     
-    void deleteFriend(Friend p0);
+    void deleteFriend(Friend friend);
     
     List<Friend> allFriend();
 }
