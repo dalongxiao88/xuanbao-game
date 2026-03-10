@@ -351,10 +351,10 @@ public class LingbaoAttributeJpanel extends JPanel
             this.s = size / 10;
             this.w = size % 10;
             this.labResistance.setText(lingbao.getKangxing());
-            (this.box = new ChatBox()).addText("#G契合度" + lingbao.getLingbaoqihe() + " 活跃度" + lingbao.hyz() + "#W(" + lingbao.getBaoactive() + ")", 210);
+            (this.box = new ChatBox()).addText("#G契合度" + lingbao.getLingbaoqihe() + " 活跃度" + lingbao.hyz() + "#W(" + lingbao.getBaoActive() + ")", 210);
             this.box.addText("#G速度" + lingbao.spz() + "#W(" + lingbao.getBaospeed() + ") #G援助" + UserData.xiaoshu(lingbao.zyz() * 100.0) + "#W(" + UserData.xiaoshu(lingbao.getAssistance() * 100.0) + ")", 195);
             this.box.addText("#G回复" + UserData.xiaoshu(lingbao.replyz() * 100.0) + "#W(" + UserData.xiaoshu(Double.parseDouble(lingbao.getBaoreply()) * 100.0) + ") #G落宝" + UserData.xiaoshu(lingbao.shotz() * 100.0) + "#W(" + UserData.xiaoshu(lingbao.getBaoshot() * 100.0) + ")", 195);
-            this.box.addText("#G伤害" + UserData.xiaoshu(lingbao.apz() * 100.0) + "#W(" + UserData.xiaoshu(Double.parseDouble(lingbao.getBaoap()) * 100.0) + ") #G抗落宝" + UserData.xiaoshu(lingbao.resistshopz() * 100.0) + "#W(" + UserData.xiaoshu(lingbao.getResistshop() * 100.0) + ")", 195);
+            this.box.addText("#G伤害" + UserData.xiaoshu(lingbao.apz() * 100.0) + "#W(" + UserData.xiaoshu(Double.parseDouble(lingbao.getBaoAp()) * 100.0) + ") #G抗落宝" + UserData.xiaoshu(lingbao.resistshopz() * 100.0) + "#W(" + UserData.xiaoshu(lingbao.getResistShot() * 100.0) + ")", 195);
         }
         else {
             this.lingimg = null;

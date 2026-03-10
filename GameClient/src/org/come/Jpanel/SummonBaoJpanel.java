@@ -218,8 +218,8 @@ public class SummonBaoJpanel extends JPanel
             SummonBaoJpanel.labLvl.setText(lingbao.getLingbaolvl() + "级");
             SummonBaoJpanel.labQuality.setText(lingbao.getBaoquality());
             SummonBaoJpanel.labQihe.setText(lingbao.getLingbaoqihe() + "");
-            if (lingbao.getBaoactive() != null) {
-                SummonBaoJpanel.labactive.setText(lingbao.getBaoactive() + "");
+            if (lingbao.getBaoActive() != null) {
+                SummonBaoJpanel.labactive.setText(lingbao.getBaoActive() + "");
             }
             else {
                 SummonBaoJpanel.labactive.setText("0");

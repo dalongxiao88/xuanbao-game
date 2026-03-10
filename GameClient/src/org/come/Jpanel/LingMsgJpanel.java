@@ -154,7 +154,7 @@ public class LingMsgJpanel extends JPanel
         this.baotext.setText(" ");
         this.lock = lingbao.getGoodlock();
         this.lingimg = RoleLingFa.lingbaoimg(lingbao.getSkin(), -1, -1);
-        if (lingbao.getBaotype().equals("法宝")) {
+        if (lingbao.getBaoType().equals("法宝")) {
             this.showfb(lingbao);
         }
         else {
@@ -188,10 +188,10 @@ public class LingMsgJpanel extends JPanel
             }
             this.shanchang2.setText(tianb3.toString());
             this.bao.removemsg();
-            this.bao.addText("#G契合度" + lingbao.getLingbaoqihe() + " 活跃度" + lingbao.hyz() + "#W(" + lingbao.getBaoactive() + ")", 350);
+            this.bao.addText("#G契合度" + lingbao.getLingbaoqihe() + " 活跃度" + lingbao.hyz() + "#W(" + lingbao.getBaoActive() + ")", 350);
             this.bao.addText("#G速度" + lingbao.spz() + "#W(" + lingbao.getBaospeed() + ") #G援助" + UserData.xiaoshu(lingbao.zyz() * 1000.0 / 10.0) + "#W(" + UserData.xiaoshu(lingbao.getAssistance() * 1000.0 / 10.0) + ")", 350);
             this.bao.addText("#G回复" + UserData.xiaoshu(lingbao.replyz() * 1000.0 / 10.0) + "#W(" + UserData.xiaoshu(Double.parseDouble(lingbao.getBaoreply()) * 1000.0 / 10.0) + ") #G落宝" + UserData.xiaoshu(lingbao.shotz() * 1000.0 / 10.0) + "#W(" + UserData.xiaoshu(lingbao.getBaoshot() * 1000.0 / 10.0) + ")", 350);
-            this.bao.addText("#G伤害" + UserData.xiaoshu(lingbao.apz() * 1000.0 / 10.0) + "#W(" + UserData.xiaoshu(Double.parseDouble(lingbao.getBaoap()) * 1000.0 / 10.0) + ") #G抗落宝" + UserData.xiaoshu(lingbao.resistshopz() * 1000.0 / 10.0) + "#W(" + UserData.xiaoshu(lingbao.getResistshop() * 1000.0 / 10.0) + ")", 350);
+            this.bao.addText("#G伤害" + UserData.xiaoshu(lingbao.apz() * 1000.0 / 10.0) + "#W(" + UserData.xiaoshu(Double.parseDouble(lingbao.getBaoAp()) * 1000.0 / 10.0) + ") #G抗落宝" + UserData.xiaoshu(lingbao.resistshopz() * 1000.0 / 10.0) + "#W(" + UserData.xiaoshu(lingbao.getResistShot() * 1000.0 / 10.0) + ")", 350);
             this.bao.addText("#Y" + lingbao.getKangxing().split("=")[0] + " " + lingbao.getKangxing().split("=")[1], 350);
             this.bao.addText("#Y道行:#R" + ExpUtil.LFExptoString(lingbao.getLingbaoexe().longValue() + ExpUtil.LFExp2(lingbao.getLingbaolvl().intValue() - 1)) + "/" + ExpUtil.LFExptoString(ExpUtil.LFExp2(lingbao.getLingbaolvl().intValue())), 350, UIUtils.TEXT_FONT1);
             shanb = null;

@@ -299,7 +299,7 @@ public class RoleLingFa
                 return;
             }
             int path = -1;
-            if (lingbao.getBaotype().equals("法宝")) {
+            if (lingbao.getBaoType().equals("法宝")) {
                 if (this.equipBao[1] == null) {
                     path = 1;
                 }
@@ -514,7 +514,7 @@ public class RoleLingFa
                 ++i;
             }
         }
-        if (!lingbao.getBaotype().equals("法宝")) {
+        if (!lingbao.getBaoType().equals("法宝")) {
             int p = -1;
             for (int j = 0; j < this.lingBaos.length; ++j) {
                 if (this.lingBaos[j] == null) {
@@ -576,7 +576,7 @@ public class RoleLingFa
         for (int j = 0; j < list.size(); ++j) {
             Lingbao lingbao = (Lingbao)list.get(j);
             if (lingbao.getEquipment() == 1) {
-                if (lingbao.getBaotype().equals("法宝")) {
+                if (lingbao.getBaoType().equals("法宝")) {
                     if (this.equipBao[1] == null) {
                         this.equipBao[1] = lingbao;
                         ImageIcon imageIcon = lingbaoimg(lingbao.getSkin(), 40, 40);
@@ -596,7 +596,7 @@ public class RoleLingFa
                     LingbaoJframe.getLingbaoJframe().getLingbaoJpanel().getLingbaoCardJpanel().getAttributeJpanel().shuxingzhanshi(lingbao);
                 }
             }
-            if (!lingbao.getBaotype().equals("法宝")) {
+            if (!lingbao.getBaoType().equals("法宝")) {
                 int l = 0;
                 while (l < this.lingBaos.length) {
                     if (this.lingBaos[l] == null) {

@@ -7,37 +7,37 @@ import java.math.BigDecimal;
 
 public interface ILingbaoService
 {
-    Lingbao selectByPrimaryKey(BigDecimal p0);
+    Lingbao selectByPrimaryKey(BigDecimal lingbaoId);
     
     List<Lingbao> selectAllLingbao();
     
-    void insertLingbao(Lingbao p0);
+    void insertLingbao(Lingbao lingbao);
     
-    List<Lingbao> selectLingbaoByRoleID(BigDecimal p0);
+    List<Lingbao> selectLingbaoByRoleID(BigDecimal roleId);
     
-    Lingbao selectLingbaoByID(BigDecimal p0);
+    Lingbao selectLingbaoByID(BigDecimal lingbaoId);
     
-    void updateLingbaoIndex(Lingbao p0, BigDecimal p1);
+    void updateLingbaoIndex(Lingbao lingbao, BigDecimal roleId);
     
-    void updateLingbaoRedis(Lingbao p0);
+    void updateLingbaoRedis(Lingbao lingbao);
     
-    void deleteLingbao(BigDecimal p0);
+    void deleteLingbao(BigDecimal lingbaoId);
     
     BigDecimal selectMaxID();
     
-    void updateLingbaosql(Lingbao p0);
+    void updateLingbaosql(Lingbao lingbao);
     
-    void deleteLingbaosql(BigDecimal p0);
+    void deleteLingbaosql(BigDecimal lingbaoId);
     
-    void insertLingbaosql(Lingbao p0);
+    void insertLingbaosql(Lingbao lingbao);
     
-    List<LingbaoRoleUser> selectLingBaoRU(LingbaoRoleUser p0);
+    List<LingbaoRoleUser> selectLingBaoRU(LingbaoRoleUser lingbaoRoleUser);
     
-    Integer selectLingBaoRUCount(LingbaoRoleUser p0);
+    Integer selectLingBaoRUCount(LingbaoRoleUser lingbaoRoleUser);
     
-    void deleteLingbaoList(List<BigDecimal> p0);
+    void deleteLingbaoList(List<BigDecimal> lingbaoIds);
     
-    void insertLingbaoList(List<Lingbao> p0);
+    void insertLingbaoList(List<Lingbao> lingbaoList);
     
-    void updateLingbaoList(List<Lingbao> p0);
+    void updateLingbaoList(List<Lingbao> lingbaoList);
 }

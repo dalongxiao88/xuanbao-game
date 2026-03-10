@@ -12,23 +12,23 @@ public interface LingbaoMapper
 {
     List<Lingbao> selectAllLingbao();
     
-    void insertLingbao(Lingbao p0);
+    void insertLingbao(Lingbao lingbao);
     
-    List<Lingbao> selectLingbaoByRoleID(BigDecimal p0);
+    List<Lingbao> selectLingbaoByRoleID(BigDecimal roleId);
     
-    void updateLingbao(Lingbao p0);
+    void updateLingbao(Lingbao lingbao);
     
-    void deleteLingbao(BigDecimal p0);
+    void deleteLingbao(BigDecimal lingbaoId);
     
     BigDecimal selectMaxID();
     
-    List<LingbaoRoleUser> selectLingBaoRU(@Param("lru") LingbaoRoleUser p0);
+    List<LingbaoRoleUser> selectLingBaoRU(@Param("lru") LingbaoRoleUser lingbaoRoleUser);
     
-    Integer selectLingBaoRUCount(@Param("lru") LingbaoRoleUser p0);
+    Integer selectLingBaoRUCount(@Param("lru") LingbaoRoleUser lingbaoRoleUser);
     
-    void deleteLingbaoList(List<BigDecimal> p0);
+    void deleteLingbaoList(List<BigDecimal> lingbaoIds);
     
-    void insertLingbaoList(List<Lingbao> p0);
+    void insertLingbaoList(List<Lingbao> lingbaoList);
     
-    void updateLingbaoList(List<Lingbao> p0);
+    void updateLingbaoList(List<Lingbao> lingbaoList);
 }

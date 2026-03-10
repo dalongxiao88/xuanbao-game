@@ -1313,7 +1313,7 @@ public class LiangHaoMouslisten implements MouseListener
     public void userling(Goodstable good, Lingbao lingbao) {
         long type = (long)good.getType();
         if (type == 190L) {
-            if (lingbao.getBaotype().equals("法宝")) {
+            if (lingbao.getBaoType().equals("法宝")) {
                 ZhuFrame.getZhuJpanel().addPrompt2("法宝不能打技能");
                 return;
             }

@@ -42,13 +42,13 @@ public class LingFaFanYeMouslisten implements MouseListener
                 if (LingFaFanYeMouslisten.shijian) {
                     if (this.path >= 0) {
                         RoleLingFa.getRoleLingFa().choseuse(lingbao, true);
-                        if (!lingbao.getBaotype().equals("法宝")) {
+                        if (!lingbao.getBaoType().equals("法宝")) {
                             ZhuJpanel.setLabLingImg(lingbao.getSkin());
                         }
                     }
                     else {
                         RoleLingFa.getRoleLingFa().choseuse(lingbao, false);
-                        if (!lingbao.getBaotype().equals("法宝")) {
+                        if (!lingbao.getBaoType().equals("法宝")) {
                             ZhuJpanel.setLabLingImg(null);
                         }
                     }

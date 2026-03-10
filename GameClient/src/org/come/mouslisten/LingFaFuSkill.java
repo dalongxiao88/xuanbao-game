@@ -47,7 +47,7 @@ public class LingFaFuSkill implements MouseListener
     @Override
     public void mouseEntered(MouseEvent e) {
         Lingbao lingbao = RoleLingFa.getRoleLingFa().getChoseBao();
-        if (lingbao != null && !lingbao.getBaotype().equals("法宝")) {
+        if (lingbao != null && !lingbao.getBaoType().equals("法宝")) {
             if (this.shijian) {
                 BigDecimal id = lingbao.isfushi(this.path);
                 if (id != null) {
@@ -78,7 +78,7 @@ public class LingFaFuSkill implements MouseListener
     }
     
     public void OpenGrid(Lingbao lingbao) {
-        if (!lingbao.getBaotype().equals("法宝")) {
+        if (!lingbao.getBaoType().equals("法宝")) {
             this.s = -1;
             if (this.shijian) {
                 this.s = lingbao.FushiOpen(this.path);

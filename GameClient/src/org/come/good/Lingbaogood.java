@@ -37,7 +37,7 @@ public class Lingbaogood
         if (lingbao == null) {
             ZhuFrame.getZhuJpanel().addPrompt2("你没有选中的灵宝");
         }
-        else if (lingbao.getBaotype().equals("法宝")) {
+        else if (lingbao.getBaoType().equals("法宝")) {
             ZhuFrame.getZhuJpanel().addPrompt2("法宝不能打符石");
         }
         else {
