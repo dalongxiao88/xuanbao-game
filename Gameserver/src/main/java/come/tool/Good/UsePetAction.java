@@ -1,4 +1,4 @@
-package come.tool.Good;
+﻿package come.tool.Good;
 
 import org.come.model.DiceReidsBase;
 import java.util.Date;
@@ -1802,10 +1802,10 @@ public class UsePetAction implements IAction
             pet.setSummoningskin(skin);
             pet.setColorScheme(null);
             String four = pet.getFourattributes();
-            int ran1 = pet.getSI2("hhp");
-            int ran2 = pet.getSI2("hmp");
-            int ran3 = pet.getSI2("hap");
-            int ran4 = pet.getSI2("hsp");
+            int ran1 = pet.getFourAttributeValue("hhp");
+            int ran2 = pet.getFourAttributeValue("hmp");
+            int ran3 = pet.getFourAttributeValue("hap");
+            int ran4 = pet.getFourAttributeValue("hsp");
             pet.setHp(pet.getHp() - ran1);
             pet.setMp(pet.getMp() - ran2);
             pet.setAp(pet.getAp() - ran3);
@@ -1940,10 +1940,10 @@ public class UsePetAction implements IAction
             pet.setSummoningskin(skin);
             pet.setColorScheme(null);
             String four = pet.getFourattributes();
-            int ran1 = pet.getSI2("hhp");
-            int ran2 = pet.getSI2("hmp");
-            int ran3 = pet.getSI2("hap");
-            int ran4 = pet.getSI2("hsp");
+            int ran1 = pet.getFourAttributeValue("hhp");
+            int ran2 = pet.getFourAttributeValue("hmp");
+            int ran3 = pet.getFourAttributeValue("hap");
+            int ran4 = pet.getFourAttributeValue("hsp");
             pet.setHp(pet.getHp() - ran1);
             pet.setMp(pet.getMp() - ran2);
             pet.setAp(pet.getAp() - ran3);
@@ -2127,8 +2127,8 @@ public class UsePetAction implements IAction
 				Skill skill = GameServer.getSkill(selectedid);
 				if (skill == null)
 					continue;
-				if (skill.getSkillralation() != null && !skill.getSkillralation().equals("")) {
-					String[] chongtu = skill.getSkillralation().split("\\|");
+				if (skill.getSkillRelation() != null && !skill.getSkillRelation().equals("")) {
+					String[] chongtu = skill.getSkillRelation().split("\\|");
 					for (int m = 0; m < chongtu.length; m++) {
 						if (chongtu[m].equals(skill.getSkillid() + ""))
 							continue;
@@ -2236,8 +2236,8 @@ public class UsePetAction implements IAction
 						Skill skill = GameServer.getSkill(selectedid);
 						if (skill == null)
 							continue;
-						if (skill.getSkillralation() != null && !skill.getSkillralation().equals("")) {
-							String[] chongtu = skill.getSkillralation().split("\\|");
+						if (skill.getSkillRelation() != null && !skill.getSkillRelation().equals("")) {
+							String[] chongtu = skill.getSkillRelation().split("\\|");
 							for (int m = 0; m < chongtu.length; m++) {
 								if (chongtu[m].equals(skill.getSkillid() + ""))
 									continue;
@@ -2287,15 +2287,15 @@ public class UsePetAction implements IAction
         assetUpdate.updata("G" + good.getRgid() + "=" + good.getUsetime());
         pet.setGrowlevel(Arith.sub(Double.parseDouble(pet.getGrowlevel()), 0.01 * (double)pet.getDragon()) + "");
         pet.setDragon(0);
-        pet.setHp(pet.getHp() - pet.getSI2("hp"));
-        pet.setMp(pet.getMp() - pet.getSI2("mp"));
-        pet.setAp(pet.getAp() - pet.getSI2("ap"));
-        pet.setSp(pet.getSp() - pet.getSI2("sp"));
+        pet.setHp(pet.getHp() - pet.getFourAttributeValue("hp"));
+        pet.setMp(pet.getMp() - pet.getFourAttributeValue("mp"));
+        pet.setAp(pet.getAp() - pet.getFourAttributeValue("ap"));
+        pet.setSp(pet.getSp() - pet.getFourAttributeValue("sp"));
         String four = pet.getFourattributes();
-        four = DrawnitemsAction.Splice(four, "hp=" + pet.getSI2("hp"), 4);
-        four = DrawnitemsAction.Splice(four, "mp=" + pet.getSI2("mp"), 4);
-        four = DrawnitemsAction.Splice(four, "ap=" + pet.getSI2("ap"), 4);
-        four = DrawnitemsAction.Splice(four, "sp=" + pet.getSI2("sp"), 4);
+        four = DrawnitemsAction.Splice(four, "hp=" + pet.getFourAttributeValue("hp"), 4);
+        four = DrawnitemsAction.Splice(four, "mp=" + pet.getFourAttributeValue("mp"), 4);
+        four = DrawnitemsAction.Splice(four, "ap=" + pet.getFourAttributeValue("ap"), 4);
+        four = DrawnitemsAction.Splice(four, "sp=" + pet.getFourAttributeValue("sp"), 4);
         pet.setFourattributes(four);
         pet.setBasishp(0);
         pet.setBasismp(0);
@@ -2316,15 +2316,15 @@ public class UsePetAction implements IAction
         assetUpdate.updata("G" + good.getRgid() + "=" + good.getUsetime());
         pet.setGrowlevel(Arith.sub(Double.parseDouble(pet.getGrowlevel()), 0.01 * (double)pet.getSpdragon()) + "");
         pet.setSpdragon(0);
-        pet.setHp(pet.getHp() - pet.getSI2("hps"));
-        pet.setMp(pet.getMp() - pet.getSI2("mps"));
-        pet.setAp(pet.getAp() - pet.getSI2("aps"));
-        pet.setSp(pet.getSp() - pet.getSI2("sps"));
+        pet.setHp(pet.getHp() - pet.getFourAttributeValue("hps"));
+        pet.setMp(pet.getMp() - pet.getFourAttributeValue("mps"));
+        pet.setAp(pet.getAp() - pet.getFourAttributeValue("aps"));
+        pet.setSp(pet.getSp() - pet.getFourAttributeValue("sps"));
         String four = pet.getFourattributes();
-        four = DrawnitemsAction.Splice(four, "hps=" + pet.getSI2("hps"), 4);
-        four = DrawnitemsAction.Splice(four, "mps=" + pet.getSI2("mps"), 4);
-        four = DrawnitemsAction.Splice(four, "aps=" + pet.getSI2("aps"), 4);
-        four = DrawnitemsAction.Splice(four, "sps=" + pet.getSI2("sps"), 4);
+        four = DrawnitemsAction.Splice(four, "hps=" + pet.getFourAttributeValue("hps"), 4);
+        four = DrawnitemsAction.Splice(four, "mps=" + pet.getFourAttributeValue("mps"), 4);
+        four = DrawnitemsAction.Splice(four, "aps=" + pet.getFourAttributeValue("aps"), 4);
+        four = DrawnitemsAction.Splice(four, "sps=" + pet.getFourAttributeValue("sps"), 4);
         pet.setFourattributes(four);
         pet.setBasishp(0);
         pet.setBasismp(0);
@@ -3184,9 +3184,9 @@ public class UsePetAction implements IAction
         }
 
 
-        if (skill.getSkillralation() != null && !skill.getSkillralation().equals("")) {
+        if (skill.getSkillRelation() != null && !skill.getSkillRelation().equals("")) {
             int lvl = skill.getSkilllevel();
-            String[] chongtu = skill.getSkillralation().split("\\|");
+            String[] chongtu = skill.getSkillRelation().split("\\|");
             for (int i = 0; i < chongtu.length; ++i) {
                 if (!chongtu[i].equals(skillID) && lists.contains(chongtu[i])) {
                     Skill skill2 = (Skill)GameServer.getGetSkill().get(chongtu[i]);
@@ -4007,3 +4007,4 @@ public class UsePetAction implements IAction
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
 }
+

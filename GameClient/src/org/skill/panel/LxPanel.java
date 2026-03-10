@@ -598,8 +598,8 @@ public class LxPanel extends JPanel
         if (StringUtils.isNotEmpty(skill.getDielectric()) && !"0.0".equals(skill.getDielectric())) {
             buffer.append("#r#Y需已分配点数#R" + skill.getDielectric().split("\\.")[0] + "#Y点");
         }
-        if (StringUtils.isNotEmpty(skill.getSkillralation())) {
-            buffer.append("#r #r#Y与#R" + UserMessUntil.getSkillId(skill.getSkillralation()).getSkillname() + "#Y互斥");
+        if (StringUtils.isNotEmpty(skill.getSkillRelation())) {
+            buffer.append("#r #r#Y与#R" + UserMessUntil.getSkillId(skill.getSkillRelation()).getSkillname() + "#Y互斥");
         }
         if (skill.getSkillIdAsInt() >= 11020 && skill.getSkillIdAsInt() <= 11022) {
             buffer.append("#r #r#Y可同时修炼#R一往无前、有备无患、将功补过#Y中的两种技能");
@@ -709,8 +709,8 @@ public class LxPanel extends JPanel
                     return;
                 }
             }
-            if (StringUtils.isNotEmpty(skill.getSkillralation()) && this.getCountTemp(skill.getSkillRelationAsInt(), xSkilllx.getType()) > 0) {
-                ZhuFrame.getZhuJpanel().addPrompt2("此技能与#R" + UserMessUntil.getSkillId(skill.getSkillralation()).getSkillname() + "#Y为互斥关系，无法同时修炼");
+            if (StringUtils.isNotEmpty(skill.getSkillRelation()) && this.getCountTemp(skill.getSkillRelationAsInt(), xSkilllx.getType()) > 0) {
+                ZhuFrame.getZhuJpanel().addPrompt2("此技能与#R" + UserMessUntil.getSkillId(skill.getSkillRelation()).getSkillname() + "#Y为互斥关系，无法同时修炼");
                 return;
             }
             if ((boolean)this.getFrontSkill((int)xSkilllx.lxPointBean.getTableId(), xSkilllx.getType())) {
@@ -1565,4 +1565,5 @@ public class LxPanel extends JPanel
         }
     }
 }
+
 

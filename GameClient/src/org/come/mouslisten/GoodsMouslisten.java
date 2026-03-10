@@ -1559,9 +1559,9 @@ public class GoodsMouslisten implements MouseListener
     public static String chongfu(Skill skill, List<String> lists, String mes) {
         System.out.println("学习的技能：" + skill.getSkillname());
         String skillID = skill.getSkillid() + "";
-        if (skill.getSkillralation() != null && !skill.getSkillralation().equals("")) {
+        if (skill.getSkillRelation() != null && !skill.getSkillRelation().equals("")) {
             int lvl = (int)Integer.valueOf(skill.getSkilllevel());
-            String[] chongtu = skill.getSkillralation().split("\\|");
+            String[] chongtu = skill.getSkillRelation().split("\\|");
             for (int i = 0; i < chongtu.length; ++i) {
                 if (!chongtu[i].equals(skillID) && lists.contains(chongtu[i])) {
                     System.out.println("冲突的技能名ID：" + chongtu[i]);
@@ -1693,4 +1693,5 @@ public class GoodsMouslisten implements MouseListener
 
     }
 }
+
 
