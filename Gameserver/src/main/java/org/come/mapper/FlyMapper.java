@@ -12,27 +12,27 @@ public interface FlyMapper
 {
     List<Fly> selectAllFlys();
     
-    List<Fly> selectFlysByRoleID(BigDecimal p0);
+    List<Fly> selectFlysByRoleID(BigDecimal roleId);
     
-    Fly selectFlysByMID(BigDecimal p0);
+    Fly selectFlysByMID(BigDecimal flyId);
     
-    void deleteFlysByMid(BigDecimal p0);
+    void deleteFlysByMid(BigDecimal flyId);
     
-    void updateFly(Fly p0);
+    void updateFly(Fly fly);
     
-    void insertFly(Fly p0);
+    void insertFly(Fly fly);
     
     BigDecimal selectMaxID();
     
-    List<FlyRoleUser> selectFly(@Param("mru") FlyRoleUser p0);
+    List<FlyRoleUser> selectFly(@Param("mru") FlyRoleUser flyRoleUser);
     
-    Integer selectFlyCount(@Param("mru") FlyRoleUser p0);
+    Integer selectFlyCount(@Param("mru") FlyRoleUser flyRoleUser);
     
-    void deleteFlysByMidList(List<BigDecimal> p0);
+    void deleteFlysByMidList(List<BigDecimal> flyIds);
     
-    void updateFlyList(List<Fly> p0);
+    void updateFlyList(List<Fly> flyList);
     
-    void insertFlyList(List<Fly> p0);
+    void insertFlyList(List<Fly> flyList);
     
-    void insertFlySingle(Fly p0);
+    void insertFlySingle(Fly fly);
 }

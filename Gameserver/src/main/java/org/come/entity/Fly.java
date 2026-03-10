@@ -3,6 +3,9 @@ package org.come.entity;
 import java.util.List;
 import java.math.BigDecimal;
 
+/**
+ * 服务端飞行器实体。
+ */
 public class Fly implements Cloneable
 {
     private BigDecimal mid;
@@ -28,9 +31,18 @@ public class Fly implements Cloneable
     public Integer getFlytid() {
         return this.flytid;
     }
+
+    /** 语义化别名：飞行器模板 ID。 */
+    public Integer getFlyTypeId() {
+        return this.flytid;
+    }
     
     public void setFlytid(Integer mountid) {
         this.flytid = mountid;
+    }
+
+    public void setFlyTypeId(Integer flyTypeId) {
+        this.flytid = flyTypeId;
     }
     
     public String getFlyname() {
@@ -44,9 +56,18 @@ public class Fly implements Cloneable
     public Integer getFlylvl() {
         return this.flylvl;
     }
+
+    /** 语义化别名：飞行器等级。 */
+    public Integer getFlyLevel() {
+        return this.flylvl;
+    }
     
     public void setFlylvl(Integer mountlvl) {
         this.flylvl = mountlvl;
+    }
+
+    public void setFlyLevel(Integer flyLevel) {
+        this.flylvl = flyLevel;
     }
     
     public Integer getExp() {

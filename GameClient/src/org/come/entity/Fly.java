@@ -2,6 +2,9 @@ package org.come.entity;
 
 import java.math.BigDecimal;
 
+/**
+ * 客户端飞行器实体。
+ */
 public class Fly
 {
     private BigDecimal mid;
@@ -26,9 +29,18 @@ public class Fly
     public Integer getFlytid() {
         return this.flytid;
     }
+
+    /** 语义化别名：飞行器模板 ID。 */
+    public Integer getFlyTypeId() {
+        return this.flytid;
+    }
     
     public void setFlytid(Integer flytid) {
         this.flytid = flytid;
+    }
+
+    public void setFlyTypeId(Integer flyTypeId) {
+        this.flytid = flyTypeId;
     }
     
     public String getFlyname() {
@@ -42,9 +54,18 @@ public class Fly
     public Integer getFlylvl() {
         return this.flylvl;
     }
+
+    /** 语义化别名：飞行器等级。 */
+    public Integer getFlyLevel() {
+        return this.flylvl;
+    }
     
     public void setFlylvl(Integer flylvl) {
         this.flylvl = flylvl;
+    }
+
+    public void setFlyLevel(Integer flyLevel) {
+        this.flylvl = flyLevel;
     }
     
     public Integer getExp() {
@@ -64,6 +85,11 @@ public class Fly
     }
     
     public Integer getFlylvlString() {
+        return this.flylvl;
+    }
+
+    /** 兼容旧命名：返回飞行器等级。 */
+    public Integer getFlyLevelValue() {
         return this.flylvl;
     }
     
@@ -86,8 +112,17 @@ public class Fly
     public String getflyskin() {
         return this.skin;
     }
+
+    /** 语义化别名：飞行器皮肤。 */
+    public String getFlySkin() {
+        return this.skin;
+    }
     
     public void setflyskin(String skin) {
+        this.skin = skin;
+    }
+
+    public void setFlySkin(String skin) {
         this.skin = skin;
     }
     
