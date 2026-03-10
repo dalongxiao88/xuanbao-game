@@ -9,20 +9,26 @@ import org.dom4j.DocumentHelper;
 import org.apache.commons.httpclient.NameValuePair;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.HttpClient;
+import org.come.until.RuntimeConfig;
 
 public class PhoneVersionUtil
 {
     private static String Url;
+    private static String Account;
+    private static String Password;
     private static int mobile_code;
     
     public static int sendsMes(String phone) {
+        if (phone == null || phone.trim().isEmpty() || "CHANGE_ME".equals(PhoneVersionUtil.Account) || "CHANGE_ME".equals(PhoneVersionUtil.Password)) {
+            return 0;
+        }
         HttpClient client = new HttpClient();
         PostMethod method = new PostMethod(PhoneVersionUtil.Url);
         client.getParams().setContentCharset("GBK");
         method.setRequestHeader("ContentType", "application/x-www-form-urlencoded;charset=GBK");
         PhoneVersionUtil.mobile_code = (int)((Math.random() * 9.0 + 1.0) * 100000.0);
         String content = new String("您的验证码是：" + PhoneVersionUtil.mobile_code + "。请不要把验证码泄露给其他人。");
-        NameValuePair[] data = { new NameValuePair("account", "C69900359"), new NameValuePair("password", "6e0a061805272583c415c312caabaea4"), new NameValuePair("mobile", phone), new NameValuePair("content", content) };
+        NameValuePair[] data = { new NameValuePair("account", PhoneVersionUtil.Account), new NameValuePair("password", PhoneVersionUtil.Password), new NameValuePair("mobile", phone), new NameValuePair("content", content) };
         method.setRequestBody(data);
         try {
             client.executeMethod(method);
@@ -55,7 +61,9 @@ public class PhoneVersionUtil
     }
     
     static {
-        PhoneVersionUtil.Url = "http://106.ihuyi.cn/webservice/sms.php?method=Submit";
+        PhoneVersionUtil.Url = RuntimeConfig.get("sms.url", "http://106.ihuyi.cn/webservice/sms.php?method=Submit");
+        PhoneVersionUtil.Account = RuntimeConfig.get("sms.account", "CHANGE_ME");
+        PhoneVersionUtil.Password = RuntimeConfig.get("sms.password", "CHANGE_ME");
         PhoneVersionUtil.mobile_code = 0;
     }
 }

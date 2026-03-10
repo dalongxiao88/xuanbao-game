@@ -90,6 +90,6 @@ public class APIHttpClient
     }
     
     static {
-        APIHttpClient.apiURL = "http://127.0.0.1/GameServer.v6.0/servlet/AppServerlet";
+        APIHttpClient.apiURL = RuntimeConfig.get("api.http.url", "http://127.0.0.1/GameServer.v6.0/servlet/AppServerlet");
     }
 }
