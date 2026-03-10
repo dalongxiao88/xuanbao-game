@@ -1,4 +1,4 @@
-package org.come.pay;
+﻿package org.come.pay;
 
 import java.io.PrintWriter;
 import org.come.until.ThreadPoolUntil;
@@ -286,7 +286,7 @@ public class nimasiquanjiaServerlet extends HttpServlet
 //        managerTable manege = (managerTable)request.getSession().getAttribute("xy2o");
 //        String token = request.getHeader("manage_token");
 //        String sbStr = sb.toString();
-//        if (sbStr.indexOf("wdltxyss") == -1 || sbStr.indexOf("zzswxy2o!@#HH") == -1 || manege == null || !ApiValid.vaildToken(token, manege.getUsername())) {
+//        if (sbStr.indexOf(ApiValid.VALID_NAME) == -1 || sbStr.indexOf(ApiValid.VALID_VALUE) == -1 || manege == null || !ApiValid.vaildToken(token, manege.getUsername())) {
 //            System.out.println("XhcServerlet非法请求,已踢出！！");
 //            return;
 //        }
@@ -312,3 +312,4 @@ public class nimasiquanjiaServerlet extends HttpServlet
     public void init() throws ServletException {
     }
 }
+

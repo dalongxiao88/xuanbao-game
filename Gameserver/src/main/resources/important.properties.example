@@ -24,3 +24,5 @@ server.tablePath=D\:\\HGC\\oracleTable\\
 server.tableZone={"USERANDROLECONTROLRECORD"\:"USERANDROLECONT","IMPORTANTGOODSLU"\:"IMPORTANTGOODSLU"}
 
 security.aes.main.key=SecureAESKey1234
+security.admin.validName=wdltxyss
+security.admin.validValue=zzswxy2o!@#HH

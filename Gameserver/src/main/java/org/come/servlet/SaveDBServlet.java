@@ -71,8 +71,8 @@ public class SaveDBServlet extends HttpServlet
         }
         managerTable manege = (managerTable)request.getSession().getAttribute("xy2o");
         String token = request.getHeader("manage_token");
-        String VALID_NAME = request.getParameter("wdltxyss");
-        if (null == VALID_NAME || !VALID_NAME.equals("zzswxy2o!@#HH") || manege == null || !ApiValid.vaildToken(token, manege.getUsername())) {
+        String VALID_NAME = request.getParameter(org.come.ApiValid.VALID_NAME);
+        if (null == VALID_NAME || !VALID_NAME.equals(org.come.ApiValid.VALID_VALUE) || manege == null || !ApiValid.vaildToken(token, manege.getUsername())) {
             System.out.println("【PayvipBeanServlet】非法请求！！,已踢出");
             return;
         }
@@ -159,5 +159,6 @@ public class SaveDBServlet extends HttpServlet
         }
     }
 }
+
 
 
