@@ -10,29 +10,29 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface CollectionMapper
 {
-    List<Collection> selectRoleCollect(BigDecimal p0);
+    List<Collection> selectRoleCollect(BigDecimal roleId);
     
-    List<BigDecimal> selectUserCollection(BigDecimal p0);
+    List<BigDecimal> selectUserCollection(BigDecimal userId);
     
-    int countByExample(CollectionExample p0);
+    int countByExample(CollectionExample collectionExample);
     
-    int deleteByExample(CollectionExample p0);
+    int deleteByExample(CollectionExample collectionExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal collectionId);
     
-    int insert(Collection p0);
+    int insert(Collection collection);
     
-    int insertSelective(Collection p0);
+    int insertSelective(Collection collection);
     
-    List<Collection> selectByExample(CollectionExample p0);
+    List<Collection> selectByExample(CollectionExample collectionExample);
     
-    Collection selectByPrimaryKey(BigDecimal p0);
+    Collection selectByPrimaryKey(BigDecimal collectionId);
     
-    int updateByExampleSelective(@Param("record") Collection p0, @Param("example") CollectionExample p1);
+    int updateByExampleSelective(@Param("record") Collection collection, @Param("example") CollectionExample collectionExample);
     
-    int updateByExample(@Param("record") Collection p0, @Param("example") CollectionExample p1);
+    int updateByExample(@Param("record") Collection collection, @Param("example") CollectionExample collectionExample);
     
-    int updateByPrimaryKeySelective(Collection p0);
+    int updateByPrimaryKeySelective(Collection collection);
     
-    int updateByPrimaryKey(Collection p0);
+    int updateByPrimaryKey(Collection collection);
 }
