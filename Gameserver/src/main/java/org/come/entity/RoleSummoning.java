@@ -115,7 +115,13 @@ public class RoleSummoning implements Cloneable
         this.setFriendliness(Long.valueOf((long)this.getFriendliness() + (long)v));
     }
     
-    public int getSI2(String type) {
+    /**
+     * 获取四属性扩展值。
+     *
+     * 历史命名 `getSI2` 缺少业务语义，实际用途是从 `fourattributes`
+     * 字符串中提取指定属性的附加值。
+     */
+    public int getFourAttributeValue(String type) {
         if (this.fourattributes == null || this.fourattributes.equals("")) {
             return 0;
         }
@@ -129,7 +135,10 @@ public class RoleSummoning implements Cloneable
         return 0;
     }
     
-    public void getLX(int[] pets) {
+    /**
+     * 应用灵犀系统带来的四维加成。
+     */
+    public void applyLingXiBonus(int[] pets) {
         if (this.lingxi == null || this.lingxi.equals("")) {
             return;
         }
@@ -159,11 +168,29 @@ public class RoleSummoning implements Cloneable
         }
     }
     
-    public void SB() {
+    /**
+     * 刷新召唤兽当前战斗面板属性。
+     */
+    public void refreshBattleStats() {
         this.setHp(this.hp);
         this.setMp(this.mp);
         this.setAp(this.ap);
         this.setSp(this.sp);
+    }
+
+    /** 兼容旧命名：获取四属性扩展值。 */
+    public int getSI2(String type) {
+        return this.getFourAttributeValue(type);
+    }
+
+    /** 兼容旧命名：应用灵犀加成。 */
+    public void getLX(int[] pets) {
+        this.applyLingXiBonus(pets);
+    }
+
+    /** 兼容旧命名：刷新战斗面板属性。 */
+    public void SB() {
+        this.refreshBattleStats();
     }
     
     public int getPetlock() {

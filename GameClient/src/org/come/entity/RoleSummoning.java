@@ -1,4 +1,4 @@
-package org.come.entity;
+﻿package org.come.entity;
 
 import org.come.until.GoodsListFromServerUntil;
 import java.util.Map;
@@ -165,7 +165,13 @@ public class RoleSummoning implements Commodity
         }
     }
     
-    public static String Splice(String v, String b, int type) {
+    /**
+     * 合并或替换召唤兽属性串中的指定条目。
+     *
+     * 历史命名 `Splice` 仅能表达“拼接”，但该方法实际承担了
+     * 删除、替换、累加、扣减、取最大值等多种合并行为。
+     */
+    public static String mergeAttributeEntry(String v, String b, int type) {
         boolean s = true;
         boolean s2 = false;
         if (type == 11 || type == 2 || type == 3 || type == 5) {
@@ -390,42 +396,42 @@ public class RoleSummoning implements Commodity
             switch (n) {
                 case 0:
                 case 1: {
-                    skilldata = Splice(skilldata, "HP=27000", 11);
+                    skilldata = mergeAttributeEntry(skilldata, "HP=27000", 11);
                     break;
                 }
                 case 2: {
-                    skilldata = Splice(skilldata, "MP=27000", 11);
+                    skilldata = mergeAttributeEntry(skilldata, "MP=27000", 11);
                     break;
                 }
                 case 3:
                 case 4: {
-                    skilldata = Splice(skilldata, "AP=11000", 11);
+                    skilldata = mergeAttributeEntry(skilldata, "AP=11000", 11);
                     break;
                 }
                 case 5: {
-                    skilldata = Splice(skilldata, "SP=-170", 11);
+                    skilldata = mergeAttributeEntry(skilldata, "SP=-170", 11);
                     break;
                 }
                 case 6: {
-                    skilldata = Splice(skilldata, "SP=250", 11);
+                    skilldata = mergeAttributeEntry(skilldata, "SP=250", 11);
                     b5 = Boolean.valueOf(true);
                     break;
                 }
                 case 7: {
-                    skilldata = Splice(skilldata, "HP=32000", 11);
+                    skilldata = mergeAttributeEntry(skilldata, "HP=32000", 11);
                     break;
                 }
                 case 8: {
-                    skilldata = Splice(skilldata, "MP=32000", 11);
+                    skilldata = mergeAttributeEntry(skilldata, "MP=32000", 11);
                     break;
                 }
                 case 9: {
-                    skilldata = Splice(skilldata, "AP=15000", 11);
+                    skilldata = mergeAttributeEntry(skilldata, "AP=15000", 11);
                     break;
                 }
                 case 10: {
                     if (!(boolean)b5) {
-                        skilldata = Splice(skilldata, "SP=200", 11);
+                        skilldata = mergeAttributeEntry(skilldata, "SP=200", 11);
                         b5 = Boolean.valueOf(true);
                         break;
                     }
@@ -436,7 +442,7 @@ public class RoleSummoning implements Commodity
                 case 11:
                 case 12: {
                     if (!(boolean)b4 && !(boolean)b5) {
-                        skilldata = Splice(skilldata, "SP=170", 11);
+                        skilldata = mergeAttributeEntry(skilldata, "SP=170", 11);
                         b4 = Boolean.valueOf(true);
                         break;
                     }
@@ -449,7 +455,10 @@ public class RoleSummoning implements Commodity
         return skilldata;
     }
     
-    public void getLX(int[] pets) {
+    /**
+     * 应用灵犀系统带来的四维加成。
+     */
+    public void applyLingXiBonus(int[] pets) {
         if (this.lingxi == null || this.lingxi.equals("")) {
             return;
         }
@@ -477,6 +486,11 @@ public class RoleSummoning implements Commodity
                 }
             }
         }
+    }
+
+    /** 兼容旧命名：应用灵犀加成。 */
+    public void getLX(int[] pets) {
+        this.applyLingXiBonus(pets);
     }
     
     public NewPart getPart() {
@@ -1098,7 +1112,10 @@ public class RoleSummoning implements Commodity
         return goods;
     }
     
-    public BigDecimal ChangePart(Goodstable goodstable, int type) {
+    /**
+     * 更换召唤兽饰品/装备槽位，并返回被替换下来的原道具 ID。
+     */
+    public BigDecimal changeAdornmentPart(Goodstable goodstable, int type) {
         if ((this.stye == null || this.stye.length() <= 1) && goodstable == null) {
             return null;
         }
@@ -1147,6 +1164,16 @@ public class RoleSummoning implements Commodity
         }
         this.stye = buffer.toString();
         return id;
+    }
+
+    /** 兼容旧命名：合并属性串。 */
+    public static String Splice(String v, String b, int type) {
+        return mergeAttributeEntry(v, b, type);
+    }
+
+    /** 兼容旧命名：更换饰品槽位。 */
+    public BigDecimal ChangePart(Goodstable goodstable, int type) {
+        return this.changeAdornmentPart(goodstable, type);
     }
     
     public BigDecimal getGoodId(int type) {
@@ -1246,3 +1273,4 @@ public class RoleSummoning implements Commodity
         this.foPenSeal = foPenSeal;
     }
 }
+

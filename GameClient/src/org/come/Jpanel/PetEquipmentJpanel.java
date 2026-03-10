@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import com.tool.tcp.NewPart;
 import java.util.Map;
@@ -277,7 +277,7 @@ public class PetEquipmentJpanel extends JPanel
         String yb = pet.getStye();
         BigDecimal id = null;
         if (type != -1) {
-            id = pet.ChangePart(null, type);
+            id = pet.changeAdornmentPart(null, type);
             this.labpetequ[type].setIcon(null);
         }
         else {
@@ -286,7 +286,7 @@ public class PetEquipmentJpanel extends JPanel
             good.setStatus(Integer.valueOf(1));
             GoodsMouslisten.gooduse(good, 0);
             GoodsListFromServerUntil.Deletebiaoid(good.getRgid());
-            id = pet.ChangePart(good, type);
+            id = pet.changeAdornmentPart(good, type);
             GoodsListFromServerUntil.fushis.put(good.getRgid(), good);
         }
         Goodstable goodstable = (Goodstable)GoodsListFromServerUntil.fushis.remove(id);
@@ -460,3 +460,4 @@ public class PetEquipmentJpanel extends JPanel
         this.equipSkillMessage = equipSkillMessage;
     }
 }
+
