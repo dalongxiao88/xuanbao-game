@@ -2,6 +2,9 @@ package org.come.bean;
 
 import java.math.BigDecimal;
 
+/**
+ * 灵宝装备位映射对象。
+ */
 public class LingBaoEquipment
 {
     private BigDecimal lingbaoid;
@@ -11,9 +14,18 @@ public class LingBaoEquipment
     public BigDecimal getLingbaoid() {
         return this.lingbaoid;
     }
+
+    /** 语义化别名：灵宝 ID。 */
+    public BigDecimal getLingbaoId() {
+        return this.lingbaoid;
+    }
     
     public void setLingbaoid(BigDecimal lingbaoid) {
         this.lingbaoid = lingbaoid;
+    }
+
+    public void setLingbaoId(BigDecimal lingbaoId) {
+        this.lingbaoid = lingbaoId;
     }
     
     public BigDecimal getFabaoid1() {
