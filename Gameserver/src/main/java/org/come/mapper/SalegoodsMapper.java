@@ -10,29 +10,29 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface SalegoodsMapper
 {
-    int countByExample(SalegoodsExample p0);
+    int countByExample(SalegoodsExample salegoodsExample);
     
-    int deleteByExample(SalegoodsExample p0);
+    int deleteByExample(SalegoodsExample salegoodsExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal saleId);
     
-    int insert(Salegoods p0);
+    int insert(Salegoods salegoods);
     
-    int insertSelective(Salegoods p0);
+    int insertSelective(Salegoods salegoods);
     
-    List<Salegoods> selectByExample(SalegoodsExample p0);
+    List<Salegoods> selectByExample(SalegoodsExample salegoodsExample);
     
-    Salegoods selectByPrimaryKey(BigDecimal p0);
+    Salegoods selectByPrimaryKey(BigDecimal saleId);
     
-    int updateByExampleSelective(@Param("record") Salegoods p0, @Param("example") SalegoodsExample p1);
+    int updateByExampleSelective(@Param("record") Salegoods salegoods, @Param("example") SalegoodsExample salegoodsExample);
     
-    int updateByExample(@Param("record") Salegoods p0, @Param("example") SalegoodsExample p1);
+    int updateByExample(@Param("record") Salegoods salegoods, @Param("example") SalegoodsExample salegoodsExample);
     
-    int updateByPrimaryKeySelective(Salegoods p0);
+    int updateByPrimaryKeySelective(Salegoods salegoods);
     
-    int updateByPrimaryKey(Salegoods p0);
+    int updateByPrimaryKey(Salegoods salegoods);
     
     List<Salegoods> selectByAll();
     
-    Salegoods selectSaleGoodsByRoleid(@Param("roleid") String p0);
+    Salegoods selectSaleGoodsByRoleid(@Param("roleid") String roleId);
 }

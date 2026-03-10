@@ -7,35 +7,35 @@ import org.come.entity.SalegoodsExample;
 
 public interface ISalegoodsService
 {
-    int countByExample(SalegoodsExample p0);
+    int countByExample(SalegoodsExample salegoodsExample);
     
-    int deleteByExample(SalegoodsExample p0);
+    int deleteByExample(SalegoodsExample salegoodsExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal saleId);
     
-    int insert(Salegoods p0);
+    int insert(Salegoods salegoods);
     
-    int insertSelective(Salegoods p0);
+    int insertSelective(Salegoods salegoods);
     
-    List<Salegoods> selectByExample(SalegoodsExample p0);
+    List<Salegoods> selectByExample(SalegoodsExample salegoodsExample);
     
-    Salegoods selectByPrimaryKey(BigDecimal p0);
+    Salegoods selectByPrimaryKey(BigDecimal saleId);
     
     List<Salegoods> selectByAll();
     
-    int updateByExampleSelective(Salegoods p0, SalegoodsExample p1);
+    int updateByExampleSelective(Salegoods salegoods, SalegoodsExample salegoodsExample);
     
-    int updateByExample(Salegoods p0, SalegoodsExample p1);
+    int updateByExample(Salegoods salegoods, SalegoodsExample salegoodsExample);
     
-    int updateByPrimaryKeySelective(Salegoods p0);
+    int updateByPrimaryKeySelective(Salegoods salegoods);
     
-    int updateByPrimaryKey(Salegoods p0);
+    int updateByPrimaryKey(Salegoods salegoods);
     
-    void updateFlag(BigDecimal p0, Integer p1);
+    void updateFlag(BigDecimal saleId, Integer flag);
     
-    void deleteFlag(BigDecimal p0);
+    void deleteFlag(BigDecimal saleId);
     
-    Integer selectFlag(BigDecimal p0);
+    Integer selectFlag(BigDecimal saleId);
     
-    Salegoods selectSaleGoodsByRoleid(String p0);
+    Salegoods selectSaleGoodsByRoleid(String roleId);
 }
