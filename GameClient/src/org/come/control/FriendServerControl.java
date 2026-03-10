@@ -7,12 +7,15 @@ import org.come.until.GsonUtil;
 import org.come.bean.FriendResultBean;
 import org.come.action.FromServerAction;
 
+/**
+ * 好友列表同步控制器。
+ */
 public class FriendServerControl implements FromServerAction
 {
     @Override
     public void controlMessFromServer(String mes, String type) {
         FriendResultBean friendresult = (FriendResultBean)GsonUtil.getGsonUtil().getgson().fromJson(mes, FriendResultBean.class);
-        UserMessUntil.setFriendtables(friendresult.getFriendtables());
+        UserMessUntil.setFriendtables(friendresult.getFriendTables());
         JTreeData.ShowFriendMsg(TestfriendlistJframe.getTestfriendlistJframe().getJflist().getTop(), TestfriendlistJframe.getTestfriendlistJframe().getJflist().getjTree());
     }
 }
