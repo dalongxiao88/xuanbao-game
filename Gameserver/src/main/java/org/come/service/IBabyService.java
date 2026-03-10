@@ -6,35 +6,36 @@ import java.util.List;
 
 public interface IBabyService
 {
+    /** 查询全部宝宝记录。 */
     List<Baby> selectAllBaby();
     
-    void createBaby(Baby p0);
+    void createBaby(Baby baby);
     
-    List<Baby> selectBabyByRolename(BigDecimal p0);
+    List<Baby> selectBabyByRolename(BigDecimal roleId);
     
-    Baby selectBabyById(BigDecimal p0);
+    Baby selectBabyById(BigDecimal babyId);
     
-    void updateBaby(Baby p0);
+    void updateBaby(Baby baby);
     
-    void updateBabyRedis(Baby p0);
+    void updateBabyRedis(Baby baby);
     
     BigDecimal selectMaxID();
     
-    void deleteBaby(Baby p0);
+    void deleteBaby(Baby baby);
     
-    void createBabysql(Baby p0);
+    void createBabysql(Baby baby);
     
-    void updateBabysql(Baby p0);
+    void updateBabysql(Baby baby);
     
-    void deleteBabysql(Baby p0);
+    void deleteBabysql(Baby baby);
     
-    void deleteBabyList(List<BigDecimal> p0);
+    void deleteBabyList(List<BigDecimal> babyIds);
     
-    void createBabyList(List<Baby> p0);
+    void createBabyList(List<Baby> babyList);
     
-    void updateBabyList(List<Baby> p0);
+    void updateBabyList(List<Baby> babyList);
     
-    void createBabySingle(Baby p0);
+    void createBabySingle(Baby baby);
     
-    void deleteBabySingle(BigDecimal p0);
+    void deleteBabySingle(BigDecimal babyId);
 }

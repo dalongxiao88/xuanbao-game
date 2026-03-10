@@ -8,25 +8,26 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface BabyMapper
 {
+    /** 查询全部宝宝记录。 */
     List<Baby> selectAllBaby();
     
-    void createBaby(Baby p0);
+    void createBaby(Baby baby);
     
-    List<Baby> selectBabyByRolename(BigDecimal p0);
+    List<Baby> selectBabyByRolename(BigDecimal roleId);
     
-    void updateBaby(Baby p0);
+    void updateBaby(Baby baby);
     
     BigDecimal selectMaxID();
     
-    void deleteBaby(Baby p0);
+    void deleteBaby(Baby baby);
     
-    void deleteBabyList(List<BigDecimal> p0);
+    void deleteBabyList(List<BigDecimal> babyIds);
     
-    void createBabyList(List<Baby> p0);
+    void createBabyList(List<Baby> babyList);
     
-    void updateBabyList(List<Baby> p0);
+    void updateBabyList(List<Baby> babyList);
     
-    void createBabySingle(Baby p0);
+    void createBabySingle(Baby baby);
     
-    void deleteBabySingle(BigDecimal p0);
+    void deleteBabySingle(BigDecimal babyId);
 }

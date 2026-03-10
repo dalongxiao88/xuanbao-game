@@ -156,9 +156,9 @@ public class BabyBtn extends MoBanBtn
     
     public void changname() {
         Baby baby = UserMessUntil.getbaby(TestChildJframe.getTestChildJframe().getTestChildJpanel().getBabyid());
-        BigDecimal[] bigs = (BigDecimal[])((baby != null) ? baby.getpartAll() : null);
+        BigDecimal[] bigs = (BigDecimal[])((baby != null) ? baby.getAllEquipParts() : null);
         try {
-            if (UserMessUntil.getbaby(TestChildJframe.getTestChildJframe().getTestChildJpanel().getBabyid()).getpartAll() != null) {
+            if (UserMessUntil.getbaby(TestChildJframe.getTestChildJframe().getTestChildJpanel().getBabyid()).getAllEquipParts() != null) {
                 String lastname = UserMessUntil.getbaby(TestChildJframe.getTestChildJframe().getTestChildJpanel().getBabyid()).getBabyname();
                 TestChildJframe.getTestChildJframe().getTestChildJpanel().getTestChildCardJpanel().getChildAttributeJpanel();
                 if (TestChildAttributeJpanel.getLabPetname() != null) {

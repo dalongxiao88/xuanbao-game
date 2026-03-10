@@ -27,12 +27,18 @@ public class Baby
     private String parts;
     private String state;
     
-    public BigDecimal getpart(int type) {
+    /**
+     * 获取指定装备槽位的道具 ID。
+     */
+    public BigDecimal getEquipPart(int type) {
         String[] v = this.getParts().split("\\|");
         return (type < v.length) ? new BigDecimal(v[type]) : new BigDecimal(-1);
     }
     
-    public BigDecimal[] getpartAll() {
+    /**
+     * 获取全部宝宝装备槽位。
+     */
+    public BigDecimal[] getAllEquipParts() {
         BigDecimal[] bigs = new BigDecimal[4];
         String[] v = this.getParts().split("\\|");
         for (int i = 0; i < 4; ++i) {
@@ -46,8 +52,11 @@ public class Baby
         return bigs;
     }
     
-    public BigDecimal ChangePart(BigDecimal id, int type) {
-        BigDecimal[] bigs = this.getpartAll();
+    /**
+     * 更换指定装备槽位，并返回被替换下来的原装备 ID。
+     */
+    public BigDecimal changeEquipPart(BigDecimal id, int type) {
+        BigDecimal[] bigs = this.getAllEquipParts();
         BigDecimal yid = bigs[type];
         bigs[type] = id;
         StringBuffer buffer = new StringBuffer();
@@ -61,7 +70,10 @@ public class Baby
         return yid;
     }
     
-    public boolean ChangeTalent(int type, String talent) {
+    /**
+     * 学习或替换指定位置的天资条目。
+     */
+    public boolean changeTalent(int type, String talent) {
         String[] v = this.getTalents().split("\\|");
         for (int i = 0; i < v.length; ++i) {
             if (v[i].split("=")[0].equals(talent)) {
@@ -78,6 +90,26 @@ public class Baby
         this.Talents = buffer.toString();
         return true;
     }
+
+    /** 兼容旧命名：获取指定装备槽位。 */
+    public BigDecimal getpart(int type) {
+        return this.getEquipPart(type);
+    }
+
+    /** 兼容旧命名：获取全部装备槽位。 */
+    public BigDecimal[] getpartAll() {
+        return this.getAllEquipParts();
+    }
+
+    /** 兼容旧命名：更换装备槽位。 */
+    public BigDecimal ChangePart(BigDecimal id, int type) {
+        return this.changeEquipPart(id, type);
+    }
+
+    /** 兼容旧命名：学习或替换天资。 */
+    public boolean ChangeTalent(int type, String talent) {
+        return this.changeTalent(type, talent);
+    }
     
     public String getOutcome() {
         return this.outcome;
@@ -87,6 +119,11 @@ public class Baby
         this.outcome = outcome;
     }
     
+    /**
+     * 获取宝宝天资串。
+     * 当服务端未下发天资信息时，客户端沿用默认的三条占位天资，
+     * 以保证面板和属性计算逻辑仍可运行。
+     */
     public String getTalents() {
         return (this.Talents != null && !this.Talents.equals("")) ? this.Talents : "1=1|2=1|3=1";
     }
@@ -95,6 +132,10 @@ public class Baby
         this.Talents = talents;
     }
     
+    /**
+     * 获取宝宝装备槽位串。
+     * 当槽位信息为空时，按四个空槽位初始化，避免展示层解析失败。
+     */
     public String getParts() {
         if (this.parts == null || this.parts.equals("")) {
             this.parts = "-1|-1|-1|-1";

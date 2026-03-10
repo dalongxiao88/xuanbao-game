@@ -84,7 +84,7 @@ public class UseBabyAction implements IAction
         assetUpdate.updata("G" + good.getRgid() + "=" + good.getUsetime());
         Talent talent = GameServer.getTalent(id);
         if (!DropUtil.isV(talent.getFail() * (double)lvl)) {
-            baby.ChangeTalent(path, id + "=" + (lvl + 1));
+            baby.changeTalent(path, id + "=" + (lvl + 1));
             AllServiceUtil.getBabyService().updateBabyRedis(baby);
             assetUpdate.setBaby(baby);
             assetUpdate.setMsg("你孩子的" + talent.getTalentName() + "升级成功");
@@ -115,7 +115,7 @@ public class UseBabyAction implements IAction
         assetUpdate.setType(AssetUpdate.USEGOOD);
         UsePetAction.useGood(good, 1);
         assetUpdate.updata("G" + good.getRgid() + "=" + good.getUsetime());
-        if (baby.ChangeTalent((path == -1) ? GameServer.random.nextInt(3) : path, talentid + "")) {
+        if (baby.changeTalent((path == -1) ? GameServer.random.nextInt(3) : path, talentid + "")) {
             AllServiceUtil.getBabyService().updateBabyRedis(baby);
             assetUpdate.setBaby(baby);
             assetUpdate.setMsg("孩子学会了" + talent.getTalentName());

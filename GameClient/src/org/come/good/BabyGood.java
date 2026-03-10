@@ -156,7 +156,7 @@ public class BabyGood
     public static void adult(Baby baby) {
         if ((int)baby.getBabyage() >= 6480 && (baby.getOutcome() == null || baby.getOutcome().equals(""))) {
             List<BabyResult> babyResults = UserMessUntil.getAllBabyResult().getAllBabyResults();
-            Map<String, Integer> maps = BabyProperty.getBabyProperty().getProperty(baby, (baby != null) ? baby.getpartAll() : null);
+            Map<String, Integer> maps = BabyProperty.getBabyProperty().getProperty(baby, (baby != null) ? baby.getAllEquipParts() : null);
             int size = 0;
             int max = 0;
             String maxtype = "";
@@ -292,15 +292,15 @@ public class BabyGood
             ZhuFrame.getZhuJpanel().addPrompt2("这是男孩子用的");
         }
         else {
-            Goodstable good3 = (Goodstable)GoodsListFromServerUntil.fushis.get(baby.ChangePart(good2.getRgid(), type));
+            Goodstable good3 = (Goodstable)GoodsListFromServerUntil.fushis.get(baby.changeEquipPart(good2.getRgid(), type));
             if (TestChildJframe.getTestChildJframe().getTestChildJpanel().ChangeParts(baby, good3, good2, type)) {
                 UpdaBaby(baby);
             }
             else if (good3 == null) {
-                baby.ChangePart(new BigDecimal(-1), type);
+                baby.changeEquipPart(new BigDecimal(-1), type);
             }
             else {
-                baby.ChangePart(good3.getRgid(), type);
+                baby.changeEquipPart(good3.getRgid(), type);
             }
         }
     }

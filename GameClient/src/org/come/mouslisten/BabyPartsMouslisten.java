@@ -30,14 +30,14 @@ public class BabyPartsMouslisten implements MouseListener
             ZhuFrame.getZhuJpanel().addPrompt2("你没有选中的孩子");
         }
         else {
-            BigDecimal id = baby.ChangePart(new BigDecimal(-1), this.type);
+            BigDecimal id = baby.changeEquipPart(new BigDecimal(-1), this.type);
             Goodstable good = (Goodstable)GoodsListFromServerUntil.fushis.get(id);
             if (good != null) {
                 if (TestChildJframe.getTestChildJframe().getTestChildJpanel().ChangeParts(baby, good, (Goodstable)null, this.type)) {
                     BabyGood.UpdaBaby(baby);
                 }
                 else {
-                    baby.ChangePart(good.getRgid(), this.type);
+                    baby.changeEquipPart(good.getRgid(), this.type);
                     ZhuFrame.getZhuJpanel().addPrompt2("背包已满");
                 }
             }

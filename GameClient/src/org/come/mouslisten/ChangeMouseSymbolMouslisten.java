@@ -258,7 +258,7 @@ public class ChangeMouseSymbolMouslisten
         String sendmes = Agreement.getAgreement().BabyReleaseAgreement(GsonUtil.getGsonUtil().getgson().toJson(baby.getBabyid()));
         SendMessageUntil.toServer(sendmes);
         Baby babyx = UserMessUntil.getbaby(TestChildJframe.getTestChildJframe().getTestChildJpanel().getBabyid());
-        BigDecimal[] bigs = (BigDecimal[])((babyx != null) ? babyx.getpartAll() : null);
+        BigDecimal[] bigs = (BigDecimal[])((babyx != null) ? babyx.getAllEquipParts() : null);
         int exi = -1;
         for (int i = 0; i < UserMessUntil.getMyListBaby().size(); ++i) {
             if (((Baby)UserMessUntil.getMyListBaby().get(i)).getBabyid().compareTo(baby.getBabyid()) == 0) {

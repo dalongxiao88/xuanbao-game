@@ -204,7 +204,7 @@ public class TestChildJpanel extends JPanel
             this.labchildshoes.setIcon(null);
             this.labchildshoes.setText("鞋 子");
         }
-        this.testChildCardJpanel.getChildAttributeJpanel().showBaby(baby, baby.getpartAll());
+        this.testChildCardJpanel.getChildAttributeJpanel().showBaby(baby, baby.getAllEquipParts());
         return true;
     }
     
@@ -242,7 +242,7 @@ public class TestChildJpanel extends JPanel
     
     public void ShowBaby(Baby baby) {
         this.babyid = ((baby != null) ? baby.getBabyid() : null);
-        BigDecimal[] bigs = (BigDecimal[])((baby != null) ? baby.getpartAll() : null);
+        BigDecimal[] bigs = (BigDecimal[])((baby != null) ? baby.getAllEquipParts() : null);
         this.testChildCardJpanel.getChildAttributeJpanel().showBaby(baby, bigs);
         this.testChildCardJpanel.getChildTalentJpanel().showBaby(baby);
         if (baby == null) {
