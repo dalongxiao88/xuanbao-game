@@ -74,6 +74,11 @@ public class AssetControl implements FromServerAction {
         }
     }
 
+    /**
+     * 处理服务端下发的资产变更。
+     *
+     * 该方法负责同步金币、背包、摆摊状态、召唤兽、灵宝以及多个界面刷新动作。
+     */
     public static void asset(AssetUpdate assetUpdate) {
         if (assetUpdate == null) {
             return;
@@ -88,11 +93,11 @@ public class AssetControl implements FromServerAction {
             }
             for (int i = 0; i < vs.length; ++i) {
                 if (vs[i].startsWith("Dice")) {
-                    String[] p = vs[i].split("=");
-                    DiceReidsBase.setTime(p[2]);
+                    String[] diceParts = vs[i].split("=");
+                    DiceReidsBase.setTime(diceParts[2]);
                 } else if (vs[i].startsWith("D")) {
-                    long p2 = Long.parseLong(vs[i].substring(2));
-                    loginResult.setGold(new BigDecimal(loginResult.getGold().longValue() + p2));
+                    long goldChange = Long.parseLong(vs[i].substring(2));
+                    loginResult.setGold(new BigDecimal(loginResult.getGold().longValue() + goldChange));
                 } else if (vs[i].startsWith("refGZ")) {
                     if (FormsManagement.getframe(188888).isVisible()) {
                         OpenSkillGridJframe.getOpenSkillGridJframe().getOpenSkillGridJpanel().refreshPetSkills();
@@ -102,21 +107,21 @@ public class AssetControl implements FromServerAction {
                         OpenSkillGridJpanel.showListModel();
                     }
                 } else if (vs[i].startsWith("CUN")) {
-                    long p2 = Long.parseLong(vs[i].substring(4));
-                    loginResult.setMoneyshop(new BigDecimal(loginResult.getMoneyshop().longValue() + p2));
+                    long moneyShopChange = Long.parseLong(vs[i].substring(4));
+                    loginResult.setMoneyshop(new BigDecimal(loginResult.getMoneyshop().longValue() + moneyShopChange));
                 } else if (vs[i].startsWith("QU")) {
-                    long p2 = Long.parseLong(vs[i].substring(3));
-                    loginResult.setMoneyshop(new BigDecimal(loginResult.getMoneyshop().longValue() + p2));
+                    long withdrawChange = Long.parseLong(vs[i].substring(3));
+                    loginResult.setMoneyshop(new BigDecimal(loginResult.getMoneyshop().longValue() + withdrawChange));
                 } else if (vs[i].startsWith("STALL")) {
                     String[] vals = vs[i].split("=");
-                    BigDecimal id = new BigDecimal(vals[2]);
+                    BigDecimal targetId = new BigDecimal(vals[2]);
                     BigDecimal commodityId = new BigDecimal(vals[3]);
-                    int sum = Integer.parseInt(vals[4]);
-                    String s = vals[1];
+                    int remainingSum = Integer.parseInt(vals[4]);
+                    String stallType = vals[1];
                     int n = -1;
-                    switch (s.hashCode()) {
+                    switch (stallType.hashCode()) {
                         case 48: {
-                            if (s.equals("0")) {
+                            if (stallType.equals("0")) {
                                 n = 0;
                                 break;
                             } else {
@@ -124,7 +129,7 @@ public class AssetControl implements FromServerAction {
                             }
                         }
                         case 49: {
-                            if (s.equals("1")) {
+                            if (stallType.equals("1")) {
                                 n = 1;
                                 break;
                             } else {
@@ -132,7 +137,7 @@ public class AssetControl implements FromServerAction {
                             }
                         }
                         case 50: {
-                            if (s.equals("2")) {
+                            if (stallType.equals("2")) {
                                 n = 2;
                                 break;
                             } else {
@@ -142,13 +147,13 @@ public class AssetControl implements FromServerAction {
                     }
                     switch (n) {
                         case 0: {
-                            Goodstable goods = GoodsListFromServerUntil.czgood(id);
+                            Goodstable goods = GoodsListFromServerUntil.czgood(targetId);
                             if (commodityId.compareTo(BigDecimal.ZERO) <= 0) {
                                 goods.setCommodityId(null);
                             } else {
                                 goods.setCommodityId(commodityId);
                             }
-                            goods.setUsetime(Integer.valueOf(sum));
+                            goods.setUsetime(Integer.valueOf(remainingSum));
                             if ((int) goods.getUsetime() <= 0) {
                                 GoodsListFromServerUntil.deleteByRgid(goods.getRgid());
                                 break;
@@ -157,28 +162,28 @@ public class AssetControl implements FromServerAction {
                             }
                         }
                         case 1: {
-                            RoleSummoning pet = UserMessUntil.getPetRgid(id);
+                            RoleSummoning pet = UserMessUntil.getPetRgid(targetId);
                             if (commodityId.compareTo(BigDecimal.ZERO) <= 0) {
                                 pet.setCommodityId(null);
                             } else {
                                 pet.setCommodityId(commodityId);
                             }
-                            if (sum <= 0) {
-                                UserMessUntil.removePetToRgid(id);
+                            if (remainingSum <= 0) {
+                                UserMessUntil.removePetToRgid(targetId);
                                 break;
                             } else {
                                 break;
                             }
                         }
                         case 2: {
-                            Lingbao lingbao = RoleLingFa.getRoleLingFa().czGBG(id);
+                            Lingbao lingbao = RoleLingFa.getRoleLingFa().czGBG(targetId);
                             if (commodityId.compareTo(BigDecimal.ZERO) <= 0) {
                                 lingbao.setCommodityId(null);
                             } else {
                                 lingbao.setCommodityId(commodityId);
                             }
-                            if (sum <= 0) {
-                                RoleLingFa.getRoleLingFa().deletelingToId(id);
+                            if (remainingSum <= 0) {
+                                RoleLingFa.getRoleLingFa().deletelingToId(targetId);
                                 break;
                             } else {
                                 break;
@@ -230,8 +235,8 @@ public class AssetControl implements FromServerAction {
                     String sendMes = Agreement.getFiveMsgAgreement("CC" + 10);
                     SendMessageUntil.toServer(sendMes);
                 } else if (vs[i].startsWith("X")) {
-                    long p2 = Long.parseLong(vs[i].substring(2));
-                    loginResult.setCodecard(new BigDecimal(loginResult.getCodecard().longValue() + p2));
+                    long codeCardChange = Long.parseLong(vs[i].substring(2));
+                    loginResult.setCodecard(new BigDecimal(loginResult.getCodecard().longValue() + codeCardChange));
                     GoodDetailedJframe.getGoodDetailedJframe().getGoodDetailedJpanel().getYonghuXianyu().setText(loginResult.getCodecard() + "");
                     TaobaoCourtMainJframe.getTaobaoCourtJframe().getTaobaoCourtMainJpanel().getJadeNum().setText(loginResult.getCodecard() + "");
                 } else if (vs[i].startsWith("SKILL")) {
@@ -272,16 +277,16 @@ public class AssetControl implements FromServerAction {
                     }
                     SendRoleAndRolesummingUntil.sendRole(data);
                 } else if (vs[i].startsWith("S")) {
-                    long p2 = Long.parseLong(vs[i].substring(2));
-                    loginResult.setSavegold(new BigDecimal(loginResult.getSavegold().longValue() + p2));
+                    long saveGoldChange = Long.parseLong(vs[i].substring(2));
+                    loginResult.setSavegold(new BigDecimal(loginResult.getSavegold().longValue() + saveGoldChange));
                 } else if (vs[i].startsWith("C")) {
-                    long p2 = Long.parseLong(vs[i].substring(2));
-                    loginResult.setMoney(Integer.valueOf((int) ((long) (int) loginResult.getMoney() + p2)));
+                    long moneyChange = Long.parseLong(vs[i].substring(2));
+                    loginResult.setMoney(Integer.valueOf((int) ((long) (int) loginResult.getMoney() + moneyChange)));
                     GoodDetailedJframe.getGoodDetailedJframe().getGoodDetailedJpanel().getYonghuXianyu().setText(loginResult.getMoney() + "");
                     TaobaoCourtMainJframe.getTaobaoCourtJframe().getTaobaoCourtMainJpanel().getjfNum().setText(loginResult.getMoney() + "");
                 } else if (vs[i].startsWith("Z")) {
-                    long p2 = Long.parseLong(vs[i].substring(2));
-                    loginResult.setTransfergold(new BigDecimal(loginResult.getTransfergold().longValue() + p2));
+                    long transferGoldChange = Long.parseLong(vs[i].substring(2));
+                    loginResult.setTransfergold(new BigDecimal(loginResult.getTransfergold().longValue() + transferGoldChange));
                     TaobaoCourtMainJframe.getTaobaoCourtJframe().getTaobaoCourtMainJpanel().getzqbNum().setText(loginResult.getTransfergold() + "");
                     GoodDetailedJframe.getGoodDetailedJframe().getGoodDetailedJpanel().getYonghuXianyu().setText(loginResult.getTransfergold() + "");
                 } else if (vs[i].startsWith("R")) {
@@ -307,8 +312,8 @@ public class AssetControl implements FromServerAction {
                 } else if (vs[i].startsWith("L")) {
                     ExpIncreaseUntil.LingExp(vs[i]);
                 } else if (vs[i].startsWith("TTJF")) {
-                    String p3 = assetUpdate.getData().substring(5);
-                    loginResult.setScore(p3);
+                    String scoreData = assetUpdate.getData().substring(5);
+                    loginResult.setScore(scoreData);
                 } else if (vs[i].equals("baoshi")) {//修复世界装备显示宝石
                     for (int k = 0; k <= assetUpdate.getGoods().size() - 1; ++k) {
                         GoodsListFromServerUntil.fushis.remove(((Goodstable) assetUpdate.getGoods().get(k)).getRgid());
@@ -327,11 +332,11 @@ public class AssetControl implements FromServerAction {
                 } else if (vs[i].startsWith("T")) {
                     MsgJframe.getJframe().getJapnel().texiao(vs[i].substring(1));
                 } else if (vs[i].startsWith("B")) {
-                    long p2 = Long.parseLong(vs[i].substring(2));
-                    loginResult.setContribution(new BigDecimal(loginResult.getContribution().longValue() + p2));
+                    long contributionChange = Long.parseLong(vs[i].substring(2));
+                    loginResult.setContribution(new BigDecimal(loginResult.getContribution().longValue() + contributionChange));
                 } else if (vs[i].startsWith("K")) {
-                    long p2 = Long.parseLong(vs[i].substring(2));
-                    loginResult.setPkrecord(new BigDecimal(loginResult.getPkrecord().longValue() + p2));
+                    long pkRecordChange = Long.parseLong(vs[i].substring(2));
+                    loginResult.setPkrecord(new BigDecimal(loginResult.getPkrecord().longValue() + pkRecordChange));
                 } else if (vs[i].startsWith("EP")) {
                     ExpIncreaseUntil.RoleExpPoint(loginResult, vs[i]);
                 } else if (vs[i].startsWith("E")) {
