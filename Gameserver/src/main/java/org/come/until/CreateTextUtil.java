@@ -8,6 +8,9 @@ import java.io.File;
 
 public class CreateTextUtil
 {
+    /**
+     * 一次性读取整个文件内容。
+     */
     public static byte[] getContent(String filePath) throws IOException {
         File file = new File(filePath);
         long fileSize = file.length();
@@ -26,10 +29,15 @@ public class CreateTextUtil
         return buffer;
     }
     
-    public byte[] getContent2(String filePath) throws IOException {
+    /**
+     * 以流式方式读取文件内容。
+     *
+     * 历史命名 `getContent2` 缺少语义，这里保留兼容方法，
+     * 同时增加语义化静态别名。
+     */
+    public static byte[] readContentStreaming(String filePath) throws IOException {
         FileInputStream in = new FileInputStream(filePath);
         ByteArrayOutputStream out = new ByteArrayOutputStream(1024);
-        System.out.println("bytes available:" + in.available());
         byte[] temp = new byte[1024];
         int size = 0;
         while ((size = in.read(temp)) != -1) {
@@ -37,8 +45,13 @@ public class CreateTextUtil
         }
         in.close();
         byte[] bytes = out.toByteArray();
-        System.out.println("bytes size got is:" + bytes.length);
+        out.close();
         return bytes;
+    }
+
+    /** 兼容旧命名：流式读取文件内容。 */
+    public byte[] getContent2(String filePath) throws IOException {
+        return readContentStreaming(filePath);
     }
     
     public static void createFile(String path, byte[] content) throws IOException {
