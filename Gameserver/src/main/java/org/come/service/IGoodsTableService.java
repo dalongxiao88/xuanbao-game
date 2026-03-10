@@ -12,55 +12,55 @@ public interface IGoodsTableService
 {
     List<Goodstable> getAllGoods();
     
-    List<Goodstable> getGoodsByRoleID(BigDecimal p0);
+    List<Goodstable> getGoodsByRoleID(BigDecimal roleId);
     
-    void insertGoods(Goodstable p0);
+    void insertGoods(Goodstable goodstable);
     
-    void updateGoodsIndex(Goodstable p0, BigDecimal p1, BigDecimal p2, Integer p3);
+    void updateGoodsIndex(Goodstable goodstable, BigDecimal roleId, BigDecimal targetIndex, Integer useState);
     
-    String updateGoodsNum(Goodstable p0, int p1);
+    String updateGoodsNum(Goodstable goodstable, int changeNum);
     
-    void deleteGoodsByRgid(BigDecimal p0);
+    void deleteGoodsByRgid(BigDecimal rgid);
     
-    Goodstable getGoodsByRgID(BigDecimal p0);
+    Goodstable getGoodsByRgID(BigDecimal rgid);
     
-    List<Goodstable> selectGoodsByRoleIDAndGoodsID(BigDecimal p0, BigDecimal p1);
+    List<Goodstable> selectGoodsByRoleIDAndGoodsID(BigDecimal roleId, BigDecimal goodsId);
     
-    List<Goodstable> selectGoodsByRoleIDAndGoodsIDAndState(BigDecimal p0, BigDecimal p1, int p2);
+    List<Goodstable> selectGoodsByRoleIDAndGoodsIDAndState(BigDecimal roleId, BigDecimal goodsId, int state);
     
     BigDecimal selectMaxID();
     
-    void insertGoodssql(Goodstable p0);
+    void insertGoodssql(Goodstable goodstable);
     
-    void insertGoodssqlS(List<Goodstable> p0);
+    void insertGoodssqlS(List<Goodstable> goodsList);
     
-    void updateGoodssql(Goodstable p0);
+    void updateGoodssql(Goodstable goodstable);
     
-    void deleteGoodsByRgidsql(BigDecimal p0);
+    void deleteGoodsByRgidsql(BigDecimal rgid);
     
-    void updateGoodRedis(Goodstable p0);
+    void updateGoodRedis(Goodstable goodstable);
     
-    List<Goodsbuyrecordsumbean> selectXianYuGoodsbuy(String p0, String p1, int p2, String p3);
+    List<Goodsbuyrecordsumbean> selectXianYuGoodsbuy(String timeRange, String goodsName, int pageNum, String type);
     
-    List<Goodsbuyrecordsumbean> selectXianYuGoodsbuyZhuZhuangTu(BigDecimal p0);
+    List<Goodsbuyrecordsumbean> selectXianYuGoodsbuyZhuZhuangTu(BigDecimal goodsId);
     
-    List<ShangchengshopEntity> selectShangChengShopList(String p0, String p1, int p2);
+    List<ShangchengshopEntity> selectShangChengShopList(String goodsId, String goodsName, int pageNum);
     
-    int updateShangChengShop(ShangchengshopEntity p0);
+    int updateShangChengShop(ShangchengshopEntity shopEntity);
     
-    int deleteShangChengShop(ShangchengshopEntity p0);
+    int deleteShangChengShop(ShangchengshopEntity shopEntity);
     
-    int addShangChengShop(ShangchengshopEntity p0);
+    int addShangChengShop(ShangchengshopEntity shopEntity);
     
     List<GoodssaledayrecordEntity> selectGoodsBuyRecordSumList();
     
-    int addGoodssaledayrecord(GoodssaledayrecordEntity p0);
+    int addGoodssaledayrecord(GoodssaledayrecordEntity saleDayRecord);
     
-    int addGoodsBuyRecord(GoodsbuyrecordEntity p0);
+    int addGoodsBuyRecord(GoodsbuyrecordEntity buyRecord);
     
-    int updateGoodssqlS(List<Goodstable> p0);
+    int updateGoodssqlS(List<Goodstable> goodsList);
     
-    void deleteGoodsByRgidsqlS(List<BigDecimal> p0);
+    void deleteGoodsByRgidsqlS(List<BigDecimal> rgidList);
     
-    Goodstable getGoodsByHashKey(String p0);
+    Goodstable getGoodsByHashKey(String hashKey);
 }

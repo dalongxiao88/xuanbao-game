@@ -15,41 +15,41 @@ public interface GoodstableMapper
 {
     List<Goodstable> getAllGoods();
     
-    List<Goodstable> getGoodsByRoleID(BigDecimal p0);
+    List<Goodstable> getGoodsByRoleID(BigDecimal roleId);
     
-    void insertGoods(Goodstable p0);
+    void insertGoods(Goodstable goodstable);
     
-    void insertGoodssqlS(List<Goodstable> p0);
+    void insertGoodssqlS(List<Goodstable> goodsList);
     
-    void updateGoods(Goodstable p0);
+    void updateGoods(Goodstable goodstable);
     
-    void deleteGoodsByRgid(BigDecimal p0);
+    void deleteGoodsByRgid(BigDecimal rgid);
     
-    Goodstable getGoodsByRgID(BigDecimal p0);
+    Goodstable getGoodsByRgID(BigDecimal rgid);
     
-    List<Goodstable> selectGoodsByRoleIDAndGoodsID(@Param("roleid") BigDecimal p0, @Param("goodsid") BigDecimal p1);
+    List<Goodstable> selectGoodsByRoleIDAndGoodsID(@Param("roleid") BigDecimal roleId, @Param("goodsid") BigDecimal goodsId);
     
     BigDecimal selectMaxID();
     
-    List<Goodsbuyrecordsumbean> selectXianYuGoodsbuy(@Param("time") String p0, @Param("goodsname") String p1, @Param("type") String p2);
+    List<Goodsbuyrecordsumbean> selectXianYuGoodsbuy(@Param("time") String timeRange, @Param("goodsname") String goodsName, @Param("type") String type);
     
-    List<Goodsbuyrecordsumbean> selectXianYuGoodsbuyZhuZhuangTu(BigDecimal p0);
+    List<Goodsbuyrecordsumbean> selectXianYuGoodsbuyZhuZhuangTu(BigDecimal goodsId);
     
-    List<ShangchengshopEntity> selectShangChengShopList(@Param("goodsid") String p0, @Param("goodsname") String p1);
+    List<ShangchengshopEntity> selectShangChengShopList(@Param("goodsid") String goodsId, @Param("goodsname") String goodsName);
     
-    int updateShangChengShop(ShangchengshopEntity p0);
+    int updateShangChengShop(ShangchengshopEntity shopEntity);
     
-    int deleteShangChengShop(ShangchengshopEntity p0);
+    int deleteShangChengShop(ShangchengshopEntity shopEntity);
     
-    int addShangChengShop(ShangchengshopEntity p0);
+    int addShangChengShop(ShangchengshopEntity shopEntity);
     
     List<GoodssaledayrecordEntity> selectGoodsBuyRecordSumList();
     
-    int addGoodssaledayrecord(GoodssaledayrecordEntity p0);
+    int addGoodssaledayrecord(GoodssaledayrecordEntity saleDayRecord);
     
-    int addGoodsBuyRecord(GoodsbuyrecordEntity p0);
+    int addGoodsBuyRecord(GoodsbuyrecordEntity buyRecord);
     
-    int deleteGoodsByRgids(List<BigDecimal> p0);
+    int deleteGoodsByRgids(List<BigDecimal> rgidList);
     
-    int updateGoodsList(List<Goodstable> p0);
+    int updateGoodsList(List<Goodstable> goodsList);
 }
