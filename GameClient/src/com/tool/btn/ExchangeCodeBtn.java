@@ -1,4 +1,4 @@
-package com.tool.btn;
+﻿package com.tool.btn;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -159,7 +159,7 @@ public class ExchangeCodeBtn extends MoBanBtn
         for (int i = 0; i < vv.length; ++i) {
             yuben = RoleReborn.reborn(RoleSkill.getRoleSkill().getAllSkill(vv[i], i * 5000 + 10000), yuben);
         }
-        Goodstable goodstable = GoodsListFromServerUntil.Uerbiaoid(rgid);
+        Goodstable goodstable = GoodsListFromServerUntil.consumeByRgid(rgid);
         if (goodstable != null) {
             ZhuFrame.getZhuJpanel().addPrompt2("更改修正成功");
             GoodsMouslisten.gooduse(goodstable, 1);
@@ -258,3 +258,4 @@ public class ExchangeCodeBtn extends MoBanBtn
         return isNum.matches();
     }
 }
+

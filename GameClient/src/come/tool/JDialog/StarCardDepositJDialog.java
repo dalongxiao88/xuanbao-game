@@ -1,4 +1,4 @@
-package come.tool.JDialog;
+﻿package come.tool.JDialog;
 
 import org.come.starcard.JpanelStarTransferMain;
 import org.come.starcard.JpanelStarCardMain;
@@ -23,7 +23,7 @@ public class StarCardDepositJDialog implements TiShiChuLi
             }
             if ((int)goodstable.getStatus() == 0) {
                 goodstable.setStatus(Integer.valueOf(4));
-                GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+                GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
                 GoodsListFromServerUntil.addGood(goodstable);
             }
             else if ((int)goodstable.getStatus() == 4) {
@@ -67,3 +67,4 @@ public class StarCardDepositJDialog implements TiShiChuLi
         }
     }
 }
+

@@ -1,4 +1,4 @@
-package org.come.starcard;
+﻿package org.come.starcard;
 
 import org.come.Frame.TestpackJframe;
 import java.awt.event.MouseEvent;
@@ -901,7 +901,7 @@ public class JpanelStarCardMain extends JPanel
     public void deductGoods(Goodstable goodstable, int num) {
         goodstable.goodxh(num);
         if ((int)goodstable.getUsetime() <= 0) {
-            GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+            GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
             if (this.bigType == 1) {
                 GoodsListFromServerUntil.getStarCardList().remove(goodstable);
             }
@@ -1789,3 +1789,4 @@ public class JpanelStarCardMain extends JPanel
         this.transferBtn = transferBtn;
     }
 }
+

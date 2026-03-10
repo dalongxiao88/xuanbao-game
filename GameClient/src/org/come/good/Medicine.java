@@ -1,4 +1,4 @@
-package org.come.good;
+﻿package org.come.good;
 
 import java.util.List;
 import org.come.until.SendRoleAndRolesummingUntil;
@@ -188,7 +188,7 @@ public class Medicine
                 if (good.getUsetime().intValue() != usetime) {
                   GoodsMouslisten.gooduse(good, 1);
                   if (good.getUsetime().intValue() <= 0)
-                    GoodsListFromServerUntil.Deletebiaoid(good.getRgid()); 
+                    GoodsListFromServerUntil.deleteByRgid(good.getRgid()); 
                   if (lx == 0 || lx == 1) {
                     String mes = Agreement.getAgreement().rolechangeAgreement("H" + RoleData.getRoleData().getLoginResult().getHp() + "=" + RoleData.getRoleData().getLoginResult().getMp());
                     SendMessageUntil.toServer(mes);
@@ -212,3 +212,4 @@ public class Medicine
         Music.addyinxiao("战斗、站立、行走使用药品.mp3");
     }
 }
+

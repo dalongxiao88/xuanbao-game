@@ -1,4 +1,4 @@
-package org.come.mouslisten;
+﻿package org.come.mouslisten;
 
 import java.util.ArrayList;
 
@@ -384,7 +384,7 @@ public class GoodsMouslisten implements MouseListener
             if (usetime != (int)goodstable.getUsetime()) {
                 gooduse(goodstable, 1);
                 if ((int)goodstable.getUsetime() <= 0) {
-                    GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+                    GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
                 }
                 SendRoleAndRolesummingUntil.sendRoleSumming(UserMessUntil.getChosePetMes());
                 PetAddPointMouslisten.showPetValue();
@@ -1693,3 +1693,4 @@ public class GoodsMouslisten implements MouseListener
 
     }
 }
+

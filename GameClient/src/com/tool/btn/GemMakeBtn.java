@@ -1,4 +1,4 @@
-package com.tool.btn;
+﻿package com.tool.btn;
 
 import java.util.List;
 import org.come.socket.SendMessageUntil;
@@ -208,14 +208,14 @@ public class GemMakeBtn extends MoBanBtn
                     if (good != null) {
                         good.goodxh(1);
                         if ((int)good.getUsetime() <= 0) {
-                            GoodsListFromServerUntil.Deletebiaoid(good.getRgid());
+                            GoodsListFromServerUntil.deleteByRgid(good.getRgid());
                         }
                         rgids.add(good.getRgid());
                     }
                 }
                 goods[1].setStatus(Integer.valueOf(1));
                 GoodsListFromServerUntil.fushis.put(goods[1].getRgid(), goods[1]);
-                GoodsListFromServerUntil.Deletebiaoid(goods[1].getRgid());
+                GoodsListFromServerUntil.deleteByRgid(goods[1].getRgid());
             }
             else {
                 money = new BigDecimal(3200000 * lvl);
@@ -249,3 +249,4 @@ public class GemMakeBtn extends MoBanBtn
         this.b = b;
     }
 }
+

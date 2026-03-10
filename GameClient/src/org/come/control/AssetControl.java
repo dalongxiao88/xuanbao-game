@@ -150,7 +150,7 @@ public class AssetControl implements FromServerAction {
                             }
                             goods.setUsetime(Integer.valueOf(sum));
                             if ((int) goods.getUsetime() <= 0) {
-                                GoodsListFromServerUntil.Deletebiaoid(goods.getRgid());
+                                GoodsListFromServerUntil.deleteByRgid(goods.getRgid());
                                 break;
                             } else {
                                 break;

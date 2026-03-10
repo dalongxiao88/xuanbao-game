@@ -1,4 +1,4 @@
-package org.come.mouslisten;
+﻿package org.come.mouslisten;
 
 import org.come.socket.SendMessageUntil;
 import org.come.until.GsonUtil;
@@ -66,8 +66,9 @@ public class SurePawnMouslisten
         SendMessageUntil.toServer(mes);
         SurePawnMouslisten.goodstable.setUsetime(Integer.valueOf((int)SurePawnMouslisten.goodstable.getUsetime() - count));
         if ((int)SurePawnMouslisten.goodstable.getUsetime() <= 0) {
-            GoodsListFromServerUntil.Deletebiaoid(SurePawnMouslisten.goodstable.getRgid());
+            GoodsListFromServerUntil.deleteByRgid(SurePawnMouslisten.goodstable.getRgid());
         }
         PawnJfram.getPawnJfram().getPawnjpanel().qingchu();
     }
 }
+

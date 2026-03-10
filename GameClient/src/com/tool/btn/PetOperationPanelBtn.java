@@ -1,4 +1,4 @@
-package com.tool.btn;
+﻿package com.tool.btn;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -240,7 +240,7 @@ public class PetOperationPanelBtn extends MoBanBtn {
         goodstable.setUsetime(goodstable.getUsetime() - 1);
         GoodsMouslisten.gooduse(goodstable, 1);
         if (goodstable.getUsetime() <= 0) {
-            GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+            GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
         }
         SendRoleAndRolesummingUntil.sendRoleSumming(pet);
         ZhuJpanel.setGoodstableAl(null);
@@ -272,3 +272,4 @@ public class PetOperationPanelBtn extends MoBanBtn {
         SendMessageUntil.toServer(mes);// 向服务器发送信息
     }
 }
+

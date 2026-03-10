@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import com.tool.time.Limit;
 import com.tool.time.TimeLimit;
@@ -752,7 +752,7 @@ public class TransJpanel extends JPanel implements InputNum
                             }
                             goodstable.goodxh(goodNum);
                             if ((int)goodstable.getUsetime() <= 0) {
-                                GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+                                GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
                             }
                             GoodTrans2 goodTrans3 = new GoodTrans2();
                             goodTrans3.setI(true);
@@ -772,7 +772,7 @@ public class TransJpanel extends JPanel implements InputNum
                             }
                             goodstable.goodxh(1);
                             if ((int)goodstable.getUsetime() <= 0) {
-                                GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+                                GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
                             }
                             GoodTrans2 goodTrans4 = new GoodTrans2();
                             goodTrans4.setI(true);
@@ -963,3 +963,4 @@ public class TransJpanel extends JPanel implements InputNum
         }
     }
 }
+

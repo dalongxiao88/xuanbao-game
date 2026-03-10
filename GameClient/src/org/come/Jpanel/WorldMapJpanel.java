@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import java.util.Comparator;
 import java.awt.Image;
@@ -586,7 +586,7 @@ public class WorldMapJpanel extends JPanel
                 }
                 GoodsMouslisten.gooduse(NPCJfram.getNpcJfram().getNpcjpanel().getGood(), 2);
                 if (sum <= 0) {
-                    GoodsListFromServerUntil.Deletebiaoid(NPCJfram.getNpcJfram().getNpcjpanel().getGood().getRgid());
+                    GoodsListFromServerUntil.deleteByRgid(NPCJfram.getNpcJfram().getNpcjpanel().getGood().getRgid());
                 }
                 Door door = new Door();
                 door.setDoormap(path[0]);
@@ -1107,7 +1107,7 @@ public class WorldMapJpanel extends JPanel
         }
         GoodsMouslisten.gooduse((Goodstable)goodstables.get(0), 2);
         if (sum <= 0) {
-            GoodsListFromServerUntil.Deletebiaoid(((Goodstable)goodstables.get(0)).getRgid());
+            GoodsListFromServerUntil.deleteByRgid(((Goodstable)goodstables.get(0)).getRgid());
         }
     }
     
@@ -1117,3 +1117,4 @@ public class WorldMapJpanel extends JPanel
         WorldMapJpanel.ditubianma = 0;
     }
 }
+

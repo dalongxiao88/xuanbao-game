@@ -1,4 +1,4 @@
-package come.tool.JDialog;
+﻿package come.tool.JDialog;
 
 import org.come.Frame.AlchemyJframe;
 import org.come.Frame.PetSkillsJframe;
@@ -47,7 +47,7 @@ public class LinguaJDialog implements TiShiChuLi
 
                 final Goodstable goodstable = ZhuJpanel.getGoodstableAlf();
                 if (goodstable.getUsetime().intValue() <= 0) {
-                    GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+                    GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
                 }
                 ZhuJpanel.setGoodstableAlf(null);
                 ss.getLabRefined().setIcon(null);
@@ -65,3 +65,4 @@ public class LinguaJDialog implements TiShiChuLi
         }
     }
 }
+

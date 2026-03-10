@@ -1,4 +1,4 @@
-package org.wing.btn;
+﻿package org.wing.btn;
 
 import org.come.entity.PartJade;
 import java.math.BigDecimal;
@@ -479,7 +479,8 @@ public class WingBtn extends MoBanBtn
     public void deductGoods(Goodstable goodstable, int num) {
         goodstable.goodxh(num);
         if ((int)goodstable.getUsetime() <= 0) {
-            GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+            GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
         }
     }
 }
+

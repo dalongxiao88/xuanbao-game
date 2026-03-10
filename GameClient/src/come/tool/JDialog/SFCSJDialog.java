@@ -1,4 +1,4 @@
-package come.tool.JDialog;
+﻿package come.tool.JDialog;
 
 import java.util.List;
 import org.come.bean.RoleShow;
@@ -55,7 +55,7 @@ public class SFCSJDialog implements TiShiChuLi
                     }
                     GoodsMouslisten.gooduse(NPCJfram.getNpcJfram().getNpcjpanel().getGood(), 2);
                     if (sum <= 0) {
-                        GoodsListFromServerUntil.Deletebiaoid(NPCJfram.getNpcJfram().getNpcjpanel().getGood().getRgid());
+                        GoodsListFromServerUntil.deleteByRgid(NPCJfram.getNpcJfram().getNpcjpanel().getGood().getRgid());
                     }
                     Door door = new Door();
                     door.setDoormap(path[0]);
@@ -89,3 +89,4 @@ public class SFCSJDialog implements TiShiChuLi
         }
     }
 }
+

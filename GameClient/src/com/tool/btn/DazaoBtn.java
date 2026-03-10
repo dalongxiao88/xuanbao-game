@@ -1,4 +1,4 @@
-package com.tool.btn;
+﻿package com.tool.btn;
 
 import java.util.Objects;
 import java.util.regex.Matcher;
@@ -154,7 +154,7 @@ public class DazaoBtn extends MoBanBtn
                         }
                         goodstables.add(goods[j].getRgid());
                         if (goods[j].getUsetime().intValue() <= 0) {
-                            GoodsListFromServerUntil.Deletebiaoid(goods[j].getRgid());
+                            GoodsListFromServerUntil.deleteByRgid(goods[j].getRgid());
                             goods[j] = null;
                             qkth(type, j);
                         }
@@ -216,7 +216,7 @@ public class DazaoBtn extends MoBanBtn
                                 }
                                 goodstables.add(goods[j].getRgid());
                                 if ((int)goods[j].getUsetime() <= 0) {
-                                    GoodsListFromServerUntil.Deletebiaoid(goods[j].getRgid());
+                                    GoodsListFromServerUntil.deleteByRgid(goods[j].getRgid());
                                     goods[j] = null;
                                     this.qkth(type, j);
                                 }
@@ -242,7 +242,7 @@ public class DazaoBtn extends MoBanBtn
                             }
                             rgids.add(goods[k].getRgid());
                             if ((int)goods[k].getUsetime() <= 0) {
-                                GoodsListFromServerUntil.Deletebiaoid(goods[k].getRgid());
+                                GoodsListFromServerUntil.deleteByRgid(goods[k].getRgid());
                                 goods[k] = null;
                                 this.qkth(type, k);
                             }
@@ -823,3 +823,4 @@ public class DazaoBtn extends MoBanBtn
         return 0;
     }
 }
+

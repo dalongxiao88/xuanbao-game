@@ -1477,7 +1477,7 @@ public class GoodsListFromServerUntil {
             ZhuFrame.getZhuJpanel().addPrompt(goodstable.getGoodsname() + "已过使用时间,自动消失!");
             goodstable.setUsetime(Integer.valueOf(0));
             GoodsMouslisten.gooduse(goodstable, 1);
-            Deletebiaoid(goodstable.getRgid());
+            deleteByRgid(goodstable.getRgid());
             GoodsMouslisten.goodreplace(-1, -1);
         }
         return buffer.toString();
@@ -1636,7 +1636,10 @@ public class GoodsListFromServerUntil {
         }
     }
 
-    public static void newgood(List<Goodstable> goodstables) {
+    /**
+     * 批量加入新物品到背包列表。
+     */
+    public static void addGoodsBatch(List<Goodstable> goodstables) {
         for (int i = 0; i < goodstables.size(); ++i) {
             int j = 0;
             while (j < GoodsListFromServerUntil.Goodslist.length) {
@@ -1651,7 +1654,15 @@ public class GoodsListFromServerUntil {
         PageNumberChange(GoodsListFromServerUntil.Pagenumber);
     }
 
-    public static int chongfu(Goodstable goodstable) {
+    /** 兼容旧命名：批量加入新物品。 */
+    public static void newgood(List<Goodstable> goodstables) {
+        addGoodsBatch(goodstables);
+    }
+
+    /**
+     * 查找可叠加物品在背包中的位置。
+     */
+    public static int findDuplicateGoodsIndex(Goodstable goodstable) {
         int goodid = goodstable.getGoodsid().intValue();
         if (!EquipTool.isEquip(goodstable.getType())) {
             for (int i = 0; i < GoodsListFromServerUntil.Goodslist.length; ++i) {
@@ -1663,7 +1674,15 @@ public class GoodsListFromServerUntil {
         return -1;
     }
 
-    public static boolean newgood(Goodstable goodstables) {
+    /** 兼容旧命名：查找重复物品位置。 */
+    public static int chongfu(Goodstable goodstable) {
+        return findDuplicateGoodsIndex(goodstable);
+    }
+
+    /**
+     * 向背包中加入单个新物品。
+     */
+    public static boolean addGood(Goodstable goodstables) {
         for (int j = 0; j < GoodsListFromServerUntil.Goodslist.length; ++j) {
             if (GoodsListFromServerUntil.Goodslist[j] == null) {
                 goodstables.setStatus(Integer.valueOf(0));
@@ -1673,6 +1692,11 @@ public class GoodsListFromServerUntil {
             }
         }
         return false;
+    }
+
+    /** 兼容旧命名：加入单个新物品。 */
+    public static boolean newgood(Goodstable goodstables) {
+        return addGood(goodstables);
     }
 
     public static List<Integer> chaxuns(int[] goodids) {
@@ -1727,7 +1751,10 @@ public class GoodsListFromServerUntil {
         return false;
     }
 
-    public static List<Goodstable> chaxunss(long type) {
+    /**
+     * 按物品类型查询背包中的物品列表。
+     */
+    public static List<Goodstable> queryGoodsByType(long type) {
         List<Goodstable> weizhi = new ArrayList<>();
         for (int i = 0; i < GoodsListFromServerUntil.Goodslist.length; ++i) {
             if (GoodsListFromServerUntil.Goodslist[i] != null && (long) GoodsListFromServerUntil.Goodslist[i].getType() == type) {
@@ -1735,6 +1762,11 @@ public class GoodsListFromServerUntil {
             }
         }
         return weizhi;
+    }
+
+    /** 兼容旧命名：按类型查询物品。 */
+    public static List<Goodstable> chaxunss(long type) {
+        return queryGoodsByType(type);
     }
 
     public static void Deleted(int goodid) {
@@ -1747,7 +1779,7 @@ public class GoodsListFromServerUntil {
         List<Goodstable> list = GoodsMouslisten.goodarr.getList();
         list.clear();
         for (int i = 0; i < goodids.size(); ++i) {
-            GoodsListFromServerUntil.Goodslist[(int) goodids.get(i)].goodxh(1);
+            GoodsListFromServerUntil.Goodslist[(int) goodids.get(i)].consumeUseTime(1);
             if (!list.contains(GoodsListFromServerUntil.Goodslist[(int) goodids.get(i)])) {
                 list.add(GoodsListFromServerUntil.Goodslist[(int) goodids.get(i)]);
             }
@@ -1767,7 +1799,7 @@ public class GoodsListFromServerUntil {
         for (int i = 0; i < goodids.size(); ++i) {
             Goodstable good = GoodsListFromServerUntil.Goodslist[(int) goodids.get(i)];
             if (good != null) {
-                good.goodxh(1);
+                good.consumeUseTime(1);
                 list.add(good.getRgid());
                 if ((int) good.getUsetime() <= 0) {
                     GoodsListFromServerUntil.Goodslist[(int) goodids.get(i)] = null;
@@ -1811,7 +1843,10 @@ public class GoodsListFromServerUntil {
         return biaoids;
     }
 
-    public static void Deletebiaoid(BigDecimal biaoid) {
+    /**
+     * 按物品记录 ID 删除背包中的物品。
+     */
+    public static void deleteByRgid(BigDecimal biaoid) {
         for (int i = 0; i < GoodsListFromServerUntil.Goodslist.length; ++i) {
             if (GoodsListFromServerUntil.Goodslist[i] != null && GoodsListFromServerUntil.Goodslist[i].getRgid().intValue() == biaoid.intValue() && ((int) GoodsListFromServerUntil.Goodslist[i].getUsetime() <= 0 || (int) GoodsListFromServerUntil.Goodslist[i].getStatus() != 0)) {
                 GoodsListFromServerUntil.Goodslist[i] = null;
@@ -1821,12 +1856,20 @@ public class GoodsListFromServerUntil {
         }
     }
 
-    public static Goodstable Uerbiaoid(BigDecimal biaoid) {
+    /** 兼容旧命名：按表 ID 删除物品。 */
+    public static void Deletebiaoid(BigDecimal biaoid) {
+        deleteByRgid(biaoid);
+    }
+
+    /**
+     * 按物品记录 ID 消耗一个物品并返回该物品对象。
+     */
+    public static Goodstable consumeByRgid(BigDecimal biaoid) {
         for (int i = 0; i < GoodsListFromServerUntil.Goodslist.length; ++i) {
             if (GoodsListFromServerUntil.Goodslist[i] != null) {
                 Goodstable goodstable = GoodsListFromServerUntil.Goodslist[i];
                 if (goodstable.getRgid().intValue() == biaoid.intValue()) {
-                    goodstable.goodxh(1);
+                    goodstable.consumeUseTime(1);
                     if ((int) goodstable.getUsetime() <= 0) {
                         GoodsListFromServerUntil.Goodslist[i] = null;
                         PageNumberChange(GoodsListFromServerUntil.Pagenumber);
@@ -1836,6 +1879,11 @@ public class GoodsListFromServerUntil {
             }
         }
         return null;
+    }
+
+    /** 兼容旧命名：按表 ID 使用一个物品。 */
+    public static Goodstable Uerbiaoid(BigDecimal biaoid) {
+        return consumeByRgid(biaoid);
     }
 
     public static List<Goodstable> getGoodsListByGoodsId(BigDecimal goodsId) {

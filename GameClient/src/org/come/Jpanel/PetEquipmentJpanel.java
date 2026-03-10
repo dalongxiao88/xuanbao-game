@@ -285,7 +285,7 @@ public class PetEquipmentJpanel extends JPanel
             this.labpetequ[type].setIcon(GoodsListFromServerUntil.imgpathAdaptive(good.getSkin(), 49, 49));
             good.setStatus(Integer.valueOf(1));
             GoodsMouslisten.gooduse(good, 0);
-            GoodsListFromServerUntil.Deletebiaoid(good.getRgid());
+            GoodsListFromServerUntil.deleteByRgid(good.getRgid());
             id = pet.changeAdornmentPart(good, type);
             GoodsListFromServerUntil.fushis.put(good.getRgid(), good);
         }
@@ -460,4 +460,5 @@ public class PetEquipmentJpanel extends JPanel
         this.equipSkillMessage = equipSkillMessage;
     }
 }
+
 

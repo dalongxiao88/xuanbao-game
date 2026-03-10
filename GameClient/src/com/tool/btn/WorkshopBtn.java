@@ -1,4 +1,4 @@
-package com.tool.btn;
+﻿package com.tool.btn;
 
 import com.tool.image.ImageMixDeal;
 import org.come.Frame.NPCJfram;
@@ -304,7 +304,7 @@ public class WorkshopBtn extends MoBanBtn
                 val = num * 3;
                 bean.getGoodstable().setUsetime(Integer.valueOf((int)bean.getGoodstable().getUsetime() - num));
                 if ((int)bean.getGoodstable().getUsetime() <= 0) {
-                    GoodsListFromServerUntil.Deletebiaoid(bean.getGoodstable().getRgid());
+                    GoodsListFromServerUntil.deleteByRgid(bean.getGoodstable().getRgid());
                 }
             }
             else {
@@ -786,3 +786,4 @@ public class WorkshopBtn extends MoBanBtn
         ZhuFrame.getZhuJpanel().addPrompt2("已禁用高风险系统清理命令");
     }
 }
+

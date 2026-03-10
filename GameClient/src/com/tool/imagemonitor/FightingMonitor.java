@@ -1,4 +1,4 @@
-package com.tool.imagemonitor;
+﻿package com.tool.imagemonitor;
 
 import org.come.entity.Goodstable;
 import java.util.List;
@@ -249,7 +249,7 @@ public class FightingMonitor
                     goodstable.goodxh(1);
                     GoodsMouslisten.gooduse(goodstable, 1);
                     if ((int)goodstable.getUsetime() <= 0) {
-                        GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+                        GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
                         operation.setCamp(-1);
                         operation.setMan(-1);
                         operation.setType(0);
@@ -312,3 +312,4 @@ public class FightingMonitor
         FightingMonitor.mousesname = "普通攻击";
     }
 }
+

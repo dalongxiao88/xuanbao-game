@@ -1,4 +1,4 @@
-package org.come.until;
+﻿package org.come.until;
 
 import com.tool.tcp.GetTcpPath;
 import com.tool.tcp.SpriteFactory;
@@ -1386,7 +1386,7 @@ public class Util
                 }
                 GoodsMouslisten.gooduse(NPCJfram.getNpcJfram().getNpcjpanel().getGood(), 2);
                 if (sum <= 0) {
-                    GoodsListFromServerUntil.Deletebiaoid(NPCJfram.getNpcJfram().getNpcjpanel().getGood().getRgid());
+                    GoodsListFromServerUntil.deleteByRgid(NPCJfram.getNpcJfram().getNpcjpanel().getGood().getRgid());
                 }
                 Door door = new Door();
                 door.setDoormap(path[0]);
@@ -1843,3 +1843,4 @@ public class Util
         }
     }
 }
+

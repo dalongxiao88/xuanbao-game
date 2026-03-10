@@ -1,4 +1,4 @@
-package com.tool.btn;
+﻿package com.tool.btn;
 
 import org.come.entity.Goodstable;
 import java.math.BigDecimal;
@@ -45,7 +45,7 @@ public class QuackGameBtn extends MoBanBtn
                     goodstable.goodxh(1);
                     this.gameJpanel.kyNum = (int)goodstable.getUsetime();
                     if (this.gameJpanel.kyNum <= 0) {
-                        GoodsListFromServerUntil.Deletebiaoid(rgid);
+                        GoodsListFromServerUntil.deleteByRgid(rgid);
                         break;
                     }
                     else {
@@ -78,3 +78,4 @@ public class QuackGameBtn extends MoBanBtn
         }
     }
 }
+

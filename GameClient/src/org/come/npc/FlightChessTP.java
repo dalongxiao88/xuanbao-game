@@ -1,4 +1,4 @@
-package org.come.npc;
+﻿package org.come.npc;
 
 import org.come.entity.Goodstable;
 import org.come.Frame.WorldTestsmallmapJframe;
@@ -67,7 +67,7 @@ public class FlightChessTP implements NpcMenuAction
             }
             GoodsMouslisten.gooduse(NPCJfram.getNpcJfram().getNpcjpanel().getGood(), 2);
             if (sum <= 0) {
-                GoodsListFromServerUntil.Deletebiaoid(NPCJfram.getNpcJfram().getNpcjpanel().getGood().getRgid());
+                GoodsListFromServerUntil.deleteByRgid(NPCJfram.getNpcJfram().getNpcjpanel().getGood().getRgid());
             }
             Door door = new Door();
             door.setDoormap(path[0]);
@@ -188,3 +188,4 @@ public class FlightChessTP implements NpcMenuAction
         }
     }
 }
+

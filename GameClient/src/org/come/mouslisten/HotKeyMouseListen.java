@@ -1,4 +1,4 @@
-package org.come.mouslisten;
+﻿package org.come.mouslisten;
 
 import java.util.HashMap;
 
@@ -417,7 +417,7 @@ public class HotKeyMouseListen implements MouseListener
             Medicine.PetRedAndBlue(goodstable, goodstable.getValue());
             if (usetime != (int)goodstable.getUsetime()) {
                 if ((int)goodstable.getUsetime() <= 0) {
-                    GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+                    GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
                 }
                 SendRoleAndRolesummingUntil.sendRoleSumming(UserMessUntil.getChosePetMes());
                 PetAddPointMouslisten.showPetValue();
@@ -1373,3 +1373,4 @@ public class HotKeyMouseListen implements MouseListener
         HotKeyMouseListen.goodarr = new GoodsResultArrBean();
     }
 }
+

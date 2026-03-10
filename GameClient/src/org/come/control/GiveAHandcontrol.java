@@ -1,4 +1,4 @@
-package org.come.control;
+﻿package org.come.control;
 
 import org.come.entity.Goodstable;
 import org.come.until.UserData;
@@ -29,7 +29,7 @@ public class GiveAHandcontrol implements NpcMenuAction
             }
             goodstable.setUsetime(Integer.valueOf(0));
             GoodsMouslisten.gooduse(goodstable, 1);
-            GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+            GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
             SendMessageUntil.toServer(Agreement.getAgreement().HatchaddAgreement(""));
         }
         else if (type.equals("直接打开")) {
@@ -63,3 +63,4 @@ public class GiveAHandcontrol implements NpcMenuAction
         }
     }
 }
+

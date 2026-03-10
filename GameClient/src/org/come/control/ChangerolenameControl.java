@@ -1,4 +1,4 @@
-package org.come.control;
+﻿package org.come.control;
 
 import com.tool.image.ManimgAttribute;
 import org.come.until.GoodsListFromServerUntil;
@@ -23,7 +23,7 @@ public class ChangerolenameControl implements FromServerAction
             ImageMixDeal.userimg.setName(nameBean.getNewName());
             ImageMixDeal.username = nameBean.getNewName();
             RoleData.getRoleData().getLoginResult().setRolename(nameBean.getNewName());
-            GoodsListFromServerUntil.Uerbiaoid(nameBean.getRgid());
+            GoodsListFromServerUntil.consumeByRgid(nameBean.getRgid());
         }
         else {
             ManimgAttribute manimgAttribute = (ManimgAttribute)ImageMixDeal.Playerimgmap.get(nameBean.getOldName());
@@ -37,3 +37,4 @@ public class ChangerolenameControl implements FromServerAction
         }
     }
 }
+

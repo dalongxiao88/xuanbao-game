@@ -1,4 +1,4 @@
-package org.come.summonequip;
+﻿package org.come.summonequip;
 
 import org.come.bean.QualityClBean;
 import org.come.model.Shop;
@@ -359,7 +359,8 @@ public class BtnSummonEquipMain extends MoBanBtn
     public void deductGoods(Goodstable goodstable, int num) {
         goodstable.goodxh(num);
         if ((int)goodstable.getUsetime() <= 0) {
-            GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+            GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
         }
     }
 }
+

@@ -1,4 +1,4 @@
-package come.tool.JDialog;
+﻿package come.tool.JDialog;
 
 import org.come.model.Lingbao;
 import java.util.List;
@@ -32,7 +32,7 @@ public class CBGJDialog implements TiShiChuLi
                     return;
                 }
                 goodstable.setUsetime(Integer.valueOf(0));
-                GoodsListFromServerUntil.Deletebiaoid(goodstable.getRgid());
+                GoodsListFromServerUntil.deleteByRgid(goodstable.getRgid());
                 String sendmes = Agreement.getAgreement().searchShelfGoodsAgreement(GsonUtil.getGsonUtil().getgson().toJson(salegoods));
                 SendMessageUntil.toServer(sendmes);
                 jpanel1.thGood(null);
@@ -89,3 +89,4 @@ public class CBGJDialog implements TiShiChuLi
         }
     }
 }
+

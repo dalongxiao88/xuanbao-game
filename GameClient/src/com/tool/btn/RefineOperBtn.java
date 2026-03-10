@@ -445,7 +445,7 @@ public class RefineOperBtn extends MoBanBtn
             if (goods[k] != null) {
                 goods[k].goodxh(1);
                 if ((int)goods[k].getUsetime() <= 0) {
-                    GoodsListFromServerUntil.Deletebiaoid(goods[k].getRgid());
+                    GoodsListFromServerUntil.deleteByRgid(goods[k].getRgid());
                 }
             }
         }
@@ -481,7 +481,7 @@ public class RefineOperBtn extends MoBanBtn
                     goodstables.add(goods[i].getRgid());
                     goods[i].goodxh(1);
                     if ((int)goods[i].getUsetime() <= 0) {
-                        GoodsListFromServerUntil.Deletebiaoid(goods[i].getRgid());
+                        GoodsListFromServerUntil.deleteByRgid(goods[i].getRgid());
                         this.eJpanel.ClickGood(null, i + 24);
                     }
                 }
@@ -538,7 +538,7 @@ public class RefineOperBtn extends MoBanBtn
                     goodstables2.add(goods[k].getRgid());
                     goods[k].goodxh(1);
                     if ((int)goods[k].getUsetime() <= 0) {
-                        GoodsListFromServerUntil.Deletebiaoid(goods[k].getRgid());
+                        GoodsListFromServerUntil.deleteByRgid(goods[k].getRgid());
                         this.eJpanel.ClickGood(null, k + 24);
                     }
                 }
@@ -583,7 +583,7 @@ public class RefineOperBtn extends MoBanBtn
                     goodstables2.add(goods[k].getRgid());
                     goods[k].goodxh(1);
                     if ((int)goods[k].getUsetime() <= 0) {
-                        GoodsListFromServerUntil.Deletebiaoid(goods[k].getRgid());
+                        GoodsListFromServerUntil.deleteByRgid(goods[k].getRgid());
                         this.eJpanel.ClickGood(null, k + 24);
                     }
                 }
@@ -694,7 +694,7 @@ public class RefineOperBtn extends MoBanBtn
                             }
                             goodstables3.add(goods[j2].getRgid());
                             if ((int)goods[j2].getUsetime() <= 0) {
-                                GoodsListFromServerUntil.Deletebiaoid(goods[j2].getRgid());
+                                GoodsListFromServerUntil.deleteByRgid(goods[j2].getRgid());
                                 goods[j2] = null;
                                 this.eJpanel.ClickGood(null, j2 + 24);
                             }
@@ -749,7 +749,7 @@ public class RefineOperBtn extends MoBanBtn
                             }
                             goodstables4.add(goods[j3].getRgid());
                             if ((int)goods[j3].getUsetime() <= 0) {
-                                GoodsListFromServerUntil.Deletebiaoid(goods[j3].getRgid());
+                                GoodsListFromServerUntil.deleteByRgid(goods[j3].getRgid());
                                 goods[j3] = null;
                                 this.eJpanel.ClickGood(null, j3 + 24);
                             }
@@ -848,11 +848,11 @@ public class RefineOperBtn extends MoBanBtn
         jade.setJade1(xh);
         operBean.setType(15);
         goods[0].setUsetime(Integer.valueOf(0));
-        GoodsListFromServerUntil.Deletebiaoid(goods[0].getRgid());
+        GoodsListFromServerUntil.deleteByRgid(goods[0].getRgid());
         this.eJpanel.ClickGood(null, 24);
         goods[1].goodxh(xh);
         if ((int)goods[1].getUsetime() <= 0) {
-            GoodsListFromServerUntil.Deletebiaoid(goods[1].getRgid());
+            GoodsListFromServerUntil.deleteByRgid(goods[1].getRgid());
             this.eJpanel.ClickGood(null, 25);
         }
         operBean.setJade(jade);
@@ -890,7 +890,7 @@ public class RefineOperBtn extends MoBanBtn
             if (goods[j] != null) {
                 goods[j].goodxh(1);
                 if ((int)goods[j].getUsetime() <= 0) {
-                    GoodsListFromServerUntil.Deletebiaoid(goods[j].getRgid());
+                    GoodsListFromServerUntil.deleteByRgid(goods[j].getRgid());
                     this.eJpanel.ClickGood(null, j + 24);
                 }
             }
@@ -1125,7 +1125,7 @@ public class RefineOperBtn extends MoBanBtn
             if (goods[k] != null) {
                 goods[k].goodxh(1);
                 if ((int)goods[k].getUsetime() <= 0) {
-                    GoodsListFromServerUntil.Deletebiaoid(goods[k].getRgid());
+                    GoodsListFromServerUntil.deleteByRgid(goods[k].getRgid());
                 }
             }
         }
@@ -1142,4 +1142,5 @@ public class RefineOperBtn extends MoBanBtn
         return true;
     }
 }
+
 
