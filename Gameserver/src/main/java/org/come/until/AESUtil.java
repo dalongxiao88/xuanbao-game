@@ -2,12 +2,18 @@ package org.come.until;
 
 import java.security.MessageDigest;
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import javax.crypto.SecretKey;
 import javax.crypto.Cipher;
 import javax.crypto.spec.SecretKeySpec;
 import java.security.SecureRandom;
 import javax.crypto.KeyGenerator;
 
+/**
+ * 服务端基础 AES 工具。
+ *
+ * 该工具主要用于较老的密码派生式 AES 场景，保留原有签名以兼容历史调用。
+ */
 public class AESUtil
 {
     static String AES;
@@ -32,6 +38,9 @@ public class AESUtil
     
     public static String AESJDKDncode(byte[] msg, String password) {
         try {
+            if (msg == null) {
+                return "";
+            }
             byte[] message = msg;
             KeyGenerator keyGenerator = KeyGenerator.getInstance(AESUtil.AES);
             keyGenerator.init(128, new SecureRandom(password.getBytes()));
@@ -57,7 +66,7 @@ public class AESUtil
         byte[] b = new byte[hex.length() / 2];
         String swap;
         int byteint;
-        for (int i = 0, j = 0, l = hex.length(); i < l; swap = "" + arr[i++] + arr[i], byteint = (Integer.parseInt(swap, 16) & 0xFF), b[j] = new Integer(byteint).byteValue(), ++i, ++j) {}
+        for (int i = 0, j = 0, l = hex.length(); i < l; swap = "" + arr[i++] + arr[i], byteint = (Integer.parseInt(swap, 16) & 0xFF), b[j] = (byte)byteint, ++i, ++j) {}
         return b;
     }
     
@@ -86,7 +95,7 @@ public class AESUtil
     public static String getMD5(String str) {
         try {
             MessageDigest md = MessageDigest.getInstance("MD5");
-            md.update(str.getBytes());
+            md.update(str.getBytes(StandardCharsets.UTF_8));
             return new BigInteger(1, md.digest()).toString(16);
         }
         catch (Exception e) {

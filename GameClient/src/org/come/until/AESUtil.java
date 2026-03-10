@@ -8,6 +8,11 @@ import javax.crypto.spec.SecretKeySpec;
 import java.security.SecureRandom;
 import javax.crypto.KeyGenerator;
 
+/**
+ * 客户端基础 AES 工具。
+ *
+ * 当前保留原有方法签名以兼容旧调用，同时补充注释与空值保护。
+ */
 public class AESUtil
 {
     public static byte[] AESJDKEncode(String message, String password) {
@@ -59,7 +64,7 @@ public class AESUtil
         byte[] b = new byte[hex.length() / 2];
         String swap;
         int byteint;
-        for (int i = 0, j = 0, l = hex.length(); i < l; swap = "" + arr[i++] + arr[i], byteint = (Integer.parseInt(swap, 16) & 0xFF), b[j] = new Integer(byteint).byteValue(), ++i, ++j) {}
+        for (int i = 0, j = 0, l = hex.length(); i < l; swap = "" + arr[i++] + arr[i], byteint = (Integer.parseInt(swap, 16) & 0xFF), b[j] = (byte)byteint, ++i, ++j) {}
         return b;
     }
     
