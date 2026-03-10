@@ -2225,7 +2225,7 @@ public class GoodsMsgJpanel extends JPanel
         buffer.append("#r");
         int lengque = 0;
         if (xuanBao.getId() == 1) {
-            lengque = 10 * xuanBao.getLvl();
+            lengque = 10 * xuanBao.getLevel();
         }
         buffer.append("【").append("冷却回合").append("】").append(lengque);
         buffer.append("#r");
@@ -2239,8 +2239,8 @@ public class GoodsMsgJpanel extends JPanel
         int num = xuanBao.getNum();
         int i = 0;
 
-        if (xuanBao.getFushi() != null && !xuanBao.getFushi().isEmpty()) {
-            String[] fushi = xuanBao.getFushi().split("\\|");
+        if (xuanBao.getFushiIds() != null && !xuanBao.getFushiIds().isEmpty()) {
+            String[] fushi = xuanBao.getFushiIds().split("\\|");
             for (; i < fushi.length; i++) {
                 Goodstable goodstable = GoodsListFromServerUntil.fushis.get(new BigDecimal(fushi[i]));
                 if (goodstable != null) {
