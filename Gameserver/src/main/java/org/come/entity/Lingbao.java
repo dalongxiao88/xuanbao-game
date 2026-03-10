@@ -228,9 +228,18 @@ public class Lingbao implements Cloneable
     public String getFushis() {
         return this.fushis;
     }
+
+    /** 语义化别名：符石 ID 列表串。 */
+    public String getFushiIds() {
+        return this.fushis;
+    }
     
     public void setFushis(String fushis) {
         this.fushis = fushis;
+    }
+
+    public void setFushiIds(String fushiIds) {
+        this.fushis = fushiIds;
     }
     
     public BigDecimal getLingbaolvl() {
@@ -303,25 +312,52 @@ public class Lingbao implements Cloneable
     public String getTianfuskill() {
         return this.tianfuskill;
     }
+
+    /** 语义化别名：天赋技能串。 */
+    public String getTianfuSkill() {
+        return this.tianfuskill;
+    }
     
     public void setTianfuskill(String tianfuskill) {
         this.tianfuskill = tianfuskill;
     }
+
+    public void setTianfuSkill(String tianfuSkill) {
+        this.tianfuskill = tianfuSkill;
+    }
     
     public Integer getSkillsum() {
+        return this.skillsum;
+    }
+
+    /** 语义化别名：技能槽数量。 */
+    public Integer getSkillSlotCount() {
         return this.skillsum;
     }
     
     public void setSkillsum(Integer skillsum) {
         this.skillsum = skillsum;
     }
+
+    public void setSkillSlotCount(Integer skillSlotCount) {
+        this.skillsum = skillSlotCount;
+    }
     
     public Integer getFusum() {
+        return this.fusum;
+    }
+
+    /** 语义化别名：符石槽数量。 */
+    public Integer getFushiSlotCount() {
         return this.fusum;
     }
     
     public void setFusum(Integer fusum) {
         this.fusum = fusum;
+    }
+
+    public void setFushiSlotCount(Integer fushiSlotCount) {
+        this.fusum = fushiSlotCount;
     }
     
     public int getGoodlock() {

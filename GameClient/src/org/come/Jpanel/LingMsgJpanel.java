@@ -158,10 +158,10 @@ public class LingMsgJpanel extends JPanel
             this.showfb(lingbao);
         }
         else {
-            if (lingbao.getTianfuskill() == null) {
+            if (lingbao.getTianfuSkill() == null) {
                 lingbao.setTianfuskill("");
             }
-            String[] tianv = lingbao.getTianfuskill().split("\\|");
+            String[] tianv = lingbao.getTianfuSkill().split("\\|");
             StringBuffer tianb = new StringBuffer();
             tianb.append("天赋技能:");
             for (int i = 0; i < tianv.length; ++i) {
@@ -212,12 +212,12 @@ public class LingMsgJpanel extends JPanel
                 }
             }
             shanb = null;
-            if (lingbao.getFushis() != null && !lingbao.getFushis().equals("")) {
-                shanb = lingbao.getFushis().split("\\|");
+            if (lingbao.getFushiIds() != null && !lingbao.getFushiIds().equals("")) {
+                shanb = lingbao.getFushiIds().split("\\|");
             }
             this.shi.removemsg();
             for (int k = 0; k < 5; ++k) {
-                if (k >= lingbao.getFusum()) {
+                if (k >= lingbao.getFushiSlotCount()) {
                     this.fushixiugai(k, "#cD2B48C未开启", this.fushiguanbi);
                 }
                 else if (shanb != null && k < shanb.length) {
@@ -422,4 +422,5 @@ public class LingMsgJpanel extends JPanel
         this.skillname = skillname;
     }
 }
+
 

@@ -1,4 +1,4 @@
-package org.come.Jpanel;
+﻿package org.come.Jpanel;
 
 import org.come.until.UserData;
 import com.tool.role.ExpUtil;
@@ -306,15 +306,15 @@ public class LingbaoAttributeJpanel extends JPanel
             this.lingimg = RoleLingFa.lingbaoimg(lingbao.getSkin(), -1, -1);
             this.labLingName.setText(lingbao.getBaoname());
             for (int i = 0; i < 5; ++i) {
-                if (lingbao.getFusum() > i) {
+                if (lingbao.getFushiSlotCount() > i) {
                     this.RuneListLabel[i].setIcon(null);
                 }
                 else {
                     this.RuneListLabel[i].setIcon(this.fuskillopen(true));
                 }
             }
-            if (lingbao.getFushis() != null && !lingbao.getFushis().equals("")) {
-                String[] v = lingbao.getFushis().split("\\|");
+            if (lingbao.getFushiIds() != null && !lingbao.getFushiIds().equals("")) {
+                String[] v = lingbao.getFushiIds().split("\\|");
                 for (int size = 0; size < v.length; ++size) {
                     Goodstable goodstable = (Goodstable)GoodsListFromServerUntil.fushis.get(new BigDecimal(v[size]));
                     if (goodstable != null) {
@@ -563,3 +563,4 @@ public class LingbaoAttributeJpanel extends JPanel
         this.btnRelease = btnRelease;
     }
 }
+

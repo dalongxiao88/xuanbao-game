@@ -1,4 +1,4 @@
-package com.tool.btn;
+﻿package com.tool.btn;
 
 import org.come.model.PalData;
 import org.come.entity.Pal;
@@ -141,7 +141,7 @@ public class LingbaoPagingBtn extends MoBanBtn
                         ZhuFrame.getZhuJpanel().addPrompt2("灵宝已加锁");
                         return;
                     }
-                    if (lingbao.getFushis() != null && !lingbao.getFushis().equals("")) {
+                    if (lingbao.getFushiIds() != null && !lingbao.getFushiIds().equals("")) {
                         ZhuFrame.getZhuJpanel().addPrompt2("删除前先卸下符石");
                         break;
                     }
@@ -223,3 +223,4 @@ public class LingbaoPagingBtn extends MoBanBtn
     public void chooseno() {
     }
 }
+

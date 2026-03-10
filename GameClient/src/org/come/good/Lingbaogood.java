@@ -1,4 +1,4 @@
-package org.come.good;
+﻿package org.come.good;
 
 import org.come.until.GoodsListFromServerUntil;
 import org.come.model.Lingbao;
@@ -42,10 +42,10 @@ public class Lingbaogood
         }
         else {
             String[] fuids = null;
-            if (lingbao.getFushis() != null && !lingbao.getFushis().equals("")) {
-                fuids = lingbao.getFushis().split("\\|");
+            if (lingbao.getFushiIds() != null && !lingbao.getFushiIds().equals("")) {
+                fuids = lingbao.getFushiIds().split("\\|");
             }
-            if ((fuids == null && lingbao.getFusum() > 0) || (fuids != null && fuids.length < lingbao.getFusum())) {
+            if ((fuids == null && lingbao.getFushiSlotCount() > 0) || (fuids != null && fuids.length < lingbao.getFushiSlotCount())) {
                 if (RoleLingFa.getRoleLingFa().fushity(fuids, goodstable.getGoodsname())) {
                     RoleLingFa.getRoleLingFa().fushichange(lingbao, goodstable, true);
                     GoodsListFromServerUntil.Deleted(goodPlace + GoodsListFromServerUntil.Pagenumber * 24);
@@ -57,3 +57,4 @@ public class Lingbaogood
         }
     }
 }
+
