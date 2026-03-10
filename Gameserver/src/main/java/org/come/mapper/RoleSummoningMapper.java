@@ -12,31 +12,31 @@ public interface RoleSummoningMapper
 {
     List<RoleSummoning> selectAllRoleSummonings();
     
-    List<RoleSummoning> selectRoleSummoningsByRoleID(BigDecimal p0);
+    List<RoleSummoning> selectRoleSummoningsByRoleID(BigDecimal roleId);
     
-    RoleSummoning selectRoleSummoningsByRgID(BigDecimal p0);
+    RoleSummoning selectRoleSummoningsByRgID(BigDecimal summoningId);
     
-    void updateRoleSummoningRoleID(RoleSummoning p0);
+    void updateRoleSummoningRoleID(RoleSummoning roleSummoning);
     
-    void updateRoleSummoning(RoleSummoning p0);
+    void updateRoleSummoning(RoleSummoning roleSummoning);
     
-    void deleteRoleSummoningBySid(BigDecimal p0);
+    void deleteRoleSummoningBySid(BigDecimal summoningId);
     
-    void insertRoleSummoning(RoleSummoning p0);
+    void insertRoleSummoning(RoleSummoning roleSummoning);
     
     BigDecimal selectMaxID();
     
-    List<RolesummoningRoleUser> selectRsRU(@Param("rru") RolesummoningRoleUser p0);
+    List<RolesummoningRoleUser> selectRsRU(@Param("rru") RolesummoningRoleUser roleSummoningRoleUser);
     
-    Integer selectRsRUCount(@Param("rru") RolesummoningRoleUser p0);
+    Integer selectRsRUCount(@Param("rru") RolesummoningRoleUser roleSummoningRoleUser);
     
-    RolesummoningRoleUser selectRoleSummoningById(@Param("summoningid") String p0);
+    RolesummoningRoleUser selectRoleSummoningById(@Param("summoningid") String summoningId);
     
-    void deleteRoleSummoningBySidList(List<BigDecimal> p0);
+    void deleteRoleSummoningBySidList(List<BigDecimal> summoningIds);
     
-    void insertRoleSummoningList(List<RoleSummoning> p0);
+    void insertRoleSummoningList(List<RoleSummoning> roleSummoningList);
     
-    void updateRoleSummoningList(List<RoleSummoning> p0);
+    void updateRoleSummoningList(List<RoleSummoning> roleSummoningList);
     
-    void insertRoleSummoningSingle(RoleSummoning p0);
+    void insertRoleSummoningSingle(RoleSummoning roleSummoning);
 }

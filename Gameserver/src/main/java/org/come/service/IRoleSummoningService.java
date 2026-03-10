@@ -10,41 +10,41 @@ public interface IRoleSummoningService
 {
     List<RoleSummoning> selectAllRoleSummonings();
     
-    List<RoleSummoning> selectRoleSummoningsByRoleID(BigDecimal p0);
+    List<RoleSummoning> selectRoleSummoningsByRoleID(BigDecimal roleId);
     
-    RoleSummoning selectRoleSummoningsByRgID(BigDecimal p0);
+    RoleSummoning selectRoleSummoningsByRgID(BigDecimal summoningId);
     
-    void updateRoleSummoningIndex(RoleSummoning p0, BigDecimal p1);
+    void updateRoleSummoningIndex(RoleSummoning roleSummoning, BigDecimal roleId);
     
-    void updateRoleSummoning(RoleSummoning p0);
+    void updateRoleSummoning(RoleSummoning roleSummoning);
     
-    void updatePetRedis(RoleSummoning p0);
+    void updatePetRedis(RoleSummoning roleSummoning);
     
-    void deleteRoleSummoningBySid(BigDecimal p0);
+    void deleteRoleSummoningBySid(BigDecimal summoningId);
     
-    void insertRoleSummoning(RoleSummoning p0);
+    void insertRoleSummoning(RoleSummoning roleSummoning);
     
-    void insertitem(Goodstable p0);
+    void insertitem(Goodstable goodstable);
     
     BigDecimal selectMaxID();
     
-    void updateRoleSummoningsql(RoleSummoning p0);
+    void updateRoleSummoningsql(RoleSummoning roleSummoning);
     
-    void deleteRoleSummoningBySidsql(BigDecimal p0);
+    void deleteRoleSummoningBySidsql(BigDecimal summoningId);
     
-    void insertRoleSummoningsql(RoleSummoning p0);
+    void insertRoleSummoningsql(RoleSummoning roleSummoning);
     
-    List<RolesummoningRoleUser> selectRsRU(RolesummoningRoleUser p0);
+    List<RolesummoningRoleUser> selectRsRU(RolesummoningRoleUser roleSummoningRoleUser);
     
-    Integer selectRsRUCount(RolesummoningRoleUser p0);
+    Integer selectRsRUCount(RolesummoningRoleUser roleSummoningRoleUser);
     
-    RolesummoningRoleUser selectRoleSummoningById(String p0);
+    RolesummoningRoleUser selectRoleSummoningById(String summoningId);
     
-    void deleteRoleSummoningBySidList(List<BigDecimal> p0);
+    void deleteRoleSummoningBySidList(List<BigDecimal> summoningIds);
     
-    void insertRoleSummoningList(List<RoleSummoning> p0);
+    void insertRoleSummoningList(List<RoleSummoning> roleSummoningList);
     
-    void updateRoleSummoningList(List<RoleSummoning> p0);
+    void updateRoleSummoningList(List<RoleSummoning> roleSummoningList);
     
-    void insertRoleSummoningSingle(RoleSummoning p0);
+    void insertRoleSummoningSingle(RoleSummoning roleSummoning);
 }
