@@ -9,27 +9,27 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface GoodsexchangeMapper
 {
-    int countByExample(GoodsexchangeExample p0);
+    int countByExample(GoodsexchangeExample goodsExchangeExample);
     
-    int deleteByExample(GoodsexchangeExample p0);
+    int deleteByExample(GoodsexchangeExample goodsExchangeExample);
     
-    int deleteByPrimaryKey(String p0);
+    int deleteByPrimaryKey(String goodsGuid);
     
-    int insert(Goodsexchange p0);
+    int insert(Goodsexchange goodsExchange);
     
-    int insertSelective(Goodsexchange p0);
+    int insertSelective(Goodsexchange goodsExchange);
     
-    List<Goodsexchange> selectByExample(GoodsexchangeExample p0);
+    List<Goodsexchange> selectByExample(GoodsexchangeExample goodsExchangeExample);
     
-    Goodsexchange selectByPrimaryKey(String p0);
+    Goodsexchange selectByPrimaryKey(String goodsGuid);
     
-    int updateByExampleSelective(@Param("record") Goodsexchange p0, @Param("example") GoodsexchangeExample p1);
+    int updateByExampleSelective(@Param("record") Goodsexchange goodsExchange, @Param("example") GoodsexchangeExample goodsExchangeExample);
     
-    int updateByExample(@Param("record") Goodsexchange p0, @Param("example") GoodsexchangeExample p1);
+    int updateByExample(@Param("record") Goodsexchange goodsExchange, @Param("example") GoodsexchangeExample goodsExchangeExample);
     
-    int updateByPrimaryKeySelective(Goodsexchange p0);
+    int updateByPrimaryKeySelective(Goodsexchange goodsExchange);
     
-    int updateByPrimaryKey(Goodsexchange p0);
+    int updateByPrimaryKey(Goodsexchange goodsExchange);
     
     List<Goodsexchange> selectListAll();
 }

@@ -6,27 +6,27 @@ import org.come.entity.GoodsexchangeExample;
 
 public interface IGoodsExchangeService
 {
-    int countByExample(GoodsexchangeExample p0);
+    int countByExample(GoodsexchangeExample goodsExchangeExample);
     
-    int deleteByExample(GoodsexchangeExample p0);
+    int deleteByExample(GoodsexchangeExample goodsExchangeExample);
     
-    int deleteByPrimaryKey(String p0);
+    int deleteByPrimaryKey(String goodsGuid);
     
-    int insert(Goodsexchange p0);
+    int insert(Goodsexchange goodsExchange);
     
-    int insertSelective(Goodsexchange p0);
+    int insertSelective(Goodsexchange goodsExchange);
     
-    List<Goodsexchange> selectByExample(GoodsexchangeExample p0);
+    List<Goodsexchange> selectByExample(GoodsexchangeExample goodsExchangeExample);
     
-    Goodsexchange selectByPrimaryKey(String p0);
+    Goodsexchange selectByPrimaryKey(String goodsGuid);
     
-    int updateByExampleSelective(Goodsexchange p0, GoodsexchangeExample p1);
+    int updateByExampleSelective(Goodsexchange goodsExchange, GoodsexchangeExample goodsExchangeExample);
     
-    int updateByExample(Goodsexchange p0, GoodsexchangeExample p1);
+    int updateByExample(Goodsexchange goodsExchange, GoodsexchangeExample goodsExchangeExample);
     
-    int updateByPrimaryKeySelective(Goodsexchange p0);
+    int updateByPrimaryKeySelective(Goodsexchange goodsExchange);
     
-    int updateByPrimaryKey(Goodsexchange p0);
+    int updateByPrimaryKey(Goodsexchange goodsExchange);
     
     List<Goodsexchange> selectListAll();
 }
