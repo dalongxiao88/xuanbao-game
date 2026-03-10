@@ -1,4 +1,4 @@
-package org.come.XuanBao;
+﻿package org.come.XuanBao;
 
 
 import org.come.Frame.ZhuFrame;
@@ -15,12 +15,12 @@ public class XuanBaogood {
             ZhuFrame.getZhuJpanel().addPrompt2("你没有选中的玄宝");
         } else {
             String[] fuids = null;
-            if (lingbao.getFushi() != null && !lingbao.getFushi().equals("")) {
-                fuids = lingbao.getFushi().split("\\|");
+            if (lingbao.getFushiIds() != null && !lingbao.getFushiIds().equals("")) {
+                fuids = lingbao.getFushiIds().split("\\|");
 
             }
             if ((fuids == null && lingbao.getNum() > 0) || (fuids != null && fuids.length < lingbao.getNum())) {
-                if (lingbao.getFushi() != null && !lingbao.getFushi().equals("") && lingbao.getFushi().equals(goodstable.getRgid())) {
+                if (lingbao.getFushiIds() != null && !lingbao.getFushiIds().equals("") && lingbao.getFushiIds().equals(goodstable.getRgid())) {
                     ZhuFrame.getZhuJpanel().addPrompt2("请勿重复使用符石");
                     return;
 
@@ -36,5 +36,6 @@ public class XuanBaogood {
         }
     }
 }
+
 
 

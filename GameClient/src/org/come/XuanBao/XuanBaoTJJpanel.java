@@ -1,4 +1,4 @@
-
+﻿
 package org.come.XuanBao;
 
 import com.tool.Document.RichDocument;
@@ -294,7 +294,7 @@ public class XuanBaoTJJpanel
                 }
             }
             g.setColor(Color.yellow);
-            g.drawString(xuanBao.getPinzhi(), getWidth() - 85, 185);
+            g.drawString(xuanBao.getQualityName(), getWidth() - 85, 185);
 
         }
     }
@@ -451,12 +451,13 @@ public class XuanBaoTJJpanel
         Map<Integer, XuanBao> integerXuanBaoMap = UserMessUntil.getAllXuanbao().getaMap();
 
         integerXuanBaoMap.forEach((k, v) -> {
-            if ((param1.startsWith("所有") || param1.startsWith(v.getLeixing()) || v.getLeixing().startsWith("通用"))
+            if ((param1.startsWith("所有") || param1.startsWith(v.getTypeName()) || v.getTypeName().startsWith("通用"))
                     && (param2.startsWith("所有") || v.getType().startsWith(param2))
-                    && (param3.startsWith("所有") || param3.equals(v.getPinzhi()))
+                    && (param3.startsWith("所有") || param3.equals(v.getQualityName()))
                     && (StringUtils.isBlank(param4) || v.getName().contains(param4)))
                 xuanBaoTJModelJpanels.add(new XuanBaoTJModelJpanel(this, v));
         });
         addData();
     }
 }
+

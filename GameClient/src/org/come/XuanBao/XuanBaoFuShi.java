@@ -1,4 +1,4 @@
-package org.come.XuanBao;
+﻿package org.come.XuanBao;
 
 import come.tool.JDialog.TiShiUtil;
 
@@ -53,8 +53,8 @@ public class XuanBaoFuShi
     public void mouseEntered(MouseEvent e) {
         XuanBao lingbao = (RoleXuanBao.getRoleXuanBao()).zhuangbei;
         if (lingbao != null) {
-            if (lingbao.getFushi() != null && !lingbao.getFushi().equals("")) {
-                String[] fushis = lingbao.getFushi().split("\\|");
+            if (lingbao.getFushiIds() != null && !lingbao.getFushiIds().equals("")) {
+                String[] fushis = lingbao.getFushiIds().split("\\|");
                 if (fushis.length > this.id) {
                     Goodstable goodstable = (Goodstable) GoodsListFromServerUntil.fushis.get(new BigDecimal(fushis[this.id]));
                     if (goodstable != null) {
@@ -102,7 +102,7 @@ public class XuanBaoFuShi
 
     public void OpenGrid(XuanBao lingbao) {
         int s = -1;
-        int lvl = lingbao.getLvl();
+        int lvl = lingbao.getLevel();
         switch (this.id) {
             case 0:
                 if (lvl < 40) {
@@ -234,5 +234,6 @@ public class XuanBaoFuShi
     }
 
 }
+
 
 

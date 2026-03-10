@@ -318,8 +318,8 @@ public class XuanBaoAttributeJpanel extends JPanel {
         g.drawImage(this.icon.getImage(), 0, 0, 619, 482, this);
         RoleXuanBao.getRoleXuanBao().drawF(g, 75, 330);
         if ((RoleXuanBao.getRoleXuanBao()).choseBao != null) {
-            int lvl = (RoleXuanBao.getRoleXuanBao()).choseBao.getLvl();
-            int xun = (RoleXuanBao.getRoleXuanBao()).choseBao.getXuanyun();
+            int lvl = (RoleXuanBao.getRoleXuanBao()).choseBao.getLevel();
+            int xun = (RoleXuanBao.getRoleXuanBao()).choseBao.getXuanYun();
             g.setColor(Color.WHITE);
             g.setFont(UIUtils.TEXT_FONT1);
             g.drawImage(this.jdt.getImage(), 122, 298, Math.min(106, (int) ((106 * xun) / XuanBaoXiuLianJpanel.LFExp(lvl))), 15, null);
@@ -467,7 +467,7 @@ public class XuanBaoAttributeJpanel extends JPanel {
                 String htmlContent = convertToHtml(xuanBao.getSkill_1());
                 this.jTextPaneremark.setText(css + htmlContent);
             }
-            int lvl = xuanBao.getLvl();
+            int lvl = xuanBao.getLevel();
             int k = (xuanBao.getRgb().split("\\|")).length;
             String[] rgb = xuanBao.getRgb().split("\\|");
             int num = 5;
@@ -726,8 +726,8 @@ public class XuanBaoAttributeJpanel extends JPanel {
                 }
 
             }
-            if (xuanBao.getFushi() != null && !xuanBao.getFushi().isEmpty()) {
-                String[] fushi = xuanBao.getFushi().split("\\|");
+            if (xuanBao.getFushiIds() != null && !xuanBao.getFushiIds().isEmpty()) {
+                String[] fushi = xuanBao.getFushiIds().split("\\|");
                 for (int n = 0; n < fushi.length; n++) {
                     Goodstable goodstable = (Goodstable) GoodsListFromServerUntil.fushis.get(new BigDecimal(fushi[n]));
                     if (goodstable != null) {
@@ -862,7 +862,7 @@ public class XuanBaoAttributeJpanel extends JPanel {
         int xblvl = 0;
 
 
-        xblvl = xuanBao.getLvl();
+        xblvl = xuanBao.getLevel();
         int r_ = 0;
         int g_ = 0;
         int y_ = 0;
@@ -872,8 +872,8 @@ public class XuanBaoAttributeJpanel extends JPanel {
         int lvl_g_ = 0;
         int lvl_y_ = 0;
         int lvl_b_ = 0;
-        if (xuanBao.getFushi() != null && !xuanBao.getFushi().isEmpty()) {
-            String[] fushi = xuanBao.getFushi().split("\\|");
+        if (xuanBao.getFushiIds() != null && !xuanBao.getFushiIds().isEmpty()) {
+            String[] fushi = xuanBao.getFushiIds().split("\\|");
             for (int i = 0; i < fushi.length; i++) {
                 Goodstable goodstable = GoodsListFromServerUntil.fushis.get(new BigDecimal(fushi[i]));
                 if (goodstable != null) {
@@ -1456,6 +1456,7 @@ public class XuanBaoAttributeJpanel extends JPanel {
     }
 
 }
+
 
 
 

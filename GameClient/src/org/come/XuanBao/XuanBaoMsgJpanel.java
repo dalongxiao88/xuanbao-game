@@ -1,4 +1,4 @@
-package org.come.XuanBao;
+﻿package org.come.XuanBao;
 
 import com.tool.tcpimg.ChatBox;
 import com.tool.tcpimg.UIUtils;
@@ -155,9 +155,9 @@ public class XuanBaoMsgJpanel
 
     public void xuanbaoshou(XuanBao xuanBao) {
         this.bao.removemsg();
-        this.quality.setText("品质  " + xuanBao.getPinzhi());
+        this.quality.setText("品质  " + xuanBao.getQualityName());
         this.baoname.setText(xuanBao.getName());
-        this.baolvl.setText(xuanBao.getLvl() + " 级");
+        this.baolvl.setText(xuanBao.getLevel() + " 级");
         this.baotext.setText(" 1111111111111111111");
         this.lingimg = RoleXuanBao.lingbaoimg(xuanBao.getSkin(), -1, -1);
         this.lexing.setText("【玄宝类型】  " + xuanBao.type);
@@ -174,8 +174,8 @@ public class XuanBaoMsgJpanel
 
         int i = 0;
         String[] shanb = null;
-        if (xuanBao.getFushi() != null && !xuanBao.getFushi().equals("")) {
-            shanb = xuanBao.getFushi().split("\\|");
+        if (xuanBao.getFushiIds() != null && !xuanBao.getFushiIds().equals("")) {
+            shanb = xuanBao.getFushiIds().split("\\|");
         }
         this.shi.removemsg();
         for (i = 0; i < 5; i++) {

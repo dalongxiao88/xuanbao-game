@@ -1,4 +1,4 @@
-package org.come.XuanBao;
+﻿package org.come.XuanBao;
 
 
 import com.tool.role.RoleData;
@@ -50,10 +50,10 @@ public class XuanBaoXiuLianJpanel extends JPanel {
             LoginResult loginResult = roleData.getLoginResult();
             g.setColor(Color.WHITE);
             g.setFont(UIUtils.TEXT_FONT15);
-            g.drawImage(this.jdt.getImage(), 180, 98, Math.min(115, (int) ((115 * this.xuanBao.getXuanyun()) / LFExp(this.xuanBao.getLvl()))), 15, null);
+            g.drawImage(this.jdt.getImage(), 180, 98, Math.min(115, (int) ((115 * this.xuanBao.getXuanYun()) / LFExp(this.xuanBao.getLevel()))), 15, null);
             g.drawString(this.xuanBao.getName(), 180, 53);
-            g.drawString(this.xuanBao.getLvl() + "", 180, 80);
-            g.drawString(this.xuanBao.getXuanyun() + "/" + LFExp(this.xuanBao.getLvl()), 180, 110);
+            g.drawString(this.xuanBao.getLevel() + "", 180, 80);
+            g.drawString(this.xuanBao.getXuanYun() + "/" + LFExp(this.xuanBao.getLevel()), 180, 110);
             g.drawString(exp + "", 180, 200);
             g.drawString(loginResult.getExperience() + "", 180, 230);
             g.drawString("1500", 180, 259);
@@ -81,5 +81,6 @@ public class XuanBaoXiuLianJpanel extends JPanel {
         this.xuanBao = (RoleXuanBao.getRoleXuanBao()).choseBao;
     }
 }
+
 
 

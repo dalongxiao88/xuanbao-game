@@ -4,6 +4,9 @@ package org.come.entity;
 
 import java.math.BigDecimal;
 
+/**
+ * 服务端玄宝实体。
+ */
 public class XuanBao {
     public int id;
     public String name;
@@ -111,8 +114,17 @@ public class XuanBao {
         return this.leixing;
     }
 
+    /** 语义化别名：玄宝类型。 */
+    public String getTypeName() {
+        return this.leixing;
+    }
+
     public void setLeixing(String leixing) {
         this.leixing = leixing;
+    }
+
+    public void setTypeName(String typeName) {
+        this.leixing = typeName;
     }
 
     public String getType() {
@@ -127,8 +139,17 @@ public class XuanBao {
         return this.pinzhi;
     }
 
+    /** 语义化别名：品质名称。 */
+    public String getQualityName() {
+        return this.pinzhi;
+    }
+
     public void setPinzhi(String pinzhi) {
         this.pinzhi = pinzhi;
+    }
+
+    public void setQualityName(String qualityName) {
+        this.pinzhi = qualityName;
     }
 
     public String getRemark() {
@@ -183,16 +204,34 @@ public class XuanBao {
         return this.bid;
     }
 
+    /** 语义化别名：玄宝唯一 ID。 */
+    public BigDecimal getBaoId() {
+        return this.bid;
+    }
+
     public void setBid(BigDecimal bid) {
         this.bid = bid;
+    }
+
+    public void setBaoId(BigDecimal baoId) {
+        this.bid = baoId;
     }
 
     public String getFushi() {
         return this.fushi;
     }
 
+    /** 语义化别名：符石 ID 列表串。 */
+    public String getFushiIds() {
+        return this.fushi;
+    }
+
     public void setFushi(String fushi) {
         this.fushi = fushi;
+    }
+
+    public void setFushiIds(String fushiIds) {
+        this.fushi = fushiIds;
     }
 
     public int getEquipment() {
@@ -207,8 +246,17 @@ public class XuanBao {
         return this.roleid;
     }
 
+    /** 语义化别名：角色 ID。 */
+    public BigDecimal getRoleId() {
+        return this.roleid;
+    }
+
     public void setRoleid(BigDecimal roleid) {
         this.roleid = roleid;
+    }
+
+    public void setRoleId(BigDecimal roleId) {
+        this.roleid = roleId;
     }
 
     public int getNum() {
@@ -223,16 +271,34 @@ public class XuanBao {
         return this.lvl;
     }
 
+    /** 语义化别名：玄宝等级。 */
+    public int getLevel() {
+        return this.lvl;
+    }
+
     public void setLvl(int lvl) {
         this.lvl = lvl;
+    }
+
+    public void setLevel(int level) {
+        this.lvl = level;
     }
 
     public int getXuanyun() {
         return this.xuanyun;
     }
 
+    /** 语义化别名：玄蕴值。 */
+    public int getXuanYun() {
+        return this.xuanyun;
+    }
+
     public void setXuanyun(int xuanyun) {
         this.xuanyun = xuanyun;
+    }
+
+    public void setXuanYun(int xuanYun) {
+        this.xuanyun = xuanYun;
     }
 
     public String getRgb() {

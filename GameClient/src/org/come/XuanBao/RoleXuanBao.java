@@ -1,4 +1,4 @@
-package org.come.XuanBao;
+﻿package org.come.XuanBao;
 
 import com.tool.role.RoleData;
 import com.tool.role.RoleProperty;
@@ -47,8 +47,8 @@ public class RoleXuanBao {
         int i;
         for (i = 0; i <= this.lingBaos.length - 1; i++) {
             if (this.lingBaos[i] != null && (this.lingBaos[i]).bid.compareTo(lingbao.bid) == 0 &&
-                    this.choseBao != null && this.choseBao.getBid().compareTo(lingbao.bid) == 0) {
-                if (this.zhuangbei != null && this.zhuangbei.getBid().compareTo(lingbao.bid) == 0) {
+                    this.choseBao != null && this.choseBao.getBaoId().compareTo(lingbao.bid) == 0) {
+                if (this.zhuangbei != null && this.zhuangbei.getBaoId().compareTo(lingbao.bid) == 0) {
                     this.zhuangbei = lingbao;
                 }
                 this.choseBao = lingbao;
@@ -288,20 +288,20 @@ public class RoleXuanBao {
             int zhenpin = 0;
             for (int j = 0; j <= this.equipBao.length - 1; j++) {
                 if (this.equipBao[j] != null) {
-                    if (this.equipBao[j].getPinzhi().equals("初品")) {
+                    if (this.equipBao[j].getQualityName().equals("初品")) {
                         chupin++;
-                    } else if (this.equipBao[j].getPinzhi().equals("中品")) {
+                    } else if (this.equipBao[j].getQualityName().equals("中品")) {
                         zhongpin++;
-                    } else if (this.equipBao[j].getPinzhi().equals("珍品")) {
+                    } else if (this.equipBao[j].getQualityName().equals("珍品")) {
                         zhenpin++;
                     }
                 }
             }
-            if (lingbao.getPinzhi().equals("初品")) {
+            if (lingbao.getQualityName().equals("初品")) {
                 chupin++;
-            } else if (lingbao.getPinzhi().equals("中品")) {
+            } else if (lingbao.getQualityName().equals("中品")) {
                 zhongpin++;
-            } else if (lingbao.getPinzhi().equals("珍品")) {
+            } else if (lingbao.getQualityName().equals("珍品")) {
                 zhenpin++;
             }
             int lvl = RoleData.getRoleData().getLoginResult().getGrade();
@@ -425,7 +425,7 @@ public class RoleXuanBao {
     public void deleteling(XuanBao xuanBao) {
         for (int i = 0; i < lingBaos.length; i++) {
             if (lingBaos[i] != null) {
-                if (xuanBao.getBid().compareTo(lingBaos[i].getBid()) == 0) {
+                if (xuanBao.getBaoId().compareTo(lingBaos[i].getBaoId()) == 0) {
                     lingBaos[i] = null;
                     break;
                 }
@@ -471,4 +471,5 @@ public class RoleXuanBao {
         return null;
     }
 }
+
 

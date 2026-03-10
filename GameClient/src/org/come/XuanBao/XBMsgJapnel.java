@@ -80,7 +80,7 @@ public class XBMsgJapnel extends JPanel {
         g.setFont(font);
         g.setColor(new Color(92, 70, 44));
 //        g.drawString(xuanBao.getName(), 68, 22);
-        g.drawString("【玄宝类型】" + xuanBao.getLeixing(), 2, 19);
+        g.drawString("【玄宝类型】" + xuanBao.getTypeName(), 2, 19);
         g.drawString("【所属门派】" + xuanBao.getRolelvl(), 2, 38);
         g.drawString("【玄宝技能】", 2, 70);
         final Graphics2D g2d = (Graphics2D) g.create();
@@ -291,4 +291,5 @@ public class XBMsgJapnel extends JPanel {
 
 
 }
+
 

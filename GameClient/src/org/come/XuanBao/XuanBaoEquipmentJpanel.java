@@ -1,4 +1,4 @@
-package org.come.XuanBao;
+﻿package org.come.XuanBao;
 
 import com.tool.tcpimg.UIUtils;
 
@@ -451,7 +451,7 @@ public class XuanBaoEquipmentJpanel
             this.jPanelxuanbaozhu.setIcon(RoleXuanBao.lingbaoimg(xuanBao.getSkin(), 120, 120));
             this.jPanelxuanbaoText.setText(xuanBao.getMark3());
             (RoleXuanBao.getRoleXuanBao()).zhuangbei = xuanBao;
-            int lvl = xuanBao.getLvl();
+            int lvl = xuanBao.getLevel();
             int k = (xuanBao.getRgb().split("\\|")).length;
             String[] rgb = xuanBao.getRgb().split("\\|");
             int num = 5;
@@ -656,8 +656,8 @@ public class XuanBaoEquipmentJpanel
                 }
 
             }
-            if (xuanBao.getFushi() != null && !xuanBao.getFushi().isEmpty()) {
-                String[] fushi = xuanBao.getFushi().split("\\|");
+            if (xuanBao.getFushiIds() != null && !xuanBao.getFushiIds().isEmpty()) {
+                String[] fushi = xuanBao.getFushiIds().split("\\|");
                 for (int n = 0; n < fushi.length; n++) {
                     Goodstable goodstable = GoodsListFromServerUntil.fushis.get(new BigDecimal(fushi[n]));
                     if (goodstable != null) {
@@ -702,7 +702,7 @@ public class XuanBaoEquipmentJpanel
                 }
 
             }
-            switch (xuanBao.getPinzhi()) {
+            switch (xuanBao.getQualityName()) {
                 case "初品":
                     for (m = 0; m < 3; m++) {
                         this.RuneListLabel[m].setVisible(true);
@@ -755,5 +755,6 @@ public class XuanBaoEquipmentJpanel
     }
 
 }
+
 
 

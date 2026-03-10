@@ -1,4 +1,4 @@
-package org.come.XuanBao;
+﻿package org.come.XuanBao;
 
 
 import java.awt.event.MouseEvent;
@@ -69,7 +69,7 @@ public class XuanBaoPackGoodsMouslisten implements MouseListener {
                     // 原有逻辑：镶嵌玄印到玄宝
                     XuanBao xuanBao = (RoleXuanBao.getRoleXuanBao()).choseBao;
                     if (goodstable != null && xuanBao != null) {
-                        SendMessageUntil.toServer(Agreement.getAgreement().rolechangeAgreement("US=" + xuanBao.getBid() + "=" + goodstable.getRgid()));
+                        SendMessageUntil.toServer(Agreement.getAgreement().rolechangeAgreement("US=" + xuanBao.getBaoId() + "=" + goodstable.getRgid()));
                     } else {
                         ZhuFrame.getZhuJpanel().addPrompt2("检查物品");
                     }
@@ -124,4 +124,5 @@ public class XuanBaoPackGoodsMouslisten implements MouseListener {
     }
 
 }
+
 

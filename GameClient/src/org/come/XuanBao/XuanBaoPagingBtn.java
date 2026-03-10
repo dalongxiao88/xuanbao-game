@@ -1,4 +1,4 @@
-
+﻿
 package org.come.XuanBao;
 
 
@@ -139,8 +139,8 @@ public class XuanBaoPagingBtn
                     return;
                 }
                 loginResult.setGold(new BigDecimal(loginResult.getGold().longValue() - needmoney));
-//                SendMessageUntil.toServer(Agreement.getAgreement().rolechangeAgreement("XB=" + (RoleXuanBao.getRoleXuanBao()).choseBao.getBid() + "=" + 'ל'));
-                SendMessageUntil.toServer(Agreement.getAgreement().rolechangeAgreement("XB=" + RoleXuanBao.getRoleXuanBao().choseBao.getBid() + "=" + 1500));
+//                SendMessageUntil.toServer(Agreement.getAgreement().rolechangeAgreement("XB=" + (RoleXuanBao.getRoleXuanBao()).choseBao.getBaoId() + "=" + 'ל'));
+                SendMessageUntil.toServer(Agreement.getAgreement().rolechangeAgreement("XB=" + RoleXuanBao.getRoleXuanBao().choseBao.getBaoId() + "=" + 1500));
                 break;
             case 6:
                 if (!FormsManagement.getframe(8035).isVisible()) {
@@ -182,3 +182,4 @@ public class XuanBaoPagingBtn
     }
 
 }
+
