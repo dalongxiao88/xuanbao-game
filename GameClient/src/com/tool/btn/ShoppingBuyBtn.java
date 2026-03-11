@@ -151,8 +151,8 @@ public class ShoppingBuyBtn extends MoBanBtn
                                     this.buyJpanel.Balance = new BigDecimal(this.buyJpanel.Balance.longValue() - yy);
                                 }
                             }
-                            String senmes = Agreement.getAgreement().nbuyAgreement(GsonUtil.getGsonUtil().getgson().toJson(bean));
-                            SendMessageUntil.toServer(senmes);
+                            String requestMessage = Agreement.getAgreement().nbuyAgreement(GsonUtil.getGsonUtil().getgson().toJson(bean));
+                            SendMessageUntil.toServer(requestMessage);
                         }
                         else {
                             ZhuFrame.getZhuJpanel().addPrompt2("你没有足够的" + this.buyJpanel.Currency);
@@ -214,8 +214,8 @@ public class ShoppingBuyBtn extends MoBanBtn
                             bean2.setSum((int)fa2);
                             bean2.setPrice(gjg2);
                             LotteryIntegralMainJframe.getLotteryIntegralMainJframe().getLotteryIntegralMainPanel().getIntegralTypeLab().setText("幸运奖池积分:" + (RoleData.getRoleData().getLoginResult().getScoretype("幸运奖池积分").longValue() - yy2));
-                            String senmes2 = Agreement.getAgreement().nbuyAgreement(GsonUtil.getGsonUtil().getgson().toJson(bean2));
-                            SendMessageUntil.toServer(senmes2);
+                            String requestMessage = Agreement.getAgreement().nbuyAgreement(GsonUtil.getGsonUtil().getgson().toJson(bean2));
+                            SendMessageUntil.toServer(requestMessage);
                         }
                         else {
                             ZhuFrame.getZhuJpanel().addPrompt2("你没有足够的幸运奖池积分");

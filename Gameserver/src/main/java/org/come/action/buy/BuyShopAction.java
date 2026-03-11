@@ -343,7 +343,7 @@ public class BuyShopAction implements IAction
                     if (loginResult.getScoretype(jf).longValue() < jg) {
                         return;
                     }
-                    loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), jf + "=" + jg, 3));
+                    loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), jf + "=" + jg, 3));
                     assetUpdate.setData(jf + "=" + -jg);
                 }
                 buyType = 19;
@@ -395,7 +395,7 @@ public class BuyShopAction implements IAction
             }
             isSX = shop.addPrice(buyShopBean.getSum(), jg);
             if (jf2 != null) {
-                loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), jf2 + "=" + jg, 2));
+                loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), jf2 + "=" + jg, 2));
                 assetUpdate.updata(jf2 + "=" + jg);
             }
             assetUpdate.setMsg("兑换成功");
@@ -694,8 +694,8 @@ public class BuyShopAction implements IAction
 
 //                Collections.sort(randomNums, new Comparator<RandomNum>() {
 //                    @Override
-//                    public int compare(RandomNum p1, RandomNum p2) {
-//                        return Integer.compare(p1.getProbability(), p2.getProbability());
+//                    public int compare(RandomNum left, RandomNum right) {
+//                        return Integer.compare(left.getProbability(), right.getProbability());
 //                    }
 //                });
                 Boolean b = Boolean.valueOf(false);

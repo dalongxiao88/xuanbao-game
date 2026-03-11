@@ -362,8 +362,8 @@ public class ShoppingBuyJpanel extends JPanel
             this.Totalsum = new BigDecimal(this.shop.getShopprice());
         }
         if (this.shop.getIsPrice() != null) {
-            String senmes = Agreement.getAgreement().ShopPriceAgreement("1|" + this.shop.getShopid());
-            SendMessageUntil.toServer(senmes);
+            String requestMessage = Agreement.getAgreement().ShopPriceAgreement("1|" + this.shop.getShopid());
+            SendMessageUntil.toServer(requestMessage);
         }
     }
     
