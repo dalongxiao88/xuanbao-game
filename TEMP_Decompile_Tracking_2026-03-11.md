@@ -15,12 +15,12 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Metric | Server | Client | Total |
 |---|---:|---:|---:|
 | Java files | 1439 | 1858 | 3297 |
-| Strong files | 67 | 10 | 77 |
+| Strong files | 58 | 10 | 68 |
 | Medium files | 14 | 58 | 72 |
 | FernFlower files | 0 | 0 | 0 |
 | Files with typeN defs | 2 | 0 | 2 |
 | Files with historical names | 20 | 1 | 21 |
-| Files with p-signatures | 45 | 9 | 54 |
+| Files with p-signatures | 36 | 9 | 45 |
 
 ## Completed This Session
 
@@ -41,6 +41,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | done | `SuitPetEquip` | Renamed the internal `type41-46` handlers to `handleOperation41-46`, switched the remaining score updates to `mergeRecordEntry(...)`, and updated the dispatch call sites in `SuitComposeAction`. |
 | done | `WingCompose` | Renamed the internal `type31-36/355` handlers to `handleOperation31-36/355` and aligned the dispatch call sites in `SuitComposeAction`. |
 | done | `GemCompose` | Renamed the internal `type17-21` handlers to `handleOperation17-21`, updated the dispatch call sites in `SuitComposeAction`, and replaced the residual `p2` loop variable with a semantic name. |
+| done | `Service interface signatures` | Renamed the remaining `p0/p1` placeholder parameters in `AgentMapper`, `AgentService`, `IAutoTaskService`, `IShaoXiangService`, `ChongjipackServeice`, `PayvipBeanServer`, `IGangService`, `IDiceService`, and `GangMapper`, and added class-level comments for the touched interfaces. |
 | done | `GameClient/src/com/tool/btn/OptionUncheckBtn.java` | Repaired the corrupted fund labels so they match the caller values again. |
 
 ## Point-to-Point Priority
@@ -53,34 +54,25 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Status | Priority | Score | File | Evidence |
 |---|---|---:|---|---|
 | pending | P0 | 44 | `Gameserver/src/main/java/come/tool/Calculation/CalculationUtil.java` | historical names x11 |
-| pending | P0 | 35 | `Gameserver/src/main/java/org/come/agent/AgentService.java` | p-signatures x7; placeholders x7 |
-| pending | P0 | 35 | `Gameserver/src/main/java/org/come/mapper/AgentMapper.java` | p-signatures x7; placeholders x7 |
 | pending | P0 | 32 | `Gameserver/src/main/java/com/gl/controller/AdminPetController.java` | historical names x8 |
-| pending | P0 | 32 | `Gameserver/src/main/java/org/come/service/IAutoTaskService.java` | p-signatures x6; placeholders x8 |
 | pending | P0 | 29 | `Gameserver/src/main/java/come/tool/Good/UseRoleAction.java` | historical names x3; p-signatures x2; placeholders x9 |
-| pending | P1 | 27 | `Gameserver/src/main/java/org/come/server/GolemServer.java` | p-signatures x4; placeholders x11 |
-| pending | P1 | 27 | `Gameserver/src/main/java/org/come/service/IShaoXiangService.java` | p-signatures x5; placeholders x7 |
-| pending | P1 | 26 | `Gameserver/src/main/java/come/tool/FightingData/Calculation.java` | placeholders x26 |
-| pending | P1 | 24 | `Gameserver/src/main/java/org/come/action/suit/GemIntensify.java` | typeN defs x4 |
-| pending | P1 | 21 | `Gameserver/src/main/java/org/come/service/ChongjipackServeice.java` | p-signatures x4; placeholders x5 |
-| pending | P1 | 20 | `Gameserver/src/main/java/org/come/mapper/GangMapper.java` | p-signatures x4; placeholders x4 |
-| pending | P1 | 20 | `Gameserver/src/main/java/org/come/service/IDiceService.java` | p-signatures x4; placeholders x4 |
-| pending | P1 | 20 | `Gameserver/src/main/java/org/come/service/IGangService.java` | p-signatures x4; placeholders x4 |
-| pending | P1 | 20 | `Gameserver/src/main/java/org/come/service/PayvipBeanServer.java` | p-signatures x4; placeholders x4 |
+| pending | P0 | 27 | `Gameserver/src/main/java/org/come/server/GolemServer.java` | p-signatures x4; placeholders x11 |
+| pending | P0 | 26 | `Gameserver/src/main/java/come/tool/FightingData/Calculation.java` | placeholders x26 |
+| pending | P0 | 24 | `Gameserver/src/main/java/org/come/action/suit/GemIntensify.java` | typeN defs x4 |
 | pending | P1 | 17 | `Gameserver/src/main/java/org/come/mapper/TitletableMapper.java` | p-signatures x3; placeholders x5 |
 | pending | P1 | 17 | `Gameserver/src/main/java/org/come/service/ITitletableService.java` | p-signatures x3; placeholders x5 |
 | pending | P1 | 16 | `Gameserver/src/main/java/org/come/action/buy/BuyShopAction.java` | historical names x2; p-signatures x1; placeholders x4 |
 | pending | P1 | 16 | `Gameserver/src/main/java/org/come/action/gl/LxAction.java` | p-signatures x1; placeholders x12 |
 | pending | P1 | 16 | `Gameserver/src/main/java/org/come/mapper/ChongjipackMapper.java` | p-signatures x3; placeholders x4 |
-| pending | P2 | 16 | `Gameserver/src/main/java/org/come/service/OneArenaNotesService.java` | p-signatures x3; placeholders x4 |
-| pending | P2 | 15 | `Gameserver/src/main/java/org/come/mapper/BuyCountMapper.java` | p-signatures x3; placeholders x3 |
-| pending | P2 | 15 | `Gameserver/src/main/java/org/come/mapper/GangBattleMapper.java` | p-signatures x3; placeholders x3 |
-| pending | P2 | 15 | `Gameserver/src/main/java/org/come/mapper/IpaddressmacMapper.java` | p-signatures x3; placeholders x3 |
-| pending | P2 | 15 | `Gameserver/src/main/java/org/come/service/BuyCountServeice.java` | p-signatures x3; placeholders x3 |
-| pending | P2 | 15 | `Gameserver/src/main/java/org/come/service/GangBattleService.java` | p-signatures x3; placeholders x3 |
-| pending | P2 | 15 | `Gameserver/src/main/java/org/come/service/IpaddressmacService.java` | p-signatures x3; placeholders x3 |
-| pending | P2 | 15 | `Gameserver/src/main/java/org/come/service/LimitedTimeLshopService.java` | p-signatures x2; placeholders x7 |
-| pending | P2 | 15 | `Gameserver/src/main/java/org/come/thread/DataBaseManage.java` | p-signatures x3; placeholders x3 |
+| pending | P1 | 16 | `Gameserver/src/main/java/org/come/service/OneArenaNotesService.java` | p-signatures x3; placeholders x4 |
+| pending | P1 | 15 | `Gameserver/src/main/java/org/come/mapper/BuyCountMapper.java` | p-signatures x3; placeholders x3 |
+| pending | P1 | 15 | `Gameserver/src/main/java/org/come/mapper/GangBattleMapper.java` | p-signatures x3; placeholders x3 |
+| pending | P1 | 15 | `Gameserver/src/main/java/org/come/mapper/IpaddressmacMapper.java` | p-signatures x3; placeholders x3 |
+| pending | P1 | 15 | `Gameserver/src/main/java/org/come/service/BuyCountServeice.java` | p-signatures x3; placeholders x3 |
+| pending | P1 | 15 | `Gameserver/src/main/java/org/come/service/GangBattleService.java` | p-signatures x3; placeholders x3 |
+| pending | P1 | 15 | `Gameserver/src/main/java/org/come/service/IpaddressmacService.java` | p-signatures x3; placeholders x3 |
+| pending | P1 | 15 | `Gameserver/src/main/java/org/come/service/LimitedTimeLshopService.java` | p-signatures x2; placeholders x7 |
+| pending | P1 | 15 | `Gameserver/src/main/java/org/come/thread/DataBaseManage.java` | p-signatures x3; placeholders x3 |
 | pending | P2 | 12 | `Gameserver/src/main/java/come/tool/FightingData/ManData.java` | historical names x1; placeholders x8 |
 | pending | P2 | 12 | `Gameserver/src/main/java/org/come/action/reward/DrawnitemsAction.java` | historical names x3 |
 | pending | P2 | 12 | `Gameserver/src/main/java/org/come/action/suit/SuitPalEquip.java` | typeN defs x2 |

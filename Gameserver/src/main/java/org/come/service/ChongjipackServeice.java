@@ -3,15 +3,18 @@ package org.come.service;
 import org.come.entity.ChongjipackBean;
 import java.util.List;
 
+/**
+ * 冲级礼包配置服务接口。
+ */
 public interface ChongjipackServeice
 {
     List<ChongjipackBean> selectAllPack();
     
-    List<ChongjipackBean> selectChongjipack(int p0, int p1);
+    List<ChongjipackBean> selectChongjipack(int type, int page);
     
-    int deleteChongjipack(Integer p0);
+    int deleteChongjipack(Integer id);
     
-    int insertChongjipack(ChongjipackBean p0);
+    int insertChongjipack(ChongjipackBean chongjipackBean);
     
-    int updateChongjipack(ChongjipackBean p0);
+    int updateChongjipack(ChongjipackBean chongjipackBean);
 }

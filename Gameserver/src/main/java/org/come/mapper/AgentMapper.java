@@ -5,21 +5,24 @@ import java.util.List;
 import org.come.annotation.MyBatisAnnotation;
 
 @MyBatisAnnotation
+/**
+ * 代理后台 Mapper。
+ */
 public interface AgentMapper
 {
     List<Agent> selectAll();
     
-    Agent selectById(String p0);
+    Agent selectById(String id);
     
-    Boolean deleteById(String p0);
+    Boolean deleteById(String id);
     
-    Agent selectByUserName(String p0);
+    Agent selectByUserName(String userName);
     
-    Boolean addAgent(Agent p0);
+    Boolean addAgent(Agent agent);
     
-    Boolean upAgentPwd(Agent p0);
+    Boolean upAgentPwd(Agent agent);
     
-    Boolean upAgent(Agent p0);
+    Boolean upAgent(Agent agent);
     
-    Boolean upAgentXyAndJf(Agent p0);
+    Boolean upAgentXyAndJf(Agent agent);
 }

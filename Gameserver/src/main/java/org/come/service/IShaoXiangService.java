@@ -3,15 +3,18 @@ package org.come.service;
 import org.come.model.ShaoXiangLimit;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 烧香限制服务接口。
+ */
 public interface IShaoXiangService
 {
-    ConcurrentHashMap<String, ShaoXiangLimit> getAllList(String p0);
+    ConcurrentHashMap<String, ShaoXiangLimit> getAllList(String roleId);
     
-    ShaoXiangLimit selectByID(String p0, String p1);
+    ShaoXiangLimit selectByID(String roleId, String id);
     
-    void deleteByID(String p0, String p1);
+    void deleteByID(String roleId, String id);
     
-    void addReidsLimit(ShaoXiangLimit p0);
+    void addReidsLimit(ShaoXiangLimit shaoXiangLimit);
     
-    void updateReidsLimit(ShaoXiangLimit p0);
+    void updateReidsLimit(ShaoXiangLimit shaoXiangLimit);
 }

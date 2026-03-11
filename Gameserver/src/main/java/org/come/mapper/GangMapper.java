@@ -6,15 +6,18 @@ import java.math.BigDecimal;
 import org.come.annotation.MyBatisAnnotation;
 
 @MyBatisAnnotation
+/**
+ * 帮派 Mapper。
+ */
 public interface GangMapper
 {
-    Gang findRoleGangByGangID(BigDecimal p0);
+    Gang findRoleGangByGangID(BigDecimal gangId);
     
-    Gang findGangByGangName(String p0);
+    Gang findGangByGangName(String gangName);
     
     List<Gang> findAllGang();
     
-    boolean createGang(Gang p0);
+    boolean createGang(Gang gang);
     
-    void updateGang(Gang p0);
+    void updateGang(Gang gang);
 }

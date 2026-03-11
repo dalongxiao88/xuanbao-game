@@ -2,13 +2,16 @@ package org.come.service;
 
 import org.come.model.DiceReidsBase;
 
+/**
+ * 掷骰限制服务接口。
+ */
 public interface IDiceService
 {
-    DiceReidsBase selectByID(String p0);
+    DiceReidsBase selectByID(String roleId);
     
-    void deleteByID(String p0);
+    void deleteByID(String roleId);
     
-    void addReidsLimit(DiceReidsBase p0);
+    void addReidsLimit(DiceReidsBase diceReidsBase);
     
-    void updateReidsLimit(DiceReidsBase p0);
+    void updateReidsLimit(DiceReidsBase diceReidsBase);
 }

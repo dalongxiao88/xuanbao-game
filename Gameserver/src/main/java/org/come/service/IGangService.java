@@ -4,15 +4,18 @@ import java.util.List;
 import org.come.entity.Gang;
 import java.math.BigDecimal;
 
+/**
+ * 帮派服务接口。
+ */
 public interface IGangService
 {
-    Gang findRoleGangByGangID(BigDecimal p0);
+    Gang findRoleGangByGangID(BigDecimal gangId);
     
-    Gang findGangByGangName(String p0);
+    Gang findGangByGangName(String gangName);
     
-    boolean createGang(Gang p0);
+    boolean createGang(Gang gang);
     
     List<Gang> findAllGang();
     
-    void updateGang(Gang p0);
+    void updateGang(Gang gang);
 }

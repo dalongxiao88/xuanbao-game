@@ -4,17 +4,20 @@ import java.util.List;
 import org.come.model.AutoActiveReidsBase;
 import java.util.concurrent.ConcurrentHashMap;
 
+/**
+ * 自动任务限制服务接口。
+ */
 public interface IAutoTaskService
 {
-    ConcurrentHashMap<String, AutoActiveReidsBase> getAllList(String p0);
+    ConcurrentHashMap<String, AutoActiveReidsBase> getAllList(String roleId);
     
-    List<AutoActiveReidsBase> getAllComList(String p0);
+    List<AutoActiveReidsBase> getAllComList(String roleId);
     
-    AutoActiveReidsBase selectByID(String p0, String p1);
+    AutoActiveReidsBase selectByID(String roleId, String id);
     
-    void deleteByID(String p0, String p1);
+    void deleteByID(String roleId, String id);
     
-    void addReidsLimit(AutoActiveReidsBase p0);
+    void addReidsLimit(AutoActiveReidsBase autotaskLimit);
     
-    void updateReidsLimit(AutoActiveReidsBase p0);
+    void updateReidsLimit(AutoActiveReidsBase autotaskLimit);
 }
