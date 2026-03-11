@@ -4,11 +4,14 @@ import come.tool.oneArena.OneArenaNotes;
 import java.util.List;
 import java.math.BigDecimal;
 
+/**
+ * 单人竞技记录服务接口。
+ */
 public interface OneArenaNotesService
 {
-    BigDecimal selectMaxID(String p0);
+    BigDecimal selectMaxID(String time);
     
-    List<OneArenaNotes> selectRole(BigDecimal p0, BigDecimal p1);
+    List<OneArenaNotes> selectRole(BigDecimal roleId, BigDecimal min);
     
-    int insertOneArenaNotes(OneArenaNotes p0);
+    int insertOneArenaNotes(OneArenaNotes notes);
 }

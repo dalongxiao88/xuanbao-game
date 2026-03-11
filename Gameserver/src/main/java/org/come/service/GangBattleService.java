@@ -3,11 +3,14 @@ package org.come.service;
 import java.math.BigDecimal;
 import org.come.entity.GangBattle;
 
+/**
+ * 帮战服务接口。
+ */
 public interface GangBattleService
 {
-    int addGangBattle(GangBattle p0);
+    int addGangBattle(GangBattle gangBattle);
     
-    void updataGangBattle(GangBattle p0);
+    void updataGangBattle(GangBattle gangBattle);
     
-    GangBattle selectGangBattle(BigDecimal p0);
+    GangBattle selectGangBattle(BigDecimal gangId);
 }

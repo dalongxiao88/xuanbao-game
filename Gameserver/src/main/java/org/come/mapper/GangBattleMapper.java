@@ -5,11 +5,14 @@ import org.come.entity.GangBattle;
 import org.come.annotation.MyBatisAnnotation;
 
 @MyBatisAnnotation
+/**
+ * 帮战 Mapper。
+ */
 public interface GangBattleMapper
 {
-    int addGangBattle(GangBattle p0);
+    int addGangBattle(GangBattle gangBattle);
     
-    void updataGangBattle(GangBattle p0);
+    void updataGangBattle(GangBattle gangBattle);
     
-    GangBattle selectGangBattle(BigDecimal p0);
+    GangBattle selectGangBattle(BigDecimal gangId);
 }

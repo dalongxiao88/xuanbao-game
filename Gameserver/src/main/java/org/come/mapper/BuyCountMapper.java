@@ -4,11 +4,14 @@ import org.come.entity.BuyCount;
 import org.come.annotation.MyBatisAnnotation;
 
 @MyBatisAnnotation
+/**
+ * 限购计数 Mapper。
+ */
 public interface BuyCountMapper
 {
-    void insertBuyCount(BuyCount p0);
+    void insertBuyCount(BuyCount buyCount);
     
-    void updateBuyCount(BuyCount p0);
+    void updateBuyCount(BuyCount buyCount);
     
-    BuyCount selectBuyCount(long p0);
+    BuyCount selectBuyCount(long roleId);
 }

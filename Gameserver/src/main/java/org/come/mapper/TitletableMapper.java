@@ -7,13 +7,16 @@ import java.math.BigDecimal;
 import org.come.annotation.MyBatisAnnotation;
 
 @MyBatisAnnotation
+/**
+ * 称谓 Mapper。
+ */
 public interface TitletableMapper
 {
-    List<Titletable> selectRoleAllTitle(BigDecimal p0);
+    List<Titletable> selectRoleAllTitle(BigDecimal roleId);
     
-    void createRoleTitle(Titletable p0);
+    void createRoleTitle(Titletable title);
     
-    void updateByPrimaryKey(Titletable p0);
+    void updateByPrimaryKey(Titletable title);
     
-    Titletable selectRoleTitle(@Param("roleid") BigDecimal p0, @Param("titlename") String p1);
+    Titletable selectRoleTitle(@Param("roleid") BigDecimal roleId, @Param("titlename") String titleName);
 }

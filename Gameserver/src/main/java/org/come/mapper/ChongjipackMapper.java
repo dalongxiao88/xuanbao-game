@@ -6,15 +6,18 @@ import java.util.List;
 import org.come.annotation.MyBatisAnnotation;
 
 @MyBatisAnnotation
+/**
+ * 冲级礼包配置 Mapper。
+ */
 public interface ChongjipackMapper
 {
     List<ChongjipackBean> selectAllPack();
     
-    List<ChongjipackBean> selectChongjipack(int p0);
+    List<ChongjipackBean> selectChongjipack(int type);
     
-    int updateChongjipack(ChongjipackBean p0);
+    int updateChongjipack(ChongjipackBean chongjipackBean);
     
-    int deleteChongjipack(@Param("id") Integer p0);
+    int deleteChongjipack(@Param("id") Integer id);
     
-    int insertChongjipack(ChongjipackBean p0);
+    int insertChongjipack(ChongjipackBean chongjipackBean);
 }

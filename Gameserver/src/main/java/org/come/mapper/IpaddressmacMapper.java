@@ -5,11 +5,14 @@ import org.come.entity.Ipaddressmac;
 import org.come.annotation.MyBatisAnnotation;
 
 @MyBatisAnnotation
+/**
+ * IP/MAC 记录 Mapper。
+ */
 public interface IpaddressmacMapper
 {
-    int insert(Ipaddressmac p0);
+    int insert(Ipaddressmac ipaddressmac);
     
-    int insertSelective(Ipaddressmac p0);
+    int insertSelective(Ipaddressmac ipaddressmac);
     
-    List<Ipaddressmac> selectIpaddressmac(String p0);
+    List<Ipaddressmac> selectIpaddressmac(String roleName);
 }
