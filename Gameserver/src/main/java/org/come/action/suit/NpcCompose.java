@@ -30,41 +30,43 @@ public class NpcCompose
         if (goods == null || goods.size() != 2) {
             return;
         }
+        // NPC 合成仍然通过协议编号分发，当前阶段先保留编号协议，
+        // 但内部处理入口统一改为 `handleOperationX`，避免继续保留反编译式 `typeN` 命名。
         if (suitOperBean.getType() == 71) {
-            type71(loginResult, ctx, goods);
+            handleOperation71(loginResult, ctx, goods);
         }
     }
     
-    public static void type71(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
+    public static void handleOperation71(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
     }
     
-    public static void type72(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
+    public static void handleOperation72(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
     }
     
-    public static void type73(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
+    public static void handleOperation73(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
     }
     
-    public static void type74(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
+    public static void handleOperation74(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
     }
     
-    public static void type75(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
+    public static void handleOperation75(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
     }
     
-    public static void type76(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
+    public static void handleOperation76(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
     }
     
-    public static void type77(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
+    public static void handleOperation77(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
     }
     
-    public static void type78(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
+    public static void handleOperation78(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
     }
     
-    public static void type79(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
+    public static void handleOperation79(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
     }
     
-    public static void type80(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
+    public static void handleOperation80(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
     }
     
-    public static void type81(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
+    public static void handleOperation81(LoginResult loginResult, ChannelHandlerContext ctx, List<Goodstable> goods) {
     }
 }
