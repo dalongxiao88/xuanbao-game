@@ -7,6 +7,10 @@ import java.awt.Color;
 import com.tool.tcpimg.UIUtils;
 import javax.swing.JPanel;
 
+/**
+ * 基金档位选择按钮。
+ * 点击后同步切换基金购买面板的按钮高亮和当前选中的基金档位。
+ */
 public class OptionUncheckBtn extends MoBanBtn
 {
     private String caozuo;
@@ -34,51 +38,29 @@ public class OptionUncheckBtn extends MoBanBtn
     @Override
     public void nochoose(MouseEvent e) {
         try {
-            String var4;
-            switch ((var4 = this.caozuo).hashCode()) {
-                case 2300980: {
-                    if (var4.equals("30基金")) {
-                        FundBuyJpanel buyJpanel = (FundBuyJpanel)this.jPanel;
-                        buyJpanel.getThridFund().setIcons(CutButtonImage.cuts("inkImg/button/21.png"));
-                        buyJpanel.getSixthFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
-                        buyJpanel.getNinethFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
-                        buyJpanel.setType("30");
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 2390353: {
-                    if (var4.equals("60基金")) {
-                        FundBuyJpanel buyJpanel = (FundBuyJpanel)this.jPanel;
-                        buyJpanel.getThridFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
-                        buyJpanel.getSixthFund().setIcons(CutButtonImage.cuts("inkImg/button/21.png"));
-                        buyJpanel.getNinethFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
-                        buyJpanel.setType("60");
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 2479726: {
-                    if (var4.equals("90基金")) {
-                        FundBuyJpanel buyJpanel = (FundBuyJpanel)this.jPanel;
-                        buyJpanel.getThridFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
-                        buyJpanel.getSixthFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
-                        buyJpanel.getNinethFund().setIcons(CutButtonImage.cuts("inkImg/button/21.png"));
-                        buyJpanel.setType("90");
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
+            String optionType = this.caozuo;
+            FundBuyJpanel buyJpanel = (FundBuyJpanel)this.jPanel;
+            if ("30基金".equals(optionType)) {
+                buyJpanel.getThridFund().setIcons(CutButtonImage.cuts("inkImg/button/21.png"));
+                buyJpanel.getSixthFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
+                buyJpanel.getNinethFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
+                buyJpanel.setType("30");
+            }
+            else if ("60基金".equals(optionType)) {
+                buyJpanel.getThridFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
+                buyJpanel.getSixthFund().setIcons(CutButtonImage.cuts("inkImg/button/21.png"));
+                buyJpanel.getNinethFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
+                buyJpanel.setType("60");
+            }
+            else if ("90基金".equals(optionType)) {
+                buyJpanel.getThridFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
+                buyJpanel.getSixthFund().setIcons(CutButtonImage.cuts("inkImg/button/20.png"));
+                buyJpanel.getNinethFund().setIcons(CutButtonImage.cuts("inkImg/button/21.png"));
+                buyJpanel.setType("90");
             }
         }
-        catch (Exception var5) {
-            var5.printStackTrace();
+        catch (Exception updateOptionException) {
+            updateOptionException.printStackTrace();
         }
     }
 }

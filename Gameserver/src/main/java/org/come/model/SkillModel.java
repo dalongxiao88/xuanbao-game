@@ -29,7 +29,6 @@ public class SkillModel
     // 备注
     private String remark;
     public SkillModel(Skill skill) {
-        // TODO Auto-generated constructor stub
         this.skillid=skill.getSkillid()+"";
         this.skillname=skill.getSkillname();
         this.skilltype=skill.getSkilltype()+"";
@@ -38,7 +37,7 @@ public class SkillModel
         this.dielectric=skill.getDielectric()+"";
         this.value=skill.getValue()+"";
         this.camp=skill.getCamp()+"";
-        this.skillralation=skill.getSkillralation();
+        this.skillralation=skill.getSkillRelation();
         this.value1 = skill.getValue1() + "";
         this.grow1 = skill.getGrow1() + "";
         this.value2 = skill.getValue2() + "";

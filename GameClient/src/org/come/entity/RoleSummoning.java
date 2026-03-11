@@ -168,7 +168,7 @@ public class RoleSummoning implements Commodity
     /**
      * 合并或替换召唤兽属性串中的指定条目。
      *
-     * 历史命名 `Splice` 仅能表达“拼接”，但该方法实际承担了
+     * 旧短名方法仅能表达“拼接”，但该方法实际承担了
      * 删除、替换、累加、扣减、取最大值等多种合并行为。
      */
     public static String mergeAttributeEntry(String v, String b, int type) {
@@ -955,10 +955,6 @@ public class RoleSummoning implements Commodity
         this.skillData = skillData;
     }
     
-    public String getPetSkillswl() {
-        return this.petSkillswl;
-    }
-
     /** 语义化别名：召唤兽悟灵技能串。 */
     public String getPetWuLingSkills() {
         return this.petSkillswl;
@@ -1175,16 +1171,6 @@ public class RoleSummoning implements Commodity
         return id;
     }
 
-    /** 兼容旧命名：合并属性串。 */
-    public static String Splice(String v, String b, int type) {
-        return mergeAttributeEntry(v, b, type);
-    }
-
-    /** 兼容旧命名：更换饰品槽位。 */
-    public BigDecimal ChangePart(Goodstable goodstable, int type) {
-        return this.changeAdornmentPart(goodstable, type);
-    }
-    
     public BigDecimal getGoodId(int type) {
         if (this.stye == null || this.stye.length() <= 1) {
             return null;

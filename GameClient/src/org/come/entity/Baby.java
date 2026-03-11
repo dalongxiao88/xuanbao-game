@@ -2,6 +2,12 @@ package org.come.entity;
 
 import java.math.BigDecimal;
 
+/**
+ * 客户端孩子实体。
+ *
+ * 与服务端 `Baby` 保持同构，负责承接孩子基础属性、天资串和装备槽位串。
+ * 当前阶段移除已无调用的旧兼容方法，避免继续保留明显的反编译命名。
+ */
 public class Baby
 {
     private BigDecimal babyid;
@@ -91,26 +97,6 @@ public class Baby
         return true;
     }
 
-    /** 兼容旧命名：获取指定装备槽位。 */
-    public BigDecimal getpart(int type) {
-        return this.getEquipPart(type);
-    }
-
-    /** 兼容旧命名：获取全部装备槽位。 */
-    public BigDecimal[] getpartAll() {
-        return this.getAllEquipParts();
-    }
-
-    /** 兼容旧命名：更换装备槽位。 */
-    public BigDecimal ChangePart(BigDecimal id, int type) {
-        return this.changeEquipPart(id, type);
-    }
-
-    /** 兼容旧命名：学习或替换天资。 */
-    public boolean ChangeTalent(int type, String talent) {
-        return this.changeTalent(type, talent);
-    }
-    
     public String getOutcome() {
         return this.outcome;
     }

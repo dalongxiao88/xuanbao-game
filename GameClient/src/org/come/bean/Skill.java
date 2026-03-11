@@ -9,6 +9,9 @@ import org.apache.commons.lang.StringUtils;
  * 客户端技能字段大多以字符串形式存储，原因是该对象会直接参与
  * 文本配置解析、界面展示和公式替换；为避免在调用方重复 `parseInt`
  * 或 `parseDouble`，本类补充了一组安全解析辅助方法。
+ *
+ * `getP1` 至 `getP7` 这一组接口仍保留给旧链路使用，但内部字段已改成
+ * 可维护命名，避免继续把它们当成反编译占位符。
  */
 public class Skill implements Cloneable {
     private String skillid;
@@ -34,6 +37,7 @@ public class Skill implements Cloneable {
     private Integer Skilled;
     /** 技能类型的展示名称。 */
     private String skilltype_name;
+    /** 技能公式使用的第一组基础槽位。 */
     public double s1;
     public double s2;
     public double s3;
@@ -41,13 +45,15 @@ public class Skill implements Cloneable {
     public double s5;
     public double s6;
     public double s7;
-    public double p1;
-    public double p2;
-    public double p3;
-    public double p4;
-    public double p5;
-    public double p6;
-    public double p7;
+    /** 技能公式中的通用参数槽位。 */
+    public double formulaParameter1;
+    public double formulaParameter2;
+    public double formulaParameter3;
+    public double formulaParameter4;
+    public double formulaParameter5;
+    public double formulaParameter6;
+    public double formulaParameter7;
+    /** 技能公式使用的第三组扩展槽位。 */
     public double e1;
     public double e2;
     public double e3;
@@ -384,59 +390,59 @@ public class Skill implements Cloneable {
     }
 
     public double getP1() {
-        return p1;
+        return this.formulaParameter1;
     }
 
-    public void setP1(double p1) {
-        this.p1 = p1;
+    public void setP1(double formulaParameter1) {
+        this.formulaParameter1 = formulaParameter1;
     }
 
     public double getP2() {
-        return p2;
+        return this.formulaParameter2;
     }
 
-    public void setP2(double p2) {
-        this.p2 = p2;
+    public void setP2(double formulaParameter2) {
+        this.formulaParameter2 = formulaParameter2;
     }
 
     public double getP3() {
-        return p3;
+        return this.formulaParameter3;
     }
 
-    public void setP3(double p3) {
-        this.p3 = p3;
+    public void setP3(double formulaParameter3) {
+        this.formulaParameter3 = formulaParameter3;
     }
 
     public double getP4() {
-        return p4;
+        return this.formulaParameter4;
     }
 
-    public void setP4(double p4) {
-        this.p4 = p4;
+    public void setP4(double formulaParameter4) {
+        this.formulaParameter4 = formulaParameter4;
     }
 
     public double getP5() {
-        return p5;
+        return this.formulaParameter5;
     }
 
-    public void setP5(double p5) {
-        this.p5 = p5;
+    public void setP5(double formulaParameter5) {
+        this.formulaParameter5 = formulaParameter5;
     }
 
     public double getP6() {
-        return p6;
+        return this.formulaParameter6;
     }
 
-    public void setP6(double p6) {
-        this.p6 = p6;
+    public void setP6(double formulaParameter6) {
+        this.formulaParameter6 = formulaParameter6;
     }
 
     public double getP7() {
-        return p7;
+        return this.formulaParameter7;
     }
 
-    public void setP7(double p7) {
-        this.p7 = p7;
+    public void setP7(double formulaParameter7) {
+        this.formulaParameter7 = formulaParameter7;
     }
 
     public double getE1() {

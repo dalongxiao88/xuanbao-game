@@ -8,7 +8,7 @@ import java.util.Arrays;
  *
  * 该类是技能配置、技能效果计算和宠物技能扩展的基础模型。
  * 其中 `skillralation` 为历史命名，实际表示技能互斥/关联关系；
- * `remark2` 与 `petSkillswl` 属于后期扩展字段。
+ * `remark2` 与宠物悟灵配置字段属于后期扩展字段。
  */
 public class Skill implements Cloneable {
     private int skillid;
@@ -28,9 +28,11 @@ public class Skill implements Cloneable {
     private double value3;
     private String remark;
     private String value4;
-    private String remark2;//悟灵
+    /** 悟灵补充说明。 */
+    private String remark2;
     private String petSkillswl;
 
+    /** 技能公式使用的第一组基础槽位。 */
     public double s1;
 
     public double s2;
@@ -39,13 +41,20 @@ public class Skill implements Cloneable {
     public double s5;
     public double s6;
     public double s7;
-    public double p1;
-    public double p2;
-    public double p3;
-    public double p4;
-    public double p5;
-    public double p6;
-    public double p7;
+    /**
+     * 技能公式中的通用参数槽位。
+     *
+     * 历史公开接口沿用 `getP1` 至 `getP7`，但内部存储字段改为语义化命名，
+     * 以便后续继续做端对端链路收口时不再把它们误判成反编译占位符。
+     */
+    public double formulaParameter1;
+    public double formulaParameter2;
+    public double formulaParameter3;
+    public double formulaParameter4;
+    public double formulaParameter5;
+    public double formulaParameter6;
+    public double formulaParameter7;
+    /** 技能公式使用的第三组扩展槽位。 */
     public double e1;
     public double e2;
     public double e3;
@@ -104,59 +113,59 @@ public class Skill implements Cloneable {
     }
 
     public double getP1() {
-        return p1;
+        return this.formulaParameter1;
     }
 
-    public void setP1(double p1) {
-        this.p1 = p1;
+    public void setP1(double formulaParameter1) {
+        this.formulaParameter1 = formulaParameter1;
     }
 
     public double getP2() {
-        return p2;
+        return this.formulaParameter2;
     }
 
-    public void setP2(double p2) {
-        this.p2 = p2;
+    public void setP2(double formulaParameter2) {
+        this.formulaParameter2 = formulaParameter2;
     }
 
     public double getP3() {
-        return p3;
+        return this.formulaParameter3;
     }
 
-    public void setP3(double p3) {
-        this.p3 = p3;
+    public void setP3(double formulaParameter3) {
+        this.formulaParameter3 = formulaParameter3;
     }
 
     public double getP4() {
-        return p4;
+        return this.formulaParameter4;
     }
 
-    public void setP4(double p4) {
-        this.p4 = p4;
+    public void setP4(double formulaParameter4) {
+        this.formulaParameter4 = formulaParameter4;
     }
 
     public double getP5() {
-        return p5;
+        return this.formulaParameter5;
     }
 
-    public void setP5(double p5) {
-        this.p5 = p5;
+    public void setP5(double formulaParameter5) {
+        this.formulaParameter5 = formulaParameter5;
     }
 
     public double getP6() {
-        return p6;
+        return this.formulaParameter6;
     }
 
-    public void setP6(double p6) {
-        this.p6 = p6;
+    public void setP6(double formulaParameter6) {
+        this.formulaParameter6 = formulaParameter6;
     }
 
     public double getP7() {
-        return p7;
+        return this.formulaParameter7;
     }
 
-    public void setP7(double p7) {
-        this.p7 = p7;
+    public void setP7(double formulaParameter7) {
+        this.formulaParameter7 = formulaParameter7;
     }
 
     public double getE1() {
@@ -339,15 +348,12 @@ public class Skill implements Cloneable {
         return null;
     }
 
-    public String getPetSkillswl() {
-        return this.petSkillswl;
-    }
-
     /** 语义化别名：宠物悟灵技能配置串。 */
     public String getPetWuLingSkillConfig() {
         return this.petSkillswl;
     }
 
+    /** 兼容旧链路的写入口，后续新代码统一走 `setPetWuLingSkillConfig`。 */
     public void setPetSkillswl(String petSkillswl) {
         this.petSkillswl = petSkillswl;
     }

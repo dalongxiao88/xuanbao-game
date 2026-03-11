@@ -265,7 +265,7 @@ public class LxAction implements IAction
                             SendMessage.sendMessageByRoleName(loginResult.getRolename(), Agreement.getAgreement().PromptAgreement("#Y召唤兽等级不满足条件，无法学习"));
                             return;
                         }
-                        if (StringUtils.isNotEmpty(xskill.skill.getSkillralation()) && this.getCountTemp(xskills, Integer.parseInt(xskill.skill.getSkillralation())) > 0) {
+                        if (StringUtils.isNotEmpty(xskill.skill.getSkillRelation()) && this.getCountTemp(xskills, Integer.parseInt(xskill.skill.getSkillRelation())) > 0) {
                             SendMessage.sendMessageByRoleName(loginResult.getRolename(), Agreement.getAgreement().PromptAgreement("#R存在互斥关系，无法保存"));
                             return;
                         }

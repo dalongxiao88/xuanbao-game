@@ -118,7 +118,7 @@ public class RoleSummoning implements Cloneable
     /**
      * 获取四属性扩展值。
      *
-     * 历史命名 `getSI2` 缺少业务语义，实际用途是从 `fourattributes`
+     * 旧短名方法缺少业务语义，实际用途是从 `fourattributes`
      * 字符串中提取指定属性的附加值。
      */
     public int getFourAttributeValue(String type) {
@@ -176,11 +176,6 @@ public class RoleSummoning implements Cloneable
         this.setMp(this.mp);
         this.setAp(this.ap);
         this.setSp(this.sp);
-    }
-
-    /** 兼容旧命名：获取四属性扩展值。 */
-    public int getSI2(String type) {
-        return this.getFourAttributeValue(type);
     }
 
     /** 兼容旧命名：应用灵犀加成。 */
@@ -667,15 +662,12 @@ public class RoleSummoning implements Cloneable
         this.friendliness = Long.valueOf(JmSum.ZM((long)friendliness));
     }
     
-    public String getPetSkillswl() {
-        return this.petSkillswl;
-    }
-
     /** 语义化别名：召唤兽悟灵技能串。 */
     public String getPetWuLingSkills() {
         return this.petSkillswl;
     }
     
+    /** 兼容旧写入口，后续新代码统一走 `setPetWuLingSkills`。 */
     public void setPetSkillswl(String petSkillswl) {
         this.petSkillswl = petSkillswl;
     }
