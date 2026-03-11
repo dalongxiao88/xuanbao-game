@@ -254,7 +254,7 @@ public class GLUtil
                         AssetUpdate assetUpdate = new AssetUpdate();
                         assetUpdate.setMsg("获得武神山积分：" + ke * 10L + "点");
                         assetUpdate.updata("武神山积分=" + ke * 10L);
-                        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "武神山积分=" + ke * (long)(wssType + 5), 2));
+                        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "武神山积分=" + ke * (long)(wssType + 5), 2));
                         if (teams != null) {
                             String message = "#Y[武神山守护] #G你的守护位置被玩家#R" + teams[0] + "#G带领队伍占领了，根据守护时间你获得了奖励积分.";
                             new GameService().sendMsgToPlayer(message, loginResult.getRolename());
@@ -265,7 +265,7 @@ public class GLUtil
                     }
                     else {
                         loginResult = AllServiceUtil.getRoleTableService().selectRoleID(r.getRoleid());
-                        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "武神山积分=" + ke * (long)(wssType + 5), 2));
+                        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "武神山积分=" + ke * (long)(wssType + 5), 2));
                         try {
                             AllServiceUtil.getRoleTableService().updateRoleWhenExit(loginResult);
                         }

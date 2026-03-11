@@ -250,7 +250,7 @@ public class CJScene implements Scene{
 			ChannelHandlerContext ctx = GameServer.getRoleNameMap().get(role.getRoleShow().getRolename());
 			LoginResult roleInfo = ctx != null ? GameServer.getAllLoginRole().get(ctx) : null;
 			if (roleInfo != null) {
-				roleInfo.setScore(DrawnitemsAction.Splice(roleInfo.getScore(), "吃鸡积分=" + jf, 2));
+				roleInfo.setScore(DrawnitemsAction.mergeRecordEntry(roleInfo.getScore(), "吃鸡积分=" + jf, 2));
 				SendMessage.sendMessageToSlef(ctx, msg);
 			}
 		}

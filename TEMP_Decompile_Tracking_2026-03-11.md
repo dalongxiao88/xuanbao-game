@@ -15,11 +15,11 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Metric | Server | Client | Total |
 |---|---:|---:|---:|
 | Java files | 1439 | 1858 | 3297 |
-| Strong files | 24 | 0 | 24 |
+| Strong files | 13 | 0 | 13 |
 | Medium files | 14 | 57 | 71 |
 | FernFlower files | 0 | 0 | 0 |
 | Files with typeN defs | 1 | 0 | 1 |
-| Files with historical names | 14 | 0 | 14 |
+| Files with historical names | 3 | 0 | 3 |
 | Files with p-signatures | 7 | 0 | 7 |
 
 ## Completed This Session
@@ -49,6 +49,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | done | `LingXi chain` | Replaced the remaining decompile-style parsing variables in `LxAction`, `LxPanel`, and `LingXiUtil`, switched the client pet panel to `applyLingXiBonus(...)`, and clarified the client LingXi request message variables. |
 | done | `BuyShopAction / ShoppingBuy` | Switched the remaining score updates in `BuyShopAction` to `mergeRecordEntry(...)`, renamed the leftover commented comparator parameters, and clarified the request-message variables in `ShoppingBuyBtn` and `ShoppingBuyJpanel`. |
 | done | `LotteryAction / DrawUtil / Lottery UI` | Switched the remaining lottery score merges to `mergeRecordEntry(...)` and clarified the client lottery request-message and exception variable names. |
+| done | `DrawnitemsAction callers` | Replaced the remaining server-side `DrawnitemsAction.Splice(...)` callers in achievements, lotteries, scenes, player service, GL util, and StarCard reward paths with `mergeRecordEntry(...)`. |
 | done | `GameClient/src/com/tool/btn/OptionUncheckBtn.java` | Repaired the corrupted fund labels so they match the caller values again. |
 
 ## Point-to-Point Priority
@@ -66,24 +67,13 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | pending | P0 | 12 | `Gameserver/src/main/java/org/come/action/reward/DrawnitemsAction.java` | historical names x3 |
 | pending | P0 | 12 | `Gameserver/src/main/java/org/come/action/suit/SuitPalEquip.java` | typeN defs x2 |
 | pending | P0 | 12 | `Gameserver/src/main/java/org/come/servlet/SaveGameDataServlet.java` | placeholders x12 |
-| pending | P1 | 12 | `Gameserver/src/main/java/org/come/until/AchievemUtil.java` | historical names x3 |
 | pending | P1 | 11 | `Gameserver/src/main/java/org/come/action/npc/NpcComposeAction.java` | p-signatures x2; placeholders x3 |
 | pending | P1 | 9 | `Gameserver/src/main/java/org/come/action/summoning/SummonPetAction.java` | p-signatures x1; placeholders x5 |
 | pending | P1 | 8 | `Gameserver/src/main/java/com/gl/service/GoodsService.java` | p-signatures x1; placeholders x4 |
-| pending | P1 | 8 | `Gameserver/src/main/java/com/gl/service/PlayerService.java` | historical names x2 |
-| pending | P1 | 8 | `Gameserver/src/main/java/com/gl/util/GLUtil.java` | historical names x2 |
 | pending | P1 | 8 | `Gameserver/src/main/java/come/tool/FightingDataAction/DataAction.java` | p-signatures x1; placeholders x4 |
 | pending | P1 | 8 | `Gameserver/src/main/java/come/tool/FightingLingAction/LingAction.java` | p-signatures x1; placeholders x4 |
 | pending | P1 | 8 | `Gameserver/src/main/java/come/tool/FightingSpellAction/SpellAction.java` | p-signatures x1; placeholders x4 |
-| pending | P1 | 8 | `Gameserver/src/main/java/org/come/action/suit/StarCard.java` | historical names x2 |
-| pending | P1 | 4 | `Gameserver/src/main/java/come/tool/BangBattle/BangFight.java` | historical names x1 |
-| pending | P1 | 4 | `Gameserver/src/main/java/come/tool/Scene/CJ/CJScene.java` | historical names x1 |
-| pending | P1 | 4 | `Gameserver/src/main/java/come/tool/Scene/JieGuaScene.java` | historical names x1 |
-| pending | P1 | 4 | `Gameserver/src/main/java/come/tool/Scene/SLDH/SLDHScene.java` | historical names x1 |
-| pending | P2 | 4 | `Gameserver/src/main/java/org/come/action/role/RoleAchievemAction.java` | historical names x1 |
-| pending | P2 | 4 | `Gameserver/src/main/java/org/come/action/role/RoleDayDrawAction.java` | historical names x1 |
-| pending | P2 | 4 | `Gameserver/src/main/java/org/come/entity/RolesummoningRoleUser.java` | historical names x1 |
-| pending | P2 | 4 | `Gameserver/src/main/java/org/come/task/RefreshMonsterTask.java` | historical names x1 |
+| pending | P1 | 4 | `Gameserver/src/main/java/org/come/entity/RolesummoningRoleUser.java` | historical names x1 |
 
 ## Client Strong
 

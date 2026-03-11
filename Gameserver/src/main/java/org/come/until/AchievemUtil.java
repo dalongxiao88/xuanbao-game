@@ -45,8 +45,8 @@ public class AchievemUtil {
                         if (!loginResult.getAchieveRecordtype(achievement.getConditions()).equals("-1")) {
                             int num = Integer.parseInt(loginResult.getAchieveRecordtype(achievement.getConditions())) + 1;
                             if (!loginResult.getAchieveRecordtype(achievement.getConditions()).equals("") && num == Integer.parseInt(achievement.getNum())) {
-                                loginResult.setAchieveRecord(DrawnitemsAction.Splice(loginResult.getAchieveRecord(), achievement.getConditions() + "=1", 2));
-                                loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "功绩=" + achievement.getPrice(), 2));
+                                loginResult.setAchieveRecord(DrawnitemsAction.mergeRecordEntry(loginResult.getAchieveRecord(), achievement.getConditions() + "=1", 2));
+                                loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "功绩=" + achievement.getPrice(), 2));
                                 AssetUpdate assetUpdate = new AssetUpdate();
                                 assetUpdate.setType(AssetUpdate.USEGOOD);
                                 assetUpdate.setData("功绩千秋=" + achievement.getConditions() + "=1=2");
@@ -64,7 +64,7 @@ public class AchievemUtil {
                                 AssetUpdate assetUpdate = new AssetUpdate();
                                 assetUpdate.setType(AssetUpdate.USEGOOD);
                                 loginResult.setAchieveRecord(
-                                        DrawnitemsAction.Splice(loginResult.getAchieveRecord(), achievement.getConditions() + "=1", 2));
+                                        DrawnitemsAction.mergeRecordEntry(loginResult.getAchieveRecord(), achievement.getConditions() + "=1", 2));
                                 assetUpdate.setData("功绩千秋=" + achievement.getConditions() + "=1=2");
                                 SendMessage.sendMessageToSlef(ctx,
                                         Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));

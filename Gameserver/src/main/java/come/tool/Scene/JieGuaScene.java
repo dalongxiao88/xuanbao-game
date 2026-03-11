@@ -259,7 +259,7 @@ public class JieGuaScene implements Runnable
             SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().PromptAgreement("灵力不够了"));
             return 0;
         }
-        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "解卦灵力=" + points, 3));
+        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "解卦灵力=" + points, 3));
         AssetUpdate assetUpdate = new AssetUpdate();
         assetUpdate.setData("解卦灵力=" + -points);
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));

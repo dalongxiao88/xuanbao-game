@@ -473,7 +473,7 @@ public class BangFight
                     if (ctx != null) {
                         log = (LoginResult)GameServer.getAllLoginRole().get(ctx);
                         if (log != null) {
-                            log.setScore(DrawnitemsAction.Splice(log.getScore(), jf, 2));
+                            log.setScore(DrawnitemsAction.mergeRecordEntry(log.getScore(), jf, 2));
                             SendMessage.sendMessageToSlef(ctx, msg);
                         }
                     }

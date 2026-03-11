@@ -56,7 +56,7 @@ public class RoleDayDrawAction implements IAction {
 			}
 			AssetUpdate assetUpdate = new AssetUpdate();
 			assetUpdate.setType(AssetUpdate.USEGOOD);
-			loginResult.setDayDraw(DrawnitemsAction.Splice(loginResult.getDayDraw(), cjs[1]+"=1", 2));
+			loginResult.setDayDraw(DrawnitemsAction.mergeRecordEntry(loginResult.getDayDraw(), cjs[1]+"=1", 2));
 			assetUpdate.setData("日常任务抽奖=" + cjs[1]+"=1=2");
 			SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
 			return;

@@ -554,7 +554,7 @@ public class SLDHScene implements Scene
                 ChannelHandlerContext ctx = (ChannelHandlerContext)GameServer.getRoleNameMap().get(role.getRoleShow().getRolename());
                 LoginResult roleInfo = (ctx != null) ? ((LoginResult)GameServer.getAllLoginRole().get(ctx)) : null;
                 if (roleInfo != null) {
-                    roleInfo.setScore(DrawnitemsAction.Splice(roleInfo.getScore(), "水陆积分=" + add, 2));
+                    roleInfo.setScore(DrawnitemsAction.mergeRecordEntry(roleInfo.getScore(), "水陆积分=" + add, 2));
                     SendMessage.sendMessageToSlef(ctx, msg);
                 }
             }

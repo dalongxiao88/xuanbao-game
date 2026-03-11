@@ -431,7 +431,7 @@ public class StarCard
             }
             num += 20;
         }
-        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "星芒=" + num, 2));
+        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "星芒=" + num, 2));
         AssetUpdate assetUpdate = new AssetUpdate(AssetUpdate.USEGOOD);
         SuitComposeAction.saveGoods(goods, false);
         assetUpdate.updata("星芒=" + num);
@@ -519,7 +519,7 @@ public class StarCard
             if (loginResult.getScoretype("星芒").compareTo(money) < 0) {
                 return;
             }
-            loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "星芒=" + money.toString(), 3));
+            loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "星芒=" + money.toString(), 3));
         }
         int parseInt = Integer.parseInt(value[2].split("=")[1]);
         parseInt += 1000;

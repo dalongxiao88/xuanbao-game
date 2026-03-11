@@ -49,7 +49,7 @@ public class RoleAchievemAction implements IAction {
 					}
 					AssetUpdate assetUpdate = new AssetUpdate();
 					assetUpdate.setType(AssetUpdate.USEGOOD);
-					loginResult.setAchieveRecord(DrawnitemsAction.Splice(loginResult.getAchieveRecord(), achievement.getConditions()+"=-1", 1));
+					loginResult.setAchieveRecord(DrawnitemsAction.mergeRecordEntry(loginResult.getAchieveRecord(), achievement.getConditions()+"=-1", 1));
 					assetUpdate.setData("功绩千秋=" + achievement.getConditions() + "=-1=1");
 					SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
 					return;

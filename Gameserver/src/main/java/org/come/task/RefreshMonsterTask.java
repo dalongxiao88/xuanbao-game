@@ -307,7 +307,7 @@ public class RefreshMonsterTask implements Runnable
                             AllServiceUtil.getRoleTableService().upTTJJ(value.getRole_id());
                             value.setTTJIANGLI("0|0|0|0|0|0");
                             BigDecimal ttScore = value.getScoretype("天梯积分");
-                            value.setScore(DrawnitemsAction.Splice(value.getScore(), "天梯积分=" + ttScore.intValue(), 3));
+                            value.setScore(DrawnitemsAction.mergeRecordEntry(value.getScore(), "天梯积分=" + ttScore.intValue(), 3));
                             AssetUpdate assetUpdate = new AssetUpdate(AssetUpdate.USEGOOD);
                             assetUpdate.setTtVictory(value.getTtVictory());
                             assetUpdate.setTtFail(value.getTtFail());

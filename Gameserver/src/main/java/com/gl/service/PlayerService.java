@@ -527,7 +527,7 @@ public class PlayerService
                     MonitorUtil.getMoney().addX(new BigDecimal(applyBean.getPaymoney()).longValue(), 0);
                     MonitorUtil.getMoney().addC(addC.longValue());
                     login.setMoney(((login.getMoney() != null) ? ((int)login.getMoney()) : 0) + addC.intValue());
-                    login.setScore(DrawnitemsAction.Splice(login.getScore(), "充值积分=" + addC.longValue(), 2));
+                    login.setScore(DrawnitemsAction.mergeRecordEntry(login.getScore(), "充值积分=" + addC.longValue(), 2));
                     applyPayBean.setAddX(new BigDecimal(applyBean.getPaymoney()));
                     applyPayBean.setAddC(addC);
                     applyPayBean.setAddCZJF(addC);
@@ -642,7 +642,7 @@ public class PlayerService
                         userTable.setMoney(userTable.getMoney() + addC.intValue());
                         MonitorUtil.getMoney().addX(new BigDecimal(applyBean.getPaymoney()).longValue(), 0);
                         MonitorUtil.getMoney().addC(addC.longValue());
-                        login.setScore(DrawnitemsAction.Splice(login.getScore(), "充值积分=" + addC.longValue(), 2));
+                        login.setScore(DrawnitemsAction.mergeRecordEntry(login.getScore(), "充值积分=" + addC.longValue(), 2));
                         if (addC.longValue() >= 30L && login.getDayfirstinorno() == 0) {
                             login.setDayandpayorno(login.getDayandpayorno().add(new BigDecimal(1)));
                             login.setDayfirstinorno(1);
