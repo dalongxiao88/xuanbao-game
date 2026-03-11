@@ -1272,12 +1272,12 @@ public class FightingSkill implements Cloneable
     }
     public Double[] getWl(Skill skill) {
         try {
-            if (skill == null || StringUtils.isBlank(skill.getPetSkillswl()))
+            if (skill == null || StringUtils.isBlank(skill.getPetWuLingSkillConfig()))
                 return null;
             String wlstr ="";
-            if (StringUtils.isNotBlank(skill.getPetSkillswl())) {
+            if (StringUtils.isNotBlank(skill.getPetWuLingSkillConfig())) {
                 String[] v = skill.getValue4().split("\\|");
-                for (String s : skill.getPetSkillswl().split("\\|")) {
+                for (String s : skill.getPetWuLingSkillConfig().split("\\|")) {
                     if(s.startsWith(skill.getSkillid()+"")){
                         wlstr = s;
                         break;

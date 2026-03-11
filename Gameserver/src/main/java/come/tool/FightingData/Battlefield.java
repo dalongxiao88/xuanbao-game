@@ -6303,7 +6303,7 @@ public class Battlefield {
                         skill.setSkillsum(15);
                         data.getSkills().remove(skill);
                     }
-                    String petSkillswl = ManData.getPetSkillswl();
+                    String petSkillswl = ManData.getPetWuLingSkills();
                     int skillid = new FightingSkill().getSkillid();
                     String petSkillswlLevel = getPetSkillswlLevel(petSkillswl, skillid + "");
                     if (StringUtils.isNotBlank(petSkillswlLevel)) {

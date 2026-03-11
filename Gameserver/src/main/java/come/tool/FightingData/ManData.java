@@ -1157,14 +1157,14 @@ public class ManData implements Cloneable {
         this.shanghai = (double) (int) pet.getSpir();
         this.kangluobao = (double) (int) pet.getPower();
         this.yuanzhu = (double) (int) pet.getSpeed();
-        ManData.petSkillswl = pet.getPetSkillswl();
+        ManData.petSkillswl = pet.getPetWuLingSkills();
         this.talentLvl = TalentTool.getPetTalentLvl(pet);
         long qm = (long) pet.getFriendliness();
         Mount mount = (summon.getHang().getMid() != null) ? AllServiceUtil.getMountService().selectMountsByMID(summon.getHang().getMid()) : null;
-        this.addPetSkill(pet.getPetSkills(), qm, summon, pet.getPetSkillswl(), pet);
-        this.addPetSkill(pet.getPetQlSkills(), qm, summon, pet.getPetSkillswl(), pet);
-        this.addPetSkill(pet.getBeastSkills(), qm, summon, pet.getPetSkillswl(), pet);
-        this.addPetSkill(pet.getSkill(), qm, summon, pet.getPetSkillswl(), pet);
+        this.addPetSkill(pet.getPetSkills(), qm, summon, pet.getPetWuLingSkills(), pet);
+        this.addPetSkill(pet.getPetQlSkills(), qm, summon, pet.getPetWuLingSkills(), pet);
+        this.addPetSkill(pet.getBeastSkills(), qm, summon, pet.getPetWuLingSkills(), pet);
+        this.addPetSkill(pet.getSkill(), qm, summon, pet.getPetWuLingSkills(), pet);
         this.addPetLX(pet.getLingxi(), qm);
         String lxStr = LingXiUtil.isFull(pet.getLingxi());
         if (lxStr != "") {
@@ -8874,12 +8874,22 @@ public class ManData implements Cloneable {
         return null;
     }
 
-    public static String getPetSkillswl() {
+    public static String getPetWuLingSkills() {
         return ManData.petSkillswl;
     }
 
+    public void setPetWuLingSkills(String petWuLingSkills) {
+        ManData.petSkillswl = petWuLingSkills;
+    }
+
+    /** 兼容旧命名：获取悟灵技能串。 */
+    public static String getPetSkillswl() {
+        return getPetWuLingSkills();
+    }
+
+    /** 兼容旧命名：设置悟灵技能串。 */
     public void setPetSkillswl(String petSkillswl) {
-        ManData.petSkillswl = petSkillswl;
+        setPetWuLingSkills(petSkillswl);
     }
 
     public boolean getTPZS() {

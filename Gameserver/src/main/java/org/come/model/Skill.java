@@ -343,8 +343,17 @@ public class Skill implements Cloneable {
         return this.petSkillswl;
     }
 
+    /** 语义化别名：宠物悟灵技能配置串。 */
+    public String getPetWuLingSkillConfig() {
+        return this.petSkillswl;
+    }
+
     public void setPetSkillswl(String petSkillswl) {
         this.petSkillswl = petSkillswl;
+    }
+
+    public void setPetWuLingSkillConfig(String petWuLingSkillConfig) {
+        this.petSkillswl = petWuLingSkillConfig;
     }
 
     public double getGrow2() {
