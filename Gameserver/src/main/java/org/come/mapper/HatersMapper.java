@@ -8,27 +8,30 @@ import org.come.entity.HatersExample;
 import org.come.annotation.MyBatisAnnotation;
 
 @MyBatisAnnotation
+/**
+ * 仇人/黑名单记录数据访问接口。
+ */
 public interface HatersMapper
 {
-    int countByExample(HatersExample p0);
+    int countByExample(HatersExample hatersExample);
     
-    int deleteByExample(HatersExample p0);
+    int deleteByExample(HatersExample hatersExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal roleId);
     
-    int insert(Haters p0);
+    int insert(Haters haters);
     
-    int insertSelective(Haters p0);
+    int insertSelective(Haters haters);
     
-    List<Haters> selectByExample(HatersExample p0);
+    List<Haters> selectByExample(HatersExample hatersExample);
     
-    Haters selectByPrimaryKey(BigDecimal p0);
+    Haters selectByPrimaryKey(BigDecimal roleId);
     
-    int updateByExampleSelective(@Param("record") Haters p0, @Param("example") HatersExample p1);
+    int updateByExampleSelective(@Param("record") Haters haters, @Param("example") HatersExample hatersExample);
     
-    int updateByExample(@Param("record") Haters p0, @Param("example") HatersExample p1);
+    int updateByExample(@Param("record") Haters haters, @Param("example") HatersExample hatersExample);
     
-    int updateByPrimaryKeySelective(Haters p0);
+    int updateByPrimaryKeySelective(Haters haters);
     
-    int updateByPrimaryKey(Haters p0);
+    int updateByPrimaryKey(Haters haters);
 }
