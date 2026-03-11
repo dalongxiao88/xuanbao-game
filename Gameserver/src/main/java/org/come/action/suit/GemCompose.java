@@ -29,7 +29,10 @@ import org.come.bean.LoginResult;
 
 public class GemCompose
 {
-    public static void type17(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 宝石相关操作沿用协议编号分流，内部处理入口统一改为 `handleOperationX`。
+     */
+    public static void handleOperation17(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         BigDecimal money = new BigDecimal(500000);
         if (loginResult.getGold().compareTo(money) < 0) {
             return;
@@ -191,7 +194,7 @@ public class GemCompose
         return GameServer.getGem(name);
     }
     
-    public static void type18(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation18(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         List<Goodstable> goods = SuitComposeAction.getGoods(suitOperBean.getGoods(), loginResult.getRole_id(), 2);
         if (goods == null) {
             return;
@@ -265,7 +268,7 @@ public class GemCompose
 //	4|鉴定后，种类和属性随机
 //	5|鉴定后的宝石价值较高
     /**19:宝石鉴定*/
-    public static void type19(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation19(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         List<Goodstable> goods = SuitComposeAction.getGoods(suitOperBean.getGoods(), loginResult.getRole_id(), 2);
         if (goods == null) {
             return;
@@ -327,7 +330,7 @@ public class GemCompose
         }
     }
     
-    public static void type20(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation20(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         List<Goodstable> goods = SuitComposeAction.getGoods(suitOperBean.getGoods(), loginResult.getRole_id(), 2);
         if (goods == null) {
             return;
@@ -479,7 +482,7 @@ public class GemCompose
         }
     }
     
-    public static void type21(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation21(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -993,9 +996,9 @@ public class GemCompose
             String yb = pet.getResistance();
             if (yb == null || yb.equals("")) {
                 int p;
-                int p2;
-                for (p = UseRoleAction.random.nextInt(SummonPetAction.kxs.length), p2 = UseRoleAction.random.nextInt(SummonPetAction.kxs.length); p2 == p; p2 = UseRoleAction.random.nextInt(SummonPetAction.kxs.length)) {}
-                pet.setResistance(SummonPetAction.kxs[p] + "|" + SummonPetAction.kxs[p2]);
+                int secondResistanceIndex;
+                for (p = UseRoleAction.random.nextInt(SummonPetAction.kxs.length), secondResistanceIndex = UseRoleAction.random.nextInt(SummonPetAction.kxs.length); secondResistanceIndex == p; secondResistanceIndex = UseRoleAction.random.nextInt(SummonPetAction.kxs.length)) {}
+                pet.setResistance(SummonPetAction.kxs[p] + "|" + SummonPetAction.kxs[secondResistanceIndex]);
             }
             AllServiceUtil.getRoleSummoningService().insertRoleSummoning(pet);
             AssetUpdate assetUpdate2 = new AssetUpdate();

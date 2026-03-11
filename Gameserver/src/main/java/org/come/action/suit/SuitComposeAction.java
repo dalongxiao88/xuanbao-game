@@ -133,23 +133,23 @@ public class SuitComposeAction implements IAction
                 break;
             }
             case 17: {
-                GemCompose.type17(loginResult, ctx, suitOperBean);
+                GemCompose.handleOperation17(loginResult, ctx, suitOperBean);
                 break;
             }
             case 18: {
-                GemCompose.type18(loginResult, ctx, suitOperBean);
+                GemCompose.handleOperation18(loginResult, ctx, suitOperBean);
                 break;
             }
             case 19: {
-                GemCompose.type19(loginResult, ctx, suitOperBean);
+                GemCompose.handleOperation19(loginResult, ctx, suitOperBean);
                 break;
             }
             case 20: {
-                GemCompose.type20(loginResult, ctx, suitOperBean);
+                GemCompose.handleOperation20(loginResult, ctx, suitOperBean);
                 break;
             }
             case 21: {
-                GemCompose.type21(loginResult, ctx, suitOperBean);
+                GemCompose.handleOperation21(loginResult, ctx, suitOperBean);
                 break;
             }
             case 31: {
