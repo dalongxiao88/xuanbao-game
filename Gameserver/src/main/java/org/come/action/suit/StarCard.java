@@ -24,7 +24,12 @@ import org.come.bean.LoginResult;
 
 public class StarCard
 {
-    public static void type51(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 星卡操作仍通过协议编号分流。
+     * 当前阶段保留原协议数字，但内部处理入口统一改为 `handleOperationX`，
+     * 避免继续保留反编译式 `typeN` 命名。
+     */
+    public static void handleOperation51(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -83,7 +88,7 @@ public class StarCard
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type52(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation52(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -149,7 +154,7 @@ public class StarCard
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type53(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation53(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -219,7 +224,7 @@ public class StarCard
         SendMessage.sendMessageToSlef(ctx, Agreement.ExtrattroperAgreement(GsonUtil.getGsonUtil().getgson().toJson(qualityClBean)));
     }
     
-    public static void type54(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation54(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -263,7 +268,7 @@ public class StarCard
         SendMessage.sendMessageToSlef(ctx, Agreement.ExtrattroperAgreement(GsonUtil.getGsonUtil().getgson().toJson(qualityClBean)));
     }
     
-    public static void type55(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation55(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -326,7 +331,7 @@ public class StarCard
         }
     }
     
-    public static void type56(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation56(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -402,7 +407,7 @@ public class StarCard
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type57(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation57(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -435,7 +440,7 @@ public class StarCard
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type58(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation58(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -479,7 +484,7 @@ public class StarCard
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type59(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation59(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;

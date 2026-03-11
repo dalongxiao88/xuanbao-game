@@ -208,39 +208,39 @@ public class SuitComposeAction implements IAction
                 break;
             }
             case 51: {
-                StarCard.type51(loginResult, ctx, suitOperBean);
+                StarCard.handleOperation51(loginResult, ctx, suitOperBean);
                 break;
             }
             case 52: {
-                StarCard.type52(loginResult, ctx, suitOperBean);
+                StarCard.handleOperation52(loginResult, ctx, suitOperBean);
                 break;
             }
             case 53: {
-                StarCard.type53(loginResult, ctx, suitOperBean);
+                StarCard.handleOperation53(loginResult, ctx, suitOperBean);
                 break;
             }
             case 54: {
-                StarCard.type54(loginResult, ctx, suitOperBean);
+                StarCard.handleOperation54(loginResult, ctx, suitOperBean);
                 break;
             }
             case 55: {
-                StarCard.type55(loginResult, ctx, suitOperBean);
+                StarCard.handleOperation55(loginResult, ctx, suitOperBean);
                 break;
             }
             case 56: {
-                StarCard.type56(loginResult, ctx, suitOperBean);
+                StarCard.handleOperation56(loginResult, ctx, suitOperBean);
                 break;
             }
             case 57: {
-                StarCard.type57(loginResult, ctx, suitOperBean);
+                StarCard.handleOperation57(loginResult, ctx, suitOperBean);
                 break;
             }
             case 58: {
-                StarCard.type58(loginResult, ctx, suitOperBean);
+                StarCard.handleOperation58(loginResult, ctx, suitOperBean);
                 break;
             }
             case 59: {
-                StarCard.type59(loginResult, ctx, suitOperBean);
+                StarCard.handleOperation59(loginResult, ctx, suitOperBean);
                 break;
             }
             case 62: {
