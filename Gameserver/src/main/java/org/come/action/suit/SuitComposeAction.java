@@ -70,64 +70,66 @@ public class SuitComposeAction implements IAction
             return;
         }
         SuitOperBean suitOperBean = (SuitOperBean)GsonUtil.getGsonUtil().getgson().fromJson(message, SuitOperBean.class);
+        // 客户端通过 `SuitOperBean.type` 下发操作编号；当前阶段先保留编号协议，
+        // 但将服务端处理入口统一重命名为 `handleOperationX`，避免继续沿用反编译式 `typeN` 命名。
         switch (suitOperBean.getType()) {
             case 0: {
-                this.type0(loginResult, ctx, suitOperBean);
+                this.handleOperation0(loginResult, ctx, suitOperBean);
                 break;
             }
             case 1:
             case 2: {
-                this.type1(loginResult, ctx, suitOperBean);
+                this.handleOperation1(loginResult, ctx, suitOperBean);
                 break;
             }
             case 3: {
-                this.type3(loginResult, ctx, suitOperBean);
+                this.handleOperation3(loginResult, ctx, suitOperBean);
                 break;
             }
             case 4: {
-                this.type4(loginResult, ctx, suitOperBean);
+                this.handleOperation4(loginResult, ctx, suitOperBean);
                 break;
             }
             case 5: {
-                this.type5(loginResult, ctx, suitOperBean);
+                this.handleOperation5(loginResult, ctx, suitOperBean);
                 break;
             }
             case 6: {
-                this.type6(loginResult, ctx, suitOperBean);
+                this.handleOperation6(loginResult, ctx, suitOperBean);
                 break;
             }
             case 7: {
-                this.type7(loginResult, ctx, suitOperBean);
+                this.handleOperation7(loginResult, ctx, suitOperBean);
                 break;
             }
             case 8: {
-                this.type8(loginResult, ctx, suitOperBean);
+                this.handleOperation8(loginResult, ctx, suitOperBean);
                 break;
             }
             case 9: {
-                this.type9(loginResult, ctx, suitOperBean);
+                this.handleOperation9(loginResult, ctx, suitOperBean);
                 break;
             }
             case 10: {
-                this.type10(loginResult, ctx, suitOperBean);
+                this.handleOperation10(loginResult, ctx, suitOperBean);
                 break;
             }
             case 11:
             case 12:
             case 13: {
-                this.type13(loginResult, ctx, suitOperBean);
+                this.handleOperation13(loginResult, ctx, suitOperBean);
                 break;
             }
             case 14: {
-                this.type14(loginResult, ctx, suitOperBean);
+                this.handleOperation14(loginResult, ctx, suitOperBean);
                 break;
             }
             case 15: {
-                this.type15(loginResult, ctx, suitOperBean);
+                this.handleOperation15(loginResult, ctx, suitOperBean);
                 break;
             }
             case 16: {
-                this.type16(loginResult, ctx, suitOperBean);
+                this.handleOperation16(loginResult, ctx, suitOperBean);
                 break;
             }
             case 17: {
@@ -271,25 +273,25 @@ public class SuitComposeAction implements IAction
                 break;
             }
             case 120: {
-                this.type120(loginResult, ctx, suitOperBean);
+                this.handleOperation120(loginResult, ctx, suitOperBean);
                 break;
             }
             case 127: {
-                this.type127(loginResult, ctx, suitOperBean);
+                this.handleOperation127(loginResult, ctx, suitOperBean);
                 break;
             }
             case 2255: {
-                this.type123(loginResult, ctx, suitOperBean);
+                this.handleOperation123(loginResult, ctx, suitOperBean);
                 break;
             }
             case 2256: {
-                this.type124(loginResult, ctx, suitOperBean);
+                this.handleOperation124(loginResult, ctx, suitOperBean);
                 break;
             }
         }
     }
     
-    public void type0(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation0(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData data = RolePool.getRoleData(loginResult.getRole_id());
         if (data == null) {
             return;
@@ -357,7 +359,7 @@ public class SuitComposeAction implements IAction
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public void type1(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation1(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         if (suitOperBean.getGoods() == null || suitOperBean.getGoods().size() == 0) {
             return;
         }
@@ -405,7 +407,7 @@ public class SuitComposeAction implements IAction
         SendMessage.sendMessageToSlef(ctx, Agreement.ExtrattroperAgreement(GsonUtil.getGsonUtil().getgson().toJson(clBean)));
     }
     
-    public void type3(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation3(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData data = RolePool.getRoleData(loginResult.getRole_id());
         if (data == null) {
             return;
@@ -462,7 +464,7 @@ public class SuitComposeAction implements IAction
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public void type4(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation4(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData data = RolePool.getRoleData(loginResult.getRole_id());
         if (data == null) {
             return;
@@ -503,7 +505,7 @@ public class SuitComposeAction implements IAction
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public void type5(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation5(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         if (suitOperBean.getGoods() == null || suitOperBean.getGoods().size() == 0) {
             return;
         }
@@ -532,7 +534,7 @@ public class SuitComposeAction implements IAction
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public void type6(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation6(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         if (suitOperBean.getGoods() == null || suitOperBean.getGoods().size() == 0) {
             return;
         }
@@ -584,7 +586,7 @@ public class SuitComposeAction implements IAction
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public void type7(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation7(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData data = RolePool.getRoleData(loginResult.getRole_id());
         if (data == null) {
             return;
@@ -636,7 +638,7 @@ public class SuitComposeAction implements IAction
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public void type8(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation8(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData data = RolePool.getRoleData(loginResult.getRole_id());
         if (data == null) {
             return;
@@ -721,7 +723,7 @@ public class SuitComposeAction implements IAction
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().packRecordAgreement(4 + record.getCollect()));
     }
     
-    public void type9(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation9(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData data = RolePool.getRoleData(loginResult.getRole_id());
         if (data == null) {
             return;
@@ -752,7 +754,7 @@ public class SuitComposeAction implements IAction
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public void type10(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation10(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         BigDecimal money = new BigDecimal(100000);
         if (loginResult.getGold().compareTo(money) < 0) {
             return;
@@ -831,7 +833,7 @@ public class SuitComposeAction implements IAction
         }
     }
     
-    public void type11(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation11(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         BigDecimal money = new BigDecimal(100000);
         int money2 = 0;
         if (loginResult.getGold().compareTo(money) < 0) {
@@ -904,7 +906,7 @@ public class SuitComposeAction implements IAction
         saveGoods(goods, false);
     }
     
-    public void type13(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation13(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         BigDecimal money = new BigDecimal(100000);
         int money2 = 0;
         if (loginResult.getGold().compareTo(money) < 0) {
@@ -977,7 +979,7 @@ public class SuitComposeAction implements IAction
         saveGoods(goods, false);
     }
     
-    public void type14(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation14(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         BigDecimal money = new BigDecimal(100000);
         int money2 = 0;
         if (loginResult.getGold().compareTo(money) < 0) {
@@ -1056,7 +1058,7 @@ public class SuitComposeAction implements IAction
         saveGoods(goods, true);
     }
     
-    public void type15(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation15(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         BigDecimal money = new BigDecimal(100000);
         List<Goodstable> goods = getGoods(suitOperBean.getGoods(), loginResult.getRole_id(), 2);
         if (goods == null) {
@@ -1091,7 +1093,7 @@ public class SuitComposeAction implements IAction
         AddGoodUtil.addGood(ctx, goods.get(0));
     }
     
-    public void type16(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation16(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         ConcurrentHashMap<Integer, Configure> s = GameServer.getAllConfigure();
         Configure configure = s.get(Integer.valueOf(1));
         BigDecimal money = new BigDecimal(100000);
@@ -1900,7 +1902,7 @@ public class SuitComposeAction implements IAction
         return buffer.toString();
     }
     
-    public void type120(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation120(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         BigDecimal money = new BigDecimal(100000);
         if (loginResult.getGold().compareTo(money) < 0) {
             return;
@@ -2216,7 +2218,7 @@ public class SuitComposeAction implements IAction
         saveGoods(goods, true);
     }
     
-    public void type127(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation127(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         BigDecimal money = new BigDecimal(100000);
         if (loginResult.getGold().compareTo(money) < 0) {
             return;
@@ -2350,7 +2352,7 @@ public class SuitComposeAction implements IAction
         saveGoods(goods, false);
     }
     
-    public void type123(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation123(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         List<Goodstable> goods = getGoods(suitOperBean.getGoods(), loginResult.getRole_id(), 2);
         if (goods == null) {
             return;
@@ -2456,7 +2458,7 @@ public class SuitComposeAction implements IAction
         }
     }
     
-    public void type124(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public void handleOperation124(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         List<Goodstable> goods = getGoods(suitOperBean.getGoods(), loginResult.getRole_id(), 2);
         if (goods != null) {
             loginResult.setShouhu(loginResult.getShouhu() - 50);
