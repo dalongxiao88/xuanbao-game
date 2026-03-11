@@ -184,27 +184,27 @@ public class SuitComposeAction implements IAction
                 break;
             }
             case 41: {
-                SuitPetEquip.type41(loginResult, ctx, suitOperBean);
+                SuitPetEquip.handleOperation41(loginResult, ctx, suitOperBean);
                 break;
             }
             case 42: {
-                SuitPetEquip.type42(loginResult, ctx, suitOperBean);
+                SuitPetEquip.handleOperation42(loginResult, ctx, suitOperBean);
                 break;
             }
             case 43: {
-                SuitPetEquip.type43(loginResult, ctx, suitOperBean);
+                SuitPetEquip.handleOperation43(loginResult, ctx, suitOperBean);
                 break;
             }
             case 44: {
-                SuitPetEquip.type44(loginResult, ctx, suitOperBean);
+                SuitPetEquip.handleOperation44(loginResult, ctx, suitOperBean);
                 break;
             }
             case 45: {
-                SuitPetEquip.type45(loginResult, ctx, suitOperBean);
+                SuitPetEquip.handleOperation45(loginResult, ctx, suitOperBean);
                 break;
             }
             case 46: {
-                SuitPetEquip.type46(loginResult, ctx, suitOperBean);
+                SuitPetEquip.handleOperation46(loginResult, ctx, suitOperBean);
                 break;
             }
             case 51: {
@@ -384,7 +384,7 @@ public class SuitComposeAction implements IAction
         }
         loginResult.setGold(loginResult.getGold().subtract(money));
         MonitorUtil.getMoney().useD(money.longValue());
-        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "灵修值=30", 3));
+        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "灵修值=30", 3));
         String[] extras = extra.split("&");
         int suitid = Integer.parseInt(extras[1]);
         int partid = Integer.parseInt(extras[2]);
@@ -563,7 +563,7 @@ public class SuitComposeAction implements IAction
         if (loginResult.getGold().compareTo(money) < 0) {
             return;
         }
-        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "灵修值=" + lxzx, 3));
+        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "灵修值=" + lxzx, 3));
         loginResult.setGold(loginResult.getGold().subtract(money));
         MonitorUtil.getMoney().useD(money.longValue());
         String name = good.getGoodsname();
@@ -633,7 +633,7 @@ public class SuitComposeAction implements IAction
             AllServiceUtil.getGoodsTableService().updateGoodRedis(good);
             AllServiceUtil.getGoodsrecordService().insert(good, null, Integer.valueOf(jade.getJade1()), Integer.valueOf(13));
         }
-        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "灵修值=" + lxzv, 2));
+        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "灵修值=" + lxzv, 2));
         assetUpdate.updata("灵修值=" + lxzv);
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
@@ -705,13 +705,13 @@ public class SuitComposeAction implements IAction
             partJade.setJade(pz, -1);
             record.setPartJade(partJade);
             assetUpdate.setJade(partJade);
-            loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "灵修值=" + sxlxz, 3));
+            loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "灵修值=" + sxlxz, 3));
             loginResult.setGold(loginResult.getGold().subtract(money));
             MonitorUtil.getMoney().useD(money.longValue());
             record.setCollect(partJade.getSuitid(), partJade.getPartId());
         }
         else if (type == 1) {
-            loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "灵修值=" + sxlxz, 3));
+            loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "灵修值=" + sxlxz, 3));
             loginResult.setGold(loginResult.getGold().subtract(money));
             MonitorUtil.getMoney().useD(money.longValue());
             record.setCollect(jade.getSuitid(), jade.getPartId());
@@ -748,7 +748,7 @@ public class SuitComposeAction implements IAction
         partJade.setJade(1, jade.getJade1());
         record.setPartJade(partJade);
         assetUpdate.setJade(partJade);
-        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "灵修值=" + sxlxz, 3));
+        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "灵修值=" + sxlxz, 3));
         loginResult.setGold(loginResult.getGold().subtract(money));
         MonitorUtil.getMoney().useD(money.longValue());
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));

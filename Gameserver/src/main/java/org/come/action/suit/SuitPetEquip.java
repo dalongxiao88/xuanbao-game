@@ -26,7 +26,11 @@ import org.come.bean.LoginResult;
 
 public class SuitPetEquip
 {
-    public static void type41(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 召唤兽装备操作仍通过协议编号分发。
+     * 当前阶段保留编号协议，但内部处理入口统一改为 `handleOperationX`。
+     */
+    public static void handleOperation41(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -99,7 +103,7 @@ public class SuitPetEquip
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type42(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation42(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -117,7 +121,7 @@ public class SuitPetEquip
             return;
         }
         int num = 30;
-        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "比斗奖章=" + num, 2));
+        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "比斗奖章=" + num, 2));
         AssetUpdate assetUpdate = new AssetUpdate(AssetUpdate.USEGOOD);
         assetUpdate.setData("比斗奖章=" + num);
         assetUpdate.setMsg("分解成功,获得了" + num + "个比斗奖章");
@@ -125,7 +129,7 @@ public class SuitPetEquip
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type43(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation43(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -220,7 +224,7 @@ public class SuitPetEquip
         return buffer.toString();
     }
     
-    public static void type44(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation44(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -301,7 +305,7 @@ public class SuitPetEquip
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type45(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation45(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -367,7 +371,7 @@ public class SuitPetEquip
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type46(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation46(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -433,7 +437,7 @@ public class SuitPetEquip
         qualityClBean.setRgid(summonEquip.getRgid());
         qualityClBean.setType(46);
         qualityClBean.setNewAttr(value[7]);
-        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "比斗奖章=" + suitid, 3));
+        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "比斗奖章=" + suitid, 3));
         AssetUpdate assetUpdate = new AssetUpdate(AssetUpdate.USEGOOD);
         assetUpdate.updata("比斗奖章=" + -suitid);
         assetUpdate.setGood(summonEquip);
