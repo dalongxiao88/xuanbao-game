@@ -609,17 +609,17 @@ public class SystemMouslisten implements MouseListener
             TestSetupJpanel setupJpanel = TestSetupJframe.getTestSetupJframe().getTestSetupJpanel();
             if (showView != null) {
                 if ("0".equals(showView)) {
-                    type0();
+                    switchToWindow800x600();
                 }
                 else if ("2".equals(showView)) {
-                    type101();
+                    switchToFullscreen1366x768();
                 }
                 else {
-                    type1();
+                    switchToFullscreen1024x768();
                 }
             }
             else {
-                type1();
+                switchToFullscreen1024x768();
             }
             if (music != null) {
                 if ("off".equals(music)) {
@@ -628,7 +628,7 @@ public class SystemMouslisten implements MouseListener
                 else {
                     setupJpanel.getLabMusic().setIcon(null);
                 }
-                type2();
+                toggleBackgroundMusic();
             }
             else {
                 setupJpanel.getLabMusic().setIcon(SystemMouslisten.icon);
@@ -640,7 +640,7 @@ public class SystemMouslisten implements MouseListener
                 else {
                     setupJpanel.getLabMusicNew().setIcon(null);
                 }
-                type11();
+                toggleWindowShake();
             }
             else {
                 setupJpanel.getLabMusicNew().setIcon(SystemMouslisten.icon);
@@ -652,7 +652,7 @@ public class SystemMouslisten implements MouseListener
                 else {
                     setupJpanel.getLabSound().setIcon(null);
                 }
-                type3();
+                toggleSoundEffect();
             }
             else {
                 setupJpanel.getLabSound().setIcon(SystemMouslisten.icon);
@@ -664,7 +664,7 @@ public class SystemMouslisten implements MouseListener
                 else {
                     setupJpanel.getLabRefusemsg().setIcon(null);
                 }
-                type5();
+                toggleRefuseMessage();
             }
             else {
                 setupJpanel.getLabRefusemsg().setIcon(SystemMouslisten.icon);
@@ -676,7 +676,7 @@ public class SystemMouslisten implements MouseListener
                 else {
                     setupJpanel.getLabLetter().setIcon(null);
                 }
-                type6();
+                toggleShadowEffect();
             }
             else {
                 setupJpanel.getLabLetter().setIcon(SystemMouslisten.icon);
@@ -688,7 +688,7 @@ public class SystemMouslisten implements MouseListener
                 else {
                     setupJpanel.getLabJoinfriends().setIcon(null);
                 }
-                type7();
+                toggleJoinFriendPrompt();
             }
             else {
                 setupJpanel.getLabJoinfriends().setIcon(SystemMouslisten.icon);
@@ -700,7 +700,7 @@ public class SystemMouslisten implements MouseListener
                 else {
                     setupJpanel.getLabAcceptteam().setIcon(null);
                 }
-                type9();
+                toggleTradePrompt();
             }
             else {
                 setupJpanel.getLabAcceptteam().setIcon(SystemMouslisten.icon);
@@ -712,7 +712,7 @@ public class SystemMouslisten implements MouseListener
                 else {
                     setupJpanel.getLabSkillFull().setIcon(null);
                 }
-                type10();
+                toggleDuelPrompt();
             }
             else {
                 setupJpanel.getLabSkillFull().setIcon(SystemMouslisten.icon);
@@ -972,67 +972,11 @@ public class SystemMouslisten implements MouseListener
         }
         catch (Exception ex) {}
     }
-    
-    /** 兼容旧命名：切换到 800x600 窗口模式。 */
-    public static void type0() { switchToWindow800x600(); }
-    /** 兼容旧命名：切换到 1024x768 全屏模式。 */
-    public static void type1() { switchToFullscreen1024x768(); }
-    /** 兼容旧命名：切换到 1366x768 全屏模式。 */
-    public static void type101() { switchToFullscreen1366x768(); }
-    /** 兼容旧命名：背景音乐开关。 */
-    public static void type2() { toggleBackgroundMusic(); }
-    /** 兼容旧命名：音效开关。 */
-    public static void type3() { toggleSoundEffect(); }
-    /** 兼容旧命名：玩家 PK 模式开关。 */
-    public static void type4() { togglePkMode(); }
-    /** 兼容旧命名：拒收消息开关。 */
-    public static void type5() { toggleRefuseMessage(); }
-    /** 兼容旧命名：阴影显示开关。 */
-    public static void type6() { toggleShadowEffect(); }
-    /** 兼容旧命名：好友提醒开关。 */
-    public static void type7() { toggleJoinFriendPrompt(); }
-    /** 兼容旧命名：组队提醒开关。 */
-    public static void type8() { toggleJoinTeamPrompt(); }
-    /** 兼容旧命名：交易提醒开关。 */
-    public static void type9() { toggleTradePrompt(); }
-    /** 兼容旧命名：切磋提醒开关。 */
-    public static void type10() { toggleDuelPrompt(); }
-    /** 兼容旧命名：窗口抖动开关。 */
-    public static void type11() { toggleWindowShake(); }
-    /** 兼容旧命名：切换到低画质模式。 */
-    public static void type15() { useLowGraphicsQuality(); }
-    /** 兼容旧命名：切换到标准画质模式。 */
-    public static void type16() { useStandardGraphicsQuality(); }
-    /** 兼容旧命名：切换到超高画质模式。 */
-    public static void type17() { useHighGraphicsQuality(); }
-    /** 兼容旧命名：新版法术全屏开关。 */
-    public static void type18() { toggleNewSpellFullscreen(); }
-    /** 兼容旧命名：小地图隐藏玩家。 */
-    public static void type27() { toggleMiniMapHidePlayer(); }
-    /** 兼容旧命名：小地图移动点显示。 */
-    public static void type28() { toggleMiniMapMovePoint(); }
-    /** 兼容旧命名：小地图任务 NPC 显示。 */
-    public static void type29() { toggleMiniMapTaskNpc(); }
-    /** 兼容旧命名：小地图商业 NPC 显示。 */
-    public static void type30() { toggleMiniMapBusinessNpc(); }
-    /** 兼容旧命名：小地图 NPC 总显示。 */
-    public static void type31() { toggleMiniMapAllNpc(); }
-    /** 兼容旧命名：世界地图隐藏玩家。 */
-    public static void type32() { toggleWorldMapHidePlayer(); }
-    /** 兼容旧命名：世界地图移动点显示。 */
-    public static void type33() { toggleWorldMapMovePoint(); }
-    /** 兼容旧命名：世界地图任务 NPC 显示。 */
-    public static void type34() { toggleWorldMapTaskNpc(); }
-    /** 兼容旧命名：世界地图商业 NPC 显示。 */
-    public static void type35() { toggleWorldMapBusinessNpc(); }
-    /** 兼容旧命名：世界地图全部 NPC 显示。 */
-    public static void type36() { toggleWorldMapAllNpc(); }
-    /** 兼容旧命名：称号显示模式切换。 */
-    public static void type37() { toggleTitleDisplayMode(); }
-    /** 兼容旧命名：字体切换到楷体。 */
-    public static void type100() { useKaiTiFont(); }
+
     static {
         icon = new ImageIcon("inkImg/button/B88.png");
         icon1 = new ImageIcon("img/xy2uiimg/showjadesuit.png");
     }
 }
+
+
