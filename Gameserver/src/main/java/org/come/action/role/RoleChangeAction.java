@@ -115,7 +115,7 @@ public class RoleChangeAction implements IAction
                 dorp = GameServer.getDorp("5002");//仙玉1000积分抽奖dropid
                 assetUpdate = DropUtil.getCZJF(loginResult, dorp.getDorpValue(), "#R{角色名}#c00FFFF用充值点卡获得的#R1000#c00FFFF积分抽取到了#G{物品名}#c00FFFF真是可喜可贺。#50", 888, 1.0, null, "", "", null);
             }
-            loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "充值积分=" + i, 3));
+            loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "充值积分=" + i, 3));
             assetUpdate.updata("充值积分=-" + i);
             SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
         }
@@ -133,9 +133,9 @@ public class RoleChangeAction implements IAction
             }
             BigDecimal scoretype = loginResult.getScoretype("法门选定=");
             if (scoretype.intValue() == 0) {
-                loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "法门选定=1", 2));
+                loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "法门选定=1", 2));
             }
-            loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "法门选定=" + message.split("=")[1], 1));
+            loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "法门选定=" + message.split("=")[1], 1));
             assetUpdate2.updata("法门选定=" + message.split("=")[1]);
             SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate2)));
         }
@@ -190,7 +190,7 @@ public class RoleChangeAction implements IAction
                         assetUpdate3.updata("R" + loginResult.getGrade() + "=" + subtract + "=" + loginResult.getHp() + "=" + loginResult.getMp());
                         assetUpdate3.updata("D=-" + money2.longValue() * (long)min);
                         assetUpdate3.setMsg("获得了" + sld + "点熟练度！");
-                        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), s + "=" + sld, 2));
+                        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), s + "=" + sld, 2));
                         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate3)));
                     }
                     else {
@@ -204,7 +204,7 @@ public class RoleChangeAction implements IAction
                         assetUpdate3.updata("R" + loginResult.getGrade() + "=" + loginResult.getExperience().subtract(exp.multiply(new BigDecimal(min))) + "=" + loginResult.getHp() + "=" + loginResult.getMp());
                         assetUpdate3.updata("D=-" + money2.longValue() * (long)min);
                         assetUpdate3.setMsg("获得" + sld2 + "点熟练度");
-                        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), s + "=" + sld2, 2));
+                        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), s + "=" + sld2, 2));
                         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate3)));
                     }
                 }
@@ -225,7 +225,7 @@ public class RoleChangeAction implements IAction
                     assetUpdate4.updata("R" + loginResult.getGrade() + "=" + loginResult.getExperience().subtract(exp) + "=" + loginResult.getHp() + "=" + loginResult.getMp());
                     assetUpdate4.updata("D=-" + money2);
                     assetUpdate4.setMsg("获得1点熟练度");
-                    loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), s + "=" + 1, 2));
+                    loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), s + "=" + 1, 2));
                     SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate4)));
                 }
             }
@@ -262,9 +262,9 @@ public class RoleChangeAction implements IAction
             String[] s2 = message.split("=");
             BigDecimal zy = loginResult.getScoretype("支援");
             if (zy.intValue() == 0) {
-                loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "支援=" + s2[1], 2));
+                loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "支援=" + s2[1], 2));
             }
-            loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "支援=" + s2[1], 1));
+            loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "支援=" + s2[1], 1));
             zy = loginResult.getScoretype("支援");
             AssetUpdate assetUpdate5 = new AssetUpdate();
             assetUpdate5.setMsg("召唤兽支援已" + ((loginResult.getScoretype("支援").intValue() == 1) ? "开启" : "关闭"));
@@ -276,9 +276,9 @@ public class RoleChangeAction implements IAction
                 String[] s2 = message.split("=");
                 BigDecimal zy = loginResult.getScoretype("首发");
                 if (zy.intValue() == 0) {
-                    loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "首发=" + s2[1], 2));
+                    loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "首发=" + s2[1], 2));
                 }
-                loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "首发=" + s2[1], 1));
+                loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "首发=" + s2[1], 1));
                 zy = loginResult.getScoretype("首发");
                 AssetUpdate assetUpdate5 = new AssetUpdate();
                 assetUpdate5.setMsg("首发召唤兽支援已" + ((loginResult.getScoretype("首发").intValue() == 1) ? "开启" : "关闭"));
@@ -296,9 +296,9 @@ public class RoleChangeAction implements IAction
             String[] s2 = message.split("=");
             BigDecimal zy = loginResult.getScoretype("灵宝支援");
             if (zy.intValue() == 0) {
-                loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "灵宝支援=" + s2[1], 2));
+                loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "灵宝支援=" + s2[1], 2));
             }
-            loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "灵宝支援=" + s2[1], 1));
+            loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "灵宝支援=" + s2[1], 1));
             zy = loginResult.getScoretype("支援");
             AssetUpdate assetUpdate5 = new AssetUpdate();
             assetUpdate5.setMsg("灵宝支援已" + ((loginResult.getScoretype("灵宝支援").intValue() == 1) ? "开启" : "关闭"));
@@ -656,10 +656,10 @@ public class RoleChangeAction implements IAction
                 pet.setAp(pet.getAp() - pet.getFourAttributeValue("ap"));
                 pet.setSp(pet.getSp() - pet.getFourAttributeValue("sp"));
                 String four = pet.getFourattributes();
-                four = DrawnitemsAction.Splice(four, "hp=" + pet.getFourAttributeValue("hp"), 4);
-                four = DrawnitemsAction.Splice(four, "mp=" + pet.getFourAttributeValue("mp"), 4);
-                four = DrawnitemsAction.Splice(four, "ap=" + pet.getFourAttributeValue("ap"), 4);
-                four = DrawnitemsAction.Splice(four, "sp=" + pet.getFourAttributeValue("sp"), 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hp=" + pet.getFourAttributeValue("hp"), 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "mp=" + pet.getFourAttributeValue("mp"), 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "ap=" + pet.getFourAttributeValue("ap"), 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "sp=" + pet.getFourAttributeValue("sp"), 4);
                 pet.setFourattributes(four);
                 pet.setSpdragon(0);
                 pet.setHp(pet.getHp() - pet.getFourAttributeValue("hps"));
@@ -667,10 +667,10 @@ public class RoleChangeAction implements IAction
                 pet.setAp(pet.getAp() - pet.getFourAttributeValue("aps"));
                 pet.setSp(pet.getSp() - pet.getFourAttributeValue("sps"));
                 String four2 = pet.getFourattributes();
-                four2 = DrawnitemsAction.Splice(four2, "hps=" + pet.getFourAttributeValue("hps"), 4);
-                four2 = DrawnitemsAction.Splice(four2, "mps=" + pet.getFourAttributeValue("mps"), 4);
-                four2 = DrawnitemsAction.Splice(four2, "aps=" + pet.getFourAttributeValue("aps"), 4);
-                four2 = DrawnitemsAction.Splice(four2, "sps=" + pet.getFourAttributeValue("sps"), 4);
+                four2 = DrawnitemsAction.mergeRecordEntry(four2, "hps=" + pet.getFourAttributeValue("hps"), 4);
+                four2 = DrawnitemsAction.mergeRecordEntry(four2, "mps=" + pet.getFourAttributeValue("mps"), 4);
+                four2 = DrawnitemsAction.mergeRecordEntry(four2, "aps=" + pet.getFourAttributeValue("aps"), 4);
+                four2 = DrawnitemsAction.mergeRecordEntry(four2, "sps=" + pet.getFourAttributeValue("sps"), 4);
                 pet.setFourattributes(four2);
                 pet.setCzjjd(0);
                 pet.setPetSkills(null);

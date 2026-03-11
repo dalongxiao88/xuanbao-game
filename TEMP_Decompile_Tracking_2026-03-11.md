@@ -15,11 +15,11 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Metric | Server | Client | Total |
 |---|---:|---:|---:|
 | Java files | 1439 | 1858 | 3297 |
-| Strong files | 75 | 14 | 89 |
+| Strong files | 74 | 14 | 88 |
 | Medium files | 14 | 56 | 70 |
 | FernFlower files | 0 | 4 | 4 |
 | Files with typeN defs | 8 | 0 | 8 |
-| Files with historical names | 24 | 1 | 25 |
+| Files with historical names | 23 | 1 | 24 |
 | Files with p-signatures | 48 | 9 | 57 |
 
 ## Completed This Session
@@ -31,6 +31,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | done | `RoleSummoning` | Switched server-side four-attribute reads to `getFourAttributeValue`, removed unused legacy getters on both ends, and dropped the unused client-side legacy merge/equip wrappers. |
 | done | `RoleTableMapper` | Removed the dead commented-out batch delete declarations from the mapper interface and cleared the matching dead SQL comment block from `RoleTableMapper.xml`. |
 | done | `UsePetAction / DrawnitemsAction / Consumptions` | Added semantic record-merge aliases, replaced the 52 `DrawnitemsAction.Splice(...)` calls in `UsePetAction`, and removed the last client-side `Consumptions.Splice(...)` helper. |
+| done | `RoleChangeAction` | Switched all remaining score/four-attribute merge calls from `DrawnitemsAction.Splice(...)` to `DrawnitemsAction.mergeRecordEntry(...)`. |
 | done | `GameClient/src/com/tool/btn/OptionUncheckBtn.java` | Repaired the corrupted fund labels so they match the caller values again. |
 
 ## Point-to-Point Priority
@@ -43,12 +44,11 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Status | Priority | Score | File | Evidence |
 |---|---|---:|---|---|
 | pending | P0 | 138 | `Gameserver/src/main/java/org/come/action/suit/SuitComposeAction.java` | typeN defs x19; historical names x6 |
-| pending | P0 | 80 | `Gameserver/src/main/java/org/come/action/role/RoleChangeAction.java` | historical names x20 |
 | pending | P0 | 72 | `Gameserver/src/main/java/come/tool/Good/DropUtil.java` | historical names x10; p-signatures x4; placeholders x16 |
 | pending | P0 | 72 | `Gameserver/src/main/java/org/come/action/suit/NpcCompose.java` | typeN defs x12 |
 | pending | P0 | 70 | `Gameserver/src/main/java/come/tool/FightingData/FightingSkill.java` | p-signatures x7; placeholders x42 |
 | pending | P0 | 62 | `Gameserver/src/main/java/org/come/action/suit/StarCard.java` | typeN defs x9; historical names x2 |
-| pending | P1 | 44 | `Gameserver/src/main/java/come/tool/Calculation/CalculationUtil.java` | historical names x11 |
+| pending | P0 | 44 | `Gameserver/src/main/java/come/tool/Calculation/CalculationUtil.java` | historical names x11 |
 | pending | P1 | 44 | `Gameserver/src/main/java/org/come/action/suit/SuitPetEquip.java` | typeN defs x6; historical names x2 |
 | pending | P1 | 42 | `Gameserver/src/main/java/org/come/action/suit/WingCompose.java` | typeN defs x7 |
 | pending | P1 | 39 | `Gameserver/src/main/java/org/come/action/suit/GemCompose.java` | typeN defs x5; p-signatures x1; placeholders x5 |
@@ -62,7 +62,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | pending | P1 | 26 | `Gameserver/src/main/java/come/tool/FightingData/Calculation.java` | placeholders x26 |
 | pending | P1 | 24 | `Gameserver/src/main/java/org/come/action/suit/GemIntensify.java` | typeN defs x4 |
 | pending | P1 | 21 | `Gameserver/src/main/java/org/come/service/ChongjipackServeice.java` | p-signatures x4; placeholders x5 |
-| pending | P2 | 20 | `Gameserver/src/main/java/org/come/mapper/GangMapper.java` | p-signatures x4; placeholders x4 |
+| pending | P1 | 20 | `Gameserver/src/main/java/org/come/mapper/GangMapper.java` | p-signatures x4; placeholders x4 |
 | pending | P2 | 20 | `Gameserver/src/main/java/org/come/service/IDiceService.java` | p-signatures x4; placeholders x4 |
 | pending | P2 | 20 | `Gameserver/src/main/java/org/come/service/IGangService.java` | p-signatures x4; placeholders x4 |
 | pending | P2 | 20 | `Gameserver/src/main/java/org/come/service/PayvipBeanServer.java` | p-signatures x4; placeholders x4 |
@@ -226,6 +226,6 @@ This file is the temporary working ledger for point-to-point decompile restorati
 
 ## Current Suggested Order
 
-1. Server hotspots: `RoleChangeAction` -> `SuitComposeAction`
+1. Server hotspots: `SuitComposeAction`
 2. Client standalone hotspots: the four files still carrying FernFlower headers
 3. Re-scan after each round and update this file
