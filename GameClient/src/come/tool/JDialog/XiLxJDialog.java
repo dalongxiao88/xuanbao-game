@@ -14,8 +14,8 @@ public class XiLxJDialog implements TiShiChuLi
                 ZhuFrame.getZhuJpanel().addPrompt2("你的大话币不足以支付洗点费用");
                 return;
             }
-            String sendmes = Agreement.getAgreement().LingXiAgreement("D&" + object);
-            SendMessageUntil.toServer(sendmes);
+            String requestMessage = Agreement.getAgreement().LingXiAgreement("D&" + object);
+            SendMessageUntil.toServer(requestMessage);
         }
     }
 }

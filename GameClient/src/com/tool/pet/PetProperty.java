@@ -209,7 +209,7 @@ public class PetProperty
         pets[3] = getRoleValue(lvl, zSpeed, grow, pets[3], 3);
         pets[4] = getRoleValue(lvl, zCalm, grow, pets[4], 4);
         pet.getSI(pets);
-        pet.getLX(pets);
+        pet.applyLingXiBonus(pets);
         if (pet.getPetSkills() != null && pet.getPetSkills().contains("1248")) {
             int n = 2;
             pets[n] = (int)((double)pets[n] * 1.3);

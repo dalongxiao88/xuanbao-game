@@ -571,8 +571,8 @@ public class LxPanel extends JPanel
             if (StringUtil.isNullOrEmpty(lingxi)) {
                 lingxi = "Lx=0&Lv=0&Point=0&Open=11001_0|11002_0|11003_0|11004_0|11005_0|11006_0|11007_0|11008_0|11009_0|11010_0|11026_0|11027_0|11028_0|11029_0|11045_0|11046_0|11047_0|11048_0|11049_0&10";
             }
-            String[] param = lingxi.split("&");
-            if (param.length != 5) {
+            String[] lingxiSegments = lingxi.split("&");
+            if (lingxiSegments.length != 5) {
                 return;
             }
             StringBuffer buffer = new StringBuffer();
@@ -1211,16 +1211,16 @@ public class LxPanel extends JPanel
         if (StringUtil.isNullOrEmpty(lingxi)) {
             return 0;
         }
-        String[] param = lingxi.split("&");
-        if (param.length != 4) {
+        String[] lingxiSegments = lingxi.split("&");
+        if (lingxiSegments.length != 4) {
             return 0;
         }
-        String jn = param[3].split("=")[1];
-        String[] jineng;
-        for (String idStr : jineng = jn.split("\\|")) {
-            String[] ids_count = idStr.split("_");
-            int id = Integer.parseInt(ids_count[0]);
-            int count = Integer.parseInt(ids_count[1]);
+        String openedSkillConfig = lingxiSegments[3].split("=")[1];
+        String[] openedSkills;
+        for (String skillConfig : openedSkills = openedSkillConfig.split("\\|")) {
+            String[] skillPair = skillConfig.split("_");
+            int id = Integer.parseInt(skillPair[0]);
+            int count = Integer.parseInt(skillPair[1]);
             if (id == skillId) {
                 return count;
             }
@@ -1233,8 +1233,8 @@ public class LxPanel extends JPanel
         if (StringUtil.isNullOrEmpty(lingxi)) {
             lingxi = "Lx=0&Lv=0&Point=0&Open=11001_0|11002_0|11003_0|11004_0|11005_0|11006_0|11007_0|11008_0|11009_0|11010_0|11011_0|11026_0|11027_0|11028_0|11029_0|11045_0|11046_0|11047_0|11048_0|11049_0&10";
         }
-        String[] param = lingxi.split("&");
-        if (param.length != 5) {
+        String[] lingxiSegments = lingxi.split("&");
+        if (lingxiSegments.length != 5) {
             return;
         }
         if (this.wuli != null) {
@@ -1252,16 +1252,16 @@ public class LxPanel extends JPanel
                 lx.reset();
             }
         }
-        int type = Integer.parseInt(param[0].split("=")[1]);
-        String xl = param[1].split("=")[1];
-        this.dianshu = Integer.parseInt(param[2].split("=")[1]);
-        String jn = param[3].split("=")[1];
+        int type = Integer.parseInt(lingxiSegments[0].split("=")[1]);
+        String xl = lingxiSegments[1].split("=")[1];
+        this.dianshu = Integer.parseInt(lingxiSegments[2].split("=")[1]);
+        String openedSkillConfig = lingxiSegments[3].split("=")[1];
         int ds = 0;
-        String[] jineng;
-        for (String idStr : jineng = jn.split("\\|")) {
-            String[] ids_count = idStr.split("_");
-            int id = Integer.parseInt(ids_count[0]);
-            int count = Integer.parseInt(ids_count[1]);
+        String[] openedSkills;
+        for (String skillConfig : openedSkills = openedSkillConfig.split("\\|")) {
+            String[] skillPair = skillConfig.split("_");
+            int id = Integer.parseInt(skillPair[0]);
+            int count = Integer.parseInt(skillPair[1]);
             ds += count;
             if (this.wuli == null) {
                 this.wuli = this.getWuli();
@@ -1497,19 +1497,19 @@ public class LxPanel extends JPanel
                     if (StringUtil.isNullOrEmpty(lingxi)) {
                         lingxi = "Lx=0&Lv=0&Point=0&Open=11001_0|11002_0|11003_0|11004_0|11005_0|11006_0|11007_0|11008_0|11009_0|11010_0|11026_0|11027_0|11028_0|11029_0|11045_0|11046_0|11047_0|11048_0|11049_0&10";
                     }
-                    String[] param = lingxi.split("&");
-                    if (param.length != 5) {
+                    String[] lingxiSegments = lingxi.split("&");
+                    if (lingxiSegments.length != 5) {
                         return;
                     }
-                    String jn = param[3].split("=")[1];
-                    String[] jineng = jn.split("\\|");
+                    String openedSkillConfig = lingxiSegments[3].split("=")[1];
+                    String[] openedSkills = openedSkillConfig.split("\\|");
                     Integer[] sum = { Integer.valueOf(1), Integer.valueOf(2), Integer.valueOf(4), Integer.valueOf(8), Integer.valueOf(10), Integer.valueOf(12), Integer.valueOf(15), Integer.valueOf(15), Integer.valueOf(15) };
-                    int type = Integer.parseInt(param[0].split("=")[1]);
+                    int type = Integer.parseInt(lingxiSegments[0].split("=")[1]);
                     if (type == 0) {
-                        type = Integer.parseInt(param[4]) - 10;
+                        type = Integer.parseInt(lingxiSegments[4]) - 10;
                     }
                     else {
-                        type = Integer.parseInt(param[4]) - 10 + 1;
+                        type = Integer.parseInt(lingxiSegments[4]) - 10 + 1;
                     }
                     OptionsJframe.getOptionsJframe().getOptionsJpanel().showBox(TiShiUtil.OpenLingXi, UserMessUntil.getChosePetMes().getSid() + "&" + this.lxPointBean.getTableId(), "#Y消耗#R" + sum[type] + "#Y个#G灵犀丹#Y为#G" + UserMessUntil.getChosePetMes().getSummoningname() + "#Y开启此技能格？#R（使用后结果必定为成功,扣除的灵犀丹会根据失败次数扣除总数）");
                     return;

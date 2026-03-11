@@ -14,8 +14,8 @@ public class OpenLxJDialog implements TiShiChuLi
             for (int i = 0; i < GoodsListFromServerUntil.getGoodslist().length; ++i) {
                 Goodstable goodstable = GoodsListFromServerUntil.getGoodslist()[i];
                 if (goodstable != null && (long)goodstable.getType() == 119L) {
-                    String sendmes = Agreement.getAgreement().LingXiAgreement("K&" + object);
-                    SendMessageUntil.toServer(sendmes);
+                    String requestMessage = Agreement.getAgreement().LingXiAgreement("K&" + object);
+                    SendMessageUntil.toServer(requestMessage);
                     return;
                 }
             }

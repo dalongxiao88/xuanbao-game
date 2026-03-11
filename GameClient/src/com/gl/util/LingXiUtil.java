@@ -10,9 +10,9 @@ public class LingXiUtil
 {
     public static int getLingXiGe(String lingxi) {
         if (StringUtils.isNotEmpty(lingxi)) {
-            String[] param = lingxi.split("&");
-            String s = param[param.length - 1];
-            int v = Integer.parseInt(s);
+            String[] lingxiSegments = lingxi.split("&");
+            String openedSlotCount = lingxiSegments[lingxiSegments.length - 1];
+            int v = Integer.parseInt(openedSlotCount);
             return (v > 16) ? 16 : v;
         }
         return 0;
@@ -20,32 +20,32 @@ public class LingXiUtil
     
     public static int getPointCount(String lingxi) {
         if (StringUtils.isNotEmpty(lingxi)) {
-            String[] param = lingxi.split("&");
-            String dj = param[2].split("=")[1];
-            return Integer.parseInt(dj);
+            String[] lingxiSegments = lingxi.split("&");
+            String allocatedPointCount = lingxiSegments[2].split("=")[1];
+            return Integer.parseInt(allocatedPointCount);
         }
         return 0;
     }
     
     public static int getNumberByStr(String lingxi, String skillid, int idx) {
         if (StringUtils.isNotEmpty(lingxi)) {
-            String[] param = lingxi.split("&");
-            String jn = param[3].split("=")[1];
-            String[] jineng = jn.split("\\|");
-            int length = jineng.length;
+            String[] lingxiSegments = lingxi.split("&");
+            String openedSkillConfig = lingxiSegments[3].split("=")[1];
+            String[] openedSkills = openedSkillConfig.split("\\|");
+            int length = openedSkills.length;
             int i = 0;
             while (i < length) {
-                String jnstr = jineng[i];
-                String[] jns = jnstr.split("_");
-                if (jns[0].equals(skillid)) {
-                    if (jns[1].equals("0")) {
+                String skillConfig = openedSkills[i];
+                String[] skillPair = skillConfig.split("_");
+                if (skillPair[0].equals(skillid)) {
+                    if (skillPair[1].equals("0")) {
                         return 0;
                     }
                     Skill skill = UserMessUntil.getSkillId(skillid);
                     if (skill == null) {
                         return 0;
                     }
-                    return getNumber(skill, idx, jns[1]);
+                    return getNumber(skill, idx, skillPair[1]);
                 }
                 else {
                     ++i;

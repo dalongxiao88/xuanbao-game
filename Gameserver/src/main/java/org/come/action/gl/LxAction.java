@@ -103,18 +103,18 @@ public class LxAction implements IAction
                     this.getClass();
                     lx = "Lx=0&Lv=0&Point=0&Open=11001_0|11002_0|11003_0|11004_0|11005_0|11006_0|11007_0|11008_0|11009_0|11010_0|11011_0|11026_0|11027_0|11028_0|11029_0|11045_0|11046_0|11047_0|11048_0|11049_0&10";
                 }
-                String[] var1 = lx.split("&");
-                String p = var1[var1.length - 1];
-                int newSize = var1.length - 1;// 新的容量
-                String[] newArray = new String[newSize];// 创建新的数组
+                String[] lingxiSegments = lx.split("&");
+                String openedSlotCountSegment = lingxiSegments[lingxiSegments.length - 1];
+                int segmentCountWithoutOpenSlots = lingxiSegments.length - 1;
+                String[] baseLingxiSegments = new String[segmentCountWithoutOpenSlots];
 
-                for (int j = 0; j < newArray.length; ++j) {
-                    newArray[j] = var1[j];
+                for (int index = 0; index < baseLingxiSegments.length; ++index) {
+                    baseLingxiSegments[index] = lingxiSegments[index];
                 }
-                lx = StringUtils.join(newArray, "&");
+                lx = StringUtils.join(baseLingxiSegments, "&");
 
                 // 类型
-                int type = Integer.parseInt(newArray[0].split("=")[1]);
+                int type = Integer.parseInt(baseLingxiSegments[0].split("=")[1]);
                 List<Goodstable> allGoods = AllServiceUtil.getGoodsTableService().getGoodsByRoleID(loginResult.getRole_id());
                 List<Goodstable> goods = (List)allGoods.stream().filter(item/* org.come.entity.Goodstable, */ -> item.getType() == 119L).collect(Collectors.toList());
 
@@ -305,14 +305,14 @@ public class LxAction implements IAction
                     SendMessage.sendMessageByRoleName(loginResult.getRolename(), Agreement.getAgreement().PromptAgreement("你的金钱不足召唤兽本次修炼所需"));
                     return;
                 }
-                String[] var2 = lx.split("&");
-                String p2 = var2[var2.length - 1];
-                int newSize2 = var2.length - 1;
-                String[] newArray2 = new String[newSize2];
-                for (int i2 = 0; i2 < newArray2.length; ++i2) {
-                    newArray2[i2] = var2[i2];
+                String[] lingxiSegments = lx.split("&");
+                String openedSlotCountSegment = lingxiSegments[lingxiSegments.length - 1];
+                int segmentCountWithoutOpenSlots = lingxiSegments.length - 1;
+                String[] baseLingxiSegments = new String[segmentCountWithoutOpenSlots];
+                for (int index = 0; index < baseLingxiSegments.length; ++index) {
+                    baseLingxiSegments[index] = lingxiSegments[index];
                 }
-                lx = StringUtils.join(newArray2, "&");
+                lx = StringUtils.join(baseLingxiSegments, "&");
                 long count3;
                 if (vs[0].equals("X")) {
                     count3 = this.calCount(lx, exp, qm, gold);
@@ -358,7 +358,7 @@ public class LxAction implements IAction
                 loginResult.setGold(new BigDecimal(loginResult.getGold().longValue() - this.needMoneyNum * (long)count3));
                 MonitorUtil.getMoney().useD(this.needMoneyNum * (long)count3);
                 pet.setExp(new BigDecimal(exp - this.needExperienceNum * (long)count3));
-                pet.setLingxi(lx + "&" + p2);
+                pet.setLingxi(lx + "&" + openedSlotCountSegment);
                 pet.setFriendliness(Long.valueOf(qm - this.needQinmiNum * (long)count3));
                 AllServiceUtil.getRoleSummoningService().updatePetRedis(pet);
                 AssetUpdate assetUpdate4 = new AssetUpdate();
@@ -593,13 +593,13 @@ public class LxAction implements IAction
     
     public int calCount(String lingxi, long exp, long qm, long gold) {
         long count = 0;
-        String[] param = lingxi.split("&");
-        if (param.length != 4) {
+        String[] lingxiSegments = lingxi.split("&");
+        if (lingxiSegments.length != 4) {
             return 0;
         }
-        int xl = Integer.parseInt(param[1].split("=")[1]);
-        int ds = Integer.parseInt(param[2].split("=")[1]);
-        count = ds - xl + 1;
+        int currentLingxiValue = Integer.parseInt(lingxiSegments[1].split("=")[1]);
+        int currentTrainingLevel = Integer.parseInt(lingxiSegments[2].split("=")[1]);
+        count = currentTrainingLevel - currentLingxiValue + 1;
         long count1 =count, count2 =count,count3=count;
         if (gold < this.needMoneyNum * (long)count) {
             count1 = (long) Math.floorDiv(gold, this.needMoneyNum);
@@ -627,8 +627,8 @@ public class LxAction implements IAction
     
     public int calCount(RoleSummoning pet, String lingxi, long exp, long qm, long gold) {
         long count = 0;
-        String[] param = lingxi.split("&");
-        if (param.length != 4) {
+        String[] lingxiSegments = lingxi.split("&");
+        if (lingxiSegments.length != 4) {
             return 0;
         }
         int maxLvl;
@@ -644,12 +644,12 @@ public class LxAction implements IAction
         else {
             maxLvl = 40;
         }
-        int xl = Integer.parseInt(param[1].split("=")[1]);
+        int currentLingxiValue = Integer.parseInt(lingxiSegments[1].split("=")[1]);
         int i;
-        for (int ds = i = Integer.parseInt(param[2].split("=")[1]); i <= maxLvl; ++i) {
+        for (int currentTrainingLevel = i = Integer.parseInt(lingxiSegments[2].split("=")[1]); i <= maxLvl; ++i) {
             count += i + 1;
         }
-        count -= xl;
+        count -= currentLingxiValue;
         long count1 =count, count2 =count,count3=count;
         if (gold < this.needMoneyNum * (long)count) {
             count1 = (long) Math.floorDiv(gold, this.needMoneyNum);
@@ -697,12 +697,12 @@ public class LxAction implements IAction
     }
     
     public String addXiulianMax(RoleSummoning pet, String lingxi, long count) {
-        String[] param = lingxi.split("&");
-        if (param.length > 5) {
+        String[] lingxiSegments = lingxi.split("&");
+        if (lingxiSegments.length > 5) {
             return null;
         }
-        int xl = Integer.parseInt(param[1].split("=")[1]);
-        int ds = Integer.parseInt(param[2].split("=")[1]);
+        int currentLingxiValue = Integer.parseInt(lingxiSegments[1].split("=")[1]);
+        int currentTrainingLevel = Integer.parseInt(lingxiSegments[2].split("=")[1]);
         int maxLvl;
         if (pet.getSsn().equals("2") || pet.getSsn().equals("3") || pet.getSsn().equals("4")) {
             maxLvl = 110;
@@ -716,59 +716,59 @@ public class LxAction implements IAction
         else {
             maxLvl = 40;
         }
-        if (ds >= maxLvl) {
+        if (currentTrainingLevel >= maxLvl) {
             return "#R当前召唤兽的修炼等级已达到最高";
         }
-        while (count > 0 && ds < maxLvl) {
-            if (xl > ds) {
-                xl = 0;
-                ++ds;
+        while (count > 0 && currentTrainingLevel < maxLvl) {
+            if (currentLingxiValue > currentTrainingLevel) {
+                currentLingxiValue = 0;
+                ++currentTrainingLevel;
             }
             else {
-                ++xl;
+                ++currentLingxiValue;
                 --count;
             }
         }
-        param[1] = param[1].split("=")[0] + "=" + xl;
-        param[2] = param[2].split("=")[0] + "=" + ds;
-        return StringUtils.join(param, "&");
+        lingxiSegments[1] = lingxiSegments[1].split("=")[0] + "=" + currentLingxiValue;
+        lingxiSegments[2] = lingxiSegments[2].split("=")[0] + "=" + currentTrainingLevel;
+        return StringUtils.join(lingxiSegments, "&");
     }
     
     public String addXiulian(RoleSummoning pet, String lingxi, long count) {
-        String[] param = lingxi.split("&");
-        if (param.length > 5) {
+        String[] lingxiSegments = lingxi.split("&");
+        if (lingxiSegments.length > 5) {
             return null;
         }
-        int xl = Integer.parseInt(param[1].split("=")[1]);
-        int ds = Integer.parseInt(param[2].split("=")[1]);
+        int currentLingxiValue = Integer.parseInt(lingxiSegments[1].split("=")[1]);
+        int currentTrainingLevel = Integer.parseInt(lingxiSegments[2].split("=")[1]);
         if (pet.getSsn().equals("2") || pet.getSsn().equals("3") || pet.getSsn().equals("4")) {
-            if (ds >= 110) {
+            if (currentTrainingLevel >= 110) {
                 return "#R当前召唤兽的修炼等级已达到最高";
             }
         }
         else if (pet.getSsn().equals("6")) {
-            if (ds >= 110) {
+            if (currentTrainingLevel >= 110) {
                 return "#R当前召唤兽的修炼等级已达到最高";
             }
         }
         else if (pet.getSsn().equals("5")) {
-            if (ds >= 50) {
+            if (currentTrainingLevel >= 50) {
                 return "#R当前召唤兽的修炼等级已达到最高";
             }
         }
-        else if (ds >= 40) {
+        else if (currentTrainingLevel >= 40) {
             return "#R当前召唤兽的修炼等级已达到最高";
         }
-        if (xl + count > ds) {
-            xl = 0;
-            ++ds;
+        if (currentLingxiValue + count > currentTrainingLevel) {
+            currentLingxiValue = 0;
+            ++currentTrainingLevel;
         }
         else {
-            xl += count;
+            currentLingxiValue += count;
         }
-        param[1] = param[1].split("=")[0] + "=" + xl;
-        param[2] = param[2].split("=")[0] + "=" + ds;
-        return StringUtils.join(param, "&");
+        lingxiSegments[1] = lingxiSegments[1].split("=")[0] + "=" + currentLingxiValue;
+        lingxiSegments[2] = lingxiSegments[2].split("=")[0] + "=" + currentTrainingLevel;
+        return StringUtils.join(lingxiSegments, "&");
     }
     
     public XSkillLx getXSkillLx(int skillid, int type) {
