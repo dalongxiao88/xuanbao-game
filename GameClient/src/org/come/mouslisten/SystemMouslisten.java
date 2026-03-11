@@ -119,37 +119,37 @@ public class SystemMouslisten implements MouseListener
             }
             case 15: {
                 ZhuFrame.getZhuJpanel().addPrompt2("低性能模式，合适多开模式");
-                type15();
+                useLowGraphicsQuality();
                 break;
             }
             case 16: {
                 ZhuFrame.getZhuJpanel().addPrompt2("标准模式，流畅模式");
-                type16();
+                useStandardGraphicsQuality();
                 break;
             }
             case 17: {
                 ZhuFrame.getZhuJpanel().addPrompt2("高性能模式，流畅高画质模式，合适高性能电脑");
-                type17();
+                useHighGraphicsQuality();
                 break;
             }
             case 18: {
-                type18();
+                toggleNewSpellFullscreen();
                 break;
             }
             case 27: {
-                type27();
+                toggleMiniMapHidePlayer();
                 break;
             }
             case 28: {
-                type28();
+                toggleMiniMapMovePoint();
                 break;
             }
             case 29: {
-                type29();
+                toggleMiniMapTaskNpc();
                 break;
             }
             case 30: {
-                type30();
+                toggleMiniMapBusinessNpc();
                 break;
             }
             case 31: {
@@ -357,7 +357,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type15() {
+    /** 切换到低画质模式。 */
+    public static void useLowGraphicsQuality() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getXNms().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getXNms().setIcon(SystemMouslisten.icon);
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getInterfacialtext().setText("低画质");
@@ -368,7 +369,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type16() {
+    /** 切换到标准画质模式。 */
+    public static void useStandardGraphicsQuality() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getXNmsZ().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getXNms().setIcon(null);
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getXNmsZ().setIcon(SystemMouslisten.icon);
@@ -379,7 +381,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type17() {
+    /** 切换到超高画质模式。 */
+    public static void useHighGraphicsQuality() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getXNmsG().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getXNms().setIcon(null);
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getXNmsZ().setIcon(null);
@@ -390,7 +393,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type18() {
+    /** 开关新版法术全屏效果。 */
+    public static void toggleNewSpellFullscreen() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabSkillFullXJ().getIcon() == null) {
             if (Objects.equals(GetTcpPath.STRTMP, "2")){
                 ZhuFrame.getZhuJpanel().addPrompt2("新版法术不支持全屏，请关闭新版后重试");
@@ -405,7 +409,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type27() {
+    /** 开关小地图隐藏玩家。 */
+    public static void toggleMiniMapHidePlayer() {
         if (TestsmallmapJpanel.getLabNoC().getIcon() == null) {
             TestsmallmapJpanel.getLabNoC().setIcon(new ImageIcon("inkImg/button/13.png"));
             TestsmallmapJpanel.getQbnpx().setIcon(null);
@@ -416,7 +421,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type28() {
+    /** 开关小地图移动点显示。 */
+    public static void toggleMiniMapMovePoint() {
         if (TestsmallmapJpanel.getMove().getIcon() == null) {
             TestsmallmapJpanel.getMove().setIcon(new ImageIcon("inkImg/button/13.png"));
             TestsmallmapJpanel.getQbnpx().setIcon(null);
@@ -427,7 +433,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type29() {
+    /** 开关小地图任务 NPC 显示。 */
+    public static void toggleMiniMapTaskNpc() {
         if (TestsmallmapJpanel.getRwnpc().getIcon() == null) {
             TestsmallmapJpanel.getRwnpc().setIcon(new ImageIcon("inkImg/button/13.png"));
             TestsmallmapJpanel.getQbnpx().setIcon(null);
@@ -438,7 +445,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type30() {
+    /** 开关小地图商业 NPC 显示。 */
+    public static void toggleMiniMapBusinessNpc() {
         if (TestsmallmapJpanel.getSynpc().getIcon() == null) {
             TestsmallmapJpanel.getSynpc().setIcon(new ImageIcon("inkImg/button/13.png"));
             TestsmallmapJpanel.getQbnpx().setIcon(null);
@@ -716,14 +724,14 @@ public class SystemMouslisten implements MouseListener
                 else {
                     setupJpanel.getLabSkillFullXJ().setIcon(null);
                 }
-                type18();
+                toggleNewSpellFullscreen();
             }
             else {
                 setupJpanel.getLabSkillFullXJ().setIcon(SystemMouslisten.icon);
             }
             if (kaitizi != null) {
                 if ("onk".equals(kaitizi)) {
-                    type100();
+                    useKaiTiFont();
                 }
                 else if ("onl".equals(kaitizi)) {
                     typelushu();
@@ -991,6 +999,22 @@ public class SystemMouslisten implements MouseListener
     public static void type10() { toggleDuelPrompt(); }
     /** 兼容旧命名：窗口抖动开关。 */
     public static void type11() { toggleWindowShake(); }
+    /** 兼容旧命名：切换到低画质模式。 */
+    public static void type15() { useLowGraphicsQuality(); }
+    /** 兼容旧命名：切换到标准画质模式。 */
+    public static void type16() { useStandardGraphicsQuality(); }
+    /** 兼容旧命名：切换到超高画质模式。 */
+    public static void type17() { useHighGraphicsQuality(); }
+    /** 兼容旧命名：新版法术全屏开关。 */
+    public static void type18() { toggleNewSpellFullscreen(); }
+    /** 兼容旧命名：小地图隐藏玩家。 */
+    public static void type27() { toggleMiniMapHidePlayer(); }
+    /** 兼容旧命名：小地图移动点显示。 */
+    public static void type28() { toggleMiniMapMovePoint(); }
+    /** 兼容旧命名：小地图任务 NPC 显示。 */
+    public static void type29() { toggleMiniMapTaskNpc(); }
+    /** 兼容旧命名：小地图商业 NPC 显示。 */
+    public static void type30() { toggleMiniMapBusinessNpc(); }
     /** 兼容旧命名：小地图 NPC 总显示。 */
     public static void type31() { toggleMiniMapAllNpc(); }
     /** 兼容旧命名：世界地图隐藏玩家。 */

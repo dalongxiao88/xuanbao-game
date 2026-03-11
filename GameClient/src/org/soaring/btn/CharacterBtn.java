@@ -86,7 +86,7 @@ public class CharacterBtn extends MoBanBtn
                 break;
             }
             case 8: {
-                SystemMouslisten.type37();
+                SystemMouslisten.toggleTitleDisplayMode();
                 SystemMouslisten.writeTxt();
                 PetAddPointMouslisten.getplayerValue();
                 break;

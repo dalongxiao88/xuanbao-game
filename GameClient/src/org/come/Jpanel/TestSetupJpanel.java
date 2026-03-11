@@ -109,15 +109,15 @@ public class TestSetupJpanel extends JPanel implements MouseListener
                     TestSetupJpanel.this.optionJpanel1.setVisible(false);
                     TestSetupJpanel.this.leftFlag1 = 1;
                     if (TestSetupJpanel.this.resolutiontext.getText().equals("1024x768")) {
-                        SystemMouslisten.type1();
+                        SystemMouslisten.switchToFullscreen1024x768();
                         SystemMouslisten.writeTxt();
                     }
                     else if (TestSetupJpanel.this.resolutiontext.getText().equals("1366x768")) {
-                        SystemMouslisten.type101();
+                        SystemMouslisten.switchToFullscreen1366x768();
                         SystemMouslisten.writeTxt();
                     }
                     else {
-                        SystemMouslisten.type0();
+                        SystemMouslisten.switchToWindow800x600();
                         SystemMouslisten.writeTxt();
                     }
                 }
@@ -163,15 +163,15 @@ public class TestSetupJpanel extends JPanel implements MouseListener
                     TestSetupJpanel.this.optionJpanel2.setVisible(false);
                     TestSetupJpanel.this.leftFlag2 = 1;
                     if (TestSetupJpanel.this.interfacialtext.getText().equals("低画质")) {
-                        SystemMouslisten.type15();
+                        SystemMouslisten.useLowGraphicsQuality();
                         SystemMouslisten.writeTxt();
                     }
                     else if (TestSetupJpanel.this.interfacialtext.getText().equals("标准画质")) {
-                        SystemMouslisten.type16();
+                        SystemMouslisten.useStandardGraphicsQuality();
                         SystemMouslisten.writeTxt();
                     }
                     else if (TestSetupJpanel.this.interfacialtext.getText().equals("超高画质")) {
-                        SystemMouslisten.type17();
+                        SystemMouslisten.useHighGraphicsQuality();
                         SystemMouslisten.writeTxt();
                     }
                 }
@@ -242,7 +242,7 @@ public class TestSetupJpanel extends JPanel implements MouseListener
                         SystemMouslisten.writeTxt();
                     }
                     if (TestSetupJpanel.this.fontsizetext.getText().equals("楷体")) {
-                        SystemMouslisten.type100();
+                        SystemMouslisten.useKaiTiFont();
                         SystemMouslisten.writeTxt();
                     }
                     if (TestSetupJpanel.this.fontsizetext.getText().equals("隶书")) {
@@ -348,15 +348,15 @@ public class TestSetupJpanel extends JPanel implements MouseListener
                     TestSetupJpanel.this.optionJpanel1.setVisible(false);
                     TestSetupJpanel.this.leftFlag1 = 1;
                     if (TestSetupJpanel.this.resolutiontext.getText().equals("1024x768")) {
-                        SystemMouslisten.type1();
+                        SystemMouslisten.switchToFullscreen1024x768();
                         SystemMouslisten.writeTxt();
                     }
                     else if (TestSetupJpanel.this.resolutiontext.getText().equals("1366x768")) {
-                        SystemMouslisten.type101();
+                        SystemMouslisten.switchToFullscreen1366x768();
                         SystemMouslisten.writeTxt();
                     }
                     else {
-                        SystemMouslisten.type0();
+                        SystemMouslisten.switchToWindow800x600();
                         SystemMouslisten.writeTxt();
                     }
                 }
@@ -402,15 +402,15 @@ public class TestSetupJpanel extends JPanel implements MouseListener
                     TestSetupJpanel.this.optionJpanel2.setVisible(false);
                     TestSetupJpanel.this.leftFlag2 = 1;
                     if (TestSetupJpanel.this.interfacialtext.getText().equals("低画质")) {
-                        SystemMouslisten.type15();
+                        SystemMouslisten.useLowGraphicsQuality();
                         SystemMouslisten.writeTxt();
                     }
                     else if (TestSetupJpanel.this.interfacialtext.getText().equals("标准画质")) {
-                        SystemMouslisten.type16();
+                        SystemMouslisten.useStandardGraphicsQuality();
                         SystemMouslisten.writeTxt();
                     }
                     else if (TestSetupJpanel.this.interfacialtext.getText().equals("超高画质")) {
-                        SystemMouslisten.type17();
+                        SystemMouslisten.useHighGraphicsQuality();
                         SystemMouslisten.writeTxt();
                     }
                 }
@@ -481,7 +481,7 @@ public class TestSetupJpanel extends JPanel implements MouseListener
                         SystemMouslisten.writeTxt();
                     }
                     if (TestSetupJpanel.this.fontsizetext.getText().equals("楷体")) {
-                        SystemMouslisten.type100();
+                        SystemMouslisten.useKaiTiFont();
                         SystemMouslisten.writeTxt();
                     }
                     if (TestSetupJpanel.this.fontsizetext.getText().equals("隶书")) {
