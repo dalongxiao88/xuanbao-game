@@ -15,10 +15,10 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Metric | Server | Client | Total |
 |---|---:|---:|---:|
 | Java files | 1439 | 1858 | 3297 |
-| Strong files | 69 | 10 | 79 |
+| Strong files | 68 | 10 | 78 |
 | Medium files | 14 | 58 | 72 |
 | FernFlower files | 0 | 0 | 0 |
-| Files with typeN defs | 4 | 0 | 4 |
+| Files with typeN defs | 3 | 0 | 3 |
 | Files with historical names | 20 | 1 | 21 |
 | Files with p-signatures | 46 | 9 | 55 |
 
@@ -39,6 +39,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | done | `DropUtil` | Replaced all remaining `DrawnitemsAction.Splice(...)` calls with `mergeRecordEntry(...)` and renamed the anonymous comparator parameters from `p1/p2` to semantic names. |
 | done | `StarCard` | Renamed the internal `type51-59` handlers to `handleOperation51-59` and updated the dispatch call sites in `SuitComposeAction`. |
 | done | `SuitPetEquip` | Renamed the internal `type41-46` handlers to `handleOperation41-46`, switched the remaining score updates to `mergeRecordEntry(...)`, and updated the dispatch call sites in `SuitComposeAction`. |
+| done | `WingCompose` | Renamed the internal `type31-36/355` handlers to `handleOperation31-36/355` and aligned the dispatch call sites in `SuitComposeAction`. |
 | done | `GameClient/src/com/tool/btn/OptionUncheckBtn.java` | Repaired the corrupted fund labels so they match the caller values again. |
 
 ## Point-to-Point Priority
@@ -51,12 +52,11 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Status | Priority | Score | File | Evidence |
 |---|---|---:|---|---|
 | pending | P0 | 44 | `Gameserver/src/main/java/come/tool/Calculation/CalculationUtil.java` | historical names x11 |
-| pending | P0 | 42 | `Gameserver/src/main/java/org/come/action/suit/WingCompose.java` | typeN defs x7 |
 | pending | P0 | 39 | `Gameserver/src/main/java/org/come/action/suit/GemCompose.java` | typeN defs x5; p-signatures x1; placeholders x5 |
 | pending | P0 | 35 | `Gameserver/src/main/java/org/come/agent/AgentService.java` | p-signatures x7; placeholders x7 |
 | pending | P0 | 35 | `Gameserver/src/main/java/org/come/mapper/AgentMapper.java` | p-signatures x7; placeholders x7 |
 | pending | P0 | 32 | `Gameserver/src/main/java/com/gl/controller/AdminPetController.java` | historical names x8 |
-| pending | P1 | 32 | `Gameserver/src/main/java/org/come/service/IAutoTaskService.java` | p-signatures x6; placeholders x8 |
+| pending | P0 | 32 | `Gameserver/src/main/java/org/come/service/IAutoTaskService.java` | p-signatures x6; placeholders x8 |
 | pending | P1 | 29 | `Gameserver/src/main/java/come/tool/Good/UseRoleAction.java` | historical names x3; p-signatures x2; placeholders x9 |
 | pending | P1 | 27 | `Gameserver/src/main/java/org/come/server/GolemServer.java` | p-signatures x4; placeholders x11 |
 | pending | P1 | 27 | `Gameserver/src/main/java/org/come/service/IShaoXiangService.java` | p-signatures x5; placeholders x7 |
@@ -70,7 +70,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | pending | P1 | 17 | `Gameserver/src/main/java/org/come/mapper/TitletableMapper.java` | p-signatures x3; placeholders x5 |
 | pending | P1 | 17 | `Gameserver/src/main/java/org/come/service/ITitletableService.java` | p-signatures x3; placeholders x5 |
 | pending | P1 | 16 | `Gameserver/src/main/java/org/come/action/buy/BuyShopAction.java` | historical names x2; p-signatures x1; placeholders x4 |
-| pending | P2 | 16 | `Gameserver/src/main/java/org/come/action/gl/LxAction.java` | p-signatures x1; placeholders x12 |
+| pending | P1 | 16 | `Gameserver/src/main/java/org/come/action/gl/LxAction.java` | p-signatures x1; placeholders x12 |
 | pending | P2 | 16 | `Gameserver/src/main/java/org/come/mapper/ChongjipackMapper.java` | p-signatures x3; placeholders x4 |
 | pending | P2 | 16 | `Gameserver/src/main/java/org/come/service/OneArenaNotesService.java` | p-signatures x3; placeholders x4 |
 | pending | P2 | 15 | `Gameserver/src/main/java/org/come/mapper/BuyCountMapper.java` | p-signatures x3; placeholders x3 |

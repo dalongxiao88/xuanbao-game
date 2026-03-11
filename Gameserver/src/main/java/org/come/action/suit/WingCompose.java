@@ -690,37 +690,40 @@ public class WingCompose
     }
 
     /** 兼容旧协议分发入口：翅膀培养。 */
-    public static void type31(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 翅膀操作沿用协议编号分流，内部处理入口统一改为 `handleOperationX`。
+     */
+    public static void handleOperation31(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         trainWing(loginResult, ctx, suitOperBean);
     }
 
     /** 兼容旧协议分发入口：翅膀升星。 */
-    public static void type32(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation32(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         upgradeWingStar(loginResult, ctx, suitOperBean);
     }
 
     /** 兼容旧协议分发入口：翅膀品质升级。 */
-    public static void type33(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation33(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         upgradeWingQuality(loginResult, ctx, suitOperBean);
     }
 
     /** 兼容旧协议分发入口：翅膀重铸。 */
-    public static void type34(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation34(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         recastWingAttributes(loginResult, ctx, suitOperBean);
     }
 
     /** 兼容旧协议分发入口：翅膀炼化。 */
-    public static void type35(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation35(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         refineWing(loginResult, ctx, suitOperBean);
     }
 
     /** 兼容旧协议分发入口：靓号炼化槽位重洗。 */
-    public static void type355(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation355(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         refineLianghaoSlot(loginResult, ctx, suitOperBean);
     }
 
     /** 兼容旧协议分发入口：合成翅膀升星材料。 */
-    public static void type36(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation36(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         composeWingStarStone(loginResult, ctx, suitOperBean);
     }
 
