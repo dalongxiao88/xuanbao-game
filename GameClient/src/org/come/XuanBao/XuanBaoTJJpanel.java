@@ -53,7 +53,7 @@ public class XuanBaoTJJpanel
 
     private List<XuanBaoTJModelJpanel> xuanBaoTJModelJpanels;
     private JScrollPane scrollPane, xuanBaoInfoScrollPane;
-    private XuanBaoTJBtn b1, b2, b3, t1, t2, t3, t4, s1, s2, s3, s4, qualityAllBtn, qualityPrimaryBtn, qualityMiddleBtn, qualityRareBtn;
+    private XuanBaoTJBtn sourceCommonBtn, typeAllBtn, qualityMenuBtn, typeFilterAllBtn, typeAttackBtn, typeDefenseBtn, typeSupportBtn, sourceFilterAllBtn, sourceGeneralBtn, sourceMeridianBtn, sourceReservedBtn, qualityAllBtn, qualityPrimaryBtn, qualityMiddleBtn, qualityRareBtn;
     private XuanBaoTJBtn fBtn;
     private List<XuanBaoTJBtn> tyBtns;
     private List<XuanBaoTJBtn> allBtns;
@@ -101,49 +101,49 @@ public class XuanBaoTJJpanel
         qualityMiddleBtn.setBounds(85 + 35 + 85, 96, 76, 20);
         qualityRareBtn.setBounds(85 + 35 + 85, 117, 76, 20);
 
-        t1 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 21, "所有类型", this, UIUtils.xbTotBtnColor);
-        t1.setBounds(35, 31, 76, 20);
-        t1.setVisible(false);
-        this.add(t1);
-        t2 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 22, "进攻", this, UIUtils.xbTotBtnColor);
-        t2.setBounds(35, 31, 76, 20);
-        t2.setVisible(false);
-        this.add(t2);
-        t3 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 23, "防御", this, UIUtils.xbTotBtnColor);
-        t3.setBounds(35, 31, 76, 20);
-        t3.setVisible(false);
-        this.add(t3);
-        t4 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 24, "辅助", this, UIUtils.xbTotBtnColor);
-        t4.setBounds(35, 31, 76, 20);
-        t4.setVisible(false);
-        this.add(t4);
-        t1.setBounds(85 + 35, 54, 76, 20);
-        t2.setBounds(85 + 35, 75, 76, 20);
-        t3.setBounds(85 + 35, 96, 76, 20);
-        t4.setBounds(85 + 35, 117, 76, 20);
+        typeFilterAllBtn = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 21, "所有类型", this, UIUtils.xbTotBtnColor);
+        typeFilterAllBtn.setBounds(35, 31, 76, 20);
+        typeFilterAllBtn.setVisible(false);
+        this.add(typeFilterAllBtn);
+        typeAttackBtn = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 22, "进攻", this, UIUtils.xbTotBtnColor);
+        typeAttackBtn.setBounds(35, 31, 76, 20);
+        typeAttackBtn.setVisible(false);
+        this.add(typeAttackBtn);
+        typeDefenseBtn = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 23, "防御", this, UIUtils.xbTotBtnColor);
+        typeDefenseBtn.setBounds(35, 31, 76, 20);
+        typeDefenseBtn.setVisible(false);
+        this.add(typeDefenseBtn);
+        typeSupportBtn = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 24, "辅助", this, UIUtils.xbTotBtnColor);
+        typeSupportBtn.setBounds(35, 31, 76, 20);
+        typeSupportBtn.setVisible(false);
+        this.add(typeSupportBtn);
+        typeFilterAllBtn.setBounds(85 + 35, 54, 76, 20);
+        typeAttackBtn.setBounds(85 + 35, 75, 76, 20);
+        typeDefenseBtn.setBounds(85 + 35, 96, 76, 20);
+        typeSupportBtn.setBounds(85 + 35, 117, 76, 20);
 
-        s1 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 11, "所有玄宝", this, UIUtils.xbTotBtnColor);
-        s1.setVisible(false);
-        this.add(s1);
-        s2 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 12, "通用玄宝", this, UIUtils.xbTotBtnColor);
-        s2.setVisible(false);
-        this.add(s2);
-        s3 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 13, "承脉玄宝", this, UIUtils.xbTotBtnColor);
-        s3.setVisible(false);
-        this.add(s3);
-        s1.setBounds(35, 54, 76, 20);
-        s2.setBounds(35, 75, 76, 20);
-        s3.setBounds(35, 96, 76, 20);
+        sourceFilterAllBtn = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 11, "所有玄宝", this, UIUtils.xbTotBtnColor);
+        sourceFilterAllBtn.setVisible(false);
+        this.add(sourceFilterAllBtn);
+        sourceGeneralBtn = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 12, "通用玄宝", this, UIUtils.xbTotBtnColor);
+        sourceGeneralBtn.setVisible(false);
+        this.add(sourceGeneralBtn);
+        sourceMeridianBtn = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 13, "承脉玄宝", this, UIUtils.xbTotBtnColor);
+        sourceMeridianBtn.setVisible(false);
+        this.add(sourceMeridianBtn);
+        sourceFilterAllBtn.setBounds(35, 54, 76, 20);
+        sourceGeneralBtn.setBounds(35, 75, 76, 20);
+        sourceMeridianBtn.setBounds(35, 96, 76, 20);
 
-        b1 = new XuanBaoTJBtn("img/xuan/tj/topUpBtn.png", 1, 1, "通用玄宝", this);
-        b1.setBounds(35, 31, 75, 21);
-        this.add(b1);
-        b2 = new XuanBaoTJBtn("img/xuan/tj/topUpBtn.png", 1, 2, "所有类型", this);
-        b2.setBounds(35 + 85, 31, 75, 21);
-        this.add(b2);
-        b3 = new XuanBaoTJBtn("img/xuan/tj/topUpBtn.png", 1, 3, "所有品质", this);
-        b3.setBounds(35 + 85 + 85, 31, 75, 21);
-        this.add(b3);
+        sourceCommonBtn = new XuanBaoTJBtn("img/xuan/tj/topUpBtn.png", 1, 1, "通用玄宝", this);
+        sourceCommonBtn.setBounds(35, 31, 75, 21);
+        this.add(sourceCommonBtn);
+        typeAllBtn = new XuanBaoTJBtn("img/xuan/tj/topUpBtn.png", 1, 2, "所有类型", this);
+        typeAllBtn.setBounds(35 + 85, 31, 75, 21);
+        this.add(typeAllBtn);
+        qualityMenuBtn = new XuanBaoTJBtn("img/xuan/tj/topUpBtn.png", 1, 3, "所有品质", this);
+        qualityMenuBtn.setBounds(35 + 85 + 85, 31, 75, 21);
+        this.add(qualityMenuBtn);
 
         fBtn = new XuanBaoTJBtn("inkImg/button/xb_find.png", 1, 4, "", this);
         fBtn.setBounds(35 + 85 + 85, 421, 21, 22);
@@ -311,92 +311,92 @@ public class XuanBaoTJJpanel
         }
     }
 
-    public XuanBaoTJBtn getB1() {
-        return b1;
+    public XuanBaoTJBtn getSourceCommonBtn() {
+        return sourceCommonBtn;
     }
 
-    public void setB1(XuanBaoTJBtn b1) {
-        this.b1 = b1;
+    public void setSourceCommonBtn(XuanBaoTJBtn sourceCommonBtn) {
+        this.sourceCommonBtn = sourceCommonBtn;
     }
 
-    public XuanBaoTJBtn getB2() {
-        return b2;
+    public XuanBaoTJBtn getTypeAllBtn() {
+        return typeAllBtn;
     }
 
-    public void setB2(XuanBaoTJBtn b2) {
-        this.b2 = b2;
+    public void setTypeAllBtn(XuanBaoTJBtn typeAllBtn) {
+        this.typeAllBtn = typeAllBtn;
     }
 
-    public XuanBaoTJBtn getB3() {
-        return b3;
+    public XuanBaoTJBtn getQualityMenuBtn() {
+        return qualityMenuBtn;
     }
 
-    public void setB3(XuanBaoTJBtn b3) {
-        this.b3 = b3;
+    public void setQualityMenuBtn(XuanBaoTJBtn qualityMenuBtn) {
+        this.qualityMenuBtn = qualityMenuBtn;
     }
 
-    public XuanBaoTJBtn getT1() {
-        return t1;
+    public XuanBaoTJBtn getTypeFilterAllBtn() {
+        return typeFilterAllBtn;
     }
 
-    public void setT1(XuanBaoTJBtn t1) {
-        this.t1 = t1;
+    public void setTypeFilterAllBtn(XuanBaoTJBtn typeFilterAllBtn) {
+        this.typeFilterAllBtn = typeFilterAllBtn;
     }
 
-    public XuanBaoTJBtn getT2() {
-        return t2;
+    public XuanBaoTJBtn getTypeAttackBtn() {
+        return typeAttackBtn;
     }
 
-    public void setT2(XuanBaoTJBtn t2) {
-        this.t2 = t2;
+    public void setTypeAttackBtn(XuanBaoTJBtn typeAttackBtn) {
+        this.typeAttackBtn = typeAttackBtn;
     }
 
-    public XuanBaoTJBtn getT3() {
-        return t3;
+    public XuanBaoTJBtn getTypeDefenseBtn() {
+        return typeDefenseBtn;
     }
 
-    public void setT3(XuanBaoTJBtn t3) {
-        this.t3 = t3;
+    public void setTypeDefenseBtn(XuanBaoTJBtn typeDefenseBtn) {
+        this.typeDefenseBtn = typeDefenseBtn;
     }
 
-    public XuanBaoTJBtn getT4() {
-        return t4;
+    public XuanBaoTJBtn getTypeSupportBtn() {
+        return typeSupportBtn;
     }
 
-    public void setT4(XuanBaoTJBtn t4) {
-        this.t4 = t4;
+    public void setTypeSupportBtn(XuanBaoTJBtn typeSupportBtn) {
+        this.typeSupportBtn = typeSupportBtn;
     }
 
-    public XuanBaoTJBtn getS1() {
-        return s1;
+    public XuanBaoTJBtn getSourceFilterAllBtn() {
+        return sourceFilterAllBtn;
     }
 
-    public void setS1(XuanBaoTJBtn s1) {
-        this.s1 = s1;
+    public void setSourceFilterAllBtn(XuanBaoTJBtn sourceFilterAllBtn) {
+        this.sourceFilterAllBtn = sourceFilterAllBtn;
     }
 
-    public XuanBaoTJBtn getS2() {
-        return s2;
+    public XuanBaoTJBtn getSourceGeneralBtn() {
+        return sourceGeneralBtn;
     }
 
-    public void setS2(XuanBaoTJBtn s2) {
-        this.s2 = s2;
+    public void setSourceGeneralBtn(XuanBaoTJBtn sourceGeneralBtn) {
+        this.sourceGeneralBtn = sourceGeneralBtn;
     }
 
-    public XuanBaoTJBtn getS3() {
-        return s3;
+    public XuanBaoTJBtn getSourceMeridianBtn() {
+        return sourceMeridianBtn;
     }
 
-    public void setS3(XuanBaoTJBtn s3) {
-        this.s3 = s3;
+    public void setSourceMeridianBtn(XuanBaoTJBtn sourceMeridianBtn) {
+        this.sourceMeridianBtn = sourceMeridianBtn;
     }
 
-    public XuanBaoTJBtn getS4() {
-        return s4;
+    public XuanBaoTJBtn getSourceReservedBtn() {
+        return sourceReservedBtn;
     }
 
-    public void setS4(XuanBaoTJBtn s4) {
-        this.s4 = s4;
+    public void setSourceReservedBtn(XuanBaoTJBtn sourceReservedBtn) {
+        this.sourceReservedBtn = sourceReservedBtn;
     }
 
     public XuanBaoTJBtn getQualityAllBtn() {
@@ -442,9 +442,9 @@ public class XuanBaoTJJpanel
         }
 
         xuanBaoTJModelJpanels.clear();
-        param1 = b1.getText();
-        param2 = b2.getText();
-        param3 = b3.getText();
+        param1 = sourceCommonBtn.getText();
+        param2 = typeAllBtn.getText();
+        param3 = qualityMenuBtn.getText();
         param4 = findTxt.getText();
 
 
@@ -460,6 +460,8 @@ public class XuanBaoTJJpanel
         addData();
     }
 }
+
+
 
 
 
