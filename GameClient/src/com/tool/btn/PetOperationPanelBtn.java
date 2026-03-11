@@ -181,11 +181,11 @@ public class PetOperationPanelBtn extends MoBanBtn {
                 String[] kxs = {"抗混乱=30", "抗封印=30", "抗昏睡=30", "抗中毒=30", "物理吸收率=30", "抗风=30", "抗火=30", "抗水=30", "抗雷=30",
                         "抗鬼火=30", "抗遗忘=30"};
                 int p = Util.random.nextInt(kxs.length);
-                int p2 = Util.random.nextInt(kxs.length);
-                while (p2 == p) {
-                    p2 = Util.random.nextInt(kxs.length);
+                int secondResistanceIndex = Util.random.nextInt(kxs.length);
+                while (secondResistanceIndex == p) {
+                    secondResistanceIndex = Util.random.nextInt(kxs.length);
                 }
-                pet.setResistance(kxs[p] + "|" + kxs[p2]);
+                pet.setResistance(kxs[p] + "|" + kxs[secondResistanceIndex]);
             }
 
             ZhuFrame.getZhuJpanel().addPrompt("恭喜您，您的召唤兽炼化成功！！！");

@@ -544,23 +544,23 @@ public class BoothBoxJpanel extends JPanel
             while (i < pets.length) {
                 Commodity com = pets[i];
                 if (com == null) {
-                    int p2 = -1;
+                    int removedPetIndex = -1;
                     int k = UserMessUntil.getPetListTable().size() - 1;
                     while (k >= 0) {
                         if (((RoleSummoning)UserMessUntil.getPetListTable().get(k)).getSid().compareTo(pet.getSid()) == 0) {
                             UserMessUntil.getPetListTable().remove(k);
-                            p2 = k;
+                            removedPetIndex = k;
                             break;
                         }
                         else {
                             --k;
                         }
                     }
-                    if (p2 == -1) {
+                    if (removedPetIndex == -1) {
                         ZhuFrame.getZhuJpanel().addPrompt2("宝宝去哪了");
                         return;
                     }
-                    TradeJframe.getTradejframe().getTradejpanel().getModelname().remove(p2);
+                    TradeJframe.getTradejframe().getTradejpanel().getModelname().remove(removedPetIndex);
                     this.commodity.setPet(pet);
                     pets[i] = this.commodity;
                     this.PetsListLabel[i].setIcon(this.labpettrade.getIcon());

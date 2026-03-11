@@ -8,5 +8,5 @@ public interface BtnInterface
     
     void chooseno();
     
-    void nochoose(MouseEvent p0);
+    void nochoose(MouseEvent event);
 }

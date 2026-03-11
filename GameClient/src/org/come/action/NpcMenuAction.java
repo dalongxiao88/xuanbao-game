@@ -1,6 +1,9 @@
 package org.come.action;
 
+/**
+ * NPC 菜单动作接口。
+ */
 public interface NpcMenuAction
 {
-    void menuControl(String p0);
+    void menuControl(String menuData);
 }

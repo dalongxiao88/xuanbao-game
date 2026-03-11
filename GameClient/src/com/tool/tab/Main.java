@@ -172,8 +172,8 @@ public class Main
     {
         public static final User32_2 INSTANCE = (User32_2)Native.loadLibrary("user32", User32_2.class);
         
-        boolean EnumWindows(WinUser.WNDENUMPROC p0, Pointer p1);
+        boolean EnumWindows(WinUser.WNDENUMPROC windowEnumProc, Pointer userData);
         
-        int GetWindowTextA(WinDef.HWND p0, byte[] p1, int p2);
+        int GetWindowTextA(WinDef.HWND windowHandle, byte[] windowTitleBuffer, int bufferLength);
     }
 }

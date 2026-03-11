@@ -308,7 +308,7 @@ public abstract class MoBanBtn extends JLabel implements MouseListener, BtnInter
     public abstract void chooseno();
 
     @Override
-    public abstract void nochoose(MouseEvent p0);
+    public abstract void nochoose(MouseEvent event);
 
     public int getZhen() {
         return this.zhen;

@@ -50,8 +50,8 @@ public class UserData
     /**
      * 合并或替换用户附加属性串中的指定条目。
      *
-     * 历史命名 `Splice` 缺少业务语义，当前保留兼容方法，
-     * 新代码应优先使用 `mergeRecordEntry`。
+     * 旧短名方法缺少业务语义，当前统一使用 `mergeRecordEntry`
+     * 作为记录串合并入口。
      */
     public static String mergeRecordEntry(String v, String b, int type) {
         boolean s = true;
@@ -140,11 +140,6 @@ public class UserData
             }
         }
         return genggai.toString();
-    }
-
-    /** 兼容旧命名：合并记录条目。 */
-    public static String Splice(String v, String b, int type) {
-        return mergeRecordEntry(v, b, type);
     }
     
     public static boolean uptael(long tael) {

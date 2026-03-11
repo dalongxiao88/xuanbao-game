@@ -15,12 +15,12 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Metric | Server | Client | Total |
 |---|---:|---:|---:|
 | Java files | 1439 | 1858 | 3297 |
-| Strong files | 54 | 10 | 64 |
+| Strong files | 54 | 0 | 54 |
 | Medium files | 14 | 58 | 72 |
 | FernFlower files | 0 | 0 | 0 |
 | Files with typeN defs | 2 | 0 | 2 |
-| Files with historical names | 17 | 1 | 18 |
-| Files with p-signatures | 34 | 9 | 43 |
+| Files with historical names | 17 | 0 | 17 |
+| Files with p-signatures | 34 | 0 | 34 |
 
 ## Completed This Session
 
@@ -43,6 +43,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | done | `GemCompose` | Renamed the internal `type17-21` handlers to `handleOperation17-21`, updated the dispatch call sites in `SuitComposeAction`, and replaced the residual `p2` loop variable with a semantic name. |
 | done | `Service interface signatures` | Renamed the remaining `p0/p1` placeholder parameters in `AgentMapper`, `AgentService`, `IAutoTaskService`, `IShaoXiangService`, `ChongjipackServeice`, `PayvipBeanServer`, `IGangService`, `IDiceService`, and `GangMapper`, and added class-level comments for the touched interfaces. |
 | done | `Calculation/Drop helper call sites` | Switched remaining `DrawnitemsAction.Splice(...)` callers in `CalculationUtil`, `AdminPetController`, and `UseRoleAction` to `mergeRecordEntry(...)`, and renamed residual probability/resistance loop variables in `UseRoleAction` and `GolemServer`. |
+| done | `Client small signatures` | Removed the last `UserData.Splice(...)` compatibility method, renamed placeholder parameters in lightweight client interfaces, and cleaned residual `p2` local variables in `Main`, `BoothBoxJpanel`, and `PetOperationPanelBtn`. |
 | done | `GameClient/src/com/tool/btn/OptionUncheckBtn.java` | Repaired the corrupted fund labels so they match the caller values again. |
 
 ## Point-to-Point Priority
@@ -113,16 +114,6 @@ This file is the temporary working ledger for point-to-point decompile restorati
 
 | Status | Priority | Score | File | Evidence |
 |---|---|---:|---|---|
-| pending | P0 | 13 | `GameClient/src/com/tool/tab/Main.java` | p-signatures x2; placeholders x5 |
-| pending | P0 | 12 | `GameClient/src/com/tool/btn/PetOperationPanelBtn.java` | p-signatures x2; placeholders x4 |
-| pending | P0 | 12 | `GameClient/src/org/come/Jpanel/BoothBoxJpanel.java` | p-signatures x2; placeholders x4 |
-| pending | P0 | 8 | `GameClient/src/org/come/until/UserData.java` | historical names x2 |
-| pending | P0 | 6 | `GameClient/src/come/tool/FightingEffect/Effect.java` | p-signatures x1; placeholders x2 |
-| pending | P0 | 6 | `GameClient/src/come/tool/JDialog/TiShiChuLi.java` | p-signatures x1; placeholders x2 |
-| pending | P1 | 5 | `GameClient/src/com/tool/btn/BtnInterface.java` | p-signatures x1; placeholders x1 |
-| pending | P1 | 5 | `GameClient/src/com/tool/btn/MoBanBtn.java` | p-signatures x1; placeholders x1 |
-| pending | P1 | 5 | `GameClient/src/come/tool/handle/Handle.java` | p-signatures x1; placeholders x1 |
-| pending | P1 | 5 | `GameClient/src/org/come/action/NpcMenuAction.java` | p-signatures x1; placeholders x1 |
 
 ## Server Medium
 
