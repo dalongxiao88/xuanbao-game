@@ -15,12 +15,12 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Metric | Server | Client | Total |
 |---|---:|---:|---:|
 | Java files | 1439 | 1858 | 3297 |
-| Strong files | 35 | 0 | 35 |
+| Strong files | 24 | 0 | 24 |
 | Medium files | 14 | 57 | 71 |
 | FernFlower files | 0 | 0 | 0 |
 | Files with typeN defs | 1 | 0 | 1 |
 | Files with historical names | 14 | 0 | 14 |
-| Files with p-signatures | 18 | 0 | 18 |
+| Files with p-signatures | 7 | 0 | 7 |
 
 ## Completed This Session
 
@@ -68,10 +68,6 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | pending | P0 | 12 | `Gameserver/src/main/java/org/come/servlet/SaveGameDataServlet.java` | placeholders x12 |
 | pending | P1 | 12 | `Gameserver/src/main/java/org/come/until/AchievemUtil.java` | historical names x3 |
 | pending | P1 | 11 | `Gameserver/src/main/java/org/come/action/npc/NpcComposeAction.java` | p-signatures x2; placeholders x3 |
-| pending | P1 | 11 | `Gameserver/src/main/java/org/come/mapper/PayvipBeanServerMapper.java` | p-signatures x2; placeholders x3 |
-| pending | P1 | 11 | `Gameserver/src/main/java/org/come/service/MeridiansService.java` | p-signatures x2; placeholders x3 |
-| pending | P1 | 11 | `Gameserver/src/main/java/org/come/service/RecordService.java` | p-signatures x2; placeholders x3 |
-| pending | P1 | 11 | `Gameserver/src/main/java/org/come/service/selectRecordByType.java` | p-signatures x2; placeholders x3 |
 | pending | P1 | 9 | `Gameserver/src/main/java/org/come/action/summoning/SummonPetAction.java` | p-signatures x1; placeholders x5 |
 | pending | P1 | 8 | `Gameserver/src/main/java/com/gl/service/GoodsService.java` | p-signatures x1; placeholders x4 |
 | pending | P1 | 8 | `Gameserver/src/main/java/com/gl/service/PlayerService.java` | historical names x2 |
@@ -80,17 +76,10 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | pending | P1 | 8 | `Gameserver/src/main/java/come/tool/FightingLingAction/LingAction.java` | p-signatures x1; placeholders x4 |
 | pending | P1 | 8 | `Gameserver/src/main/java/come/tool/FightingSpellAction/SpellAction.java` | p-signatures x1; placeholders x4 |
 | pending | P1 | 8 | `Gameserver/src/main/java/org/come/action/suit/StarCard.java` | historical names x2 |
-| pending | P2 | 7 | `Gameserver/src/main/java/org/come/mapper/RecordMapper.java` | p-signatures x1; placeholders x3 |
-| pending | P2 | 6 | `Gameserver/src/main/java/come/tool/FightingDataAction/Petdll.java` | p-signatures x1; placeholders x2 |
-| pending | P2 | 6 | `Gameserver/src/main/java/come/tool/FightingDataAction/Yao.java` | p-signatures x1; placeholders x2 |
-| pending | P2 | 6 | `Gameserver/src/main/java/org/come/action/IAction.java` | p-signatures x1; placeholders x2 |
-| pending | P2 | 5 | `Gameserver/src/main/java/come/tool/Battle/BattleState.java` | p-signatures x1; placeholders x1 |
-| pending | P2 | 5 | `Gameserver/src/main/java/org/come/mapper/TtModelMapper.java` | p-signatures x1; placeholders x1 |
-| pending | P2 | 5 | `Gameserver/src/main/java/org/come/service/TtModelService.java` | p-signatures x1; placeholders x1 |
-| pending | P2 | 4 | `Gameserver/src/main/java/come/tool/BangBattle/BangFight.java` | historical names x1 |
-| pending | P2 | 4 | `Gameserver/src/main/java/come/tool/Scene/CJ/CJScene.java` | historical names x1 |
-| pending | P2 | 4 | `Gameserver/src/main/java/come/tool/Scene/JieGuaScene.java` | historical names x1 |
-| pending | P2 | 4 | `Gameserver/src/main/java/come/tool/Scene/SLDH/SLDHScene.java` | historical names x1 |
+| pending | P1 | 4 | `Gameserver/src/main/java/come/tool/BangBattle/BangFight.java` | historical names x1 |
+| pending | P1 | 4 | `Gameserver/src/main/java/come/tool/Scene/CJ/CJScene.java` | historical names x1 |
+| pending | P1 | 4 | `Gameserver/src/main/java/come/tool/Scene/JieGuaScene.java` | historical names x1 |
+| pending | P1 | 4 | `Gameserver/src/main/java/come/tool/Scene/SLDH/SLDHScene.java` | historical names x1 |
 | pending | P2 | 4 | `Gameserver/src/main/java/org/come/action/role/RoleAchievemAction.java` | historical names x1 |
 | pending | P2 | 4 | `Gameserver/src/main/java/org/come/action/role/RoleDayDrawAction.java` | historical names x1 |
 | pending | P2 | 4 | `Gameserver/src/main/java/org/come/entity/RolesummoningRoleUser.java` | historical names x1 |

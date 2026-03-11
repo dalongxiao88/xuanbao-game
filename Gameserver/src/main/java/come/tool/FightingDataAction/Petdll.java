@@ -9,6 +9,6 @@ public class Petdll
     {
         public static final Mypetdll mypetdll = (Mypetdll)Native.load("Mydll", Mypetdll.class);
         
-        String bianshen(int p0, int p1);
+        String bianshen(int summoningType, int colorIndex);
     }
 }

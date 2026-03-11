@@ -212,8 +212,8 @@ public class Yao implements DataAction
                 List<ManData> ds2 = MixDeal.get(true, mdata, 2, nocamp, 1, 0, fengyin, 0, size, 0, battlefield, 1);
                 if (ds2.size() > 0) {
                     ManData data5 = (ManData)ds2.get(0);
-                    int p2 = battlefield.Datapath(data5.getCamp(), data5.getMan() + 5);
-                    if (p2 != -1) {
+                    int mirroredPath = battlefield.Datapath(data5.getCamp(), data5.getMan() + 5);
+                    if (mirroredPath != -1) {
                         ChangeFighting changeFighting4 = battlefield.Typeyao(data5, tempYao2);
                         FightingState yaostate6 = new FightingState();
                         yaostate6.setStartState("药");

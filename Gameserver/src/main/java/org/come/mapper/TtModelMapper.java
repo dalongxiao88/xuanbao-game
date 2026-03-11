@@ -5,9 +5,12 @@ import java.util.List;
 import org.come.annotation.MyBatisAnnotation;
 
 @MyBatisAnnotation
+/**
+ * 天梯配置 Mapper。
+ */
 public interface TtModelMapper
 {
     List<TtModel> getTtConfig();
     
-    void updateTtConfig(TtModel p0);
+    void updateTtConfig(TtModel ttModel);
 }

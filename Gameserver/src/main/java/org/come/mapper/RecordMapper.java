@@ -6,9 +6,12 @@ import org.come.entity.Record;
 import org.come.annotation.MyBatisAnnotation;
 
 @MyBatisAnnotation
+/**
+ * 记录 Mapper。
+ */
 public interface RecordMapper
 {
-    int insert(Record p0);
+    int insert(Record record);
     
-    List<Record> selectRecordByType(@Param("recordType") int p0, @Param("count") int p1);
+    List<Record> selectRecordByType(@Param("recordType") int recordType, @Param("count") int count);
 }

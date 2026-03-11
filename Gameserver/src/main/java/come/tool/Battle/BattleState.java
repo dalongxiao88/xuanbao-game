@@ -11,5 +11,5 @@ public interface BattleState
     /**3 战斗播放结束同步*/
     public static final int HANDLE_PLAY_END = 3;
     
-    boolean handle(BattleData p0);//数据处理
+    boolean handle(BattleData battleData);//数据处理
 }
