@@ -72,7 +72,7 @@ public class Consumptions
             }
         }
         String skills2 = data.getSkills();
-        String splice = Splice(skills2.substring(1), skill2.getSkillid() + "_" + addsld, 2);
+        String splice = mergeSkillProgressEntry(skills2.substring(1), skill2.getSkillid() + "_" + addsld, 2);
         data.setSkills("S", splice);
         SendRoleAndRolesummingUntil.sendRole(data);
         ZhuFrame.getZhuJpanel().addPrompt2("你的" + skills.getSkillname() + "获得" + addsld + "熟练度");
@@ -80,7 +80,13 @@ public class Consumptions
         return true;
     }
     
-    public static String Splice(String v, String b, int type) {
+    /**
+     * 合并技能熟练度记录项。
+     *
+     * 该工具负责处理 `skillId_value` 形式的熟练度串，支持覆盖、累加、扣减、
+     * 取最大值等常见策略。
+     */
+    public static String mergeSkillProgressEntry(String v, String b, int type) {
         boolean s = true;
         boolean s2 = false;
         if (type == 2 || type == 3 || type == 5) {

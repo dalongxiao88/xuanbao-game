@@ -139,6 +139,15 @@ public class DrawnitemsAction implements IAction
         }
     }
     
+    /**
+     * 语义化别名：按指定策略合并或替换记录串中的条目。
+     *
+     * 该方法主要被积分、属性串、成就记录等“key=value”型文本记录复用。
+     */
+    public static String mergeRecordEntry(String source, String entry, int mergeType) {
+        return Splice(source, entry, mergeType);
+    }
+
     public static String Splice(String v, String b, int type) {
         boolean s = true;
         boolean s2 = false;

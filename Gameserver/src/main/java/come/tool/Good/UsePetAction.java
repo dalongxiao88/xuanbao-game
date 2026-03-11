@@ -1811,16 +1811,16 @@ public class UsePetAction implements IAction
             pet.setAp(pet.getAp() - ran3);
             pet.setSp(pet.getSp() - ran4);
             if (ran1 != 0) {
-                four = DrawnitemsAction.Splice(four, "hhp=" + ran1, 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hhp=" + ran1, 4);
             }
             if (ran2 != 0) {
-                four = DrawnitemsAction.Splice(four, "hmp=" + ran2, 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hmp=" + ran2, 4);
             }
             if (ran3 != 0) {
-                four = DrawnitemsAction.Splice(four, "hap=" + ran3, 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hap=" + ran3, 4);
             }
             if (ran4 != 0) {
-                four = DrawnitemsAction.Splice(four, "hsp=" + ran4, 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hsp=" + ran4, 4);
             }
             ran1 = 0;
             ran2 = 0;
@@ -1849,16 +1849,16 @@ public class UsePetAction implements IAction
             pet.setAp(pet.getAp() + ran3);
             pet.setSp(pet.getSp() + ran4);
             if (ran1 != 0) {
-                four = DrawnitemsAction.Splice(four, "hhp=" + ran1, 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hhp=" + ran1, 2);
             }
             if (ran2 != 0) {
-                four = DrawnitemsAction.Splice(four, "hmp=" + ran2, 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hmp=" + ran2, 2);
             }
             if (ran3 != 0) {
-                four = DrawnitemsAction.Splice(four, "hap=" + ran3, 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hap=" + ran3, 2);
             }
             if (ran4 != 0) {
-                four = DrawnitemsAction.Splice(four, "hsp=" + ran4, 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hsp=" + ran4, 2);
             }
             pet.setFourattributes(four);
             pet.setBasishp(0);
@@ -1949,16 +1949,16 @@ public class UsePetAction implements IAction
             pet.setAp(pet.getAp() - ran3);
             pet.setSp(pet.getSp() - ran4);
             if (ran1 != 0) {
-                four = DrawnitemsAction.Splice(four, "hhp=" + ran1, 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hhp=" + ran1, 4);
             }
             if (ran2 != 0) {
-                four = DrawnitemsAction.Splice(four, "hmp=" + ran2, 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hmp=" + ran2, 4);
             }
             if (ran3 != 0) {
-                four = DrawnitemsAction.Splice(four, "hap=" + ran3, 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hap=" + ran3, 4);
             }
             if (ran4 != 0) {
-                four = DrawnitemsAction.Splice(four, "hsp=" + ran4, 4);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hsp=" + ran4, 4);
             }
             ran1 = 0;
             ran2 = 0;
@@ -1987,16 +1987,16 @@ public class UsePetAction implements IAction
             pet.setAp(pet.getAp() + ran3);
             pet.setSp(pet.getSp() + ran4);
             if (ran1 != 0) {
-                four = DrawnitemsAction.Splice(four, "hhp=" + ran1, 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hhp=" + ran1, 2);
             }
             if (ran2 != 0) {
-                four = DrawnitemsAction.Splice(four, "hmp=" + ran2, 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hmp=" + ran2, 2);
             }
             if (ran3 != 0) {
-                four = DrawnitemsAction.Splice(four, "hap=" + ran3, 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hap=" + ran3, 2);
             }
             if (ran4 != 0) {
-                four = DrawnitemsAction.Splice(four, "hsp=" + ran4, 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hsp=" + ran4, 2);
             }
             pet.setFourattributes(four);
             pet.setBasishp(0);
@@ -2292,10 +2292,10 @@ public class UsePetAction implements IAction
         pet.setAp(pet.getAp() - pet.getFourAttributeValue("ap"));
         pet.setSp(pet.getSp() - pet.getFourAttributeValue("sp"));
         String four = pet.getFourattributes();
-        four = DrawnitemsAction.Splice(four, "hp=" + pet.getFourAttributeValue("hp"), 4);
-        four = DrawnitemsAction.Splice(four, "mp=" + pet.getFourAttributeValue("mp"), 4);
-        four = DrawnitemsAction.Splice(four, "ap=" + pet.getFourAttributeValue("ap"), 4);
-        four = DrawnitemsAction.Splice(four, "sp=" + pet.getFourAttributeValue("sp"), 4);
+        four = DrawnitemsAction.mergeRecordEntry(four, "hp=" + pet.getFourAttributeValue("hp"), 4);
+        four = DrawnitemsAction.mergeRecordEntry(four, "mp=" + pet.getFourAttributeValue("mp"), 4);
+        four = DrawnitemsAction.mergeRecordEntry(four, "ap=" + pet.getFourAttributeValue("ap"), 4);
+        four = DrawnitemsAction.mergeRecordEntry(four, "sp=" + pet.getFourAttributeValue("sp"), 4);
         pet.setFourattributes(four);
         pet.setBasishp(0);
         pet.setBasismp(0);
@@ -2321,10 +2321,10 @@ public class UsePetAction implements IAction
         pet.setAp(pet.getAp() - pet.getFourAttributeValue("aps"));
         pet.setSp(pet.getSp() - pet.getFourAttributeValue("sps"));
         String four = pet.getFourattributes();
-        four = DrawnitemsAction.Splice(four, "hps=" + pet.getFourAttributeValue("hps"), 4);
-        four = DrawnitemsAction.Splice(four, "mps=" + pet.getFourAttributeValue("mps"), 4);
-        four = DrawnitemsAction.Splice(four, "aps=" + pet.getFourAttributeValue("aps"), 4);
-        four = DrawnitemsAction.Splice(four, "sps=" + pet.getFourAttributeValue("sps"), 4);
+        four = DrawnitemsAction.mergeRecordEntry(four, "hps=" + pet.getFourAttributeValue("hps"), 4);
+        four = DrawnitemsAction.mergeRecordEntry(four, "mps=" + pet.getFourAttributeValue("mps"), 4);
+        four = DrawnitemsAction.mergeRecordEntry(four, "aps=" + pet.getFourAttributeValue("aps"), 4);
+        four = DrawnitemsAction.mergeRecordEntry(four, "sps=" + pet.getFourAttributeValue("sps"), 4);
         pet.setFourattributes(four);
         pet.setBasishp(0);
         pet.setBasismp(0);
@@ -2472,25 +2472,25 @@ public class UsePetAction implements IAction
             String separator = "#Y";
             if (value[0].equals("HP")) {
                 pet.setHp(pet.getHp() + Integer.parseInt(value[1]));
-                four = DrawnitemsAction.Splice(four, "hp=" + Integer.parseInt(value[1]), 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hp=" + Integer.parseInt(value[1]), 2);
                 message.append(separator).append("HP+").append(Integer.parseInt(value[1]));
                 separator = " ";
             }
             if (value[0].equals("MP")) {
                 pet.setMp(pet.getMp() + Integer.parseInt(value[1]));
-                four = DrawnitemsAction.Splice(four, "mp=" + Integer.parseInt(value[1]), 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "mp=" + Integer.parseInt(value[1]), 2);
                 message.append(separator).append("MP+").append(Integer.parseInt(value[1]));
                 separator = " ";
             }
             if (value[0].equals("AP")) {
                 pet.setAp(pet.getAp() + Integer.parseInt(value[1]));
-                four = DrawnitemsAction.Splice(four, "ap=" + Integer.parseInt(value[1]), 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "ap=" + Integer.parseInt(value[1]), 2);
                 message.append(separator).append("AP+").append(Integer.parseInt(value[1]));
                 separator = " ";
             }
             if (value[0].equals("SP")) {
                 pet.setSp(pet.getSp() + Integer.parseInt(value[1]));
-                four = DrawnitemsAction.Splice(four, "sp=" + Integer.parseInt(value[1]), 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "sp=" + Integer.parseInt(value[1]), 2);
                 message.append(separator).append("SP+").append(Integer.parseInt(value[1]));
             }
             String finalMessage = message.toString().trim();
@@ -2516,16 +2516,16 @@ public class UsePetAction implements IAction
             pet.setAp(pet.getAp() + rans[2]);
             pet.setSp(pet.getSp() + rans[3]);
             if (rans[0] != 0) {
-                four = DrawnitemsAction.Splice(four, "hp=" + rans[0], 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hp=" + rans[0], 2);
             }
             if (rans[1] != 0) {
-                four = DrawnitemsAction.Splice(four, "mp=" + rans[1], 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "mp=" + rans[1], 2);
             }
             if (rans[2] != 0) {
-                four = DrawnitemsAction.Splice(four, "ap=" + rans[2], 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "ap=" + rans[2], 2);
             }
             if (rans[3] != 0) {
-                four = DrawnitemsAction.Splice(four, "sp=" + rans[3], 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "sp=" + rans[3], 2);
             }
             pet.setFourattributes(four);
             StringBuilder message2 = new StringBuilder();
@@ -2584,25 +2584,25 @@ public class UsePetAction implements IAction
             String separator = "#Y";
             if (value[0].equals("HP")) {
                 pet.setHp(pet.getHp() + Integer.parseInt(value[1]));
-                four = DrawnitemsAction.Splice(four, "hps=" + Integer.parseInt(value[1]), 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hps=" + Integer.parseInt(value[1]), 2);
                 message.append(separator).append("HP+").append(Integer.parseInt(value[1]));
                 separator = " ";
             }
             if (value[0].equals("MP")) {
                 pet.setMp(pet.getMp() + Integer.parseInt(value[1]));
-                four = DrawnitemsAction.Splice(four, "mps=" + Integer.parseInt(value[1]), 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "mps=" + Integer.parseInt(value[1]), 2);
                 message.append(separator).append("MP+").append(Integer.parseInt(value[1]));
                 separator = " ";
             }
             if (value[0].equals("AP")) {
                 pet.setAp(pet.getAp() + Integer.parseInt(value[1]));
-                four = DrawnitemsAction.Splice(four, "aps=" + Integer.parseInt(value[1]), 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "aps=" + Integer.parseInt(value[1]), 2);
                 message.append(separator).append("AP+").append(Integer.parseInt(value[1]));
                 separator = " ";
             }
             if (value[0].equals("SP")) {
                 pet.setSp(pet.getSp() + Integer.parseInt(value[1]));
-                four = DrawnitemsAction.Splice(four, "sps=" + Integer.parseInt(value[1]), 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "sps=" + Integer.parseInt(value[1]), 2);
                 message.append(separator).append("SP+").append(Integer.parseInt(value[1]));
             }
             pet.setFourattributes(four);
@@ -2628,16 +2628,16 @@ public class UsePetAction implements IAction
             pet.setAp(pet.getAp() + rans[2]);
             pet.setSp(pet.getSp() + rans[3]);
             if (rans[0] != 0) {
-                four = DrawnitemsAction.Splice(four, "hps=" + rans[0], 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "hps=" + rans[0], 2);
             }
             if (rans[1] != 0) {
-                four = DrawnitemsAction.Splice(four, "mps=" + rans[1], 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "mps=" + rans[1], 2);
             }
             if (rans[2] != 0) {
-                four = DrawnitemsAction.Splice(four, "aps=" + rans[2], 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "aps=" + rans[2], 2);
             }
             if (rans[3] != 0) {
-                four = DrawnitemsAction.Splice(four, "sps=" + rans[3], 2);
+                four = DrawnitemsAction.mergeRecordEntry(four, "sps=" + rans[3], 2);
             }
             pet.setFourattributes(four);
             StringBuilder message2 = new StringBuilder();
@@ -2807,7 +2807,7 @@ public class UsePetAction implements IAction
         login.setGold(login.getGold().subtract(new BigDecimal(20000000)));
         if (GameServer.random.nextInt(100) < 95) {
             pet.setBeastSkills("-1");
-            String four = DrawnitemsAction.Splice(pet.getFourattributes(), "ssjn=1", 2);
+            String four = DrawnitemsAction.mergeRecordEntry(pet.getFourattributes(), "ssjn=1", 2);
             pet.setFourattributes(four);
             assetUpdate.updata("T格子");
             AllServiceUtil.getRoleSummoningService().updatePetRedis(pet);
@@ -3514,42 +3514,42 @@ public class UsePetAction implements IAction
             switch (n) {
                 case 0:
                 case 1: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "HP=27000", 11);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "HP=27000", 11);
                     break;
                 }
                 case 2: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "MP=27000", 11);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "MP=27000", 11);
                     break;
                 }
                 case 3:
                 case 4: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "AP=11000", 11);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "AP=11000", 11);
                     break;
                 }
                 case 5: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "SP=-170", 11);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "SP=-170", 11);
                     break;
                 }
                 case 6: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "SP=250", 11);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "SP=250", 11);
                     b2 = Boolean.valueOf(true);
                     break;
                 }
                 case 7: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "HP=32000", 11);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "HP=32000", 11);
                     break;
                 }
                 case 8: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "MP=32000", 11);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "MP=32000", 11);
                     break;
                 }
                 case 9: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "AP=15000", 11);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "AP=15000", 11);
                     break;
                 }
                 case 10: {
                     if (!(boolean)b2) {
-                        skilldata = DrawnitemsAction.Splice(skilldata, "SP=200", 11);
+                        skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "SP=200", 11);
                         b2 = Boolean.valueOf(true);
                         break;
                     }
@@ -3560,7 +3560,7 @@ public class UsePetAction implements IAction
                 case 11:
                 case 12: {
                     if (!(boolean)b && !(boolean)b2) {
-                        skilldata = DrawnitemsAction.Splice(skilldata, "SP=170", 11);
+                        skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "SP=170", 11);
                         b = Boolean.valueOf(true);
                         break;
                     }
@@ -3822,7 +3822,7 @@ public class UsePetAction implements IAction
             SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().PromptAgreement("没有足够的地宫积分!"));
             return;
         }
-        login.setScore(DrawnitemsAction.Splice(login.getScore(), "地宫积分=" + xhjf, 3));
+        login.setScore(DrawnitemsAction.mergeRecordEntry(login.getScore(), "地宫积分=" + xhjf, 3));
         AssetUpdate assetUpdate = new AssetUpdate();
         assetUpdate.setData("地宫积分=" + -xhjf.longValue());
         assetUpdate.setType(AssetUpdate.USEGOOD);
