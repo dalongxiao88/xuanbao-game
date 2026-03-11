@@ -23,6 +23,7 @@ import org.come.until.CutButtonImage;
 import org.come.until.GoodsListFromServerUntil;
 
 
+
 public class XuanBaoMsgJpanel
         extends JPanel {
     private JLabel quality = new JLabel();
@@ -303,3 +304,5 @@ public class XuanBaoMsgJpanel
  * Java compiler version: 8 (52.0)
  * JD-Core Version:       1.1.3
  */
+
+

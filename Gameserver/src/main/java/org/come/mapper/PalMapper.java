@@ -1,9 +1,14 @@
-package org.come.mapper;
+﻿package org.come.mapper;
 
 import java.math.BigDecimal;
 import org.come.entity.Pal;
 import java.util.List;
 import org.come.annotation.MyBatisAnnotation;
+/**
+ * PalMapper 接口/数据访问定义。
+ *
+ * 当前文件已完成首轮反编译命名收口，后续继续按业务链路补充更细的行为注释。
+ */
 
 @MyBatisAnnotation
 public interface PalMapper
@@ -24,3 +29,4 @@ public interface PalMapper
     
     void insertPalList(List<Pal> palList);
 }
+

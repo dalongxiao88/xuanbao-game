@@ -1,4 +1,4 @@
-package org.come.service;
+﻿package org.come.service;
 
 import org.come.bean.DayForOneAreaServiceMonthBean;
 import org.come.bean.OneAreaServiceMonthBean;
@@ -6,6 +6,11 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.come.entity.ExpensesReceipts;
 import java.math.BigDecimal;
+/**
+ * ExpensesReceiptsService 接口/数据访问定义。
+ *
+ * 当前文件已完成首轮反编译命名收口，后续继续按业务链路补充更细的行为注释。
+ */
 
 public interface ExpensesReceiptsService
 {
@@ -37,3 +42,4 @@ public interface ExpensesReceiptsService
     
     List<ExpensesReceipts> selectAll(ExpensesReceipts expensesReceipts);
 }
+

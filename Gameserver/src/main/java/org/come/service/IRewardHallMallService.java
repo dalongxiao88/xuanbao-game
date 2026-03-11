@@ -1,10 +1,15 @@
-package org.come.service;
+﻿package org.come.service;
 
 import org.apache.ibatis.annotations.Param;
 import java.util.concurrent.CopyOnWriteArrayList;
 import org.come.entity.RewardHall;
 import java.math.BigDecimal;
 import org.come.entity.RewardHallExample;
+/**
+ * IRewardHallMallService 接口/数据访问定义。
+ *
+ * 当前文件已完成首轮反编译命名收口，后续继续按业务链路补充更细的行为注释。
+ */
 
 public interface IRewardHallMallService
 {
@@ -30,3 +35,4 @@ public interface IRewardHallMallService
     
     int updateByPrimaryKey(RewardHall rewardHall);
 }
+

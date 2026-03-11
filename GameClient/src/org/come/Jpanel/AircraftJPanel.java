@@ -30,6 +30,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+
 public class AircraftJPanel extends JPanel
 {
     private JLabel labShowName;
@@ -627,4 +628,6 @@ public class AircraftJPanel extends JPanel
         return l;
     }
 }
+
+
 

@@ -1,9 +1,14 @@
-package org.come.service;
+﻿package org.come.service;
 
 import org.come.entity.RoleorderExample;
 import org.come.entity.Roleorder;
 import java.util.List;
 import java.math.BigDecimal;
+/**
+ * IRoleorderService 接口/数据访问定义。
+ *
+ * 当前文件已完成首轮反编译命名收口，后续继续按业务链路补充更细的行为注释。
+ */
 
 public interface IRoleorderService
 {
@@ -31,3 +36,4 @@ public interface IRoleorderService
     
     int updateByPrimaryKey(Roleorder roleorder);
 }
+

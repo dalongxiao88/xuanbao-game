@@ -1,4 +1,4 @@
-package org.come.mapper;
+﻿package org.come.mapper;
 
 import org.come.extInterBean.AreaNumRecord;
 import java.math.BigDecimal;
@@ -10,6 +10,11 @@ import org.come.entity.AppVersion;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.come.annotation.MyBatisAnnotation;
+/**
+ * AppVersionMapper 接口/数据访问定义。
+ *
+ * 当前文件已完成首轮反编译命名收口，后续继续按业务链路补充更细的行为注释。
+ */
 
 @MyBatisAnnotation
 public interface AppVersionMapper
@@ -56,3 +61,4 @@ public interface AppVersionMapper
     
     List<AppVersion> selectVersionBean(String versionType);
 }
+

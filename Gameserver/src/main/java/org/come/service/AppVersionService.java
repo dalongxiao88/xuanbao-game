@@ -1,4 +1,4 @@
-package org.come.service;
+﻿package org.come.service;
 
 import org.come.extInterBean.AreaNumRecord;
 import java.math.BigDecimal;
@@ -8,6 +8,11 @@ import org.come.extInterBean.ShopBuyTypeResult;
 import org.come.extInterBean.Goodsrecord2;
 import org.come.entity.AppVersion;
 import java.util.List;
+/**
+ * AppVersionService 接口/数据访问定义。
+ *
+ * 当前文件已完成首轮反编译命名收口，后续继续按业务链路补充更细的行为注释。
+ */
 
 public interface AppVersionService
 {
@@ -53,3 +58,4 @@ public interface AppVersionService
     
     BigDecimal selectSequence();
 }
+

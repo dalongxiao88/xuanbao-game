@@ -16,6 +16,7 @@ import org.come.bean.LoginResult;
 import org.come.bean.XuanBao;
 
 
+
 public class XuanBaoXiuLianJpanel extends JPanel {
     ImageIcon imageIcon = new ImageIcon("img/xuan/玄蕴转换.png");
     public static long exp = 30000000L;
@@ -81,6 +82,8 @@ public class XuanBaoXiuLianJpanel extends JPanel {
         this.xuanBao = (RoleXuanBao.getRoleXuanBao()).choseBao;
     }
 }
+
+
 
 
 

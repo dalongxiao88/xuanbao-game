@@ -1,4 +1,4 @@
-package org.come.mapper;
+﻿package org.come.mapper;
 
 import org.come.entity.ImportantgoodssumrecordEntity;
 import org.come.entity.BuytypeEntity;
@@ -8,6 +8,11 @@ import org.come.bean.ImportantgoodssumrecordBean;
 import java.util.List;
 import org.apache.ibatis.annotations.Param;
 import org.come.annotation.MyBatisAnnotation;
+/**
+ * ImportantgoodtrcordMapper 接口/数据访问定义。
+ *
+ * 当前文件已完成首轮反编译命名收口，后续继续按业务链路补充更细的行为注释。
+ */
 
 @MyBatisAnnotation
 public interface ImportantgoodtrcordMapper
@@ -44,3 +49,4 @@ public interface ImportantgoodtrcordMapper
     
     int selectTablePartition(@Param("partitionName") String partitionName, @Param("tableName") String tableName);
 }
+

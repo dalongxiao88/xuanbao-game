@@ -1,9 +1,14 @@
-package org.come.mapper;
+﻿package org.come.mapper;
 
 import java.math.BigDecimal;
 import org.come.entity.Openareatable;
 import java.util.List;
 import org.come.annotation.MyBatisAnnotation;
+/**
+ * OpenareatableMapper 接口/数据访问定义。
+ *
+ * 当前文件已完成首轮反编译命名收口，后续继续按业务链路补充更细的行为注释。
+ */
 
 @MyBatisAnnotation
 public interface OpenareatableMapper
@@ -26,3 +31,4 @@ public interface OpenareatableMapper
     
     Openareatable selectOpenareatable(String areaName);
 }
+

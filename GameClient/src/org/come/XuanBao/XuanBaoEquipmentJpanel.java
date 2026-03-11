@@ -30,6 +30,7 @@ import org.skill.panel.SetupJpanel2;
 import org.skill.panel.SetupJpanel3;
 
 
+
 public class XuanBaoEquipmentJpanel
         extends JPanel {
     ImageIcon icon = new ImageIcon("img/xuan/1.png");
@@ -755,6 +756,8 @@ public class XuanBaoEquipmentJpanel
     }
 
 }
+
+
 
 
 
