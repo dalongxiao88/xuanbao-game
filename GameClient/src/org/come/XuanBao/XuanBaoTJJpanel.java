@@ -53,7 +53,7 @@ public class XuanBaoTJJpanel
 
     private List<XuanBaoTJModelJpanel> xuanBaoTJModelJpanels;
     private JScrollPane scrollPane, xuanBaoInfoScrollPane;
-    private XuanBaoTJBtn b1, b2, b3, t1, t2, t3, t4, s1, s2, s3, s4, p1, p2, p3, p4;
+    private XuanBaoTJBtn b1, b2, b3, t1, t2, t3, t4, s1, s2, s3, s4, qualityAllBtn, qualityPrimaryBtn, qualityMiddleBtn, qualityRareBtn;
     private XuanBaoTJBtn fBtn;
     private List<XuanBaoTJBtn> tyBtns;
     private List<XuanBaoTJBtn> allBtns;
@@ -84,22 +84,22 @@ public class XuanBaoTJJpanel
 //        this.SendMes.setFocusable(true);
         this.add(this.findTxt);
 
-        p1 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 31, "所有品质", this, UIUtils.xbTotBtnColor);
-        p1.setVisible(false);
-        this.add(p1);
-        p2 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 32, "初品", this, UIUtils.xbTotBtnColor);
-        p2.setVisible(false);
-        this.add(p2);
-        p3 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 33, "中品", this, UIUtils.xbTotBtnColor);
-        p3.setVisible(false);
-        this.add(p3);
-        p4 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 34, "珍品", this, UIUtils.xbTotBtnColor);
-        p4.setVisible(false);
-        this.add(p4);
-        p1.setBounds(85 + 35 + 85, 54, 76, 20);
-        p2.setBounds(85 + 35 + 85, 75, 76, 20);
-        p3.setBounds(85 + 35 + 85, 96, 76, 20);
-        p4.setBounds(85 + 35 + 85, 117, 76, 20);
+        qualityAllBtn = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 31, "所有品质", this, UIUtils.xbTotBtnColor);
+        qualityAllBtn.setVisible(false);
+        this.add(qualityAllBtn);
+        qualityPrimaryBtn = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 32, "初品", this, UIUtils.xbTotBtnColor);
+        qualityPrimaryBtn.setVisible(false);
+        this.add(qualityPrimaryBtn);
+        qualityMiddleBtn = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 33, "中品", this, UIUtils.xbTotBtnColor);
+        qualityMiddleBtn.setVisible(false);
+        this.add(qualityMiddleBtn);
+        qualityRareBtn = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 34, "珍品", this, UIUtils.xbTotBtnColor);
+        qualityRareBtn.setVisible(false);
+        this.add(qualityRareBtn);
+        qualityAllBtn.setBounds(85 + 35 + 85, 54, 76, 20);
+        qualityPrimaryBtn.setBounds(85 + 35 + 85, 75, 76, 20);
+        qualityMiddleBtn.setBounds(85 + 35 + 85, 96, 76, 20);
+        qualityRareBtn.setBounds(85 + 35 + 85, 117, 76, 20);
 
         t1 = new XuanBaoTJBtn("img/xuan/tj/topBtn.png", 1, 21, "所有类型", this, UIUtils.xbTotBtnColor);
         t1.setBounds(35, 31, 76, 20);
@@ -399,36 +399,36 @@ public class XuanBaoTJJpanel
         this.s4 = s4;
     }
 
-    public XuanBaoTJBtn getP1() {
-        return p1;
+    public XuanBaoTJBtn getQualityAllBtn() {
+        return qualityAllBtn;
     }
 
-    public void setP1(XuanBaoTJBtn p1) {
-        this.p1 = p1;
+    public void setQualityAllBtn(XuanBaoTJBtn qualityAllBtn) {
+        this.qualityAllBtn = qualityAllBtn;
     }
 
-    public XuanBaoTJBtn getP2() {
-        return p2;
+    public XuanBaoTJBtn getQualityPrimaryBtn() {
+        return qualityPrimaryBtn;
     }
 
-    public void setP2(XuanBaoTJBtn p2) {
-        this.p2 = p2;
+    public void setQualityPrimaryBtn(XuanBaoTJBtn qualityPrimaryBtn) {
+        this.qualityPrimaryBtn = qualityPrimaryBtn;
     }
 
-    public XuanBaoTJBtn getP3() {
-        return p3;
+    public XuanBaoTJBtn getQualityMiddleBtn() {
+        return qualityMiddleBtn;
     }
 
-    public void setP3(XuanBaoTJBtn p3) {
-        this.p3 = p3;
+    public void setQualityMiddleBtn(XuanBaoTJBtn qualityMiddleBtn) {
+        this.qualityMiddleBtn = qualityMiddleBtn;
     }
 
-    public XuanBaoTJBtn getP4() {
-        return p4;
+    public XuanBaoTJBtn getQualityRareBtn() {
+        return qualityRareBtn;
     }
 
-    public void setP4(XuanBaoTJBtn p4) {
-        this.p4 = p4;
+    public void setQualityRareBtn(XuanBaoTJBtn qualityRareBtn) {
+        this.qualityRareBtn = qualityRareBtn;
     }
 
     public static String param1 = "所有玄宝";
@@ -460,4 +460,6 @@ public class XuanBaoTJJpanel
         addData();
     }
 }
+
+
 
