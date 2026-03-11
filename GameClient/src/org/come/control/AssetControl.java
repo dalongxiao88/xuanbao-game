@@ -359,8 +359,8 @@ public class AssetControl implements FromServerAction {
                     }
                 } else if (vs[i].startsWith("偷钱")) {
                     String[] vss2 = vs[i].split("=");
-                    long p4 = Long.parseLong(vss2[1]);
-                    NPCJfram.getNpcJfram().getNpcjpanel().taskend("和你开个小小的玩笑而已,何必动怒,这份礼物送你,你得到了#R" + p4 + "#W金钱");
+                    long stolenMoney = Long.parseLong(vss2[1]);
+                    NPCJfram.getNpcJfram().getNpcjpanel().taskend("和你开个小小的玩笑而已,何必动怒,这份礼物送你,你得到了#R" + stolenMoney + "#W金钱");
                 } else if (vs[i].startsWith("召唤兽碎片")) {//add@magor
                     String[] vss = vs[i].split("=");
                     loginResult.setPetdebris(UserData.Splice(loginResult.getPetdebris(), vss[1] + "=" + vss[2], Integer.parseInt(vss[3])));
