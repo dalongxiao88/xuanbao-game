@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package org.come.Frame;
 
 import com.tool.tcpimg.UIUtils;
@@ -16,6 +11,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * 灵修面板窗口。
+ */
 public class SpiritualJframe extends JInternalFrame implements MouseListener {
     private SpiritualJpanel spiritualJpanel = new SpiritualJpanel();
     private int first_x;

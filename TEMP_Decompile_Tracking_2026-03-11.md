@@ -15,9 +15,9 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Metric | Server | Client | Total |
 |---|---:|---:|---:|
 | Java files | 1439 | 1858 | 3297 |
-| Strong files | 74 | 14 | 88 |
-| Medium files | 14 | 56 | 70 |
-| FernFlower files | 0 | 4 | 4 |
+| Strong files | 74 | 10 | 84 |
+| Medium files | 14 | 58 | 72 |
+| FernFlower files | 0 | 0 | 0 |
 | Files with typeN defs | 7 | 0 | 7 |
 | Files with historical names | 23 | 1 | 24 |
 | Files with p-signatures | 48 | 9 | 57 |
@@ -33,6 +33,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | done | `UsePetAction / DrawnitemsAction / Consumptions` | Added semantic record-merge aliases, replaced the 52 `DrawnitemsAction.Splice(...)` calls in `UsePetAction`, and removed the last client-side `Consumptions.Splice(...)` helper. |
 | done | `RoleChangeAction` | Switched all remaining score/four-attribute merge calls from `DrawnitemsAction.Splice(...)` to `DrawnitemsAction.mergeRecordEntry(...)`. |
 | done | `SuitComposeAction` | Renamed all internal `typeN` handlers to `handleOperationX` and added a dispatch comment so the protocol-number mapping remains readable without keeping the decompile-style names. |
+| done | `Client FernFlower headers` | Removed the remaining four FernFlower header blocks and replaced them with class-level behavior comments in the affected UI files. |
 | done | `GameClient/src/com/tool/btn/OptionUncheckBtn.java` | Repaired the corrupted fund labels so they match the caller values again. |
 
 ## Point-to-Point Priority
@@ -123,16 +124,12 @@ This file is the temporary working ledger for point-to-point decompile restorati
 
 | Status | Priority | Score | File | Evidence |
 |---|---|---:|---|---|
-| pending | P0 | 104 | `GameClient/src/org/come/until/SrcollPanePHlUI.java` | FernFlower x1; placeholders x4 |
-| pending | P0 | 104 | `GameClient/src/org/come/until/SrcollPaneTJlUI.java` | FernFlower x1; placeholders x4 |
-| pending | P0 | 100 | `GameClient/src/org/come/Frame/SpiritualJframe.java` | FernFlower x1 |
-| pending | P0 | 100 | `GameClient/src/org/come/Frame/XYDJLSJframe.java` | FernFlower x1 |
 | pending | P0 | 13 | `GameClient/src/com/tool/tab/Main.java` | p-signatures x2; placeholders x5 |
 | pending | P0 | 12 | `GameClient/src/com/tool/btn/PetOperationPanelBtn.java` | p-signatures x2; placeholders x4 |
-| pending | P1 | 12 | `GameClient/src/org/come/Jpanel/BoothBoxJpanel.java` | p-signatures x2; placeholders x4 |
-| pending | P1 | 8 | `GameClient/src/org/come/until/UserData.java` | historical names x2 |
-| pending | P1 | 6 | `GameClient/src/come/tool/FightingEffect/Effect.java` | p-signatures x1; placeholders x2 |
-| pending | P1 | 6 | `GameClient/src/come/tool/JDialog/TiShiChuLi.java` | p-signatures x1; placeholders x2 |
+| pending | P0 | 12 | `GameClient/src/org/come/Jpanel/BoothBoxJpanel.java` | p-signatures x2; placeholders x4 |
+| pending | P0 | 8 | `GameClient/src/org/come/until/UserData.java` | historical names x2 |
+| pending | P0 | 6 | `GameClient/src/come/tool/FightingEffect/Effect.java` | p-signatures x1; placeholders x2 |
+| pending | P0 | 6 | `GameClient/src/come/tool/JDialog/TiShiChuLi.java` | p-signatures x1; placeholders x2 |
 | pending | P1 | 5 | `GameClient/src/com/tool/btn/BtnInterface.java` | p-signatures x1; placeholders x1 |
 | pending | P1 | 5 | `GameClient/src/com/tool/btn/MoBanBtn.java` | p-signatures x1; placeholders x1 |
 | pending | P1 | 5 | `GameClient/src/come/tool/handle/Handle.java` | p-signatures x1; placeholders x1 |
@@ -176,6 +173,8 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | pending | 4 | `GameClient/src/org/come/until/NewAESForServerUtil.java` | placeholders x4 |
 | pending | 4 | `GameClient/src/org/come/until/ScrollUI.java` | placeholders x4 |
 | pending | 4 | `GameClient/src/org/come/until/ScrollUIS.java` | placeholders x4 |
+| pending | 4 | `GameClient/src/org/come/until/SrcollPanePHlUI.java` | placeholders x4 |
+| pending | 4 | `GameClient/src/org/come/until/SrcollPaneTJlUI.java` | placeholders x4 |
 | pending | 4 | `GameClient/src/org/come/until/SrcollPaneXYDJlUI.java` | placeholders x4 |
 | pending | 4 | `GameClient/src/org/come/until/SrcollPanelUI.java` | placeholders x4 |
 | pending | 4 | `GameClient/src/org/come/until/WebTimeUntil.java` | placeholders x4 |
@@ -227,5 +226,5 @@ This file is the temporary working ledger for point-to-point decompile restorati
 
 ## Current Suggested Order
 
-1. Client standalone hotspots: the four files still carrying FernFlower headers
-2. Re-scan after each round and update this file
+1. Re-scan and choose the next highest-yield module from the updated strong list
+2. Continue shrinking client medium files after strong files stabilize

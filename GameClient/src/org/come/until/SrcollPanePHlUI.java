@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package org.come.until;
 
 import org.come.bean.ImgZoom;
@@ -14,6 +9,9 @@ import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
+/**
+ * 灵宝/拍行类滚动条皮肤实现。
+ */
 public class SrcollPanePHlUI extends BasicScrollBarUI {
     private Color frameColor = new Color(23, 11, 15);
     private Color tranColor = new Color(0, 0, 0, 0);

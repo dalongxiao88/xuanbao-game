@@ -1,8 +1,3 @@
-//
-// Source code recreated from a .class file by IntelliJ IDEA
-// (powered by FernFlower decompiler)
-//
-
 package org.come.Frame;
 
 import com.tool.tcpimg.UIUtils;
@@ -17,6 +12,9 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+/**
+ * 星耀等级试炼相关窗口。
+ */
 public class XYDJLSJframe extends JInternalFrame implements MouseListener {
     private XYDJLSJpanel XYDJLSJpanel = new XYDJLSJpanel();
     private int first_x;
