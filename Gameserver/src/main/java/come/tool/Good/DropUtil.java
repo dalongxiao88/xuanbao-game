@@ -150,7 +150,7 @@ public class DropUtil
                         assetUpdate = new AssetUpdate(AssetUpdate.USEGOOD);
                     }
                     assetUpdate.updata(dropType.getKey() + "=" + dropType.getValue());
-                    login.setScore(DrawnitemsAction.Splice(login.getScore(), dropType.getKey() + "=" + dropType.getValue(), 2));
+                    login.setScore(DrawnitemsAction.mergeRecordEntry(login.getScore(), dropType.getKey() + "=" + dropType.getValue(), 2));
                     if (buffer.length() != 0) {
                         buffer.append("|");
                     }
@@ -171,7 +171,7 @@ public class DropUtil
                         assetUpdate = new AssetUpdate(AssetUpdate.USEGOOD);
                     }
                     assetUpdate.updata(dropType.getKey() + "=" + dropType.getValue());
-                    login.setKill(DrawnitemsAction.Splice(login.getKill(), dropType.getKey() + "=" + dropType.getValue(), 5));
+                    login.setKill(DrawnitemsAction.mergeRecordEntry(login.getKill(), dropType.getKey() + "=" + dropType.getValue(), 5));
                 }
                 else if (dropType.getDropType() == 4) {
                     if (model.getMaxGood() != null && (int)model.getMaxGood() < num) {
@@ -369,7 +369,7 @@ public class DropUtil
                         assetUpdate = new AssetUpdate(AssetUpdate.USEGOOD);
                     }
                     assetUpdate.updata(dropType.getKey() + "=" + dropType.getValue());
-                    login.setScore(DrawnitemsAction.Splice(login.getScore(), dropType.getKey() + "=" + dropType.getValue(), 2));
+                    login.setScore(DrawnitemsAction.mergeRecordEntry(login.getScore(), dropType.getKey() + "=" + dropType.getValue(), 2));
                     if (buffer.length() != 0) {
                         buffer.append("|");
                     }
@@ -390,7 +390,7 @@ public class DropUtil
                         assetUpdate = new AssetUpdate(AssetUpdate.USEGOOD);
                     }
                     assetUpdate.updata(dropType.getKey() + "=" + dropType.getValue());
-                    login.setKill(DrawnitemsAction.Splice(login.getKill(), dropType.getKey() + "=" + dropType.getValue(), 5));
+                    login.setKill(DrawnitemsAction.mergeRecordEntry(login.getKill(), dropType.getKey() + "=" + dropType.getValue(), 5));
                 }
                 else if (dropType.getDropType() == 4) {
                     if (model.getMaxGood() != null && (int)model.getMaxGood() < num) {
@@ -788,7 +788,7 @@ public class DropUtil
                     int value = (int)dropType.getValue();
                     value = (int)((double)value * xs);
                     battleEnd.upAssetData(dropType.getKey() + "=" + value);
-                    login.setScore(DrawnitemsAction.Splice(login.getScore(), dropType.getKey() + "=" + value, 2));
+                    login.setScore(DrawnitemsAction.mergeRecordEntry(login.getScore(), dropType.getKey() + "=" + value, 2));
                     if (buffer.length() != 0) {
                         buffer.append("|");
                     }
@@ -806,7 +806,7 @@ public class DropUtil
                 }
                 else if (dropType.getDropType() == 3) {
                     battleEnd.upAssetData(dropType.getKey() + "=" + dropType.getValue());
-                    login.setKill(DrawnitemsAction.Splice(login.getKill(), dropType.getKey() + "=" + dropType.getValue(), 5));
+                    login.setKill(DrawnitemsAction.mergeRecordEntry(login.getKill(), dropType.getKey() + "=" + dropType.getValue(), 5));
                 }
                 else if (dropType.getDropType() == 14) {
                     for (int m = 0; m < dropType.getDropGood().getDraws().length; ++m) {
@@ -856,8 +856,8 @@ public class DropUtil
                                         }
                                         Collections.sort(randomNums, new Comparator<RandomNum>() {
                                             @Override
-                                            public int compare(RandomNum p1, RandomNum p2) {
-                                                return Integer.compare(p1.getProbability(), p2.getProbability());
+                                            public int compare(RandomNum left, RandomNum right) {
+                                                return Integer.compare(left.getProbability(), right.getProbability());
                                             }
                                         });
                                         Boolean b = Boolean.valueOf(false);
@@ -963,8 +963,8 @@ public class DropUtil
                                         }
                                         Collections.sort(randomNums, new Comparator<RandomNum>() {
                                             @Override
-                                            public int compare(RandomNum p1, RandomNum p2) {
-                                                return Integer.compare(p1.getProbability(), p2.getProbability());
+                                            public int compare(RandomNum left, RandomNum right) {
+                                                return Integer.compare(left.getProbability(), right.getProbability());
                                             }
                                         });
                                         Boolean b = Boolean.valueOf(false);
@@ -1216,8 +1216,8 @@ public class DropUtil
                                 }
                                 Collections.sort(randomNums, new Comparator<RandomNum>() {
                                     @Override
-                                    public int compare(RandomNum p1, RandomNum p2) {
-                                        return Integer.compare(p1.getProbability(), p2.getProbability());
+                                    public int compare(RandomNum left, RandomNum right) {
+                                        return Integer.compare(left.getProbability(), right.getProbability());
                                     }
                                 });
                                 Boolean b = Boolean.valueOf(false);
@@ -1408,7 +1408,7 @@ public class DropUtil
                     assetUpdate = new AssetUpdate(type);
                 }
                 assetUpdate.updata(thing[0] + "=" + thing[1]);
-                loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), thing[0] + "=" + thing[1], 2));
+                loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), thing[0] + "=" + thing[1], 2));
                 if (buffer.length() != 0) {
                     buffer.append("|");
                 }
@@ -1421,7 +1421,7 @@ public class DropUtil
                     assetUpdate = new AssetUpdate(type);
                 }
                 assetUpdate.updata(thing[0] + "=" + thing[1]);
-                loginResult.setKill(DrawnitemsAction.Splice(loginResult.getKill(), thing[0] + "=" + thing[1], 5));
+                loginResult.setKill(DrawnitemsAction.mergeRecordEntry(loginResult.getKill(), thing[0] + "=" + thing[1], 5));
             }
             else if (thing[0].equals("帮贡")) {
                 if (assetUpdate == null) {
@@ -1526,8 +1526,8 @@ public class DropUtil
                                 }
                                 Collections.sort(randomNums, new Comparator<RandomNum>() {
                                     @Override
-                                    public int compare(RandomNum p1, RandomNum p2) {
-                                        return Integer.compare(p1.getProbability(), p2.getProbability());
+                                    public int compare(RandomNum left, RandomNum right) {
+                                        return Integer.compare(left.getProbability(), right.getProbability());
                                     }
                                 });
                                 Boolean b = Boolean.valueOf(false);
@@ -1717,7 +1717,7 @@ public class DropUtil
                     assetUpdate = new AssetUpdate(type);
                 }
                 assetUpdate.updata(thing[0] + "=" + thing[1]);
-                loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), thing[0] + "=" + thing[1], 2));
+                loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), thing[0] + "=" + thing[1], 2));
                 if (buffer.length() != 0) {
                     buffer.append("|");
                 }
@@ -1730,7 +1730,7 @@ public class DropUtil
                     assetUpdate = new AssetUpdate(type);
                 }
                 assetUpdate.updata(thing[0] + "=" + thing[1]);
-                loginResult.setKill(DrawnitemsAction.Splice(loginResult.getKill(), thing[0] + "=" + thing[1], 5));
+                loginResult.setKill(DrawnitemsAction.mergeRecordEntry(loginResult.getKill(), thing[0] + "=" + thing[1], 5));
             }
             else if (thing[0].equals("帮贡")) {
                 if (assetUpdate == null) {
