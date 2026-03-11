@@ -11,29 +11,29 @@ import java.math.BigDecimal;
 
 public interface ISellXianYuOrderService
 {
-    SellXianYuOrder selectOneByID(BigDecimal p0);
+    SellXianYuOrder selectOneByID(BigDecimal orderId);
     
     List<SellXianYuOrder> selectAll();
     
-    List<SellXianYuOrder> selectAllByRoleId(BigDecimal p0);
+    List<SellXianYuOrder> selectAllByRoleId(BigDecimal roleId);
     
-    List<SellXianyu> selectSellListByRoleId(BigDecimal p0);
+    List<SellXianyu> selectSellListByRoleId(BigDecimal roleId);
     
     List<SellXianyu> selectSellListNotDeposit();
     
-    SellXianyu selectSellByIdNotDeposit(BigDecimal p0);
+    SellXianyu selectSellByIdNotDeposit(BigDecimal saleId);
     
-    int insertOrder(SellXianYuOrder p0);
+    int insertOrder(SellXianYuOrder sellXianYuOrder);
     
-    int updateOrder(SellXianYuOrder p0);
+    int updateOrder(SellXianYuOrder sellXianYuOrder);
     
-    void addReidsSellxx(SellXianyu p0);
+    void addReidsSellxx(SellXianyu sellXianyu);
     
-    void updateRedisSellxx(SellXianyu p0);
+    void updateRedisSellxx(SellXianyu sellXianyu);
     
-    ArrayList<AssetUpdate> downSellXianyu(String p0, LoginResult p1, ChannelHandlerContext p2);
+    ArrayList<AssetUpdate> downSellXianyu(String saleId, LoginResult loginResult, ChannelHandlerContext channelHandlerContext);
     
     void calDeposit();
     
-    void calSelfDeposit(ChannelHandlerContext p0);
+    void calSelfDeposit(ChannelHandlerContext channelHandlerContext);
 }

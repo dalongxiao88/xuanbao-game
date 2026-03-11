@@ -8,23 +8,23 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface ServiceAreaMapper
 {
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal serviceAreaId);
     
-    int insert(ServiceArea p0);
+    int insert(ServiceArea serviceArea);
     
-    int insertSelective(ServiceArea p0);
+    int insertSelective(ServiceArea serviceArea);
     
-    ServiceArea selectByPrimaryKey(BigDecimal p0);
+    ServiceArea selectByPrimaryKey(BigDecimal serviceAreaId);
     
-    int updateByPrimaryKeySelective(ServiceArea p0);
+    int updateByPrimaryKeySelective(ServiceArea serviceArea);
     
-    int updateByPrimaryKey(ServiceArea p0);
+    int updateByPrimaryKey(ServiceArea serviceArea);
     
-    List<BigDecimal> selectServiceAreaid(ServiceArea p0);
+    List<BigDecimal> selectServiceAreaid(ServiceArea serviceArea);
     
     List<ServiceArea> selectAllService();
     
-    List<ServiceArea> selectListAreaForUid(BigDecimal p0);
+    List<ServiceArea> selectListAreaForUid(BigDecimal userId);
     
-    List<ServiceArea> selectServiceForPage(int p0);
+    List<ServiceArea> selectServiceForPage(int pageNum);
 }

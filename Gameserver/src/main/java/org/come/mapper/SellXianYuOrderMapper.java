@@ -8,21 +8,21 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface SellXianYuOrderMapper
 {
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal orderId);
     
-    int insert(SellXianYuOrder p0);
+    int insert(SellXianYuOrder sellXianYuOrder);
     
-    int insertSelective(SellXianYuOrder p0);
+    int insertSelective(SellXianYuOrder sellXianYuOrder);
     
-    SellXianYuOrder selectByPrimaryKey(BigDecimal p0);
+    SellXianYuOrder selectByPrimaryKey(BigDecimal orderId);
     
-    int updateByPrimaryKeySelective(SellXianYuOrder p0);
+    int updateByPrimaryKeySelective(SellXianYuOrder sellXianYuOrder);
     
-    int updateByPrimaryKey(SellXianYuOrder p0);
+    int updateByPrimaryKey(SellXianYuOrder sellXianYuOrder);
     
     List<SellXianYuOrder> selectAllNotDeposit();
     
-    List<SellXianYuOrder> selectAllByRoleId(BigDecimal p0);
+    List<SellXianYuOrder> selectAllByRoleId(BigDecimal roleId);
     
-    List<SellXianYuOrder> selectAllBySellRoleIdAndStatus(SellXianYuOrder p0);
+    List<SellXianYuOrder> selectAllBySellRoleIdAndStatus(SellXianYuOrder sellXianYuOrder);
 }

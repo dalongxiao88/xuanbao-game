@@ -8,19 +8,19 @@ public interface OpenareatableService
 {
     List<Openareatable> selectAllOpenareatable();
     
-    Integer insertOpenareatable(Openareatable p0);
+    Integer insertOpenareatable(Openareatable openAreaTable);
     
-    Integer updateOpenareatable(Openareatable p0);
+    Integer updateOpenareatable(Openareatable openAreaTable);
     
-    Integer deleteOpenareatable(BigDecimal p0);
+    Integer deleteOpenareatable(BigDecimal areaId);
     
-    List<BigDecimal> selectTuijiNum(String p0);
+    List<BigDecimal> selectTuijiNum(String areaName);
     
-    List<Openareatable> selectAllArea(BigDecimal p0);
+    List<Openareatable> selectAllArea(BigDecimal userId);
     
-    String selectBelong(String p0);
+    String selectBelong(String areaName);
     
-    String selectAtid(String p0);
+    String selectAtid(String qid);
     
-    Openareatable selectOpenareatable(String p0);
+    Openareatable selectOpenareatable(String areaName);
 }

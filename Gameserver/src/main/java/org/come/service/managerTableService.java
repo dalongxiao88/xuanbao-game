@@ -6,19 +6,19 @@ import java.math.BigDecimal;
 
 public interface managerTableService
 {
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal managerId);
     
-    int insert(managerTable p0);
+    int insert(managerTable managerTable);
     
-    int insertSelective(managerTable p0);
+    int insertSelective(managerTable managerTable);
     
-    managerTable selectByPrimaryKey(BigDecimal p0);
+    managerTable selectByPrimaryKey(BigDecimal managerId);
     
-    int updateByPrimaryKeySelective(managerTable p0);
+    int updateByPrimaryKeySelective(managerTable managerTable);
     
-    int updateByPrimaryKey(managerTable p0);
+    int updateByPrimaryKey(managerTable managerTable);
     
-    managerTable selectByUsername(managerTable p0);
+    managerTable selectByUsername(managerTable managerTable);
     
-    List<managerTable> selectManageForPage(int p0);
+    List<managerTable> selectManageForPage(int pageNum);
 }
