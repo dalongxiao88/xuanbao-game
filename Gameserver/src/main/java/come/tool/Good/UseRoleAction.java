@@ -395,8 +395,8 @@ public class UseRoleAction implements IAction
                 // 根据年龄字段进行排序
                 Collections.sort(randomNums, new Comparator<RandomNum>() {
                     @Override
-                    public int compare(RandomNum p1, RandomNum p2) {
-                        return Integer.compare(p1.getProbability(), p2.getProbability());
+                    public int compare(RandomNum left, RandomNum right) {
+                        return Integer.compare(left.getProbability(), right.getProbability());
                     }
                 });
                 Boolean b = Boolean.FALSE;
@@ -515,9 +515,9 @@ public class UseRoleAction implements IAction
                 }
                 BigDecimal scoretype = loginResult.getScoretype("光武颜色=");
                 if (scoretype.intValue() == 0) {
-                    loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "光武颜色=1", 2));
+                    loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "光武颜色=1", 2));
                 }
-                loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "光武颜色=" + colorScheme.getId(), 1));
+                loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "光武颜色=" + colorScheme.getId(), 1));
                 AssetUpdate assetUpdate2 = new AssetUpdate();
                 assetUpdate2.setType(AssetUpdate.USEGOOD);
                 assetUpdate2.setMsg("幻色成功#R" + colorScheme.getName());
@@ -694,7 +694,7 @@ public class UseRoleAction implements IAction
                 assetUpdate.updata(vs[0] + "=" + m.longValue());
                 assetUpdate.updata("G" + goodstable.getRgid() + "=" + goodstable.getUsetime());
                 assetUpdate.setMsg("使用获得" + m + "积分");
-                loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), vs[0] + "=" + vs[1], 2));
+                loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), vs[0] + "=" + vs[1], 2));
                 SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
             }
             else if (type == 2120L) {
@@ -1130,9 +1130,9 @@ public class UseRoleAction implements IAction
         String yb = pet.getResistance();
         if (yb == null || yb.equals("")) {
             int p;
-            int p2;
-            for (p = UseRoleAction.random.nextInt(SummonPetAction.kxs.length), p2 = UseRoleAction.random.nextInt(SummonPetAction.kxs.length); p2 == p; p2 = UseRoleAction.random.nextInt(SummonPetAction.kxs.length)) {}
-            pet.setResistance(SummonPetAction.kxs[p] + "|" + SummonPetAction.kxs[p2]);
+            int secondResistanceIndex;
+            for (p = UseRoleAction.random.nextInt(SummonPetAction.kxs.length), secondResistanceIndex = UseRoleAction.random.nextInt(SummonPetAction.kxs.length); secondResistanceIndex == p; secondResistanceIndex = UseRoleAction.random.nextInt(SummonPetAction.kxs.length)) {}
+            pet.setResistance(SummonPetAction.kxs[p] + "|" + SummonPetAction.kxs[secondResistanceIndex]);
         }
         AllServiceUtil.getRoleSummoningService().insertRoleSummoning(pet);
         if (pet.getQuality() != null && pet.getQuality().equals("1")) {

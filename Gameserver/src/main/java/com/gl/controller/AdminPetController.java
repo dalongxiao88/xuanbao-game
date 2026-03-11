@@ -176,16 +176,16 @@ public class AdminPetController
                 roleSummoning.setAp(roleSummoning.getAp() + ran3);
                 roleSummoning.setSp(roleSummoning.getSp() + ran4);
                 if (ran1 != 0) {
-                    four = DrawnitemsAction.Splice(four, "hp=" + ran1, 2);
+                    four = DrawnitemsAction.mergeRecordEntry(four, "hp=" + ran1, 2);
                 }
                 if (ran2 != 0) {
-                    four = DrawnitemsAction.Splice(four, "mp=" + ran2, 2);
+                    four = DrawnitemsAction.mergeRecordEntry(four, "mp=" + ran2, 2);
                 }
                 if (ran3 != 0) {
-                    four = DrawnitemsAction.Splice(four, "ap=" + ran3, 2);
+                    four = DrawnitemsAction.mergeRecordEntry(four, "ap=" + ran3, 2);
                 }
                 if (ran4 != 0) {
-                    four = DrawnitemsAction.Splice(four, "sp=" + ran4, 2);
+                    four = DrawnitemsAction.mergeRecordEntry(four, "sp=" + ran4, 2);
                 }
                 roleSummoning.setFourattributes(four);
             }
@@ -211,16 +211,16 @@ public class AdminPetController
                 roleSummoning.setAp(roleSummoning.getAp() + ran3);
                 roleSummoning.setSp(roleSummoning.getSp() + ran4);
                 if (ran1 != 0) {
-                    four = DrawnitemsAction.Splice(four, "hp=" + ran1, 2);
+                    four = DrawnitemsAction.mergeRecordEntry(four, "hp=" + ran1, 2);
                 }
                 if (ran2 != 0) {
-                    four = DrawnitemsAction.Splice(four, "mp=" + ran2, 2);
+                    four = DrawnitemsAction.mergeRecordEntry(four, "mp=" + ran2, 2);
                 }
                 if (ran3 != 0) {
-                    four = DrawnitemsAction.Splice(four, "ap=" + ran3, 2);
+                    four = DrawnitemsAction.mergeRecordEntry(four, "ap=" + ran3, 2);
                 }
                 if (ran4 != 0) {
-                    four = DrawnitemsAction.Splice(four, "sp=" + ran4, 2);
+                    four = DrawnitemsAction.mergeRecordEntry(four, "sp=" + ran4, 2);
                 }
                 roleSummoning.setFourattributes(four);
             }

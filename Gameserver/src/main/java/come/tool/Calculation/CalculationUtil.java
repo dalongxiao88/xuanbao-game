@@ -2811,42 +2811,42 @@ public class    CalculationUtil
             switch (n) {
                 case 0:
                 case 1: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "HP=27000", 2);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "HP=27000", 2);
                     break;
                 }
                 case 2: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "MP=27000", 2);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "MP=27000", 2);
                     break;
                 }
                 case 3:
                 case 4: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "AP=11000", 2);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "AP=11000", 2);
                     break;
                 }
                 case 5: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "SP=-170", 2);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "SP=-170", 2);
                     break;
                 }
                 case 6: {
                     b4 = Boolean.TRUE;
-                    skilldata = DrawnitemsAction.Splice(skilldata, "SP=250", 2);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "SP=250", 2);
                     break;
                 }
                 case 7: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "HP=32000", 2);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "HP=32000", 2);
                     break;
                 }
                 case 8: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "MP=32000", 2);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "MP=32000", 2);
                     break;
                 }
                 case 9: {
-                    skilldata = DrawnitemsAction.Splice(skilldata, "AP=15000", 2);
+                    skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "AP=15000", 2);
                     break;
                 }
                 case 10: {
                     if (!(boolean)b4) {
-                        skilldata = DrawnitemsAction.Splice(skilldata, "SP=200", 2);
+                        skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "SP=200", 2);
                         break;
                     }
                     else {
@@ -2855,7 +2855,7 @@ public class    CalculationUtil
                 }
                 case 11: {
                     if (!(boolean)b4 && !(boolean)b5) {
-                        skilldata = DrawnitemsAction.Splice(skilldata, "SP=200", 2);
+                        skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "SP=200", 2);
                         break;
                     }
                     else {
@@ -2864,7 +2864,7 @@ public class    CalculationUtil
                 }
                 case 12: {
                     if (!(boolean)b4 && !(boolean)b5) {
-                        skilldata = DrawnitemsAction.Splice(skilldata, "SP=170", 2);
+                        skilldata = DrawnitemsAction.mergeRecordEntry(skilldata, "SP=170", 2);
                         break;
                     }
                     else {

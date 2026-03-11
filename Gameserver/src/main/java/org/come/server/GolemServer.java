@@ -2453,12 +2453,12 @@ public class GolemServer extends Thread{
 
                     String yb = pet.getResistance();
                     if (yb == null|| yb.equals("")) {
-                        int p1 = GameServer.random.nextInt(SummonPetAction.kxs.length);
-                        int p2 = GameServer.random.nextInt(SummonPetAction.kxs.length);
-                        while (p2 == p1) {
-                            p2 = GameServer.random.nextInt(SummonPetAction.kxs.length);
+                        int firstResistanceIndex = GameServer.random.nextInt(SummonPetAction.kxs.length);
+                        int secondResistanceIndex = GameServer.random.nextInt(SummonPetAction.kxs.length);
+                        while (secondResistanceIndex == firstResistanceIndex) {
+                            secondResistanceIndex = GameServer.random.nextInt(SummonPetAction.kxs.length);
                         }
-                        pet.setResistance(SummonPetAction.kxs[p1] + "|" + SummonPetAction.kxs[p2]);
+                        pet.setResistance(SummonPetAction.kxs[firstResistanceIndex] + "|" + SummonPetAction.kxs[secondResistanceIndex]);
                     }
                     AllServiceUtil.getRoleSummoningService().insertRoleSummoning(pet);
 
@@ -2520,12 +2520,12 @@ public class GolemServer extends Thread{
 //
 //            String yb = pet.getResistance();
 //            if (yb == null|| yb.equals("")) {
-//                int p = GameServer.random.nextInt(SummonPetAction.kxs.length);
-//                int p2 = GameServer.random.nextInt(SummonPetAction.kxs.length);
-//                while (p2 == p) {
-//                    p2 = GameServer.random.nextInt(SummonPetAction.kxs.length);
+//                int firstResistanceIndex = GameServer.random.nextInt(SummonPetAction.kxs.length);
+//                int secondResistanceIndex = GameServer.random.nextInt(SummonPetAction.kxs.length);
+//                while (secondResistanceIndex == firstResistanceIndex) {
+//                    secondResistanceIndex = GameServer.random.nextInt(SummonPetAction.kxs.length);
 //                }
-//                pet.setResistance(SummonPetAction.kxs[p] + "|" + SummonPetAction.kxs[p2]);
+//                pet.setResistance(SummonPetAction.kxs[firstResistanceIndex] + "|" + SummonPetAction.kxs[secondResistanceIndex]);
 //            }
 //            AllServiceUtil.getRoleSummoningService().insertRoleSummoning(pet);
 //
