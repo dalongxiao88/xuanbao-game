@@ -2,9 +2,14 @@ package com.tool.tcp;
 
 import java.awt.Graphics;
 
+/**
+ * 客户端组合部件绘制接口。
+ *
+ * 该接口用于统一人物、坐骑、飞行器、光环、阴影等组合部件的绘制与叠加行为。
+ */
 public interface NewPart
 {
-    boolean contains(int p0, int p1);
+    boolean contains(int x, int y);
     
     void recycle();
     
@@ -14,23 +19,23 @@ public interface NewPart
     
     int getAct();
     
-    void setAct(int p0);
+    void setAct(int action);
     
-    NewPart addPart(NewPart p0);
+    NewPart addPart(NewPart part);
     
-    NewPart removePart(String p0);
+    NewPart removePart(String partName);
     
     int getLvl();
     
     NewPart getPart();
     
-    void setPart(NewPart p0);
+    void setPart(NewPart part);
     
-    void clearGwPart(NewPart p0);
+    void clearGwPart(NewPart part);
     
-    NewPart setPart(int p0, String p1);
+    NewPart setPart(int index, String resourcePath);
     
-    NewPart setPart(int p0, long p1, HHOne[] p2);
+    NewPart setPart(int index, long skinId, HHOne[] hhOnes);
     
     int getPy();
     
@@ -38,23 +43,23 @@ public interface NewPart
     
     int getAnimationCount();
     
-    void draw(Graphics p0, int p1, int p2, int p3, long p4);
+    void draw(Graphics graphics, int x, int y, int direction, long nowTime);
     
-    void draw(Graphics p0, int p1, int p2, int p3, long p4, float p5);
+    void draw(Graphics graphics, int x, int y, int direction, long nowTime, float alpha);
     
-    void drawEnd(Graphics p0, int p1, int p2, int p3, float p4);
+    void drawEnd(Graphics graphics, int x, int y, int direction, float alpha);
     
-    void drawBattle(Graphics p0, int p1, int p2, int p3, long p4, float p5);
+    void drawBattle(Graphics graphics, int x, int y, int direction, long nowTime, float alpha);
     
-    void setFly(String p0, int p1, Boolean p2);
+    void setFly(String skin, int action, Boolean visible);
     
-    void drawFly(Graphics p0, int p1, int p2, int p3, long p4, float p5);
+    void drawFly(Graphics graphics, int x, int y, int direction, long nowTime, float alpha);
     
-    void setFlyShadow(String p0, int p1);
+    void setFlyShadow(String skin, int action);
     
-    void drawFlyShadow(Graphics p0, int p1, int p2, int p3, long p4, float p5);
+    void drawFlyShadow(Graphics graphics, int x, int y, int direction, long nowTime, float alpha);
     
     Sprite getTCP();
     
-    void setGl(Boolean p0);
+    void setGl(Boolean visible);
 }
