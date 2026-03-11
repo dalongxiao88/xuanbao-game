@@ -10,17 +10,17 @@ public interface PalMapper
 {
     List<Pal> selectAllPal();
     
-    List<Pal> selectPalByRoleID(BigDecimal p0);
+    List<Pal> selectPalByRoleID(BigDecimal roleId);
     
-    void deletePal(BigDecimal p0);
+    void deletePal(BigDecimal palId);
     
-    void updatePal(Pal p0);
+    void updatePal(Pal pal);
     
-    void insertPal(Pal p0);
+    void insertPal(Pal pal);
     
-    void deletePalList(List<BigDecimal> p0);
+    void deletePalList(List<BigDecimal> palIds);
     
-    void updatePalList(List<Pal> p0);
+    void updatePalList(List<Pal> palList);
     
-    void insertPalList(List<Pal> p0);
+    void insertPalList(List<Pal> palList);
 }

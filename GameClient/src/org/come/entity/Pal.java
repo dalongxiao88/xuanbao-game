@@ -4,6 +4,9 @@ import java.util.List;
 import org.come.model.Lingbao;
 import java.math.BigDecimal;
 
+/**
+ * 客户端守护对象实体。
+ */
 public class Pal
 {
     private BigDecimal id;
@@ -53,9 +56,18 @@ public class Pal
     public int getpId() {
         return this.pId;
     }
+
+    /** 语义化别名：守护类型 ID。 */
+    public int getPalTypeId() {
+        return this.pId;
+    }
     
     public void setpId(int pId) {
         this.pId = pId;
+    }
+
+    public void setPalTypeId(int palTypeId) {
+        this.pId = palTypeId;
     }
     
     public BigDecimal getRoleId() {
@@ -93,9 +105,18 @@ public class Pal
     public String getPalPetSkill() {
         return this.palPetSkill;
     }
+
+    /** 语义化别名：守护技能串。 */
+    public String getPalSkillConfig() {
+        return this.palPetSkill;
+    }
     
     public void setPalPetSkill(String palPetSkill) {
         this.palPetSkill = palPetSkill;
+    }
+
+    public void setPalSkillConfig(String palSkillConfig) {
+        this.palPetSkill = palSkillConfig;
     }
     
     public List<String> getPalSkillAI() {

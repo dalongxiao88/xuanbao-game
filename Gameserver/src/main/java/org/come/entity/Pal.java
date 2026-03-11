@@ -3,6 +3,9 @@ package org.come.entity;
 import java.util.List;
 import java.math.BigDecimal;
 
+/**
+ * 守护对象实体。
+ */
 public class Pal
 {
     private BigDecimal id;
@@ -61,9 +64,18 @@ public class Pal
     public int getpId() {
         return this.pId;
     }
+
+    /** 语义化别名：守护类型 ID。 */
+    public int getPalTypeId() {
+        return this.pId;
+    }
     
     public void setpId(int pId) {
         this.pId = pId;
+    }
+
+    public void setPalTypeId(int palTypeId) {
+        this.pId = palTypeId;
     }
     
     public BigDecimal getRoleId() {
@@ -101,9 +113,18 @@ public class Pal
     public String getPalSkill() {
         return this.palSkill;
     }
+
+    /** 语义化别名：守护技能串。 */
+    public String getPalSkillConfig() {
+        return this.palSkill;
+    }
     
     public void setPalSkill(String palSkill) {
         this.palSkill = palSkill;
+    }
+
+    public void setPalSkillConfig(String palSkillConfig) {
+        this.palSkill = palSkillConfig;
     }
     
     public List<String> getPalSkillAI() {

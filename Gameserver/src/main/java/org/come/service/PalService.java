@@ -6,29 +6,29 @@ import java.math.BigDecimal;
 
 public interface PalService
 {
-    List<Pal> selectPalByRoleID(BigDecimal p0);
+    List<Pal> selectPalByRoleID(BigDecimal roleId);
     
-    Pal selectPalByID(BigDecimal p0);
+    Pal selectPalByID(BigDecimal palId);
     
-    void deletePal(BigDecimal p0);
+    void deletePal(BigDecimal palId);
     
-    void updatePal(Pal p0);
+    void updatePal(Pal pal);
     
-    void insertPal(Pal p0);
+    void insertPal(Pal pal);
     
     List<Pal> selectAllPalSql();
     
-    List<Pal> selectPalByRoleIDSql(BigDecimal p0);
+    List<Pal> selectPalByRoleIDSql(BigDecimal roleId);
     
-    void deletePalSql(BigDecimal p0);
+    void deletePalSql(BigDecimal palId);
     
-    void updatePalSql(Pal p0);
+    void updatePalSql(Pal pal);
     
-    void insertPalSql(Pal p0);
+    void insertPalSql(Pal pal);
     
-    void deletePalList(List<BigDecimal> p0);
+    void deletePalList(List<BigDecimal> palIds);
     
-    void updatePalList(List<Pal> p0);
+    void updatePalList(List<Pal> palList);
     
-    void insertPalList(List<Pal> p0);
+    void insertPalList(List<Pal> palList);
 }
