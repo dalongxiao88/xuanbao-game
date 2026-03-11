@@ -363,48 +363,48 @@ public class AssetControl implements FromServerAction {
                     NPCJfram.getNpcJfram().getNpcjpanel().taskend("和你开个小小的玩笑而已,何必动怒,这份礼物送你,你得到了#R" + stolenMoney + "#W金钱");
                 } else if (vs[i].startsWith("召唤兽碎片")) {//add@magor
                     String[] vss = vs[i].split("=");
-                    loginResult.setPetdebris(UserData.Splice(loginResult.getPetdebris(), vss[1] + "=" + vss[2], Integer.parseInt(vss[3])));
+                    loginResult.setPetdebris(UserData.mergeRecordEntry(loginResult.getPetdebris(), vss[1] + "=" + vss[2], Integer.parseInt(vss[3])));
                 } else if (vs[i].startsWith("功绩千秋")) {
                     String[] vss = vs[i].split("=");
-                    loginResult.setAchieveRecord(UserData.Splice(loginResult.getAchieveRecord(), vss[1] + "=" + vss[2], Integer.parseInt(vss[3])));
+                    loginResult.setAchieveRecord(UserData.mergeRecordEntry(loginResult.getAchieveRecord(), vss[1] + "=" + vss[2], Integer.parseInt(vss[3])));
                 } else if (vs[i].startsWith("日常任务抽奖")) {
                     String[] vss = vs[i].split("=");
-                    loginResult.setDayDraw(UserData.Splice(loginResult.getDayDraw(), vss[1] + "=" + vss[2], Integer.parseInt(vss[3])));
+                    loginResult.setDayDraw(UserData.mergeRecordEntry(loginResult.getDayDraw(), vss[1] + "=" + vss[2], Integer.parseInt(vss[3])));
                 } else if (vs[i].startsWith("击杀")) {
-                    loginResult.setKill(UserData.Splice(loginResult.getKill(), vs[i], 5));
+                    loginResult.setKill(UserData.mergeRecordEntry(loginResult.getKill(), vs[i], 5));
                 } else if (vs[i].startsWith("支援")) {
                     BigDecimal zy = loginResult.getScoretype("支援");
                     if (zy.intValue() == 0) {
-                        loginResult.setScore(UserData.Splice(loginResult.getScore(), vs[i], 2));
+                        loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), vs[i], 2));
                     }
-                    loginResult.setScore(UserData.Splice(loginResult.getScore(), vs[i], 1));
+                    loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), vs[i], 1));
                 } else if (vs[i].startsWith("首发")) {
                     BigDecimal zy = loginResult.getScoretype("首发");
                     if (zy.intValue() == 0) {
-                        loginResult.setScore(UserData.Splice(loginResult.getScore(), vs[i], 2));
+                        loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), vs[i], 2));
                     }
-                    loginResult.setScore(UserData.Splice(loginResult.getScore(), vs[i], 1));
+                    loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), vs[i], 1));
                 } else if (vs[i].startsWith("灵宝支援")) {
                     BigDecimal zy = loginResult.getScoretype("灵宝支援");
                     if (zy.intValue() == 0) {
-                        loginResult.setScore(UserData.Splice(loginResult.getScore(), vs[i], 2));
+                        loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), vs[i], 2));
                     }
-                    loginResult.setScore(UserData.Splice(loginResult.getScore(), vs[i], 1));
+                    loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), vs[i], 1));
                 } else if (vs[i].startsWith("法门选定")) {
                     BigDecimal scoretype = loginResult.getScoretype("法门选定");
                     if (scoretype.intValue() == 0) {
-                        loginResult.setScore(UserData.Splice(loginResult.getScore(), "法门选定=1", 2));
+                        loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), "法门选定=1", 2));
                     }
-                    loginResult.setScore(UserData.Splice(loginResult.getScore(), vs[i], 1));
+                    loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), vs[i], 1));
                 } else if (vs[i].startsWith("光武颜色")) {
                     BigDecimal scoretype = loginResult.getScoretype("光武颜色");
                     if (scoretype.intValue() == 0) {
-                        loginResult.setScore(UserData.Splice(loginResult.getScore(), "光武颜色=1", 2));
+                        loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), "光武颜色=1", 2));
                     }
-                    loginResult.setScore(UserData.Splice(loginResult.getScore(), vs[i], 1));
+                    loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), vs[i], 1));
                     TimeLimit.getLimits().gwChangeSkin();
                 } else {
-                    loginResult.setScore(UserData.Splice(loginResult.getScore(), vs[i], 2));
+                    loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), vs[i], 2));
                     if (vs[i].startsWith("法门")) {
                         if (SkillMainFrame.getSkillMainFrame().getSkillMainPanel().getDivisionGatePanel2().isVisible()) {
                             BigDecimal scoretype = loginResult.getScoretype("法门选定");

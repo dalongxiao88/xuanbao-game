@@ -197,7 +197,7 @@ public class WorkshopBtn extends MoBanBtn
                     String senmes2 = Agreement.suitOperateAgreement(GsonUtil.getGsonUtil().getgson().toJson(operBean));
                     SendMessageUntil.toServer(senmes2);
                     RoleData.getRoleData().getLoginResult().setGold(RoleData.getRoleData().getLoginResult().getGold().subtract(new BigDecimal(500000)));
-                    RoleData.getRoleData().getLoginResult().setScore(UserData.Splice(RoleData.getRoleData().getLoginResult().getScore(), "灵修值=200", 3));
+                    RoleData.getRoleData().getLoginResult().setScore(UserData.mergeRecordEntry(RoleData.getRoleData().getLoginResult().getScore(), "灵修值=200", 3));
                     ZhuFrame.getZhuJpanel().addPrompt("消耗了200点灵修值    扣除了5000万两");
                     this.alreadyRecordedJpanel.getLabAct().setBtn(-1);
                     this.alreadyRecordedJpanel.getLabAct().setForeground(Color.GRAY);
@@ -347,7 +347,7 @@ public class WorkshopBtn extends MoBanBtn
         operBean.setType(8);
         String senmes = Agreement.suitOperateAgreement(GsonUtil.getGsonUtil().getgson().toJson(operBean));
         SendMessageUntil.toServer(senmes);
-        loginResult.setScore(UserData.Splice(loginResult.getScore(), "灵修值=" + sxlxz, 3));
+        loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), "灵修值=" + sxlxz, 3));
         loginResult.setGold(loginResult.getGold().subtract(money));
         ZhuFrame.getZhuJpanel().addPrompt("消耗了" + sxlxz + "点灵修值       扣除了" + money + "金币..");
         CollectionJadeJframe.getCollectionJadeJframe().getJadeJpanel().clearInterface();
@@ -411,7 +411,7 @@ public class WorkshopBtn extends MoBanBtn
         String senmes = Agreement.suitOperateAgreement(GsonUtil.getGsonUtil().getgson().toJson(operBean));
         SendMessageUntil.toServer(senmes);
         loginResult.setGold(loginResult.getGold().subtract(money));
-        loginResult.setScore(UserData.Splice(loginResult.getScore(), "灵修值=" + sxlxz, 3));
+        loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), "灵修值=" + sxlxz, 3));
         ZhuFrame.getZhuJpanel().addPrompt("消耗了" + sxlxz + "点灵修值    扣除了" + money + "金币");
         this.alreadyRecordedJpanel.clearInterface();
     }
@@ -657,7 +657,7 @@ public class WorkshopBtn extends MoBanBtn
                 }
             }
             loginResult.setGold(loginResult.getGold().subtract(new BigDecimal(10000000)));
-            loginResult.setScore(UserData.Splice(loginResult.getScore(), "灵修值=" + value, 3));
+            loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), "灵修值=" + value, 3));
             List<BigDecimal> goods2 = new ArrayList<>();
             goods2.add(good1.getRgid());
             goods2.add(good2.getRgid());

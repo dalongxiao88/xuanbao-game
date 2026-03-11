@@ -80,7 +80,7 @@ public class BaptizeBtn extends MoBanBtn
             String senmes = Agreement.suitOperateAgreement(GsonUtil.getGsonUtil().getgson().toJson(operBean));
             SendMessageUntil.toServer(senmes);
             RoleData.getRoleData().getLoginResult().setGold(RoleData.getRoleData().getLoginResult().getGold().subtract(new BigDecimal(money)));
-            RoleData.getRoleData().getLoginResult().setScore(UserData.Splice(RoleData.getRoleData().getLoginResult().getScore(), "灵修值=30", 3));
+            RoleData.getRoleData().getLoginResult().setScore(UserData.mergeRecordEntry(RoleData.getRoleData().getLoginResult().getScore(), "灵修值=30", 3));
             ZhuFrame.getZhuJpanel().addPrompt("消耗了" + money + "金币..");
             ZhuFrame.getZhuJpanel().addPrompt("消耗了30点灵修值..");
         }

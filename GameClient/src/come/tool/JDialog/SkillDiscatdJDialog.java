@@ -13,7 +13,7 @@ public class SkillDiscatdJDialog implements TiShiChuLi
         if (tishi && UserData.uptael(800000L)) {
             Lingbao lingbao = RoleLingFa.getRoleLingFa().getChoseBao();
             String sikils = lingbao.getSkills();
-            lingbao.setSkills(UserData.Splice(sikils, skill, 0));
+            lingbao.setSkills(UserData.mergeRecordEntry(sikils, skill, 0));
             lingbao.UpdateLing();
             LingbaoJframe.getLingbaoJframe().getLingbaoJpanel().getLingbaoCardJpanel().getAttributeJpanel().shuxingzhanshi(lingbao);
         }

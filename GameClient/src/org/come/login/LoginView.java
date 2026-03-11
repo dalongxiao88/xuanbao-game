@@ -169,9 +169,9 @@ public class LoginView extends View
             String v = Util.readUserPwd();
             String[] vs = v.split("\\|");
             if (vs.length >= 6) {
-                v = UserData.Splice(v, vs[0], 4);
+                v = UserData.mergeRecordEntry(v, vs[0], 4);
             }
-            Util.writeUserPwd(UserData.Splice(UserData.Splice(v, userandpwd, 4), userandpwd, 0));
+            Util.writeUserPwd(UserData.mergeRecordEntry(UserData.mergeRecordEntry(v, userandpwd, 4), userandpwd, 0));
         }
     }
     
@@ -181,7 +181,7 @@ public class LoginView extends View
         int i = 0;
         while (i < vs.length) {
             if (vs[i].equals(userandpwd)) {
-                v = UserData.Splice(v, vs[i], 4);
+                v = UserData.mergeRecordEntry(v, vs[i], 4);
                 break;
             }
             else {

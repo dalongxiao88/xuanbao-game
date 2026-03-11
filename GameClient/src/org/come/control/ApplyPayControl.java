@@ -30,7 +30,7 @@ public class ApplyPayControl implements FromServerAction
                 loginResult.setMoney(Integer.valueOf((int)loginResult.getMoney() + applyPayBean.getAddC().intValue()));
             }
             if (applyPayBean.getAddCZJF() != null) {
-                loginResult.setScore(UserData.Splice(loginResult.getScore(), "充值积分=" + applyPayBean.getAddCZJF().longValue(), 2));
+                loginResult.setScore(UserData.mergeRecordEntry(loginResult.getScore(), "充值积分=" + applyPayBean.getAddCZJF().longValue(), 2));
             }
             if (applyPayBean.getAddM() != null) {
                 loginResult.setPaysum(loginResult.getPaysum().add(applyPayBean.getAddM()));
