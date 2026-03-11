@@ -23,7 +23,10 @@ import org.come.bean.LoginResult;
 
 public class GemIntensify
 {
-    public static void type101(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 宝石强化操作沿用协议编号分流，内部处理入口统一改为 `handleOperationX`。
+     */
+    public static void handleOperation101(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -74,7 +77,7 @@ public class GemIntensify
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type102(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean, BigDecimal rgid) {
+    public static void handleOperation102(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean, BigDecimal rgid) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -145,7 +148,7 @@ public class GemIntensify
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type103(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation103(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         List<Goodstable> goods = SuitComposeAction.getGoods(suitOperBean.getGoods(), loginResult.getRole_id(), 1);
         if (goods == null || goods.size() != 2 || !Goodtype.QHEquipGem(((Goodstable)goods.get(0)).getType(), ((Goodstable)goods.get(1)).getType())) {
             SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().PromptAgreement("合成公式不对"));
@@ -184,7 +187,7 @@ public class GemIntensify
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type104(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation104(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         BigDecimal money = new BigDecimal(1000000);
         if (loginResult.getGold().compareTo(money) < 0) {
             SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().PromptAgreement("金钱不足"));

@@ -42,7 +42,7 @@ public class ConfirmAciton implements IAction
             OneArenaAction.addNumOneArena(ctx, roleInfo, Integer.valueOf(type));
         }
         else if (type == 102) {
-            GemIntensify.type102(roleInfo, ctx, null, new BigDecimal(confirmBean.getValue()));
+            GemIntensify.handleOperation102(roleInfo, ctx, null, new BigDecimal(confirmBean.getValue()));
         }
         else if (type == 103) {
             HjslAction.addNumHjsl(ctx, roleInfo, Integer.valueOf(type));

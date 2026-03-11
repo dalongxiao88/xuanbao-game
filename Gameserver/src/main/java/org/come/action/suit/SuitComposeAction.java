@@ -257,19 +257,19 @@ public class SuitComposeAction implements IAction
                 break;
             }
             case 101: {
-                GemIntensify.type101(loginResult, ctx, suitOperBean);
+                GemIntensify.handleOperation101(loginResult, ctx, suitOperBean);
                 break;
             }
             case 102: {
-                GemIntensify.type102(loginResult, ctx, suitOperBean, null);
+                GemIntensify.handleOperation102(loginResult, ctx, suitOperBean, null);
                 break;
             }
             case 103: {
-                GemIntensify.type103(loginResult, ctx, suitOperBean);
+                GemIntensify.handleOperation103(loginResult, ctx, suitOperBean);
                 break;
             }
             case 104: {
-                GemIntensify.type104(loginResult, ctx, suitOperBean);
+                GemIntensify.handleOperation104(loginResult, ctx, suitOperBean);
                 break;
             }
             case 120: {
