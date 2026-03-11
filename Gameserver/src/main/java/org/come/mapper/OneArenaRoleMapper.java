@@ -9,19 +9,19 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface OneArenaRoleMapper
 {
-    int insertOneArenaRole(@Param("role") OneArenaRole p0);
+    int insertOneArenaRole(@Param("role") OneArenaRole oneArenaRole);
     
     int updateDayReset();
     
-    List<OneArenaRole> selectRankRoles(@Param("list") List<Integer> p0);
+    List<OneArenaRole> selectRankRoles(@Param("list") List<Integer> rankList);
     
-    OneArenaRole selectRole(@Param("roleID") BigDecimal p0);
+    OneArenaRole selectRole(@Param("roleID") BigDecimal roleId);
     
-    int updateRankRole(@Param("roleID") BigDecimal p0, @Param("rank") int p1, @Param("skin") String p2, @Param("name") String p3, @Param("lvl") int p4);
+    int updateRankRole(@Param("roleID") BigDecimal roleId, @Param("rank") int rank, @Param("skin") String skin, @Param("name") String name, @Param("lvl") int level);
     
-    Integer selectRank(@Param("roleID") BigDecimal p0);
+    Integer selectRank(@Param("roleID") BigDecimal roleId);
     
-    Integer selectRankPast(@Param("roleID") BigDecimal p0);
+    Integer selectRankPast(@Param("roleID") BigDecimal roleId);
     
-    int updateDayResetRole(@Param("roleID") BigDecimal p0);
+    int updateDayResetRole(@Param("roleID") BigDecimal roleId);
 }
