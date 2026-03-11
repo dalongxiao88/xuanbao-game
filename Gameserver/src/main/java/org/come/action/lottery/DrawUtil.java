@@ -135,7 +135,7 @@ public class DrawUtil
         }
         String jf = draw.getName() + "积分=" + ((type == 0) ? draw.getIntegral() : (draw.getIntegral() * 10));
         asset.updata(jf);
-        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), jf, 2));
+        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), jf, 2));
         if (draw.getIntegral() != 0) {
             asset.setMsg("你获得" + draw.getName() + "积分" + ((type == 0) ? draw.getIntegral() : (draw.getIntegral() * 10)));
         }
@@ -297,7 +297,7 @@ public class DrawUtil
         }
         String jf = draw.getName() + "积分=" + (type == 0 ? draw.getIntegral() : draw.getIntegral() * 10);
         asset.updata(jf);
-        loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), jf, 2));
+        loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), jf, 2));
         if (draw.getIntegral() != 0)
             asset.setMsg("你获得" + draw.getName() + "积分" + (type == 0 ? draw.getIntegral() : draw.getIntegral() * 10));
         bean.setPetmsg(buffer.toString());

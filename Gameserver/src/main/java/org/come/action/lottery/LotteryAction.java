@@ -321,11 +321,11 @@ public class LotteryAction implements IAction
                     MonitorUtil.getMoney().useD(money.longValue());
                 }
                 else if (draw2.getMoneyType() == 2) {//draw天梯奖池
-                    loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(), "天梯积分=" + money, 3));
+                    loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(), "天梯积分=" + money, 3));
                     asset.updata("TTJF=" + loginResult.getScore());
                 } else if (draw.getMoneyType() == 3) {//draw幸运大奖
                     loginResult.setMoney(loginResult.getMoney() - money.intValue());
-                    loginResult.setScore(DrawnitemsAction.Splice(loginResult.getScore(),"积分消耗="+ money.intValue(),2));
+                    loginResult.setScore(DrawnitemsAction.mergeRecordEntry(loginResult.getScore(),"积分消耗="+ money.intValue(),2));
                     MonitorUtil.getMoney().useC(money.intValue());
                     asset.updata("积分消耗=" + money.intValue());
                     asset.updata("C=" + -money.intValue());

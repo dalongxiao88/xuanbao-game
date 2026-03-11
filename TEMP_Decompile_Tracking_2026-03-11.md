@@ -15,11 +15,11 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Metric | Server | Client | Total |
 |---|---:|---:|---:|
 | Java files | 1439 | 1858 | 3297 |
-| Strong files | 37 | 0 | 37 |
-| Medium files | 14 | 58 | 72 |
+| Strong files | 35 | 0 | 35 |
+| Medium files | 14 | 57 | 71 |
 | FernFlower files | 0 | 0 | 0 |
 | Files with typeN defs | 1 | 0 | 1 |
-| Files with historical names | 16 | 0 | 16 |
+| Files with historical names | 14 | 0 | 14 |
 | Files with p-signatures | 18 | 0 | 18 |
 
 ## Completed This Session
@@ -48,6 +48,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | done | `GemIntensify / small interfaces` | Renamed `type101-104` to `handleOperation101-104` and cleaned the remaining placeholder parameters in `GoodsRoleUsertService` and `GxgfInterface`. |
 | done | `LingXi chain` | Replaced the remaining decompile-style parsing variables in `LxAction`, `LxPanel`, and `LingXiUtil`, switched the client pet panel to `applyLingXiBonus(...)`, and clarified the client LingXi request message variables. |
 | done | `BuyShopAction / ShoppingBuy` | Switched the remaining score updates in `BuyShopAction` to `mergeRecordEntry(...)`, renamed the leftover commented comparator parameters, and clarified the request-message variables in `ShoppingBuyBtn` and `ShoppingBuyJpanel`. |
+| done | `LotteryAction / DrawUtil / Lottery UI` | Switched the remaining lottery score merges to `mergeRecordEntry(...)` and clarified the client lottery request-message and exception variable names. |
 | done | `GameClient/src/com/tool/btn/OptionUncheckBtn.java` | Repaired the corrupted fund labels so they match the caller values again. |
 
 ## Point-to-Point Priority
@@ -78,9 +79,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | pending | P1 | 8 | `Gameserver/src/main/java/come/tool/FightingDataAction/DataAction.java` | p-signatures x1; placeholders x4 |
 | pending | P1 | 8 | `Gameserver/src/main/java/come/tool/FightingLingAction/LingAction.java` | p-signatures x1; placeholders x4 |
 | pending | P1 | 8 | `Gameserver/src/main/java/come/tool/FightingSpellAction/SpellAction.java` | p-signatures x1; placeholders x4 |
-| pending | P1 | 8 | `Gameserver/src/main/java/org/come/action/lottery/DrawUtil.java` | historical names x2 |
-| pending | P2 | 8 | `Gameserver/src/main/java/org/come/action/lottery/LotteryAction.java` | historical names x2 |
-| pending | P2 | 8 | `Gameserver/src/main/java/org/come/action/suit/StarCard.java` | historical names x2 |
+| pending | P1 | 8 | `Gameserver/src/main/java/org/come/action/suit/StarCard.java` | historical names x2 |
 | pending | P2 | 7 | `Gameserver/src/main/java/org/come/mapper/RecordMapper.java` | p-signatures x1; placeholders x3 |
 | pending | P2 | 6 | `Gameserver/src/main/java/come/tool/FightingDataAction/Petdll.java` | p-signatures x1; placeholders x2 |
 | pending | P2 | 6 | `Gameserver/src/main/java/come/tool/FightingDataAction/Yao.java` | p-signatures x1; placeholders x2 |
@@ -180,7 +179,6 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | pending | 2 | `GameClient/src/org/come/until/AES.java` | placeholders x2 |
 | pending | 2 | `GameClient/src/org/come/until/CreateTextUtil.java` | placeholders x2 |
 | pending | 2 | `GameClient/src/org/come/until/Util.java` | placeholders x2 |
-| pending | 2 | `GameClient/src/org/lottery/panel/LotteryMainPanel.java` | placeholders x2 |
 | pending | 2 | `GameClient/src/org/wing/btn/WingBtn.java` | placeholders x2 |
 | pending | 1 | `GameClient/src/com/tool/image/test/AbstractBufferedImageOp.java` | placeholders x1 |
 

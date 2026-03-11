@@ -148,8 +148,8 @@ public class LotteryMainBtn extends MoBanBtn
                     }
                     this.lotteryMainPanel.getConsumeGoodsNumber().setText(String.valueOf((int)good.getUsetime() - size));
                 }
-                String sendMes = Agreement.getFiveMsgAgreement(buffer.toString());
-                SendMessageUntil.toServer(sendMes);
+                String requestMessage = Agreement.getFiveMsgAgreement(buffer.toString());
+                SendMessageUntil.toServer(requestMessage);
                 this.lotteryMainPanel.setDrawLottery(true);
             }
         }

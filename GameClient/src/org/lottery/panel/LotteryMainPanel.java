@@ -197,8 +197,8 @@ public class LotteryMainPanel extends JPanel
     
     public void getlotteryTypeGoods(int type) {
         if (this.drawGoods == null) {
-            String sendMes = Agreement.getFiveMsgAgreement("CC" + type);
-            SendMessageUntil.toServer(sendMes);
+            String requestMessage = Agreement.getFiveMsgAgreement("CC" + type);
+            SendMessageUntil.toServer(requestMessage);
             this.clearView();
             this.drawLottery = false;
         }
@@ -220,8 +220,8 @@ public class LotteryMainPanel extends JPanel
             ((LotteryMainBtn)this.menuBtn.get(i)).setVisible(true);
             ((LotteryMainBtn)this.menuBtn.get(i)).setBounds(30 + i * 104, 25, 104, 40);
         }
-        catch (Exception var5) {
-            var5.printStackTrace();
+        catch (Exception lotteryMenuException) {
+            lotteryMenuException.printStackTrace();
         }
     }
     
