@@ -15,12 +15,12 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | Metric | Server | Client | Total |
 |---|---:|---:|---:|
 | Java files | 1439 | 1858 | 3297 |
-| Strong files | 74 | 10 | 84 |
+| Strong files | 73 | 10 | 83 |
 | Medium files | 14 | 58 | 72 |
 | FernFlower files | 0 | 0 | 0 |
 | Files with typeN defs | 7 | 0 | 7 |
 | Files with historical names | 23 | 1 | 24 |
-| Files with p-signatures | 48 | 9 | 57 |
+| Files with p-signatures | 47 | 9 | 56 |
 
 ## Completed This Session
 
@@ -34,6 +34,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | done | `RoleChangeAction` | Switched all remaining score/four-attribute merge calls from `DrawnitemsAction.Splice(...)` to `DrawnitemsAction.mergeRecordEntry(...)`. |
 | done | `SuitComposeAction` | Renamed all internal `typeN` handlers to `handleOperationX` and added a dispatch comment so the protocol-number mapping remains readable without keeping the decompile-style names. |
 | done | `Client FernFlower headers` | Removed the remaining four FernFlower header blocks and replaced them with class-level behavior comments in the affected UI files. |
+| done | `FightingSkill` | Renamed the internal `p1-p7` storage to semantic formula-parameter fields while preserving the external `getP*/setP*` API used by battle calculations. |
 | done | `GameClient/src/com/tool/btn/OptionUncheckBtn.java` | Repaired the corrupted fund labels so they match the caller values again. |
 
 ## Point-to-Point Priority
@@ -47,11 +48,10 @@ This file is the temporary working ledger for point-to-point decompile restorati
 |---|---|---:|---|---|
 | pending | P0 | 72 | `Gameserver/src/main/java/come/tool/Good/DropUtil.java` | historical names x10; p-signatures x4; placeholders x16 |
 | pending | P0 | 72 | `Gameserver/src/main/java/org/come/action/suit/NpcCompose.java` | typeN defs x12 |
-| pending | P0 | 70 | `Gameserver/src/main/java/come/tool/FightingData/FightingSkill.java` | p-signatures x7; placeholders x42 |
 | pending | P0 | 62 | `Gameserver/src/main/java/org/come/action/suit/StarCard.java` | typeN defs x9; historical names x2 |
 | pending | P0 | 44 | `Gameserver/src/main/java/come/tool/Calculation/CalculationUtil.java` | historical names x11 |
 | pending | P0 | 44 | `Gameserver/src/main/java/org/come/action/suit/SuitPetEquip.java` | typeN defs x6; historical names x2 |
-| pending | P1 | 42 | `Gameserver/src/main/java/org/come/action/suit/WingCompose.java` | typeN defs x7 |
+| pending | P0 | 42 | `Gameserver/src/main/java/org/come/action/suit/WingCompose.java` | typeN defs x7 |
 | pending | P1 | 39 | `Gameserver/src/main/java/org/come/action/suit/GemCompose.java` | typeN defs x5; p-signatures x1; placeholders x5 |
 | pending | P1 | 35 | `Gameserver/src/main/java/org/come/agent/AgentService.java` | p-signatures x7; placeholders x7 |
 | pending | P1 | 35 | `Gameserver/src/main/java/org/come/mapper/AgentMapper.java` | p-signatures x7; placeholders x7 |
@@ -65,7 +65,7 @@ This file is the temporary working ledger for point-to-point decompile restorati
 | pending | P1 | 24 | `Gameserver/src/main/java/org/come/action/suit/SuitComposeAction.java` | historical names x6 |
 | pending | P1 | 21 | `Gameserver/src/main/java/org/come/service/ChongjipackServeice.java` | p-signatures x4; placeholders x5 |
 | pending | P1 | 20 | `Gameserver/src/main/java/org/come/mapper/GangMapper.java` | p-signatures x4; placeholders x4 |
-| pending | P2 | 20 | `Gameserver/src/main/java/org/come/service/IDiceService.java` | p-signatures x4; placeholders x4 |
+| pending | P1 | 20 | `Gameserver/src/main/java/org/come/service/IDiceService.java` | p-signatures x4; placeholders x4 |
 | pending | P2 | 20 | `Gameserver/src/main/java/org/come/service/IGangService.java` | p-signatures x4; placeholders x4 |
 | pending | P2 | 20 | `Gameserver/src/main/java/org/come/service/PayvipBeanServer.java` | p-signatures x4; placeholders x4 |
 | pending | P2 | 17 | `Gameserver/src/main/java/org/come/mapper/TitletableMapper.java` | p-signatures x3; placeholders x5 |

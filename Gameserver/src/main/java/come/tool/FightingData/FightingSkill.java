@@ -36,13 +36,19 @@ public class FightingSkill implements Cloneable
     public double s5;
     public double s6;
     public double s7;
-    public double p1;
-    public double p2;
-    public double p3;
-    public double p4;
-    public double p5;
-    public double p6;
-    public double p7;
+    /**
+     * 战斗期技能公式中的通用参数槽位。
+     *
+     * 对外仍保留 `getP1` 至 `getP7` 接口，避免影响大量战斗结算调用；
+     * 内部字段改为语义化名称，降低反编译占位符残留。
+     */
+    public double formulaParameter1;
+    public double formulaParameter2;
+    public double formulaParameter3;
+    public double formulaParameter4;
+    public double formulaParameter5;
+    public double formulaParameter6;
+    public double formulaParameter7;
     public double e1;
     public double e2;
     public double e3;
@@ -87,13 +93,13 @@ public class FightingSkill implements Cloneable
         this.s5 = skill.getS5();
         this.s6 = skill.getS6();
         this.s7 = skill.getS7();
-        this.p1 = skill.getP1();
-        this.p2 = skill.getP2();
-        this.p3 = skill.getP3();
-        this.p4 = skill.getP4();
-        this.p5 = skill.getP5();
-        this.p6 = skill.getP6();
-        this.p7 = skill.getP7();
+        this.formulaParameter1 = skill.getP1();
+        this.formulaParameter2 = skill.getP2();
+        this.formulaParameter3 = skill.getP3();
+        this.formulaParameter4 = skill.getP4();
+        this.formulaParameter5 = skill.getP5();
+        this.formulaParameter6 = skill.getP6();
+        this.formulaParameter7 = skill.getP7();
         this.e1 = skill.getE1();
         this.e2 = skill.getE2();
         this.e3 = skill.getE3();
@@ -2669,59 +2675,59 @@ public class FightingSkill implements Cloneable
     }
 
     public double getP1() {
-        return p1;
+        return this.formulaParameter1;
     }
 
-    public void setP1(double p1) {
-        this.p1 = p1;
+    public void setP1(double formulaParameter1) {
+        this.formulaParameter1 = formulaParameter1;
     }
 
     public double getP2() {
-        return p2;
+        return this.formulaParameter2;
     }
 
-    public void setP2(double p2) {
-        this.p2 = p2;
+    public void setP2(double formulaParameter2) {
+        this.formulaParameter2 = formulaParameter2;
     }
 
     public double getP3() {
-        return p3;
+        return this.formulaParameter3;
     }
 
-    public void setP3(double p3) {
-        this.p3 = p3;
+    public void setP3(double formulaParameter3) {
+        this.formulaParameter3 = formulaParameter3;
     }
 
     public double getP4() {
-        return p4;
+        return this.formulaParameter4;
     }
 
-    public void setP4(double p4) {
-        this.p4 = p4;
+    public void setP4(double formulaParameter4) {
+        this.formulaParameter4 = formulaParameter4;
     }
 
     public double getP5() {
-        return p5;
+        return this.formulaParameter5;
     }
 
-    public void setP5(double p5) {
-        this.p5 = p5;
+    public void setP5(double formulaParameter5) {
+        this.formulaParameter5 = formulaParameter5;
     }
 
     public double getP6() {
-        return p6;
+        return this.formulaParameter6;
     }
 
-    public void setP6(double p6) {
-        this.p6 = p6;
+    public void setP6(double formulaParameter6) {
+        this.formulaParameter6 = formulaParameter6;
     }
 
     public double getP7() {
-        return p7;
+        return this.formulaParameter7;
     }
 
-    public void setP7(double p7) {
-        this.p7 = p7;
+    public void setP7(double formulaParameter7) {
+        this.formulaParameter7 = formulaParameter7;
     }
 
     public double getE1() {
