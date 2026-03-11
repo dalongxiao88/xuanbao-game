@@ -10,25 +10,25 @@ import org.come.annotation.MyBatisAnnotation;
 @MyBatisAnnotation
 public interface RewardHallMapper
 {
-    int countByExample(RewardHallExample p0);
+    int countByExample(RewardHallExample rewardHallExample);
     
-    int deleteByExample(RewardHallExample p0);
+    int deleteByExample(RewardHallExample rewardHallExample);
     
-    int deleteByPrimaryKey(BigDecimal p0);
+    int deleteByPrimaryKey(BigDecimal rewardId);
     
-    int insert(RewardHall p0);
+    int insert(RewardHall rewardHall);
     
-    int insertSelective(RewardHall p0);
+    int insertSelective(RewardHall rewardHall);
     
-    CopyOnWriteArrayList<RewardHall> selectByExample(RewardHallExample p0);
+    CopyOnWriteArrayList<RewardHall> selectByExample(RewardHallExample rewardHallExample);
     
-    RewardHall selectByPrimaryKey(BigDecimal p0);
+    RewardHall selectByPrimaryKey(BigDecimal rewardId);
     
-    int updateByExampleSelective(@Param("record") RewardHall p0, @Param("example") RewardHallExample p1);
+    int updateByExampleSelective(@Param("record") RewardHall rewardHall, @Param("example") RewardHallExample rewardHallExample);
     
-    int updateByExample(@Param("record") RewardHall p0, @Param("example") RewardHallExample p1);
+    int updateByExample(@Param("record") RewardHall rewardHall, @Param("example") RewardHallExample rewardHallExample);
     
-    int updateByPrimaryKeySelective(RewardHall p0);
+    int updateByPrimaryKeySelective(RewardHall rewardHall);
     
-    int updateByPrimaryKey(RewardHall p0);
+    int updateByPrimaryKey(RewardHall rewardHall);
 }
