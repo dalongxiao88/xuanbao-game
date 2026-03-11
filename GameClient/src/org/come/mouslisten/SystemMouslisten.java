@@ -1,4 +1,4 @@
-package org.come.mouslisten;
+﻿package org.come.mouslisten;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -60,61 +60,61 @@ public class SystemMouslisten implements MouseListener
     public void mouseClicked(MouseEvent e) {
         switch (this.type) {
             case 0: {
-                type0();
+                switchToWindow800x600();
                 break;
             }
             case 1: {
-                type1();
+                switchToFullscreen1024x768();
                 break;
             }
             case 101: {
-                type101();
+                switchToFullscreen1366x768();
                 break;
             }
             case 2: {
-                type2();
+                toggleBackgroundMusic();
                 break;
             }
             case 3: {
-                type3();
+                toggleSoundEffect();
                 break;
             }
             case 4: {
-                type4();
+                togglePkMode();
                 RoleSystem roleSystem = RoleData.getRoleData().getRoleSystem();
                 String senmes = Agreement.getAgreement().roleSystemAgreement(GsonUtil.getGsonUtil().getgson().toJson(roleSystem));
                 SendMessageUntil.toServer(senmes);
                 break;
             }
             case 5: {
-                type5();
+                toggleRefuseMessage();
                 break;
             }
             case 6: {
-                type6();
+                toggleShadowEffect();
                 break;
             }
             case 7: {
-                type7();
+                toggleJoinFriendPrompt();
                 break;
             }
             case 8: {
-                type8();
+                toggleJoinTeamPrompt();
                 RoleSystem roleSystem2 = RoleData.getRoleData().getRoleSystem();
                 String senmes2 = Agreement.getAgreement().roleSystemAgreement(GsonUtil.getGsonUtil().getgson().toJson(roleSystem2));
                 SendMessageUntil.toServer(senmes2);
                 break;
             }
             case 9: {
-                type9();
+                toggleTradePrompt();
                 break;
             }
             case 10: {
-                type10();
+                toggleDuelPrompt();
                 break;
             }
             case 11: {
-                type11();
+                toggleWindowShake();
                 break;
             }
             case 15: {
@@ -153,35 +153,35 @@ public class SystemMouslisten implements MouseListener
                 break;
             }
             case 31: {
-                type31();
+                toggleMiniMapAllNpc();
                 break;
             }
             case 32: {
-                type32();
+                toggleWorldMapHidePlayer();
                 break;
             }
             case 33: {
-                type33();
+                toggleWorldMapMovePoint();
                 break;
             }
             case 34: {
-                type34();
+                toggleWorldMapTaskNpc();
                 break;
             }
             case 35: {
-                type35();
+                toggleWorldMapBusinessNpc();
                 break;
             }
             case 36: {
-                type36();
+                toggleWorldMapAllNpc();
                 break;
             }
             case 37: {
-                type37();
+                toggleTitleDisplayMode();
                 break;
             }
             case 100: {
-                type100();
+                useKaiTiFont();
                 break;
             }
         }
@@ -190,7 +190,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type0() {
+    /** 切换到 800x600 窗口模式。 */
+    public static void switchToWindow800x600() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabWindow().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabFullscreen().setIcon(null);
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabWindow().setIcon(SystemMouslisten.icon);
@@ -201,7 +202,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type1() {
+    /** 切换到 1024x768 全屏模式。 */
+    public static void switchToFullscreen1024x768() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabFullscreen().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabFullscreen().setIcon(SystemMouslisten.icon);
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getResolutiontext().setText("1024x768");
@@ -212,7 +214,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type101() {
+    /** 切换到 1366x768 全屏模式。 */
+    public static void switchToFullscreen1366x768() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabFullscreen1().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabFullscreen().setIcon(null);
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabWindow().setIcon(null);
@@ -223,7 +226,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type2() {
+    /** 开关背景音乐。 */
+    public static void toggleBackgroundMusic() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabMusic().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabMusic().setIcon(SystemMouslisten.icon);
             Music.kz1 = true;
@@ -235,7 +239,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type3() {
+    /** 开关音效。 */
+    public static void toggleSoundEffect() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabSound().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabSound().setIcon(SystemMouslisten.icon);
             Music.kz2 = true;
@@ -246,7 +251,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type4() {
+    /** 开关玩家 PK 模式。 */
+    public static void togglePkMode() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabPlayswitch().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabPlayswitch().setIcon(SystemMouslisten.icon);
             RoleSystem roleSystem = RoleData.getRoleData().getRoleSystem();
@@ -259,7 +265,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type5() {
+    /** 开关拒收消息。 */
+    public static void toggleRefuseMessage() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabRefusemsg().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabRefusemsg().setIcon(SystemMouslisten.icon);
         }
@@ -268,7 +275,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type6() {
+    /** 开关阴影显示。 */
+    public static void toggleShadowEffect() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabLetter().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabLetter().setIcon(SystemMouslisten.icon);
             ImageMixDeal.isShadow = true;
@@ -279,7 +287,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type7() {
+    /** 开关加入好友提醒。 */
+    public static void toggleJoinFriendPrompt() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabJoinfriends().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabJoinfriends().setIcon(SystemMouslisten.icon);
             RoleSystem roleSystem = RoleData.getRoleData().getRoleSystem();
@@ -292,7 +301,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type8() {
+    /** 开关组队邀请提醒。 */
+    public static void toggleJoinTeamPrompt() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabReceiveitems().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabReceiveitems().setIcon(SystemMouslisten.icon);
             RoleSystem roleSystem = RoleData.getRoleData().getRoleSystem();
@@ -305,7 +315,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type9() {
+    /** 开关交易邀请提醒。 */
+    public static void toggleTradePrompt() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabAcceptteam().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabAcceptteam().setIcon(SystemMouslisten.icon);
             RoleSystem roleSystem = RoleData.getRoleData().getRoleSystem();
@@ -318,7 +329,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type10() {
+    /** 开关切磋邀请提醒。 */
+    public static void toggleDuelPrompt() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabSkillFull().getIcon() == null) {
             if (Objects.equals(GetTcpPath.STRTMPXJ, "1")){
                 ZhuFrame.getZhuJpanel().addPrompt2("新版法术不支持全屏，请关闭新版后重试");
@@ -333,7 +345,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type11() {
+    /** 开关窗口抖动效果。 */
+    public static void toggleWindowShake() {
         if (TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabMusicNew().getIcon() == null) {
             TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getLabMusicNew().setIcon(SystemMouslisten.icon);
             Music.MusicNew = "1";
@@ -436,7 +449,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type31() {
+    /** 开关小地图 NPC 总显示。 */
+    public static void toggleMiniMapAllNpc() {
         if (TestsmallmapJpanel.getQbnpx().getIcon() == null) {
             TestsmallmapJpanel.getQbnpx().setIcon(new ImageIcon("inkImg/button/13.png"));
             TestsmallmapJpanel.getSynpc().setIcon(new ImageIcon("inkImg/button/13.png"));
@@ -453,7 +467,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type32() {
+    /** 开关世界地图隐藏玩家。 */
+    public static void toggleWorldMapHidePlayer() {
         if (WorldTestsmallmapJpanel.getLabNoCWorld().getIcon() == null) {
             WorldTestsmallmapJpanel.getLabNoCWorld().setIcon(new ImageIcon("inkImg/button/13.png"));
             WorldTestsmallmapJpanel.getQbnpxWorld().setIcon(null);
@@ -464,7 +479,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type33() {
+    /** 开关世界地图移动点显示。 */
+    public static void toggleWorldMapMovePoint() {
         if (WorldTestsmallmapJpanel.getMoveWorld().getIcon() == null) {
             WorldTestsmallmapJpanel.getMoveWorld().setIcon(new ImageIcon("inkImg/button/13.png"));
             WorldTestsmallmapJpanel.getQbnpxWorld().setIcon(null);
@@ -475,7 +491,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type34() {
+    /** 开关世界地图任务 NPC 显示。 */
+    public static void toggleWorldMapTaskNpc() {
         if (WorldTestsmallmapJpanel.getRwnpcWorld().getIcon() == null) {
             WorldTestsmallmapJpanel.getRwnpcWorld().setIcon(new ImageIcon("inkImg/button/13.png"));
             WorldTestsmallmapJpanel.getQbnpxWorld().setIcon(null);
@@ -486,7 +503,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type35() {
+    /** 开关世界地图商业 NPC 显示。 */
+    public static void toggleWorldMapBusinessNpc() {
         if (WorldTestsmallmapJpanel.getSynpcWorld().getIcon() == null) {
             WorldTestsmallmapJpanel.getSynpcWorld().setIcon(new ImageIcon("inkImg/button/13.png"));
             WorldTestsmallmapJpanel.getQbnpxWorld().setIcon(null);
@@ -497,7 +515,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type36() {
+    /** 开关世界地图全部 NPC 显示。 */
+    public static void toggleWorldMapAllNpc() {
         if (WorldTestsmallmapJpanel.getQbnpxWorld().getIcon() == null) {
             WorldTestsmallmapJpanel.getQbnpxWorld().setIcon(new ImageIcon("inkImg/button/13.png"));
             WorldTestsmallmapJpanel.getSynpcWorld().setIcon(new ImageIcon("inkImg/button/13.png"));
@@ -514,7 +533,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type37() {
+    /** 切换称号显示模式。 */
+    public static void toggleTitleDisplayMode() {
         if (TeststateJpanel.getQhnum().equals("1")) {
             TeststateJpanel.setQhnum("2");
         }
@@ -523,7 +543,8 @@ public class SystemMouslisten implements MouseListener
         }
     }
     
-    public static void type100() {
+    /** 切换字体到楷体。 */
+    public static void useKaiTiFont() {
         TestSetupJframe.getTestSetupJframe().getTestSetupJpanel().getFontsizetext().setText("楷体");
         TestSetupJpanel.nameFont = new Font("楷体", 0, 18);
     }
@@ -539,9 +560,9 @@ public class SystemMouslisten implements MouseListener
     }
     
     public static void Systeminitial() {
-        type0();
-        type1();
-        type101();
+        switchToWindow800x600();
+        switchToFullscreen1024x768();
+        switchToFullscreen1366x768();
         TestSetupJpanel setupJpanel = TestSetupJframe.getTestSetupJframe().getTestSetupJpanel();
         setupJpanel.getLabMusic().setIcon(SystemMouslisten.icon);
         setupJpanel.getLabMusicNew().setIcon(SystemMouslisten.icon);
@@ -944,6 +965,48 @@ public class SystemMouslisten implements MouseListener
         catch (Exception ex) {}
     }
     
+    /** 兼容旧命名：切换到 800x600 窗口模式。 */
+    public static void type0() { switchToWindow800x600(); }
+    /** 兼容旧命名：切换到 1024x768 全屏模式。 */
+    public static void type1() { switchToFullscreen1024x768(); }
+    /** 兼容旧命名：切换到 1366x768 全屏模式。 */
+    public static void type101() { switchToFullscreen1366x768(); }
+    /** 兼容旧命名：背景音乐开关。 */
+    public static void type2() { toggleBackgroundMusic(); }
+    /** 兼容旧命名：音效开关。 */
+    public static void type3() { toggleSoundEffect(); }
+    /** 兼容旧命名：玩家 PK 模式开关。 */
+    public static void type4() { togglePkMode(); }
+    /** 兼容旧命名：拒收消息开关。 */
+    public static void type5() { toggleRefuseMessage(); }
+    /** 兼容旧命名：阴影显示开关。 */
+    public static void type6() { toggleShadowEffect(); }
+    /** 兼容旧命名：好友提醒开关。 */
+    public static void type7() { toggleJoinFriendPrompt(); }
+    /** 兼容旧命名：组队提醒开关。 */
+    public static void type8() { toggleJoinTeamPrompt(); }
+    /** 兼容旧命名：交易提醒开关。 */
+    public static void type9() { toggleTradePrompt(); }
+    /** 兼容旧命名：切磋提醒开关。 */
+    public static void type10() { toggleDuelPrompt(); }
+    /** 兼容旧命名：窗口抖动开关。 */
+    public static void type11() { toggleWindowShake(); }
+    /** 兼容旧命名：小地图 NPC 总显示。 */
+    public static void type31() { toggleMiniMapAllNpc(); }
+    /** 兼容旧命名：世界地图隐藏玩家。 */
+    public static void type32() { toggleWorldMapHidePlayer(); }
+    /** 兼容旧命名：世界地图移动点显示。 */
+    public static void type33() { toggleWorldMapMovePoint(); }
+    /** 兼容旧命名：世界地图任务 NPC 显示。 */
+    public static void type34() { toggleWorldMapTaskNpc(); }
+    /** 兼容旧命名：世界地图商业 NPC 显示。 */
+    public static void type35() { toggleWorldMapBusinessNpc(); }
+    /** 兼容旧命名：世界地图全部 NPC 显示。 */
+    public static void type36() { toggleWorldMapAllNpc(); }
+    /** 兼容旧命名：称号显示模式切换。 */
+    public static void type37() { toggleTitleDisplayMode(); }
+    /** 兼容旧命名：字体切换到楷体。 */
+    public static void type100() { useKaiTiFont(); }
     static {
         icon = new ImageIcon("inkImg/button/B88.png");
         icon1 = new ImageIcon("img/xy2uiimg/showjadesuit.png");
