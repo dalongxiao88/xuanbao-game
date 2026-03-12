@@ -101,8 +101,8 @@ public class TournamentsScreen4Jpanel extends JPanel {
          Date pickUpDate = inputFormat.parse(this.Data.pickUpTime);
          formattedPickUpTime = outputFormat.format(pickUpDate);
          canPickUp = new Date().after(pickUpDate);
-      } catch (ParseException var20) {
-         var20.printStackTrace();
+      } catch (ParseException exception) {
+         exception.printStackTrace();
       }
 
       if (canPickUp) {
@@ -368,8 +368,8 @@ public class TournamentsScreen4Jpanel extends JPanel {
             for (int i = 0; i < count && i < size; i++) {
                lastItems[i] = allItems.get(size - count + i);
             }
-         } catch (Exception var15) {
-            var15.printStackTrace();
+         } catch (Exception exception) {
+            exception.printStackTrace();
          }
 
          return lastItems;
@@ -398,7 +398,7 @@ public class TournamentsScreen4Jpanel extends JPanel {
       try {
          int value = Integer.parseInt(number);
          return String.valueOf(Math.min(value, 5));
-      } catch (NumberFormatException var3) {
+      } catch (NumberFormatException exception) {
          return "0";
       }
    }

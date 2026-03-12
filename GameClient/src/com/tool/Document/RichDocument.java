@@ -109,8 +109,8 @@ public class RichDocument extends PlainDocument
             buffer.append(text);
             return buffer.toString();
         }
-        catch (BadLocationException var7) {
-            var7.printStackTrace();
+        catch (BadLocationException exception) {
+            exception.printStackTrace();
             return null;
         }
     }

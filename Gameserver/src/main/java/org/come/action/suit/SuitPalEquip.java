@@ -143,7 +143,10 @@ public class SuitPalEquip
         good.setValue(buffer.toString());
     }
     
-    public static void type62(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    /**
+     * 守护装备相关操作沿用协议编号分流，内部处理入口统一改为 `handleOperationX`。
+     */
+    public static void handleOperation62(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;
@@ -217,7 +220,7 @@ public class SuitPalEquip
         SendMessage.sendMessageToSlef(ctx, Agreement.getAgreement().assetAgreement(GsonUtil.getGsonUtil().getgson().toJson(assetUpdate)));
     }
     
-    public static void type70(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
+    public static void handleOperation70(LoginResult loginResult, ChannelHandlerContext ctx, SuitOperBean suitOperBean) {
         RoleData roleData = RolePool.getRoleData(loginResult.getRole_id());
         if (roleData == null) {
             return;

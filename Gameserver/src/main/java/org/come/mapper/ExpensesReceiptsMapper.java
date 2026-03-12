@@ -1,4 +1,4 @@
-﻿package org.come.mapper;
+package org.come.mapper;
 
 import org.come.bean.DayForOneAreaServiceMonthBean;
 import org.come.bean.OneAreaServiceMonthBean;

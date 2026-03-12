@@ -20,11 +20,10 @@ import org.come.tool.WriteOut;
 import org.come.redis.RedisParameterUtil;
 import org.come.redis.RedisPoolUntil;
 
-public class RedisEqualWithSqlThread implements Runnable
-{
+public class RedisEqualWithSqlThread implements Runnable {
     public static Object object;
     private static DataBaseControl dataBaseControl;
-    
+
     @Override
     public void run() {
         AllToDatabase();
@@ -45,12 +44,12 @@ public class RedisEqualWithSqlThread implements Runnable
                     System.out.println(size + ":" + redisChangeMap.size());
                 }
             }
-            DataBaseControl.manageBaby.ClearList();
-            DataBaseControl.manageGoodstable.ClearList();
-            DataBaseControl.manageLingBao.ClearList();
-            DataBaseControl.manageMount.ClearList();
-            DataBaseControl.managePal.ClearList();
-            DataBaseControl.managePet.ClearList();
+            DataBaseControl.manageBaby.flushPendingChanges();
+            DataBaseControl.manageGoodstable.flushPendingChanges();
+            DataBaseControl.manageLingBao.flushPendingChanges();
+            DataBaseControl.manageMount.flushPendingChanges();
+            DataBaseControl.managePal.flushPendingChanges();
+            DataBaseControl.managePet.flushPendingChanges();
             if (size == 0) {
                 System.err.println("本次没有物品数据同步");
                 return;

@@ -231,8 +231,8 @@ public class MapDecoder
             this.mapFile.readFully(jpegBuf2);
             return jpegBuf2;
         }
-        catch (IOException var3) {
-            var3.printStackTrace();
+        catch (IOException exception) {
+            exception.printStackTrace();
             return null;
         }
     }
@@ -245,8 +245,8 @@ public class MapDecoder
             String ex = new String(buf);
             return ex.equals("GEPJ");
         }
-        catch (IOException var3) {
-            var3.printStackTrace();
+        catch (IOException exception) {
+            exception.printStackTrace();
             return false;
         }
     }
@@ -258,8 +258,8 @@ public class MapDecoder
             String ex = new String(buf);
             return ex.equals("LLEC");
         }
-        catch (IOException var3) {
-            var3.printStackTrace();
+        catch (IOException exception) {
+            exception.printStackTrace();
             return false;
         }
     }
@@ -277,8 +277,8 @@ public class MapDecoder
                 return this.isNew = true;
             }
         }
-        catch (IOException var3) {
-            var3.printStackTrace();
+        catch (IOException exception) {
+            exception.printStackTrace();
         }
         return false;
     }

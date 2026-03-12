@@ -1,4 +1,4 @@
-﻿package org.come.Jpanel;
+package org.come.Jpanel;
 
 import java.util.Comparator;
 import java.awt.Image;
@@ -594,8 +594,8 @@ public class WorldMapJpanel extends JPanel
                 try {
                     TP.tp(door, 1);
                 }
-                catch (Exception var9) {
-                    var9.printStackTrace();
+                catch (Exception exception) {
+                    exception.printStackTrace();
                 }
             }
         }

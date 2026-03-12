@@ -24,7 +24,6 @@ public class CreateTextUtil
         FileInputStream fi = new FileInputStream(file);
         byte[] buffer = new byte[(int)fileSize];
         int offset = 0;
-        boolean var7 = false;
         int numRead;
         while (offset < buffer.length && (numRead = fi.read(buffer, offset, buffer.length - offset)) >= 0) {
             offset += numRead;
@@ -43,7 +42,6 @@ public class CreateTextUtil
         FileInputStream in = new FileInputStream(filePath);
         ByteArrayOutputStream out = new ByteArrayOutputStream(1024);
         byte[] temp = new byte[1024];
-        boolean var4 = false;
         int size;
         while ((size = in.read(temp)) != -1) {
             out.write(temp, 0, size);

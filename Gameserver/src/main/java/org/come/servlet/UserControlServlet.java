@@ -1,4 +1,4 @@
-﻿package org.come.servlet;
+package org.come.servlet;
 
 import com.gl.controller.UserController;
 import com.gl.model.Result;

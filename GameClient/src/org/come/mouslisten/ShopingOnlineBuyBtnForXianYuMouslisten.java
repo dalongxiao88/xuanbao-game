@@ -57,8 +57,8 @@ public class ShopingOnlineBuyBtnForXianYuMouslisten implements MouseListener
                         String senmes = Agreement.getAgreement().nbuyAgreement(GsonUtil.getGsonUtil().getgson().toJson(bean));
                         SendMessageUntil.toServer(senmes);
                     }
-                    catch (Exception var6) {
-                        var6.printStackTrace();
+                    catch (Exception exception) {
+                        exception.printStackTrace();
                     }
                 }
             }

@@ -30,8 +30,8 @@ public class FileRandom
                     this.randomFile.close();
                     this.randomFile = null;
                 }
-                catch (Exception var3) {
-                    var3.printStackTrace();
+                catch (Exception exception) {
+                    exception.printStackTrace();
                 }
                 return true;
             }

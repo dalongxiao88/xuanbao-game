@@ -76,8 +76,8 @@ public class ScrollUIS extends BasicScrollBarUI
         try {
             this.upBtnIcons = CutButtonImage.cuts("inkImg/hongmu/24.png");
         }
-        catch (Exception var3) {
-            var3.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
         (this.up = new JButton()).setBorderPainted(false);
         this.up.setContentAreaFilled(false);
@@ -123,8 +123,8 @@ public class ScrollUIS extends BasicScrollBarUI
         try {
             this.downBtnIcons = CutButtonImage.cuts("inkImg/hongmu/25.png");
         }
-        catch (Exception var3) {
-            var3.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
         (this.down = new JButton()).setBorderPainted(false);
         this.down.setContentAreaFilled(false);

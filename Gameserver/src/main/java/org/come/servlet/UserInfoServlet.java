@@ -1,4 +1,4 @@
-﻿package org.come.servlet;
+package org.come.servlet;
 
 import java.io.PrintWriter;
 import com.auth0.jwt.JWTVerifier;

@@ -27,7 +27,7 @@ public class AESUtil
             byte[] result = cipher.doFinal(message.getBytes(StandardCharsets.UTF_8));
             return result;
         }
-        catch (Exception var8) {
+        catch (Exception exception) {
             return null;
         }
     }
@@ -50,8 +50,8 @@ public class AESUtil
             String info = new String(result, StandardCharsets.UTF_8);
             return info;
         }
-        catch (Exception var11) {
-            var11.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
             return null;
         }
     }

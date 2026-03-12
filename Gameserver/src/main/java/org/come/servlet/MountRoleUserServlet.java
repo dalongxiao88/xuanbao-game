@@ -1,4 +1,4 @@
-﻿package org.come.servlet;
+package org.come.servlet;
 
 import java.util.List;
 import java.io.PrintWriter;

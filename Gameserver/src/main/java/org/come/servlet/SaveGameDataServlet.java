@@ -1,4 +1,4 @@
-﻿package org.come.servlet;
+package org.come.servlet;
 
 import java.io.PrintWriter;
 
@@ -39,8 +39,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServlet;
 
-public class SaveGameDataServlet extends HttpServlet
-{
+/**
+ * 后台管理端：触发当前游戏运行数据保存。
+ */
+public class SaveGameDataServlet extends HttpServlet {
     @Override
     public void destroy() {
         super.destroy();
@@ -68,32 +70,32 @@ public class SaveGameDataServlet extends HttpServlet
             System.out.println("【PayvipBeanServlet】非法请求！！,已踢出");
             return;
         }
-        HashMap returnData = new HashMap<>();
+        Map<String, Object> returnData = new HashMap<>();
         try {
             System.err.println("开始处理摆摊物品");
             StallPool.getPool().guanbi();
             System.err.println("开始保存擂台赛积分数据");
             LTSUtil.getLtsUtil().BCLts();
         }
-        catch (Exception var13) {
-            var13.printStackTrace();
+        catch (Exception stallSaveException) {
+            stallSaveException.printStackTrace();
         }
         try {
             Thread.sleep(2000L);
         }
-        catch (Exception var14) {
-            var14.printStackTrace();
+        catch (Exception waitBeforeGangFlushException) {
+            waitBeforeGangFlushException.printStackTrace();
         }
         try {
             BangFileSystem.getBangFileSystem().DataSaving(BangBattlePool.getBangBattlePool());
             GangUtil.upGangs(false);
         }
-        catch (Exception var15) {
-            var15.printStackTrace();
+        catch (Exception gangSyncException) {
+            gangSyncException.printStackTrace();
         }
         System.err.println("开始备份玩家数据");
-        for (Map.Entry entrys : GameServer.getAllLoginRole().entrySet()) {
-            LoginResult loginResult = (LoginResult)entrys.getValue();
+        for (Map.Entry<?, ?> roleEntry : GameServer.getAllLoginRole().entrySet()) {
+            LoginResult loginResult = (LoginResult)roleEntry.getValue();
             if (loginResult != null) {
                 try {
                     loginResult.setUptime(String.valueOf(System.currentTimeMillis()));
@@ -101,9 +103,9 @@ public class SaveGameDataServlet extends HttpServlet
                     roleData.roleRecover(loginResult);
                     RedisControl.addUpDate(loginResult, roleData.getPackRecord());
                 }
-                catch (Exception var16) {
+                catch (Exception playerBackupException) {
                     System.err.println("处理玩家备份失败" + loginResult.getRolename());
-                    var16.printStackTrace();
+                    playerBackupException.printStackTrace();
                 }
             }
         }
@@ -112,8 +114,8 @@ public class SaveGameDataServlet extends HttpServlet
             Thread.sleep(10000L);
             RedisEqualWithSqlThread.AllToDatabase();
         }
-        catch (Exception var17) {
-            var17.printStackTrace();
+        catch (Exception databaseSyncException) {
+            databaseSyncException.printStackTrace();
         }
         if (WriteOut.buffer != null) {
             WriteOut.writeTxtFile(WriteOut.buffer.toString());
@@ -138,8 +140,8 @@ public class SaveGameDataServlet extends HttpServlet
             CreateTextUtil.createFile(ReadExelTool.class.getResource("/").getPath() + "money.txt", GsonUtil.getGsonUtil().getgson().toJson(MonitorUtil.getMoney()).getBytes());
             RefreshMonsterTask.upBuyCount(-1, false);
         }
-        catch (IOException var18) {
-            var18.printStackTrace();
+        catch (IOException exportException) {
+            exportException.printStackTrace();
         }
         returnData.put("status", Integer.valueOf(200));
         returnData.put("mes", "系统将会在5S后完成数据保存");

@@ -53,7 +53,7 @@ public class AES
         try {
             return new String(decrypt(hex2byte(data.getBytes()), "YUUAtestYUUAtest"));
         }
-        catch (Exception var2) {
+        catch (Exception exception) {
             return null;
         }
     }
@@ -62,7 +62,7 @@ public class AES
         try {
             return byte2hex(encrypt(data.getBytes(), "YUUAtestYUUAtest"));
         }
-        catch (Exception var2) {
+        catch (Exception exception) {
             return null;
         }
     }

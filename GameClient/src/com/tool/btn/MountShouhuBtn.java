@@ -41,6 +41,10 @@ import org.come.MountShouHu.RandFJpanel;
 import org.come.MountShouHu.xuanzeJpanel;
 import org.come.Jpanel.MountShouhuJpanel;
 
+/**
+ * 坐骑守护系统的通用按钮。
+ * 统一承载守护切页、格位解锁、材料操作和守护洗炼入口。
+ */
 public class MountShouhuBtn extends MoBanBtn
 {
     int caozuo;
@@ -147,7 +151,7 @@ public class MountShouhuBtn extends MoBanBtn
     }
     
     @Override
-    public void nochoose(MouseEvent p0) {
+    public void nochoose(MouseEvent event) {
         try {
             switch (this.caozuo) {
                 case 0: {
@@ -883,7 +887,7 @@ public class MountShouhuBtn extends MoBanBtn
                     else if (v == 6 && k < 24) {
                         return;
                     }
-                    jiesuo(p0, this.caozuo - 50);
+                    jiesuo(event, this.caozuo - 50);
                     break;
                 }
                 case 60:
@@ -893,7 +897,7 @@ public class MountShouhuBtn extends MoBanBtn
                 case 64:
                 case 65:
                 case 66: {
-                    if (p0.getButton() == 3) {
+                    if (event.getButton() == 3) {
                         MountShouhuJframe.getMountShouhuJframe().getMountShouhuJpanel().shouhuBtn[this.caozuo - 60].setIcons(MountShouhuJpanel.imageIcons2);
                         if (RoleData.getRoleData().getLoginResult().getJiesuo() == null) {
                             return;
@@ -946,11 +950,14 @@ public class MountShouhuBtn extends MoBanBtn
         }
     }
     
-    public static void jiesuo(MouseEvent p0, int i) {
+    /**
+     * 解锁坐骑守护栏位，左键执行正常解锁流程，右键执行快捷解锁检查。
+     */
+    public static void jiesuo(MouseEvent event, int i) {
         LoginResult loginResult = RoleData.getRoleData().getLoginResult();
         Goodstable ltrGoods = getGoodType(2258L);
         int num = (ltrGoods == null) ? 0 : ((int)ltrGoods.getUsetime());
-        if (p0.getButton() == 3) {
+        if (event.getButton() == 3) {
             if (loginResult.getJiesuo() == null) {
                 if (i != 0) {
                     ZhuFrame.getZhuJpanel().addPrompt("请先解锁第一栏位");
@@ -1028,7 +1035,7 @@ public class MountShouhuBtn extends MoBanBtn
                 loginResult.setJiesuo(m.toString());
             }
         }
-        else if (p0.getButton() == 1) {
+        else if (event.getButton() == 1) {
             if (loginResult.getJiesuo() == null) {
                 ZhuFrame.getZhuJpanel().addPrompt("请先解锁栏位");
                 return;

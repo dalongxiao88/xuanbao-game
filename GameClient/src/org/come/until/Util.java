@@ -1,4 +1,4 @@
-﻿package org.come.until;
+package org.come.until;
 
 import com.tool.tcp.GetTcpPath;
 import com.tool.tcp.SpriteFactory;
@@ -1394,8 +1394,8 @@ public class Util
                 try {
                     TP.tp(door, 1);
                 }
-                catch (Exception var9) {
-                    var9.printStackTrace();
+                catch (Exception exception) {
+                    exception.printStackTrace();
                 }
             }
         }

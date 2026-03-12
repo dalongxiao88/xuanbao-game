@@ -41,6 +41,10 @@ import java.awt.Font;
 import java.util.ArrayList;
 import javax.swing.JComponent;
 
+/**
+ * 富文本显示组件。
+ * 负责解析聊天、提示和道具描述里混排的文字、表情、按钮与物品片段。
+ */
 public class RichLabel extends JComponent {
     private static final long serialVersionUID = 4898130145332371300L;
     public ArrayList<Object> sectionList;
@@ -498,12 +502,12 @@ public class RichLabel extends JComponent {
                     if (rowWidth + dx2 <= maxwidth) {
                         rowWidth += dx2;
                     } else {
-                        Point p2 = this.paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
+                        Point wrappedPoint = this.paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
                         start = i + 1;
-                        rowWidth = p2.x;
+                        rowWidth = wrappedPoint.x;
                         rowHeight = fm2.getHeight();
-                        x = p2.x;
-                        y = p2.y;
+                        x = wrappedPoint.x;
+                        y = wrappedPoint.y;
                     }
                 }
             }
@@ -572,12 +576,12 @@ public class RichLabel extends JComponent {
                     if (rowWidth + dx2 <= maxwidth) {
                         rowWidth += dx2;
                     } else {
-                        Point p2 = this.paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
+                        Point wrappedPoint = this.paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
                         start = i + 1;
-                        rowWidth = p2.x;
+                        rowWidth = wrappedPoint.x;
                         rowHeight = fm2.getHeight();
-                        x = p2.x;
-                        y = p2.y;
+                        x = wrappedPoint.x;
+                        y = wrappedPoint.y;
                     }
                 }
             }
@@ -786,12 +790,12 @@ public class RichLabel extends JComponent {
                     if (rowWidth + dx2 <= maxwidth) {
                         rowWidth += dx2;
                     } else {
-                        Point p2 = this.paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
+                        Point wrappedPoint = this.paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
                         start = i + 1;
-                        rowWidth = p2.x;
+                        rowWidth = wrappedPoint.x;
                         rowHeight = fm2.getHeight();
-                        x = p2.x;
-                        y = p2.y;
+                        x = wrappedPoint.x;
+                        y = wrappedPoint.y;
                     }
                 }
             }
@@ -1108,21 +1112,21 @@ public class RichLabel extends JComponent {
                         if (rowWidth + dx2 <= maxwidth) {
                             rowWidth += dx2;
                         } else {
-                            Point p2 = this.paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
+                            Point wrappedPoint = this.paintRichText(g, x, y, maxwidth, rowHeight, start, i + 1);
                             start = i + 1;
-                            rowWidth = p2.x;
+                            rowWidth = wrappedPoint.x;
                             rowHeight = fm2.getHeight();
-                            x = p2.x;
-                            y = p2.y;
+                            x = wrappedPoint.x;
+                            y = wrappedPoint.y;
                         }
                     }
                 }
             }
-            Point p3 = this.paintRichText(g, x, y, maxwidth, rowHeight, start, count);
+            Point finalPoint = this.paintRichText(g, x, y, maxwidth, rowHeight, start, count);
             if (is) {
                 maxwidth = 0;
-            } else if (y == 0 && p3.x != 0) {
-                maxwidth = p3.x;
+            } else if (y == 0 && finalPoint.x != 0) {
+                maxwidth = finalPoint.x;
             }
             return new Dimension(maxwidth, y + rowHeight + 4);
         }

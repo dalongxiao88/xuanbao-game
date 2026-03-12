@@ -1,4 +1,4 @@
-﻿package org.come.XuanBao;
+package org.come.XuanBao;
 
 import com.tool.tcpimg.UIUtils;
 
@@ -338,8 +338,8 @@ public class XuanBaoEquipmentJpanel
 
         try {
             chooseDownArrows.setIcons(CutButtonImage.cuts("img/xuan/xl100.png"));
-        } catch (Exception var11) {
-            throw new RuntimeException(var11);
+        } catch (Exception exception) {
+            throw new RuntimeException(exception);
         }
 
         this.add(chooseDownArrows);

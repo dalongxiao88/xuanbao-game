@@ -38,11 +38,11 @@ public class WebTimeUntil
             long dateL = conn.getDate() + 30000L;
             return dateL;
         }
-        catch (MalformedURLException var15) {
-            var15.printStackTrace();
+        catch (MalformedURLException exception) {
+            exception.printStackTrace();
         }
-        catch (IOException var16) {
-            var16.printStackTrace();
+        catch (IOException exception) {
+            exception.printStackTrace();
         }
         return System.currentTimeMillis() + 30000L;
     }

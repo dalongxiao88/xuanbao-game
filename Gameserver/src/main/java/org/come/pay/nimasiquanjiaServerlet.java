@@ -1,4 +1,4 @@
-﻿package org.come.pay;
+package org.come.pay;
 
 import java.io.PrintWriter;
 import org.come.until.ThreadPoolUntil;

@@ -318,8 +318,8 @@ public class WorkshopRefiningBtn extends MoBanBtn
                     this.setsynthesisJpanel.getLabTransfer().setIcons(CutButtonImage.cuts("img/xy2uiimg/setsynthesis_9.png"));
                 }
             }
-            catch (Exception var3) {
-                var3.printStackTrace();
+            catch (Exception exception) {
+                exception.printStackTrace();
             }
         }
     }

@@ -1,4 +1,4 @@
-﻿package org.come.servlet.sale;
+package org.come.servlet.sale;
 
 import java.io.PrintWriter;
 

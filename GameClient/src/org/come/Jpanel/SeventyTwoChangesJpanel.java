@@ -258,8 +258,8 @@ public class SeventyTwoChangesJpanel extends JPanel
                 this.getACardDatas(UserMessUntil.getaCardMap(), caozuo, "");
             }
         }
-        catch (Exception var6) {
-            var6.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
     

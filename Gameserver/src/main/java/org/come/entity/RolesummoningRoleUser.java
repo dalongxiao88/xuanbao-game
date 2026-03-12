@@ -8,8 +8,13 @@ import org.come.server.GameServer;
 import org.come.tool.JmSum;
 import java.math.BigDecimal;
 
-public class RolesummoningRoleUser
-{
+/**
+ * 召唤兽后台查询视图对象。
+ *
+ * 该对象主要用于后台分页查询与详情展示，因此字段同时覆盖
+ * 召唤兽基础属性、四维扩展、角色信息和分页控制参数。
+ */
+public class RolesummoningRoleUser {
     private String summoningid;
     private String summoningname;
     private String summoningskin;
@@ -93,7 +98,10 @@ public class RolesummoningRoleUser
         this.basissp = "0";
     }
     
-    public int getSI2(String type) {
+    /**
+     * 从 `fourattributes` 记录串中提取指定四维扩展值。
+     */
+    public int getFourAttributeValue(String type) {
         if (this.fourattributes == null || this.fourattributes.equals("")) {
             return 0;
         }

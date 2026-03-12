@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="org.come.mapper.RegionMapper">
-	<!-- 三端 -->
+	<!-- 分区展示对象：用于角色选区与后台分区查询。 -->
 	<resultMap type="org.come.entity.Region" id="region">
 		<result column="RE_ID" property="regionId"/>
 		<result column="RE_NAME" property="regionName"/>
@@ -11,6 +11,7 @@
 		<result column="RA_NAME" property="regionAllName"/>
 	</resultMap>
 	
+	<!-- 按分区 ID 与模糊名称筛选分区。 -->
 	<select id="selectRegion" resultMap="region">
 		SELECT * FROM REGION_VIEW 
 		<where>
@@ -91,11 +92,13 @@
 		<result column="XIUWEI" property="xiuwei"/>
 		<result column="EXTRAPOINT" property="extrapoint"/>
 	</resultMap>
+	<!-- 查询指定账号在指定分区下的角色列表。 -->
 	<select id="selectRole" resultMap="roleTable">
 
 		SELECT * FROM role_table WHERE USER_ID = #{userId} AND SERVERMESTRING = #{quid} 
 	</select>
 	
+	<!-- 读取全部已配置的分区标识。 -->
 	<select id="selectRegionAll" resultType="java.lang.String">
 
 		select ot_belong from openareatable GROUP by ot_belong 

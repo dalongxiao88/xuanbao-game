@@ -55,8 +55,8 @@ public class IncludedPartsMpuslisten implements MouseListener
                     try {
                         this.recordedJpanel.getLabAct().setIcons(CutButtonImage.cuts("inkImg/button/2.png"));
                     }
-                    catch (Exception var6) {
-                        var6.printStackTrace();
+                    catch (Exception exception) {
+                        exception.printStackTrace();
                     }
                     PartJade jade2 = new PartJade(this.recordedJpanel.getSuitid(), Integer.parseInt(((IncludedPart)parts.get(this.index)).getPartid()));
                     this.recordedJpanel.getGoodstableBean().setPartJade(jade2);

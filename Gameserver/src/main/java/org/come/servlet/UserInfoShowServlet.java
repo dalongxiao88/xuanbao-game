@@ -1,4 +1,4 @@
-﻿package org.come.servlet;
+package org.come.servlet;
 
 import java.util.Iterator;
 import java.util.concurrent.ConcurrentHashMap;
@@ -43,8 +43,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServlet;
 
-public class UserInfoShowServlet extends HttpServlet
-{
+/**
+ * 后台管理端：查询充值记录、补发礼包与人工充值。
+ */
+public class UserInfoShowServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final String ApiValid;
     
@@ -99,9 +101,9 @@ public class UserInfoShowServlet extends HttpServlet
                         returnData.put("message", "无法定位该帐号,此帐号可能不存在。");
                     }
                 }
-                catch (Exception var24) {
+                catch (Exception giftSendException) {
                     returnData.put("status", Integer.valueOf(400));
-                    returnData.put("message", "[出错啦]" + var24.getMessage());
+                    returnData.put("message", "[出错啦]" + giftSendException.getMessage());
                 }
             }
             else if (type.equals("insert")) {
@@ -178,9 +180,9 @@ public class UserInfoShowServlet extends HttpServlet
                         returnData.put("message", "无法定位该帐号,此帐号可能不存在。");
                     }
                 }
-                catch (Exception var25) {
+                catch (Exception rechargeInsertException) {
                     returnData.put("status", Integer.valueOf(400));
-                    returnData.put("message", "[出错啦]" + var25.getMessage());
+                    returnData.put("message", "[出错啦]" + rechargeInsertException.getMessage());
                 }
             }
             else {
@@ -204,6 +206,9 @@ public class UserInfoShowServlet extends HttpServlet
         return false;
     }
     
+    /**
+     * 补发礼包或周卡/月卡权益；在线角色直接推送，离线角色回写数据库。
+     */
     private boolean GiftSend(String userName, UserTable userTable, int type) {
         try {
             ChannelHandlerContext ctx = (ChannelHandlerContext)GameServer.getInlineUserNameMap().get(userName);
@@ -319,15 +324,15 @@ public class UserInfoShowServlet extends HttpServlet
                 try {
                     AllServiceUtil.getRoleTableService().updateRoleWhenExit(login);
                 }
-                catch (Exception var15) {
+                catch (Exception roleSaveException) {
                     WriteOut.addtxt("人物数据保存报错:" + GsonUtil.getGsonUtil().getgson().toJson(login), 9999L);
                 }
                 AllServiceUtil.getUserTableService().updateUser(userTable);
             }
         }
-        catch (Exception var16) {
-            var16.printStackTrace();
-            WriteOut.addtxt("充值报错:" + MainServerHandler.getErrorMessage(var16), 9999L);
+        catch (Exception rechargeException) {
+            rechargeException.printStackTrace();
+            WriteOut.addtxt("充值报错:" + MainServerHandler.getErrorMessage(rechargeException), 9999L);
             return false;
         }
         String[] giftStr = { "周卡充值", "月卡充值", "小资冲级礼包充值", "土豪冲级礼包充值" };

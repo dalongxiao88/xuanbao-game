@@ -123,8 +123,8 @@ public class TournamentsNavBtn extends MoBanBtn {
             this.tournamentsJpanel.getTournamentsCardJpanel().getCardLayout().show(this.tournamentsJpanel.getTournamentsCardJpanel(), "tournamentsScreen4");
             TournamentsBtn.claimTheDraw(99, "4");
          }
-      } catch (Exception var3) {
-         var3.printStackTrace();
+      } catch (Exception exception) {
+         exception.printStackTrace();
       }
    }
 

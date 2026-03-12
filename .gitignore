@@ -30,6 +30,9 @@ bin/
 *.bak
 *~
 
+# 本地工具与下载依赖
+.tools/
+
 # 操作系统文件
 .DS_Store
 Thumbs.db

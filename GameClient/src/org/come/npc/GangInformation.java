@@ -12,8 +12,8 @@ public class GangInformation implements NpcMenuAction
             String sendMes = Agreement.getAgreement().ganglistAgreement("aaaa");
             SendMessageUntil.toServer(sendMes);
         }
-        catch (Exception var3) {
-            var3.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 }

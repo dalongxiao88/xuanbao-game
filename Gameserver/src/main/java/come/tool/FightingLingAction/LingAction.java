@@ -7,5 +7,5 @@ import come.tool.FightingData.ManData;
 
 public interface LingAction
 {
-    void lingAction(ManData p0, List<ManData> p1, FightingSkill p2, Battlefield p3);
+    void lingAction(ManData manData, List<ManData> targets, FightingSkill fightingSkill, Battlefield battlefield);
 }

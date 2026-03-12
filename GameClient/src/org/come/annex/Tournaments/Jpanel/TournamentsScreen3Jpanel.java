@@ -59,8 +59,8 @@ public class TournamentsScreen3Jpanel extends JPanel {
          Date pickUpDate = inputFormat.parse(this.Data.pickUpTime);
          formattedPickUpTime = outputFormat.format(pickUpDate);
          canPickUp = new Date().after(pickUpDate);
-      } catch (ParseException var15) {
-         var15.printStackTrace();
+      } catch (ParseException exception) {
+         exception.printStackTrace();
       }
 
       if (canPickUp) {

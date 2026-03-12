@@ -6,5 +6,5 @@ import come.tool.FightingData.ManData;
 
 public interface DataAction
 {
-    void analysisAction(ManData p0, FightingEvents p1, String p2, Battlefield p3);
+    void analysisAction(ManData manData, FightingEvents fightingEvents, String type, Battlefield battlefield);
 }

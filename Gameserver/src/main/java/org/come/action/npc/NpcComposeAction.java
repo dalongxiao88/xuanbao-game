@@ -1682,13 +1682,13 @@ public class NpcComposeAction implements IAction
         }
         for (int i = getdian(pz) - size; i > 0; --i) {
             if (a.size() != 0) {
-                int p2 = NpcComposeAction.random.nextInt(a.size());
-                w = (int)a.get(p2);
+                int randomAttributeIndex = NpcComposeAction.random.nextInt(a.size());
+                w = (int)a.get(randomAttributeIndex);
                 String[] vss2 = vs[w].split("=");
                 int vv = Integer.parseInt(vss2[1]) + 1;
                 vs[w] = vss2[0] + "=" + vv;
                 if (vv >= 10) {
-                    a.remove(p2);
+                    a.remove(randomAttributeIndex);
                 }
             }
         }

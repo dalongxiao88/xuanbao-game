@@ -1,4 +1,4 @@
-﻿package come.tool.Good;
+package come.tool.Good;
 
 import org.come.model.DiceReidsBase;
 import java.util.Date;

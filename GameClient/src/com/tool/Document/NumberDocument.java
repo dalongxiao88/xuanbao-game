@@ -137,8 +137,8 @@ public class NumberDocument extends PlainDocument
                 }
             }
         }
-        catch (BadLocationException var4) {
-            var4.printStackTrace();
+        catch (BadLocationException exception) {
+            exception.printStackTrace();
         }
     }
     
@@ -149,8 +149,8 @@ public class NumberDocument extends PlainDocument
                 return new BigDecimal(value);
             }
         }
-        catch (Exception var2) {
-            var2.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
         return new BigDecimal(0);
     }

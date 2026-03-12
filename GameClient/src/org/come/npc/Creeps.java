@@ -154,8 +154,8 @@ public class Creeps implements NpcMenuAction
                 String sendMes = Agreement.FightingForeseeAgreement(GsonUtil.getGsonUtil().getgson().toJson(fightingForesee));
                 SendMessageUntil.toServer(sendMes);
             }
-            catch (Exception var3) {
-                var3.printStackTrace();
+            catch (Exception exception) {
+                exception.printStackTrace();
             }
         }
     }

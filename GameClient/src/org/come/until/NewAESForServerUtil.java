@@ -26,8 +26,8 @@ public class NewAESForServerUtil
             encrypted = Encode.doFinal(encrypted);
             return GsonUtil.getGsonUtil().getgson().toJson(new BASE64Encoder().encode(encrypted)) + "\n";
         }
-        catch (Exception var3) {
-            var3.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
             return null;
         }
     }
@@ -43,8 +43,8 @@ public class NewAESForServerUtil
             String originalString = new String(original, NewAESForServerUtil.UTF_8);
             return originalString;
         }
-        catch (Exception var5) {
-            var5.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
             return null;
         }
     }

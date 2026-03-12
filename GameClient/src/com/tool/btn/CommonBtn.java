@@ -199,8 +199,8 @@ public class CommonBtn extends MoBanBtn
                     String senmes = Agreement.getAgreement().nbuyAgreement(GsonUtil.getGsonUtil().getgson().toJson(bean));
                     SendMessageUntil.toServer(senmes);
                 }
-                catch (Exception var12) {
-                    var12.printStackTrace();
+                catch (Exception exception) {
+                    exception.printStackTrace();
                 }
             }
             else if (this.caozuo == 2) {
@@ -263,8 +263,8 @@ public class CommonBtn extends MoBanBtn
                     URI uri = new URI(buffer.toString());
                     desktop.browse(uri);
                 }
-                catch (Exception var13) {
-                    var13.printStackTrace();
+                catch (Exception exception) {
+                    exception.printStackTrace();
                 }
             }
         }

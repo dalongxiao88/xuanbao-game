@@ -7,5 +7,5 @@ import come.tool.FightingData.ManData;
 
 public interface SpellAction
 {
-    void spellAction(ManData p0, FightingSkill p1, FightingEvents p2, Battlefield p3);
+    void spellAction(ManData manData, FightingSkill fightingSkill, FightingEvents fightingEvents, Battlefield battlefield);
 }

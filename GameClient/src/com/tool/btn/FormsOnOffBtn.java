@@ -66,6 +66,10 @@ import javax.imageio.ImageIO;
 import java.io.File;
 import java.awt.Color;
 
+/**
+ * 主界面功能按钮。
+ * 根据 `formsid` 打开对应窗体，或触发与该窗体绑定的网络请求和浏览器跳转。
+ */
 public class FormsOnOffBtn extends MoBanBtn
 {
     private static final long serialVersionUID = 7822149256715030997L;
@@ -92,8 +96,8 @@ public class FormsOnOffBtn extends MoBanBtn
             this.x = (destWidth - 12) / 2;
             this.y = destHeight / 2 + 3;
         }
-        catch (IOException var10) {
-            var10.printStackTrace();
+        catch (IOException imageLoadException) {
+            imageLoadException.printStackTrace();
         }
     }
     
@@ -158,11 +162,11 @@ public class FormsOnOffBtn extends MoBanBtn
                             try {
                                 desktop.browse(new URI(stringParams));
                             }
-                            catch (IOException var7) {
-                                var7.printStackTrace();
+                            catch (IOException browseException) {
+                                browseException.printStackTrace();
                             }
-                            catch (URISyntaxException var8) {
-                                var8.printStackTrace();
+                            catch (URISyntaxException uriSyntaxException) {
+                                uriSyntaxException.printStackTrace();
                             }
                         }
                         break;
@@ -846,11 +850,11 @@ public class FormsOnOffBtn extends MoBanBtn
         try {
             desktop.browse(new URI(stringParams));
         }
-        catch (IOException var7) {
-            var7.printStackTrace();
+        catch (IOException browseException) {
+            browseException.printStackTrace();
         }
-        catch (URISyntaxException var8) {
-            var8.printStackTrace();
+        catch (URISyntaxException uriSyntaxException) {
+            uriSyntaxException.printStackTrace();
         }
     }
     
@@ -877,11 +881,11 @@ public class FormsOnOffBtn extends MoBanBtn
         try {
             desktop.browse(new URI(stringParams));
         }
-        catch (IOException var6) {
-            var6.printStackTrace();
+        catch (IOException browseException) {
+            browseException.printStackTrace();
         }
-        catch (URISyntaxException var7) {
-            var7.printStackTrace();
+        catch (URISyntaxException uriSyntaxException) {
+            uriSyntaxException.printStackTrace();
         }
     }
     

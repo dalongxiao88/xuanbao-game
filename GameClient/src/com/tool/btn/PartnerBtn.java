@@ -636,8 +636,8 @@ public class PartnerBtn extends MoBanBtn
                     }
                 }
             }
-            catch (Exception var11) {
-                var11.printStackTrace();
+            catch (Exception exception) {
+                exception.printStackTrace();
             }
         }
     }

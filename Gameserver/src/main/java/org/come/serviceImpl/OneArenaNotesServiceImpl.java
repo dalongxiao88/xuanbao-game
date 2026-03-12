@@ -9,28 +9,27 @@ import org.come.until.MybatisUntil;
 import org.come.mapper.OneArenaNotesMapper;
 import org.come.service.OneArenaNotesService;
 
-public class OneArenaNotesServiceImpl implements OneArenaNotesService
-{
+public class OneArenaNotesServiceImpl implements OneArenaNotesService {
     private OneArenaNotesMapper oneArenaNotesMapper;
-    
+
     public OneArenaNotesServiceImpl() {
         ApplicationContext ctx = MybatisUntil.getApplicationContext();
         this.oneArenaNotesMapper = (OneArenaNotesMapper)ctx.getBean("oneArenaNotesMapper");
     }
-    
+
     @Override
     public int insertOneArenaNotes(OneArenaNotes notes) {
         notes.setId(RedisCacheUtil.getOneAreanNotes_pk().longValue());
         return this.oneArenaNotesMapper.insertOneArenaNotes(notes);
     }
-    
+
     @Override
-    public BigDecimal selectMaxID(String time) {
-        return this.oneArenaNotesMapper.selectMaxID(time);
+    public BigDecimal selectMaxID(String maxTimeExclusive) {
+        return this.oneArenaNotesMapper.selectMaxID(maxTimeExclusive);
     }
-    
+
     @Override
-    public List<OneArenaNotes> selectRole(BigDecimal roleId, BigDecimal min) {
-        return this.oneArenaNotesMapper.selectRole(roleId, min);
+    public List<OneArenaNotes> selectRole(BigDecimal roleId, BigDecimal minimumNoteId) {
+        return this.oneArenaNotesMapper.selectRole(roleId, minimumNoteId);
     }
 }

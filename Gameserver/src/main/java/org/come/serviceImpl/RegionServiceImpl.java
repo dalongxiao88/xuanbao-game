@@ -9,25 +9,24 @@ import org.come.until.MybatisUntil;
 import org.come.mapper.RegionMapper;
 import org.come.service.RegionService;
 
-public class RegionServiceImpl implements RegionService
-{
+public class RegionServiceImpl implements RegionService {
     private RegionMapper regionMapper;
-    
+
     public RegionServiceImpl() {
         ApplicationContext ctx = MybatisUntil.getApplicationContext();
         this.regionMapper = (RegionMapper)ctx.getBean("regionMapper");
     }
-    
+
     @Override
-    public List<Region> selectRegion(BigDecimal quId, String raName) {
-        return this.regionMapper.selectRegion(quId, raName);
+    public List<Region> selectRegion(BigDecimal regionId, String regionNameKeyword) {
+        return this.regionMapper.selectRegion(regionId, regionNameKeyword);
     }
-    
+
     @Override
-    public List<RoleTableNew> selectRole(BigDecimal userId, Integer quid) {
-        return this.regionMapper.selectRole(userId, quid);
+    public List<RoleTableNew> selectRole(BigDecimal userId, Integer serverAreaId) {
+        return this.regionMapper.selectRole(userId, serverAreaId);
     }
-    
+
     @Override
     public List<String> selectRegionAll() {
         return this.regionMapper.selectRegionAll();

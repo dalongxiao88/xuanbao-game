@@ -1,4 +1,4 @@
-﻿package org.come.service;
+package org.come.service;
 
 import come.tool.Stall.AssetUpdate;
 import java.util.ArrayList;

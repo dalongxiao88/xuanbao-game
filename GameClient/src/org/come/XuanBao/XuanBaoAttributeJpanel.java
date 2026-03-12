@@ -1,4 +1,4 @@
-﻿
+
 package org.come.XuanBao;
 
 
@@ -190,8 +190,8 @@ public class XuanBaoAttributeJpanel extends JPanel {
 
         try {
             chooseDownArrows.setIcons(CutButtonImage.cuts("img/xuan/xl100_副本.png"));
-        } catch (Exception var11) {
-            throw new RuntimeException(var11);
+        } catch (Exception exception) {
+            throw new RuntimeException(exception);
         }
 
         this.add(chooseDownArrows);

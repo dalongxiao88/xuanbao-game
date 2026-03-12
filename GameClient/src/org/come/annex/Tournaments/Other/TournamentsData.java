@@ -143,8 +143,8 @@ public class TournamentsData {
       try {
          SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd-HH:mm");
          return sdf.parse(timeStr).getTime();
-      } catch (ParseException var3) {
-         var3.printStackTrace();
+      } catch (ParseException exception) {
+         exception.printStackTrace();
          return 0L;
       }
    }
@@ -212,8 +212,8 @@ public class TournamentsData {
 
          SimpleDateFormat outputFormat = new SimpleDateFormat(pattern);
          return outputFormat.format(date);
-      } catch (ParseException var7) {
-         var7.printStackTrace();
+      } catch (ParseException exception) {
+         exception.printStackTrace();
          return "";
       }
    }
@@ -225,8 +225,8 @@ public class TournamentsData {
          Date endDate = sdf.parse(end);
          long diff = (endDate.getTime() - startDate.getTime()) / 86400000L;
          return diff > 0L ? this.formatDate(start, 1) + "-" + this.formatDate(end, 0) : this.formatDate(start, 1);
-      } catch (ParseException var8) {
-         var8.printStackTrace();
+      } catch (ParseException exception) {
+         exception.printStackTrace();
          return "";
       }
    }

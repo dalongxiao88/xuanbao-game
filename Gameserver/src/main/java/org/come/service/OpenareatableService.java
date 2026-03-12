@@ -1,4 +1,4 @@
-﻿package org.come.service;
+package org.come.service;
 
 import java.math.BigDecimal;
 import org.come.entity.Openareatable;

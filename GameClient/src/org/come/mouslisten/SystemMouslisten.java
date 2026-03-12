@@ -36,6 +36,10 @@ import com.updateNew.MyIsif;
 import javax.swing.ImageIcon;
 import java.awt.event.MouseListener;
 
+/**
+ * 系统设置面板的鼠标监听器。
+ * 集中处理分辨率、音频、画质、小地图和字体等客户端本地设置切换。
+ */
 public class SystemMouslisten implements MouseListener
 {
     public static final ImageIcon icon;
@@ -755,7 +759,7 @@ public class SystemMouslisten implements MouseListener
                 TeststateJpanel.setQhnum(qhnum);
             }
         }
-        catch (IOException var23) {
+        catch (IOException readException) {
             Systeminitial();
         }
         finally {
@@ -764,16 +768,16 @@ public class SystemMouslisten implements MouseListener
                     isr.close();
                 }
             }
-            catch (IOException var24) {
-                var24.printStackTrace();
+            catch (IOException closeReaderException) {
+                closeReaderException.printStackTrace();
             }
             try {
                 if (fis != null) {
                     fis.close();
                 }
             }
-            catch (IOException var25) {
-                var25.printStackTrace();
+            catch (IOException closeInputException) {
+                closeInputException.printStackTrace();
             }
         }
     }
@@ -901,16 +905,16 @@ public class SystemMouslisten implements MouseListener
             properties.setProperty("chatSwitch", buffer.toString());
             properties.store(outputStream, null);
         }
-        catch (IOException var12) {
-            var12.printStackTrace();
+        catch (IOException saveSettingsException) {
+            saveSettingsException.printStackTrace();
         }
         finally {
             if (outputStream != null) {
                 try {
                     outputStream.close();
                 }
-                catch (IOException var13) {
-                    var13.printStackTrace();
+                catch (IOException closeOutputException) {
+                    closeOutputException.printStackTrace();
                 }
             }
         }
@@ -929,8 +933,8 @@ public class SystemMouslisten implements MouseListener
             properties.setProperty(name, val);
             properties.store(outputStream, null);
         }
-        catch (IOException var12) {
-            var12.printStackTrace();
+        catch (IOException writeSingleSettingException) {
+            writeSingleSettingException.printStackTrace();
         }
         finally {
             try {

@@ -167,8 +167,8 @@ public class GoodsService
                     }
                     Collections.sort(randomNums, new Comparator<RandomNum>() {
                         @Override
-                        public int compare(RandomNum p1, RandomNum p2) {
-                            return Integer.compare(p1.getProbability(), p2.getProbability());
+                        public int compare(RandomNum left, RandomNum right) {
+                            return Integer.compare(left.getProbability(), right.getProbability());
                         }
                     });
                     Boolean b = false;

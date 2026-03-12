@@ -1,4 +1,4 @@
-﻿package org.come.pay;
+package org.come.pay;
 
 import java.util.Iterator;
 import java.util.List;
@@ -21,8 +21,10 @@ import org.come.serviceImpl.OpenareatableServiceImpl;
 import org.come.service.OpenareatableService;
 import javax.servlet.http.HttpServlet;
 
-public class ModifyUserPwdServlet extends HttpServlet
-{
+/**
+ * 后台管理端：按账号 ID 重置账号密码。
+ */
+public class ModifyUserPwdServlet extends HttpServlet {
     static OpenareatableService openareatableService;
     
     public ModifyUserPwdServlet() {
@@ -62,9 +64,9 @@ public class ModifyUserPwdServlet extends HttpServlet
                     ret = "修改失败";
                 }
             }
-            catch (Exception var8) {
+            catch (Exception updateException) {
                 ret = "保存失败，请发送错误信息给技术人员";
-                var8.printStackTrace();
+                updateException.printStackTrace();
             }
             PrintWriter pwPrintWriter = response.getWriter();
             pwPrintWriter.write(ret);
@@ -75,9 +77,9 @@ public class ModifyUserPwdServlet extends HttpServlet
     
     public static String getOt_atid() {
         List<Openareatable> list = new OpenareatableServiceImpl().selectAllOpenareatable();
-        Iterator var2 = list.iterator();
-        if (var2.hasNext()) {
-            Openareatable openareatable = (Openareatable)var2.next();
+        Iterator<Openareatable> iterator = list.iterator();
+        if (iterator.hasNext()) {
+            Openareatable openareatable = iterator.next();
             return openareatable.getOt_atid();
         }
         return "";

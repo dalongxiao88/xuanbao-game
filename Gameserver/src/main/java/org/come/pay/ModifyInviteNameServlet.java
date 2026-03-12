@@ -1,4 +1,4 @@
-﻿package org.come.pay;
+package org.come.pay;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -16,8 +16,10 @@ import org.come.serviceImpl.OpenareatableServiceImpl;
 import org.come.service.OpenareatableService;
 import javax.servlet.http.HttpServlet;
 
-public class ModifyInviteNameServlet extends HttpServlet
-{
+/**
+ * 后台管理端：修改全服统一大区展示名称。
+ */
+public class ModifyInviteNameServlet extends HttpServlet {
     static OpenareatableService openareatableService;
     
     public ModifyInviteNameServlet() {
@@ -50,9 +52,9 @@ public class ModifyInviteNameServlet extends HttpServlet
                     ModifyInviteNameServlet.openareatableService.updateOpenareatable(openareatable);
                 }
             }
-            catch (Exception var8) {
+            catch (Exception updateException) {
                 ret = "保存失败，请发送错误信息给技术人员";
-                var8.printStackTrace();
+                updateException.printStackTrace();
             }
             PrintWriter pwPrintWriter = response.getWriter();
             pwPrintWriter.write(ret);
@@ -63,9 +65,9 @@ public class ModifyInviteNameServlet extends HttpServlet
     
     public static String getOt_areaname() {
         List<Openareatable> list = new OpenareatableServiceImpl().selectAllOpenareatable();
-        Iterator var2 = list.iterator();
-        if (var2.hasNext()) {
-            Openareatable openareatable = (Openareatable)var2.next();
+        Iterator<Openareatable> iterator = list.iterator();
+        if (iterator.hasNext()) {
+            Openareatable openareatable = iterator.next();
             return openareatable.getOt_areaname();
         }
         return "";

@@ -318,8 +318,8 @@ public class BabyGood
         try {
             serverMes = Agreement.getAgreement().updababy(GsonUtil.getGsonUtil().getgson().toJson(baby));
         }
-        catch (Exception var3) {
-            var3.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
         SendMessageUntil.toServer(serverMes);
     }

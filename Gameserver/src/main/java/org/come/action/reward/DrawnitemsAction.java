@@ -60,7 +60,7 @@ public class DrawnitemsAction implements IAction
                 AssetUpdate assetUpdate = new AssetUpdate();
                 assetUpdate.setType(AssetUpdate.INTEGRATION);
                 assetUpdate.updata("帮派积分=-50");
-                roleInfo.setScore(Splice(roleInfo.getScore(), "帮派积分=50", 3));
+                roleInfo.setScore(mergeRecordEntry(roleInfo.getScore(), "帮派积分=50", 3));
                 assetUpdate.setMsg("1个" + goodstable.getGoodsname());
                 goodstable.setRole_id(roleInfo.getRole_id());
                 AllServiceUtil.getGoodsrecordService().insert(goodstable, null, Integer.valueOf(1), Integer.valueOf(0));
@@ -145,98 +145,101 @@ public class DrawnitemsAction implements IAction
      * 该方法主要被积分、属性串、成就记录等“key=value”型文本记录复用。
      */
     public static String mergeRecordEntry(String source, String entry, int mergeType) {
-        return Splice(source, entry, mergeType);
+        return mergeRecordEntryInternal(source, entry, mergeType);
     }
 
-    public static String Splice(String v, String b, int type) {
-        boolean s = true;
-        boolean s2 = false;
-        if (type == 11 || type == 2 || type == 3 || type == 5) {
-            s2 = true;
+    /**
+     * 记录串合并的内部实现。
+     */
+    private static String mergeRecordEntryInternal(String source, String entry, int mergeType) {
+        boolean shouldAppendOriginalEntry = true;
+        boolean appendEntryAfterScan = false;
+        if (mergeType == 11 || mergeType == 2 || mergeType == 3 || mergeType == 5) {
+            appendEntryAfterScan = true;
         }
-        List<String> jihe = new ArrayList<>();
-        if (v == null) {
-            v = "";
+        List<String> mergedEntries = new ArrayList<>();
+        if (source == null) {
+            source = "";
         }
-        String[] vs = v.split("\\|");
-        for (int i = 0; i < vs.length; ++i) {
-            if (type == 0) {
-                if (!vs[i].equals(b)) {
-                    jihe.add(vs[i]);
+        String[] sourceEntries = source.split("\\|");
+        for (int i = 0; i < sourceEntries.length; ++i) {
+            if (mergeType == 0) {
+                if (!sourceEntries[i].equals(entry)) {
+                    mergedEntries.add(sourceEntries[i]);
                 }
                 else {
-                    s = false;
+                    shouldAppendOriginalEntry = false;
                 }
             }
             else {
-                String[] vs2 = vs[i].split("=");
-                String[] vs3 = b.split("=");
-                if (vs2[0].equals(vs3[0])) {
-                    if (type == 1) {
-                        if (type == 11) {
-                            s2 = false;
+                String[] currentEntry = sourceEntries[i].split("=");
+                String[] incomingEntry = entry.split("=");
+                if (currentEntry[0].equals(incomingEntry[0])) {
+                    if (mergeType == 1) {
+                        if (mergeType == 11) {
+                            appendEntryAfterScan = false;
                         }
-                        jihe.add(b);
+                        mergedEntries.add(entry);
                     }
-                    else if (type == 2) {
-                        s2 = false;
-                        double x1 = Double.parseDouble(vs2[1]);
-                        double x2 = Double.parseDouble(vs3[1]);
-                        x1 += x2;
-                        if (x1 % 1.0 == 0.0) {
-                            jihe.add(vs2[0] + "=" + (int)x1);
+                    else if (mergeType == 2) {
+                        appendEntryAfterScan = false;
+                        double originalValue = Double.parseDouble(currentEntry[1]);
+                        double deltaValue = Double.parseDouble(incomingEntry[1]);
+                        originalValue += deltaValue;
+                        if (originalValue % 1.0 == 0.0) {
+                            mergedEntries.add(currentEntry[0] + "=" + (int)originalValue);
                         }
                         else {
-                            jihe.add(vs2[0] + "=" + x1);
+                            mergedEntries.add(currentEntry[0] + "=" + originalValue);
                         }
                     }
-                    else if (type == 3) {
-                        s2 = false;
-                        double x1 = Double.parseDouble(vs2[1]);
-                        double x2 = Double.parseDouble(vs3[1]);
-                        x1 -= x2;
-                        if (x1 % 1.0 == 0.0) {
-                            jihe.add(vs2[0] + "=" + (int)x1);
+                    else if (mergeType == 3) {
+                        appendEntryAfterScan = false;
+                        double originalValue = Double.parseDouble(currentEntry[1]);
+                        double deltaValue = Double.parseDouble(incomingEntry[1]);
+                        originalValue -= deltaValue;
+                        if (originalValue % 1.0 == 0.0) {
+                            mergedEntries.add(currentEntry[0] + "=" + (int)originalValue);
                         }
                         else {
-                            jihe.add(vs2[0] + "=" + x1);
+                            mergedEntries.add(currentEntry[0] + "=" + originalValue);
                         }
                     }
-                    else if (type == 5) {
-                        s2 = false;
-                        double x1 = Double.parseDouble(vs2[1]);
-                        double x2 = Double.parseDouble(vs3[1]);
-                        if (x2 > x1) {
-                            x1 = x2;
+                    else if (mergeType == 5) {
+                        appendEntryAfterScan = false;
+                        double originalValue = Double.parseDouble(currentEntry[1]);
+                        double incomingValue = Double.parseDouble(incomingEntry[1]);
+                        if (incomingValue > originalValue) {
+                            originalValue = incomingValue;
                         }
-                        if (x1 % 1.0 == 0.0) {
-                            jihe.add(vs2[0] + "=" + (int)x1);
+                        if (originalValue % 1.0 == 0.0) {
+                            mergedEntries.add(currentEntry[0] + "=" + (int)originalValue);
                         }
                         else {
-                            jihe.add(vs2[0] + "=" + x1);
+                            mergedEntries.add(currentEntry[0] + "=" + originalValue);
                         }
                     }
                 }
                 else {
-                    jihe.add(vs[i]);
+                    mergedEntries.add(sourceEntries[i]);
                 }
             }
         }
-        if (s && type == 0) {
-            jihe.add(b);
+        if (shouldAppendOriginalEntry && mergeType == 0) {
+            mergedEntries.add(entry);
         }
-        if (s2) {
-            jihe.add(b);
+        if (appendEntryAfterScan) {
+            mergedEntries.add(entry);
         }
-        StringBuffer genggai = new StringBuffer();
-        for (int j = 0; j < jihe.size(); ++j) {
-            if (!genggai.toString().equals("")) {
-                genggai.append("|" + (String)jihe.get(j));
+        StringBuffer mergedText = new StringBuffer();
+        for (int j = 0; j < mergedEntries.size(); ++j) {
+            if (!mergedText.toString().equals("")) {
+                mergedText.append("|" + mergedEntries.get(j));
             }
             else {
-                genggai.append((String)jihe.get(j));
+                mergedText.append(mergedEntries.get(j));
             }
         }
-        return genggai.toString();
+        return mergedText.toString();
     }
 }

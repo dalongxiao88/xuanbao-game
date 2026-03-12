@@ -63,8 +63,8 @@ public class PartnerArenaExchangeModelPanel extends JPanel
                 try {
                     this.btnGet.setIcons(CutButtonImage.cuts("inkImg/button/2.png"));
                 }
-                catch (Exception var6) {
-                    var6.printStackTrace();
+                catch (Exception exception) {
+                    exception.printStackTrace();
                 }
                 this.btnGet.setBtn(1);
                 this.btnGet.setText("领取");

@@ -1,4 +1,4 @@
-﻿package org.come;
+package org.come;
 
 import com.gl.controller.UserController;
 import com.gl.model.Result;

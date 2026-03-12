@@ -1,4 +1,4 @@
-﻿package org.come.pay;
+package org.come.pay;
 
 import java.io.IOException;
 import javax.servlet.ServletException;
@@ -18,8 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServlet;
 
-public class CatAllUserRoleServlet extends HttpServlet
-{
+/**
+ * 后台管理端：查询当前全服在线角色快照。
+ */
+public class CatAllUserRoleServlet extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        Result ipCheckResult = UserController.IPstop(request);
 //        if (ipCheckResult != null) {
@@ -44,8 +46,8 @@ public class CatAllUserRoleServlet extends HttpServlet
                 roles.add(new CatUserRole(ret));
             }
         }
-        catch (Exception var7) {
-            var7.printStackTrace();
+        catch (Exception loadException) {
+            loadException.printStackTrace();
         }
         PrintWriter pwPrintWriter = response.getWriter();
         pwPrintWriter.write(JSONUtil.toJsonStr(roles));

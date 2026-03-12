@@ -57,7 +57,7 @@ public abstract class AbstractBufferedImageOp implements BufferedImageOp, Clonea
         try {
             return super.clone();
         }
-        catch (CloneNotSupportedException var2) {
+        catch (CloneNotSupportedException exception) {
             return null;
         }
     }

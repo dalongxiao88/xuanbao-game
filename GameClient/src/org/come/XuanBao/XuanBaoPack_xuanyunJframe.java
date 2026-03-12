@@ -98,9 +98,3 @@ public class XuanBaoPack_xuanyunJframe extends JInternalFrame implements MouseLi
     }
 
 }
-
-
-/* Location:              C:\Users\Administrator\Desktop\3.zip!\3\d3b7c35f.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.3
- */

@@ -1,4 +1,4 @@
-﻿package org.come.npc;
+package org.come.npc;
 
 import org.come.entity.Goodstable;
 import org.come.Frame.WorldTestsmallmapJframe;
@@ -75,8 +75,8 @@ public class FlightChessTP implements NpcMenuAction
             try {
                 TP.tp(door, 1);
             }
-            catch (Exception var9) {
-                var9.printStackTrace();
+            catch (Exception exception) {
+                exception.printStackTrace();
             }
         }
     }

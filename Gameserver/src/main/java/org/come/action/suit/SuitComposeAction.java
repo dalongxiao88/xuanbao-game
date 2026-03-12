@@ -244,7 +244,7 @@ public class SuitComposeAction implements IAction
                 break;
             }
             case 62: {
-                SuitPalEquip.type62(loginResult, ctx, suitOperBean);
+                SuitPalEquip.handleOperation62(loginResult, ctx, suitOperBean);
                 break;
             }
             case 71:
@@ -253,7 +253,7 @@ public class SuitComposeAction implements IAction
             case 74:
             case 75:
             case 76: {
-                SuitPalEquip.type70(loginResult, ctx, suitOperBean);
+                SuitPalEquip.handleOperation70(loginResult, ctx, suitOperBean);
                 break;
             }
             case 101: {

@@ -1,4 +1,4 @@
-﻿package org.come.mapper;
+package org.come.mapper;
 
 import java.util.List;
 import org.come.bean.ServiceArea;

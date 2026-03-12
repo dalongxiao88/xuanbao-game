@@ -1,4 +1,4 @@
-﻿package org.come.good;
+package org.come.good;
 
 import org.come.until.GoodsListFromServerUntil;
 import org.come.model.Lingbao;
@@ -26,8 +26,8 @@ public class Lingbaogood
                 goodstable.setUsetime(Integer.valueOf((int)goodstable.getUsetime() - 1));
                 GoodsMouslisten.gooduse(goodstable, 1);
             }
-            catch (Exception var4) {
-                var4.printStackTrace();
+            catch (Exception exception) {
+                exception.printStackTrace();
             }
         }
     }

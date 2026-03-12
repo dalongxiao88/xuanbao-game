@@ -300,9 +300,3 @@ public class XuanBaoMsgJpanel
 }
 
 
-/* Location:              C:\Users\Administrator\Desktop\3.zip!\3\ab0cf7d5.class
- * Java compiler version: 8 (52.0)
- * JD-Core Version:       1.1.3
- */
-
-

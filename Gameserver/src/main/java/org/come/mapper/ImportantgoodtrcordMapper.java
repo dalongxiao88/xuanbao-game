@@ -1,4 +1,4 @@
-﻿package org.come.mapper;
+package org.come.mapper;
 
 import org.come.entity.ImportantgoodssumrecordEntity;
 import org.come.entity.BuytypeEntity;

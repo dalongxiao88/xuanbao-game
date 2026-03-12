@@ -2202,8 +2202,8 @@ public class ZhuJpanel extends JPanel
                 }
             }
         }
-        catch (Exception var3) {
-            var3.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 
@@ -2254,8 +2254,8 @@ public class ZhuJpanel extends JPanel
                 }
             }
         }
-        catch (Exception var2) {
-            var2.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 

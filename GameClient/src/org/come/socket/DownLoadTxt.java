@@ -687,13 +687,12 @@ public class DownLoadTxt {
     }
 
     public String GetServerTxt(String path) {
-        Object var2 = null;
         try {
             byte[] v = this.downloadtxt(new URL(this.PATH + path + "?" + System.currentTimeMillis()));
             String message = new String(v, AC999.UTF_8);
             return message;
-        } catch (Exception var3) {
-            var3.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
             return null;
         }
     }

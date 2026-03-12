@@ -1,4 +1,4 @@
-﻿package come.tool.JDialog;
+package come.tool.JDialog;
 
 import java.util.List;
 import org.come.bean.RoleShow;
@@ -63,8 +63,8 @@ public class SFCSJDialog implements TiShiChuLi
                     try {
                         TP.tp(door, 1);
                     }
-                    catch (Exception var9) {
-                        var9.printStackTrace();
+                    catch (Exception exception) {
+                        exception.printStackTrace();
                     }
                 }
             }

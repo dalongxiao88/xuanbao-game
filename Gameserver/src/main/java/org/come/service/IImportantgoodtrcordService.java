@@ -1,4 +1,4 @@
-﻿package org.come.service;
+package org.come.service;
 
 import org.come.entity.ImportantgoodssumrecordEntity;
 import org.come.entity.BuytypeEntity;

@@ -1,4 +1,4 @@
-﻿package org.come.mapper;
+package org.come.mapper;
 
 import java.math.BigDecimal;
 import org.come.entity.Openareatable;

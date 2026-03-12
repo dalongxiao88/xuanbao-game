@@ -40,8 +40,8 @@ public class LotteryBtn extends MoBanBtn
             try {
                 senmes = Agreement.getAgreement().drawnitemsAgreement();
             }
-            catch (Exception var4) {
-                var4.printStackTrace();
+            catch (Exception exception) {
+                exception.printStackTrace();
             }
             SendMessageUntil.toServer(senmes);
         }

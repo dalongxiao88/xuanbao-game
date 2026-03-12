@@ -38,8 +38,8 @@ public class TakeOffEquipmentMouslisten implements MouseListener
                         JTextField SendMes = ZhuFrame.getZhuJpanel().getSendMes();
                         ((RichDocument)SendMes.getDocument()).insertRich(SendMes.getCaretPosition(), 2, goodstable.getRgid(), "[" + goodstable.getGoodsname() + "]", "G", (AttributeSet)null);
                     }
-                    catch (BadLocationException var4) {
-                        var4.printStackTrace();
+                    catch (BadLocationException exception) {
+                        exception.printStackTrace();
                     }
                 }
             }
@@ -52,8 +52,8 @@ public class TakeOffEquipmentMouslisten implements MouseListener
                         try {
                             GoodsListFromServerUntil.mutualChange(this.goodPlace, -1);
                         }
-                        catch (Exception var5) {
-                            var5.printStackTrace();
+                        catch (Exception exception) {
+                            exception.printStackTrace();
                         }
                     }
                 }

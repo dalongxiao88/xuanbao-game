@@ -32,10 +32,10 @@ public class PlayerMonitor
         RoleShow roleShow = attribute.getRoleShow();
         int type = attribute.getLeixing();
         String Id = roleShow.getRolename();
-        String var4;
-        switch ((var4 = MessagrFlagUntil.ImgFlagImg).hashCode()) {
+        String actionFlag;
+        switch ((actionFlag = MessagrFlagUntil.ImgFlagImg).hashCode()) {
             case 650223: {
-                if (var4.equals("交易")) {
+                if (actionFlag.equals("交易")) {
                     if (type == 0) {
                         MessagrFlagUntil.setMouse(MessagrFlagUntil.MOUSE1);
                     }
@@ -50,7 +50,7 @@ public class PlayerMonitor
                 }
             }
             case 681892: {
-                if (var4.equals("切磋")) {
+                if (actionFlag.equals("切磋")) {
                     MessagrFlagUntil.setMouse(MessagrFlagUntil.MOUSE1);
                     if (roleShow.getFighting() != 0) {
                         String a = ImageMixDeal.userimg.getRoleShow().getTeamInfo();
@@ -122,7 +122,7 @@ public class PlayerMonitor
                 }
             }
             case 731630: {
-                if (var4.equals("好友")) {
+                if (actionFlag.equals("好友")) {
                     addFriend(roleShow.getRole_id(), roleShow.getRolename());
                     return;
                 }
@@ -131,7 +131,7 @@ public class PlayerMonitor
                 }
             }
             case 1026767: {
-                if (var4.equals("给予")) {
+                if (actionFlag.equals("给予")) {
                     give(attribute);
                     return;
                 }
@@ -140,7 +140,7 @@ public class PlayerMonitor
                 }
             }
             case 1044443: {
-                if (var4.equals("组队")) {
+                if (actionFlag.equals("组队")) {
                     if (type == 0) {
                         createTeam();
                     }

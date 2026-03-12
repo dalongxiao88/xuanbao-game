@@ -1,4 +1,4 @@
-﻿package org.come.pay.check;
+package org.come.pay.check;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,8 +14,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServlet;
 
-public class CheckCounterfeit extends HttpServlet
-{
+/**
+ * 后台管理端：切换并查询防伪校验开关。
+ */
+public class CheckCounterfeit extends HttpServlet {
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 //        Result ipCheckResult = UserController.IPstop(request);
 //        if (ipCheckResult != null) {
@@ -50,8 +52,8 @@ public class CheckCounterfeit extends HttpServlet
             response.getWriter().flush();
             response.getWriter().close();
         }
-        catch (Exception var5) {
-            var5.printStackTrace();
+        catch (Exception toggleException) {
+            toggleException.printStackTrace();
         }
         RedisPoolUntil.returnResource(jedis);
     }
@@ -61,12 +63,11 @@ public class CheckCounterfeit extends HttpServlet
         try {
             String str = jedis.get("check_counterfeit");
             if (str != null) {
-                String var3 = str;
-                return var3;
+                return str;
             }
         }
-        catch (Exception var4) {
-            var4.printStackTrace();
+        catch (Exception readStatusException) {
+            readStatusException.printStackTrace();
             return "-1";
         }
         finally {

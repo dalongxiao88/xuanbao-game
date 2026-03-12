@@ -177,11 +177,11 @@ public class TeamPanelBtn extends MoBanBtn
                             try {
                                 desktop.browse(new URI(stringParams));
                             }
-                            catch (IOException var7) {
-                                var7.printStackTrace();
+                            catch (IOException exception) {
+                                exception.printStackTrace();
                             }
-                            catch (URISyntaxException var8) {
-                                var8.printStackTrace();
+                            catch (URISyntaxException exception) {
+                                exception.printStackTrace();
                             }
                         }
                     }

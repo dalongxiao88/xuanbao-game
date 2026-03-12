@@ -94,8 +94,8 @@ public class SrcollPanelUI extends BasicScrollBarUI
         try {
             this.upBtnIcons = CutButtonImage.cuts(this.upurl);
         }
-        catch (Exception var3) {
-            var3.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
         (this.up = new JButton()).setBorderPainted(false);
         this.up.setContentAreaFilled(false);
@@ -135,8 +135,8 @@ public class SrcollPanelUI extends BasicScrollBarUI
         try {
             this.downBtnIcons = CutButtonImage.cuts(this.dwurl);
         }
-        catch (Exception var3) {
-            var3.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
         (this.down = new JButton()).setBorderPainted(false);
         this.down.setContentAreaFilled(false);

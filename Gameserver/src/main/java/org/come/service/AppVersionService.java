@@ -1,4 +1,4 @@
-﻿package org.come.service;
+package org.come.service;
 
 import org.come.extInterBean.AreaNumRecord;
 import java.math.BigDecimal;

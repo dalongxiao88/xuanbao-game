@@ -25,6 +25,7 @@
 	    <result column="USERNAME" property="username" />
   	</resultMap>
   	
+  	<!-- 按后台筛选条件分页拉取商品与角色关联视图。 -->
   	<select id="selectGoodsByPage" resultMap="goodsRoleUser">
   		SELECT * FROM 
 		(
@@ -54,6 +55,7 @@
 		WHERE RN &gt;= #{gRU.start} 
   	</select>
   	
+  	<!-- 统计后台筛选条件下的商品总数。 -->
   	<select id="selectGoodsCount" resultType="java.lang.Integer">
   		SELECT COUNT(*) FROM (
   			SELECT GOODSNAME,RGID,GOODSID,VALUE,ROLENAME,USETIME,STATUS FROM GOODSTABLE_ROLE_USERTABLE 

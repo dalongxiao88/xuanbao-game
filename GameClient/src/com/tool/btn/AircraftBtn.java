@@ -1,4 +1,4 @@
-﻿package com.tool.btn;
+package com.tool.btn;
 
 import org.come.entity.Goodstable;
 import org.come.mouslisten.GoodsMouslisten;
@@ -99,8 +99,8 @@ public class AircraftBtn extends MoBanBtn
                 try {
                     sendmes = Agreement.getAgreement().MountAgreement();
                 }
-                catch (Exception var7) {
-                    var7.printStackTrace();
+                catch (Exception exception) {
+                    exception.printStackTrace();
                 }
                 sendmes = Agreement.getAgreement().MountAgreement();
                 SendMessageUntil.toServer(sendmes);

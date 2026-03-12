@@ -16,6 +16,10 @@ import java.util.List;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * 比武大会赛程与积分榜面板。
+ * 负责切换赛事阶段、分页展示对阵信息并渲染积分榜详情。
+ */
 public class TournamentsScreen2Jpanel extends JPanel {
    public TournamentsBtn outlinedBtn;
    public TournamentsCardJpanel tournamentsCardJpanel;
@@ -357,7 +361,7 @@ public class TournamentsScreen2Jpanel extends JPanel {
                      score1 = Integer.parseInt(integral1[1]);
                      score2 = Integer.parseInt(integral2[1]);
                   }
-               } catch (NumberFormatException var8) {
+               } catch (NumberFormatException parseException) {
                }
 
                return Integer.compare(score2, score1);
@@ -393,7 +397,7 @@ public class TournamentsScreen2Jpanel extends JPanel {
                      TournamentsRenderer renderer = (TournamentsRenderer)TournamentsScreen2Jpanel.this.listPankList.getCellRenderer();
                      JLabel labelTitle = renderer.getLabelTitle();
                      if (labelTitle.getBounds().contains(pointInCell)) {
-                        GameFigures var7 = TournamentsScreen2Jpanel.this.listModel.get(index);
+                        TournamentsScreen2Jpanel.this.listModel.get(index);
                      }
                   }
                } else if (SwingUtilities.isRightMouseButton(e)) {
@@ -475,8 +479,8 @@ public class TournamentsScreen2Jpanel extends JPanel {
 
       try {
          this.arrowButtons.setIcons(CutButtonImage.cuts("inkImg/danxin/p/e7.png"));
-      } catch (Exception var6) {
-         var6.printStackTrace();
+      } catch (Exception refreshViewException) {
+         refreshViewException.printStackTrace();
       }
 
       this.arrowButtons.setBounds(x + (w - 20), y - 19, 18, 18);
@@ -552,12 +556,6 @@ public class TournamentsScreen2Jpanel extends JPanel {
          }
       }
 
-      if (this.page != 8 && this.page != 4) {
-         byte var32 = 75;
-      } else {
-         short var10000 = 130;
-      }
-
       int xSpacing = this.page == 4 ? 225 : 150;
       int pairsPerPage = this.page == 32 ? 8 : matchedPairs.size();
       int startIndex = this.page == 32 ? this.currentPage * 8 : 0;
@@ -568,19 +566,19 @@ public class TournamentsScreen2Jpanel extends JPanel {
          int y = 0;
          int baseX = 0;
          if (this.page == 4) {
-            int var25 = 195;
-            int var27 = 145;
-            int baseY = var25 + ix * 130;
-            JPanel team1Panel = this.createTeamPanel(pair.getKey(), var27, baseY, true);
-            JPanel team2Panel = this.createTeamPanel(pair.getValue(), var27 + 225, baseY, false);
+            int baseStartY = 195;
+            int baseStartX = 145;
+            int baseY = baseStartY + ix * 130;
+            JPanel team1Panel = this.createTeamPanel(pair.getKey(), baseStartX, baseY, true);
+            JPanel team2Panel = this.createTeamPanel(pair.getValue(), baseStartX + 225, baseY, false);
             this.add(team1Panel);
             this.add(team2Panel);
          } else {
-            int var23 = (ix - startIndex) / 2;
+            int rowIndex = (ix - startIndex) / 2;
             int col = (ix - startIndex) % 2;
             y = this.page == 8 ? 195 : 153;
             baseX = 45 + col * 315;
-            int baseY = y + var23 * (this.page == 8 ? 130 : 75);
+            int baseY = y + rowIndex * (this.page == 8 ? 130 : 75);
             JPanel team1Panel = this.createTeamPanel(pair.getKey(), baseX, baseY, true);
             JPanel team2Panel = this.createTeamPanel(pair.getValue(), baseX + (this.page == 8 ? 150 : 150), baseY, false);
             this.add(team1Panel);
@@ -681,8 +679,8 @@ public class TournamentsScreen2Jpanel extends JPanel {
          avatarLabel.addMouseListener(new IconButtonEffect(avatarLabel));
          avatarLabel.setBounds(isLeft ? 5 : (this.page == 4 ? 113 : 73), 5, 32, 32);
          panel.add(avatarLabel);
-      } catch (Exception var16) {
-         var16.printStackTrace();
+      } catch (Exception avatarLoadException) {
+         avatarLoadException.printStackTrace();
       }
 
       String[] success = team.getGameSuccess().split("-");
@@ -752,8 +750,8 @@ public class TournamentsScreen2Jpanel extends JPanel {
          iconLabel.setName("advance_icon");
          iconLabel.setBounds(x, y, 32, 32);
          this.add(iconLabel);
-      } catch (Exception var5) {
-         var5.printStackTrace();
+      } catch (Exception addIconException) {
+         addIconException.printStackTrace();
       }
    }
 
@@ -802,8 +800,8 @@ public class TournamentsScreen2Jpanel extends JPanel {
             iconLabel.setName("advance_icon");
             iconLabel.setBounds(140 + teamIndex * 311 + 60, 375, 32, 32);
             this.add(iconLabel);
-         } catch (Exception var19) {
-            var19.printStackTrace();
+         } catch (Exception advanceIconException) {
+            advanceIconException.printStackTrace();
          }
       }
 

@@ -87,8 +87,8 @@ public class MsgJframe5 extends JInternalFrame implements MouseListener
                     ZhuJpanel.getZidong().setIcons(CutButtonImage.cuts("inkImg/hongmu/6026.png"));
                 }
             }
-            catch (Exception var3) {
-                var3.printStackTrace();
+            catch (Exception exception) {
+                exception.printStackTrace();
             }
         }
         else {

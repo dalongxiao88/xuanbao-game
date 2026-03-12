@@ -398,9 +398,9 @@ public class SummonPetAction implements IAction
         String yb = pet.getResistance();
         if (yb == null || yb.equals("")) {
             int p;
-            int p2;
-            for (p = SummonPetAction.random.nextInt(SummonPetAction.kxs.length), p2 = SummonPetAction.random.nextInt(SummonPetAction.kxs.length); p2 == p; p2 = SummonPetAction.random.nextInt(SummonPetAction.kxs.length)) {}
-            pet.setResistance(SummonPetAction.kxs[p] + "|" + SummonPetAction.kxs[p2]);
+            int secondResistanceIndex;
+            for (p = SummonPetAction.random.nextInt(SummonPetAction.kxs.length), secondResistanceIndex = SummonPetAction.random.nextInt(SummonPetAction.kxs.length); secondResistanceIndex == p; secondResistanceIndex = SummonPetAction.random.nextInt(SummonPetAction.kxs.length)) {}
+            pet.setResistance(SummonPetAction.kxs[p] + "|" + SummonPetAction.kxs[secondResistanceIndex]);
         }
     }
     

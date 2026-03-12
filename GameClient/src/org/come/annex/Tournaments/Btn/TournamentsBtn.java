@@ -201,8 +201,8 @@ public class TournamentsBtn extends MoBanBtn {
          Date pickUpDate = inputFormat.parse(Data.pickUpTime);
          formattedPickUpTime = outputFormat.format(pickUpDate);
          canPickUp = new Date().after(pickUpDate);
-      } catch (ParseException var9) {
-         var9.printStackTrace();
+      } catch (ParseException exception) {
+         exception.printStackTrace();
       }
 
       if (Msg == null) {

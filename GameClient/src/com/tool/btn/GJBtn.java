@@ -34,6 +34,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
+/**
+ * 功绩/官职相关按钮。
+ * 负责打开功绩界面、领取任务奖励，以及跳转外部说明页面。
+ */
 public class GJBtn extends MoBanBtn {
     private static final long serialVersionUID = 7822149256715030997L;
     private final int formsid;
@@ -140,10 +144,10 @@ public class GJBtn extends MoBanBtn {
         Desktop desktop = Desktop.getDesktop();
         try {
             desktop.browse(new URI(stringParams));
-        } catch (IOException var7) {
-            var7.printStackTrace();
-        } catch (URISyntaxException var8) {
-            var8.printStackTrace();
+        } catch (IOException browseException) {
+            browseException.printStackTrace();
+        } catch (URISyntaxException uriSyntaxException) {
+            uriSyntaxException.printStackTrace();
         }
 
     }
@@ -158,10 +162,10 @@ public class GJBtn extends MoBanBtn {
         sb.append(url);
         sb.append("?");
         if (params != null) {
-            Iterator var5 = params.entrySet().iterator();
+            Iterator parameterIterator = params.entrySet().iterator();
 
-            while (var5.hasNext()) {
-                Entry<String, Object> e = (Entry) var5.next();
+            while (parameterIterator.hasNext()) {
+                Entry<String, Object> e = (Entry) parameterIterator.next();
                 sb.append(e.getKey());
                 sb.append("=");
                 sb.append(e.getValue());
@@ -176,10 +180,10 @@ public class GJBtn extends MoBanBtn {
 
         try {
             desktop.browse(new URI(stringParams));
-        } catch (IOException var7) {
-            var7.printStackTrace();
-        } catch (URISyntaxException var8) {
-            var8.printStackTrace();
+        } catch (IOException browseException) {
+            browseException.printStackTrace();
+        } catch (URISyntaxException uriSyntaxException) {
+            uriSyntaxException.printStackTrace();
         }
 
     }

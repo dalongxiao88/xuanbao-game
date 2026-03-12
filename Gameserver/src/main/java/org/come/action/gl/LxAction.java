@@ -104,7 +104,7 @@ public class LxAction implements IAction
                     lx = "Lx=0&Lv=0&Point=0&Open=11001_0|11002_0|11003_0|11004_0|11005_0|11006_0|11007_0|11008_0|11009_0|11010_0|11011_0|11026_0|11027_0|11028_0|11029_0|11045_0|11046_0|11047_0|11048_0|11049_0&10";
                 }
                 String[] lingxiSegments = lx.split("&");
-                String openedSlotCountSegment = lingxiSegments[lingxiSegments.length - 1];
+                String currentOpenedSlotCountSegment = lingxiSegments[lingxiSegments.length - 1];
                 int segmentCountWithoutOpenSlots = lingxiSegments.length - 1;
                 String[] baseLingxiSegments = new String[segmentCountWithoutOpenSlots];
 
@@ -142,9 +142,9 @@ public class LxAction implements IAction
                     while (true) {
                       Goodstable good = null;
                       if (type == 0) {
-                        sysum = Integer.parseInt(p) - 10;
+                        sysum = Integer.parseInt(currentOpenedSlotCountSegment) - 10;
                       } else {
-                        sysum = Integer.parseInt(p) - 10 + 1;
+                        sysum = Integer.parseInt(currentOpenedSlotCountSegment) - 10 + 1;
                       } 
                       sysum = this.sum[sysum].intValue();
                       if (sysum < 1) {
@@ -168,9 +168,9 @@ public class LxAction implements IAction
                           v = Integer.parseInt(good.getValue().split("=")[1]);
                         } catch (Exception exception) {}
                         if (Battlefield.random.nextInt(100) < v) {
-                          int point = Integer.parseInt(p);
+                          int point = Integer.parseInt(currentOpenedSlotCountSegment);
                           point++;
-                          p = point + "";
+                          currentOpenedSlotCountSegment = point + "";
                           pet.setLingxi(lx + "&" + point);
                           isOk = true;
                           continue LOOP;

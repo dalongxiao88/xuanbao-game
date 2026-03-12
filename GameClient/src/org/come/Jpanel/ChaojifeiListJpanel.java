@@ -1,4 +1,4 @@
-﻿package org.come.Jpanel;
+package org.come.Jpanel;
 
 import java.util.Set;
 import org.come.until.CutButtonImage;
@@ -458,8 +458,8 @@ public class ChaojifeiListJpanel extends JPanel
                 try {
                     TP.tp(door, 1);
                 }
-                catch (Exception var9) {
-                    var9.printStackTrace();
+                catch (Exception exception) {
+                    exception.printStackTrace();
                 }
             }
         }

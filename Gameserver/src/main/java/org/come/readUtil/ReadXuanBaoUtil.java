@@ -15,9 +15,14 @@ import org.come.tool.ReadExelTool;
 import org.come.tool.SettModelMemberTool;
 import org.come.until.GsonUtil;
 
+/**
+ * 玄宝配置表读取工具。
+ */
 public class ReadXuanBaoUtil {
 
-
+    /**
+     * 从 Excel 配置中读取全部玄宝定义。
+     */
     public static ConcurrentHashMap<Integer, XuanBao> getallXuanbao(String path, StringBuffer buffer) {
         ConcurrentHashMap<Integer, XuanBao> allbbuy = new ConcurrentHashMap<>();
         String[][] result = ReadExelTool.getResult("config/" + path + ".xls");
@@ -30,8 +35,8 @@ public class ReadXuanBaoUtil {
                     for(int j = 0; j < result[i].length; ++j) {
                         try {
                             SettModelMemberTool.setReflectRelative(bbuy, result[i][j], j);
-                        } catch (Exception var8) {
-                            UpXlsAndTxtFile.addStringBufferMessage(buffer, i, j, result[i][j], MainServerHandler.getErrorMessage(var8));
+                        } catch (Exception reflectionException) {
+                            UpXlsAndTxtFile.addStringBufferMessage(buffer, i, j, result[i][j], MainServerHandler.getErrorMessage(reflectionException));
                             return null;
                         }
                     }
@@ -44,6 +49,9 @@ public class ReadXuanBaoUtil {
         return allbbuy;
     }
 
+    /**
+     * 将玄宝配置缓存序列化为统一下发文本。
+     */
     public static String createBbuy(ConcurrentHashMap<Integer, XuanBao> map) {
         AllXuanbao allBbuy = new AllXuanbao();
         Map<Integer, XuanBao> allbbuy = new HashMap<>();

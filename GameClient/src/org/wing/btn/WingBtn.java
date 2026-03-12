@@ -1,4 +1,4 @@
-﻿package org.wing.btn;
+package org.wing.btn;
 
 import org.come.entity.PartJade;
 import java.math.BigDecimal;
@@ -247,8 +247,8 @@ public class WingBtn extends MoBanBtn
                 }
                 this.wingMainPanel.changLeftType(type);
             }
-            catch (Exception var3) {
-                var3.printStackTrace();
+            catch (Exception exception) {
+                exception.printStackTrace();
             }
         }
     }

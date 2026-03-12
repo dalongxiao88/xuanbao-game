@@ -12,8 +12,10 @@ import org.come.redis.RedisControl;
 import java.math.BigDecimal;
 import java.util.Map;
 
-public class DataBaseControl
-{
+/**
+ * Redis 变更事件到批量数据库同步队列的分发器。
+ */
+public class DataBaseControl {
     public static DataBaseManage manageGoodstable;
     public static DataBaseManage manageBaby;
     public static DataBaseManage manageMount;
@@ -21,10 +23,13 @@ public class DataBaseControl
     public static DataBaseManage managePal;
     public static DataBaseManage managePet;
     private static Map<String, DataBaseManage> map;
-    
+
+    /**
+     * 根据 Redis 变更类型把新增、更新、删除事件投递到对应实体的同步队列。
+     */
     public void control(String value, String ID, String type) {
         if ("3".equals(value)) {
-            ((DataBaseManage)DataBaseControl.map.get(type)).del(new BigDecimal(ID));
+            DataBaseControl.map.get(type).queueDelete(new BigDecimal(ID));
         }
         else {
             Class<Object> list = getList(type);
@@ -37,10 +42,10 @@ public class DataBaseControl
                 return;
             }
             if ("2".equals(value)) {
-                ((DataBaseManage)DataBaseControl.map.get(type)).upd(v);
+                DataBaseControl.map.get(type).queueUpdate(v);
             }
             else if ("1".equals(value)) {
-                ((DataBaseManage)DataBaseControl.map.get(type)).add(v);
+                DataBaseControl.map.get(type).queueInsert(v);
             }
         }
     }

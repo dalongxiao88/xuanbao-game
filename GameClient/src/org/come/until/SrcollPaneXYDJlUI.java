@@ -73,8 +73,8 @@ public class SrcollPaneXYDJlUI extends BasicScrollBarUI {
     protected JButton createDecreaseButton(int orientation) {
         try {
             this.upBtnIcons = CutButtonImage.cuts(upurl);
-        } catch (Exception var3) {
-            var3.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
 
         this.up = new JButton();
@@ -110,8 +110,8 @@ public class SrcollPaneXYDJlUI extends BasicScrollBarUI {
     protected JButton createIncreaseButton(int orientation) {
         try {
             this.downBtnIcons = CutButtonImage.cuts(dwurl);
-        } catch (Exception var3) {
-            var3.printStackTrace();
+        } catch (Exception exception) {
+            exception.printStackTrace();
         }
 
         this.down = new JButton();

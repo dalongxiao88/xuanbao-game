@@ -20,8 +20,8 @@ public class NPCDialogControl implements FromServerAction
             try {
                 ControlNpcXmlUntil.GetXmlPath("npcMenu.xml");
             }
-            catch (Exception var5) {
-                var5.printStackTrace();
+            catch (Exception exception) {
+                exception.printStackTrace();
             }
             NPCJfram.getNpcJfram().getNpcjpanel().npc(ControlNpcXmlUntil.getNpcmenubean(), infoBean);
         }

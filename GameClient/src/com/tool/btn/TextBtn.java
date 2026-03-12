@@ -15,6 +15,10 @@ import java.awt.event.MouseEvent;
 import java.awt.Color;
 import com.tool.tcpimg.UIUtils;
 
+/**
+ * 文本功能按钮。
+ * 用于打开月卡/充值等外部入口，也负责承载部分纯文本菜单项的点击动作。
+ */
 public class TextBtn extends MoBanBtn
 {
     private int caozuo;
@@ -73,11 +77,11 @@ public class TextBtn extends MoBanBtn
                             URI uri = new URI(url);
                             desktop.browse(uri);
                         }
-                        catch (IOException var5) {
-                            var5.printStackTrace();
+                        catch (IOException browseException) {
+                            browseException.printStackTrace();
                         }
-                        catch (Exception var6) {
-                            var6.printStackTrace();
+                        catch (Exception openUrlException) {
+                            openUrlException.printStackTrace();
                         }
                     }
                 }
@@ -104,11 +108,11 @@ public class TextBtn extends MoBanBtn
                 try {
                     desktop.browse(new URI(stringParams));
                 }
-                catch (IOException var7) {
-                    var7.printStackTrace();
+                catch (IOException browseException) {
+                    browseException.printStackTrace();
                 }
-                catch (URISyntaxException var8) {
-                    var8.printStackTrace();
+                catch (URISyntaxException uriSyntaxException) {
+                    uriSyntaxException.printStackTrace();
                 }
             }
         }

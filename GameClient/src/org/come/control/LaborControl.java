@@ -13,13 +13,17 @@ import org.come.until.GsonUtil;
 import org.come.bean.LaborRank;
 import org.come.action.FromServerAction;
 
+/**
+ * 劳动节/回馈活动面板的服务端消息分发器。
+ * 根据服务端返回的类型切换主界面、抽奖界面和排行界面展示内容。
+ */
 public class LaborControl implements FromServerAction
 {
     @Override
     public void controlMessFromServer(String mes, String type) {
         LaborRank laborRank = (LaborRank)GsonUtil.getGsonUtil().getgson().fromJson(mes, LaborRank.class);
-        int type2 = laborRank.getType();
-        if (type2 <= 2) {
+        int resultType = laborRank.getType();
+        if (resultType <= 2) {
             TrueFeedbackMainJpanel trueFeedbackMainJpanel = TrueFeedbackMainJframe.getTrueFeedbackMainJframe().getTrueFeedbackMainJpanel();
             trueFeedbackMainJpanel.getTrueFeedbackCardJPanel().showViewData(laborRank);
             if (FormsManagement.getInternalForm2(109) == null) {
@@ -29,33 +33,33 @@ public class LaborControl implements FromServerAction
                 FormsManagement.showForm(109);
             }
             try {
-                if (type2 == 0) {
+                if (resultType == 0) {
                     trueFeedbackMainJpanel.getBtnAddRecharge().setIcons(CutButtonImage.cuts("inkImg/button/B318.png"));
                     trueFeedbackMainJpanel.getBtntimeSummon().setIcons(CutButtonImage.cuts("inkImg/button/B321.png"));
                     trueFeedbackMainJpanel.getBtnLottey().setIcons(CutButtonImage.cuts("inkImg/button/B319.png"));
-                    trueFeedbackMainJpanel.getTrueFeedbackCardJPanel().changeShowView(type2);
+                    trueFeedbackMainJpanel.getTrueFeedbackCardJPanel().changeShowView(resultType);
                 }
-                else if (type2 == 1) {
+                else if (resultType == 1) {
                     trueFeedbackMainJpanel.getBtnAddRecharge().setIcons(CutButtonImage.cuts("inkImg/button/B317.png"));
                     trueFeedbackMainJpanel.getBtntimeSummon().setIcons(CutButtonImage.cuts("inkImg/button/B322.png"));
                     trueFeedbackMainJpanel.getBtnLottey().setIcons(CutButtonImage.cuts("inkImg/button/B319.png"));
-                    trueFeedbackMainJpanel.getTrueFeedbackCardJPanel().changeShowView(type2);
+                    trueFeedbackMainJpanel.getTrueFeedbackCardJPanel().changeShowView(resultType);
                 }
-                else if (type2 == 2) {
+                else if (resultType == 2) {
                     trueFeedbackMainJpanel.getBtnAddRecharge().setIcons(CutButtonImage.cuts("inkImg/button/B317.png"));
                     trueFeedbackMainJpanel.getBtntimeSummon().setIcons(CutButtonImage.cuts("inkImg/button/B321.png"));
                     trueFeedbackMainJpanel.getBtnLottey().setIcons(CutButtonImage.cuts("inkImg/button/B320.png"));
-                    trueFeedbackMainJpanel.getTrueFeedbackCardJPanel().changeShowView(type2);
+                    trueFeedbackMainJpanel.getTrueFeedbackCardJPanel().changeShowView(resultType);
                 }
             }
-            catch (Exception ex) {}
+            catch (Exception ignored) {}
         }
-        else if (type2 != 10 && type2 != 11) {
-            if (type2 == 12) {
+        else if (resultType != 10 && resultType != 11) {
+            if (resultType == 12) {
                 TrueFeedbackLotteyJPanel trueFeedbackLotteyJPanel = TrueFeedbackMainJframe.getTrueFeedbackMainJframe().getTrueFeedbackMainJpanel().getTrueFeedbackCardJPanel().getTrueFeedbackLotteyJPanel();
                 trueFeedbackLotteyJPanel.lotteyGoods(laborRank);
             }
-            else if (type2 == 13) {
+            else if (resultType == 13) {
 //                AthChartJPanel athChartJPanel = AthChartJframe.getAthChartJPanel();
 //                athChartJPanel.lotteyGoods(laborRank);
 //                AthChartJframe.getAthChartJPanel().showViewData(laborRank);
@@ -66,7 +70,7 @@ public class LaborControl implements FromServerAction
                     FormsManagement.showForm(3004);
                 }
             }
-            else if (type2 == 113) {
+            else if (resultType == 113) {
 //                AthChartJPanel athChartJPanel = AthChartJframe.getAthChartJPanel();
 //                athChartJPanel.lotteyGoods(laborRank);
 //                AthChartJframe.getAthChartJPanel().showViewData(laborRank);

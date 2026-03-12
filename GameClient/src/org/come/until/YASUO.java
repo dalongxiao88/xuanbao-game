@@ -18,8 +18,8 @@ public class YASUO
             b = bos.toByteArray();
             bos.close();
         }
-        catch (Exception var4) {
-            var4.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
         return b;
     }
@@ -41,8 +41,8 @@ public class YASUO
             gzip.close();
             bis.close();
         }
-        catch (Exception var7) {
-            var7.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
         return b;
     }

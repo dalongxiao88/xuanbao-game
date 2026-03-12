@@ -1,4 +1,4 @@
-﻿package org.come.service;
+package org.come.service;
 
 import java.util.List;
 import org.come.bean.managerTable;

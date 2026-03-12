@@ -33,8 +33,8 @@ public class Gotochangan implements NpcMenuAction
         try {
             TP.tp(door, 2);
         }
-        catch (Exception var4) {
-            var4.printStackTrace();
+        catch (Exception exception) {
+            exception.printStackTrace();
         }
     }
 }

@@ -8874,22 +8874,13 @@ public class ManData implements Cloneable {
         return null;
     }
 
+    /** 语义化别名：当前战斗上下文使用的宠物悟灵技能配置串。 */
     public static String getPetWuLingSkills() {
         return ManData.petSkillswl;
     }
 
     public void setPetWuLingSkills(String petWuLingSkills) {
         ManData.petSkillswl = petWuLingSkills;
-    }
-
-    /** 兼容旧命名：获取悟灵技能串。 */
-    public static String getPetSkillswl() {
-        return getPetWuLingSkills();
-    }
-
-    /** 兼容旧命名：设置悟灵技能串。 */
-    public void setPetSkillswl(String petSkillswl) {
-        setPetWuLingSkills(petSkillswl);
     }
 
     public boolean getTPZS() {

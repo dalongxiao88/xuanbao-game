@@ -1,4 +1,4 @@
-﻿package org.come.service;
+package org.come.service;
 
 import org.apache.ibatis.annotations.Param;
 import java.util.concurrent.CopyOnWriteArrayList;

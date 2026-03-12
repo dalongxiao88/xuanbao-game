@@ -1,4 +1,4 @@
-﻿package org.come.servlet;
+package org.come.servlet;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,8 +43,10 @@ import come.tool.Scene.RC.RCScene;
 import come.tool.Stall.StallPool;
 import come.tool.newGang.GangUtil;
 
-public class SaveDBServlet extends HttpServlet
-{
+/**
+ * 后台管理端：执行一次全服数据落库与活动缓存导出。
+ */
+public class SaveDBServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final long serialVersionUID1 = 1L;
     
@@ -83,9 +85,9 @@ public class SaveDBServlet extends HttpServlet
         try {
             this.saveDB();
         }
-        catch (Exception var5) {
+        catch (Exception saveException) {
             ret = "保存失败，请发送错误信息给技术人员";
-            var5.printStackTrace();
+            saveException.printStackTrace();
         }
         PrintWriter pwPrintWriter = response.getWriter();
         pwPrintWriter.write(ret);
@@ -93,6 +95,9 @@ public class SaveDBServlet extends HttpServlet
         pwPrintWriter.close();
     }
     
+    /**
+     * 保存在线角色、场景与活动缓存到数据库或文本快照。
+     */
     public void saveDB() throws Exception {
         System.err.println("保存全部数据");
         System.err.println("开始处理摆摊物品");
@@ -154,8 +159,8 @@ public class SaveDBServlet extends HttpServlet
             int org = 0;
             CreateTextUtil.createFile(org / come / tool / ReadExelTool.getResult("/").length + "event.txt", GsonUtil.getGsonUtil().getgson().toJson(eventRanking).getBytes());
         }
-        catch (IOException var5) {
-            var5.printStackTrace();
+        catch (IOException exportException) {
+            exportException.printStackTrace();
         }
     }
 }
