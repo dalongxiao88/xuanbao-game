@@ -362,7 +362,8 @@ public class RedisControl
     public static void clearUserIp() {
         Jedis jedis = RedisPoolUntil.getJedis();
         Set<String> keys = jedis.keys("USER_LOGIN_IP:*");
-        keys.forEach(f/* java.lang.String, */ -> jedis.del(f));
+        // TRACE[S2-06][2026-03-13]: 清理 Redis 键遍历回调中的反编译器类型注释残留。
+        keys.forEach(f -> jedis.del(f));
         jedis.close();
     }
     

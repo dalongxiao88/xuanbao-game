@@ -82,7 +82,8 @@ public class TabJFrame extends JFrame
             
             @Override
             public void windowIconified(WindowEvent e) {
-                Main.tabJFrame.games.forEach((k, v)/* java.lang.Integer,java.lang.Process, */ -> {
+                // TRACE[C2-02][2026-03-13]: 清理多开标签窗口回调中的反编译器类型注释残留。
+                Main.tabJFrame.games.forEach((k, v) -> {
                     Process process = (Process)Main.tabJFrame.games.get(k);
                     try {
                         process.getOutputStream().write("chatHide\n".getBytes());
@@ -91,13 +92,12 @@ public class TabJFrame extends JFrame
                     catch (IOException ioException) {
                         ioException.printStackTrace();
                     }
-                    return;
                 });
             }
             
             @Override
             public void windowDeiconified(WindowEvent e) {
-                Main.tabJFrame.games.forEach((k, v)/* java.lang.Integer,java.lang.Process, */ -> {
+                Main.tabJFrame.games.forEach((k, v) -> {
                     Process process = (Process)Main.tabJFrame.games.get(k);
                     if ((int)k == TabJFrame.shouId) {
                         try {
@@ -144,7 +144,8 @@ public class TabJFrame extends JFrame
             Process finalProcess;
             process = (finalProcess = processBuilder.start());
             int id = TabJFrame.index;
-            new Thread(()/*  */ -> {
+            // TRACE[L-02][2026-03-13]: 清理多开标签线程中的反编译空注释 lambda 残留。
+            new Thread(() -> {
                 InputStream in = finalProcess.getInputStream();
                 try {
                     InputStreamReader in2 = new InputStreamReader(in, MyIsif.debug ? "UTF-8" : "GBK");
@@ -200,7 +201,7 @@ public class TabJFrame extends JFrame
                 }
                 return;
             }).start();
-            new Thread(()/*  */ -> {
+            new Thread(() -> {
                 try {
                     InputStream in3 = finalProcess.getErrorStream();
                     byte[] bytes = new byte[1024];

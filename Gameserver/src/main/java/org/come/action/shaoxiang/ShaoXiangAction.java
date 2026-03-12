@@ -503,7 +503,8 @@ public class ShaoXiangAction implements IAction
         ShaoXiangAction.HSTJ = Lists.newArrayList();
         ConcurrentHashMap<Integer, TeJiLH> alllhtj = GameServer.getAlllhtj();
         if (alllhtj != null && !alllhtj.isEmpty()) {
-            alllhtj.entrySet().stream().forEach(e/* java.util.Map.Entry, */ -> {
+            // TRACE[S2-12][2026-03-13]: 清理烧香特技遍历中的反编译器类型注释残留。
+            alllhtj.entrySet().stream().forEach(e -> {
                 if (((TeJiLH)e.getValue()).getWQ() != 0) {
                     ShaoXiangAction.TJ.add(String.valueOf(e.getKey()));
                 }

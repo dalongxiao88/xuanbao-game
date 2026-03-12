@@ -132,105 +132,31 @@ public class UserTableServerlet extends HttpServlet
     public void init() throws ServletException {
     }
     
+    /**
+     * TRACE[S-02][2026-03-13]: 用语义化字符串分支替换反编译残留的 hashCode 分派。
+     * 保持原有排序语义不变，同时补充空值保护，避免继续依赖反编译结构。
+     */
     public String sureType(String type) {
-        String returnMes = "";
-        int n = -1;
-        switch (type.hashCode()) {
-            case 48: {
-                if (type.equals("0")) {
-                    n = 0;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 49: {
-                if (type.equals("1")) {
-                    n = 1;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 50: {
-                if (type.equals("2")) {
-                    n = 2;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 51: {
-                if (type.equals("3")) {
-                    n = 3;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 52: {
-                if (type.equals("4")) {
-                    n = 4;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 53: {
-                if (type.equals("5")) {
-                    n = 5;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 54: {
-                if (type.equals("6")) {
-                    n = 6;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
+        if (type == null) {
+            return "";
         }
-        switch (n) {
-            case 0: {
-                returnMes = "";
-                break;
-            }
-            case 1: {
-                returnMes = "order by QID";
-                break;
-            }
-            case 2: {
-                returnMes = "order by SAFETY";
-                break;
-            }
-            case 3: {
-                returnMes = "order by USERPWD";
-                break;
-            }
-            case 4: {
-                returnMes = "order by USERNAME";
-                break;
-            }
-            case 5: {
-                returnMes = "order by REGISTERIP desc";
-                break;
-            }
-            case 6: {
-                returnMes = "order by LOGINIP desc";
-                break;
-            }
+        switch (type) {
+            case "1":
+                return "order by QID";
+            case "2":
+                return "order by SAFETY";
+            case "3":
+                return "order by USERPWD";
+            case "4":
+                return "order by USERNAME";
+            case "5":
+                return "order by REGISTERIP desc";
+            case "6":
+                return "order by LOGINIP desc";
+            case "0":
+            default:
+                return "";
         }
-        return returnMes;
     }
 }
 

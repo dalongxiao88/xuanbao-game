@@ -1556,7 +1556,7 @@ public class LxPanel extends JPanel
         @Override
         public void mouseEntered(MouseEvent e) {
             Skill skill = UserMessUntil.getSkillId(this.lxPointBean.getTableId() + "");
-            MsgJframe.getJframe().getJapnel().LX((skill != null) ? skill.getSkillname() : "", LxPanel.this.getSkillMsg(skill, this));
+            MsgJframe.getJframe().getJapnel().showFloatingMessage((skill != null) ? skill.getSkillname() : "", LxPanel.this.getSkillMsg(skill, this));
         }
         
         @Override

@@ -71,7 +71,7 @@ public class CopyOfSkillTYCMuse implements MouseListener
                     CopyOfSkillTYCMuse.this.copy.type1.setBounds(334, 163 + CopyOfSkillTYCMuse.this.bmw, 33, 33);
                     CopyOfSkillTYCMuse.this.copy.type2.setBounds(308, 211 + CopyOfSkillTYCMuse.this.bmw, 33, 33);
                     CopyOfSkillTYCMuse.this.copy.type3.setBounds(362, 211 + CopyOfSkillTYCMuse.this.bmw, 33, 33);
-                    CopyOfSkillTYCMuse this$0 = CopyOfSkillTYCMuse.this;
+                    // TRACE[C-12][2026-03-13]: 去除技能动效线程中的反编译 this$0 合成变量残留。
                     CopyOfSkillTYCMuse.this.bmw += 6;
                     if (CopyOfSkillTYCMuse.this.bmw >= 166) {
                         CopyOfSkillTYCMuse.this.bmw = 1;

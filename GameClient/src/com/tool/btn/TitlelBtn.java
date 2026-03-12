@@ -137,7 +137,8 @@ public class TitlelBtn extends MoBanBtn
     }
     
     private void chatBoxShowAndHide() {
-        Main.tabJFrame.games.forEach((k, v)/* java.lang.Integer,java.lang.Process, */ -> {
+        // TRACE[C2-10][2026-03-13]: 清理标题按钮回调中的反编译器类型注释残留。
+        Main.tabJFrame.games.forEach((k, v) -> {
             Process process = (Process)Main.tabJFrame.games.get(k);
             if ((int)k == this.caozuo) {
                 try {
@@ -157,7 +158,6 @@ public class TitlelBtn extends MoBanBtn
                     ioException2.printStackTrace();
                 }
             }
-            return;
         });
     }
     

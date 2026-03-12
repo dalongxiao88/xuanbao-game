@@ -49,6 +49,14 @@ import come.tool.newGang.GangUtil;
 public class SaveDBServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static final long serialVersionUID1 = 1L;
+
+    /**
+     * TRACE[S-01][2026-03-13]: 统一后台快照输出路径。
+     * 这里恢复被反编译破坏的路径拼接语义，保持与 SaveGameDataServlet 的资源导出路径一致。
+     */
+    private static String buildSnapshotPath(String fileName) {
+        return ReadExelTool.class.getResource("/").getPath() + fileName;
+    }
     
     @Override
     public void destroy() {
@@ -122,24 +130,21 @@ public class SaveDBServlet extends HttpServlet {
             WriteOut.writeTxtFile(WriteOut.buffer.toString());
         }
         LaborScene.Save(true);
-        int come = 0;
-        int org = 0;
-        int tool = 0;
-        CreateTextUtil.createFile(org / come / tool / ReadExelTool.getResult("/").length + "hatch.txt", HatchvalueAction.hatch.toString().getBytes());
+        CreateTextUtil.createFile(buildSnapshotPath("hatch.txt"), HatchvalueAction.hatch.toString().getBytes());
         saveEventRoles();
         Scene scene = SceneUtil.getScene(1009);
         if (scene != null) {
             RCScene rcScene = (RCScene)scene;
-            CreateTextUtil.createFile(org / come / tool / ReadExelTool.getResult("/").length + "bbRecord.txt", GsonUtil.getGsonUtil().getgson().toJson(rcScene.getBbRecord()).getBytes());
+            CreateTextUtil.createFile(buildSnapshotPath("bbRecord.txt"), GsonUtil.getGsonUtil().getgson().toJson(rcScene.getBbRecord()).getBytes());
         }
         scene = SceneUtil.getScene(1010);
         if (scene != null) {
             PKLSScene pklsScene = (PKLSScene)scene;
             lsteamBean lsteamBean = new lsteamBean();
             lsteamBean.setLSTeams(pklsScene.getLSTeams());
-            CreateTextUtil.createFile(org / come / tool / ReadExelTool.getResult("/").length + "lsteam.txt", GsonUtil.getGsonUtil().getgson().toJson(lsteamBean).getBytes());
+            CreateTextUtil.createFile(buildSnapshotPath("lsteam.txt"), GsonUtil.getGsonUtil().getgson().toJson(lsteamBean).getBytes());
         }
-        CreateTextUtil.createFile(org / come / tool / ReadExelTool.getResult("/").length + "money.txt", GsonUtil.getGsonUtil().getgson().toJson(MonitorUtil.getMoney()).getBytes());
+        CreateTextUtil.createFile(buildSnapshotPath("money.txt"), GsonUtil.getGsonUtil().getgson().toJson(MonitorUtil.getMoney()).getBytes());
         RefreshMonsterTask.upBuyCount(-1, false);
     }
     
@@ -154,10 +159,7 @@ public class SaveDBServlet extends HttpServlet {
         }
         eventRanking.setMap(map);
         try {
-            int tool = 0;
-            int come = 0;
-            int org = 0;
-            CreateTextUtil.createFile(org / come / tool / ReadExelTool.getResult("/").length + "event.txt", GsonUtil.getGsonUtil().getgson().toJson(eventRanking).getBytes());
+            CreateTextUtil.createFile(buildSnapshotPath("event.txt"), GsonUtil.getGsonUtil().getgson().toJson(eventRanking).getBytes());
         }
         catch (IOException exportException) {
             exportException.printStackTrace();

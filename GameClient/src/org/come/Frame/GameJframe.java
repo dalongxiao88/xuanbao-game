@@ -41,7 +41,8 @@ public class GameJframe extends JFrame
         else {
             this.setTitle("大话西游Ⅱ" + Main.index + Main.name.toString());
             this.setUndecorated(true);
-            new Thread(()/*  */ -> {
+            // TRACE[L-10][2026-03-13]: 清理游戏主窗体线程中的反编译空注释 lambda 残留。
+            new Thread(() -> {
                 while (true) {
                     this.setLocation(5, 60);
                     try {

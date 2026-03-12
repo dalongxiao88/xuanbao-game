@@ -2022,7 +2022,8 @@ public class SuitComposeAction implements IAction
                 value.add(s);
             }
         }
-        value.removeIf(bb/* java.lang.String, */ -> bb.equals(""));
+        // TRACE[S2-15][2026-03-13]: 清理套装合成链中的反编译器类型注释残留。
+        value.removeIf(bb -> bb.equals(""));
         StringBuilder mes = null;
         String extra = null;
         boolean jiezhi = false;
@@ -2255,7 +2256,7 @@ public class SuitComposeAction implements IAction
         }
         shuxing1 = zong / 2;
         shuxing2 = zong / 2;
-        value.removeIf(bb/* java.lang.String, */ -> bb.equals(""));
+        value.removeIf(bb -> bb.equals(""));
         StringBuilder mes = null;
         String extra = null;
         for (String vv : value) {
@@ -2538,7 +2539,7 @@ public class SuitComposeAction implements IAction
         SuitComposeAction.HSTJ = Lists.newArrayList();
         ConcurrentHashMap<Integer, TeJiLH> alllhtj = GameServer.getAlllhtj();
         if (alllhtj != null && !alllhtj.isEmpty()) {
-            alllhtj.entrySet().stream().forEach(e/* java.util.Map.Entry, */ -> {
+            alllhtj.entrySet().stream().forEach(e -> {
                 if (((TeJiLH)e.getValue()).getWQ() != 0) {
                     SuitComposeAction.TJ.add(String.valueOf(e.getKey()));
                 }

@@ -102,156 +102,38 @@ public class UserRoleQueryServlet extends HttpServlet
     public void init() throws ServletException {
     }
     
+    /**
+     * TRACE[S-03][2026-03-13]: 去除反编译残留的 hashCode 分派结构。
+     * 当前方法仍保留原有排序码到排序语句的映射，仅把实现恢复为可维护的字符串分支。
+     */
     public String sureType(String type) {
-        String returnMes = "";
-        int n = -1;
-        switch (type.hashCode()) {
-            case 48: {
-                if (type.equals("0")) {
-                    n = 0;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 49: {
-                if (type.equals("1")) {
-                    n = 1;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 50: {
-                if (type.equals("2")) {
-                    n = 2;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 51: {
-                if (type.equals("3")) {
-                    n = 3;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 52: {
-                if (type.equals("4")) {
-                    n = 4;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 53: {
-                if (type.equals("5")) {
-                    n = 5;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 54: {
-                if (type.equals("6")) {
-                    n = 6;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 55: {
-                if (type.equals("7")) {
-                    n = 7;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 1567: {
-                if (type.equals("10")) {
-                    n = 8;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 1568: {
-                if (type.equals("11")) {
-                    n = 9;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 1569: {
-                if (type.equals("12")) {
-                    n = 10;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
+        if (type == null) {
+            return "";
         }
-        switch (n) {
-            case 0: {
-                returnMes = "";
-                break;
-            }
-            case 1: {
-                returnMes = "order by rolename";
-                break;
-            }
-            case 2: {
-                returnMes = "order by LOCALNAME";
-                break;
-            }
-            case 3: {
-                returnMes = "order by QID";
-                break;
-            }
-            case 4: {
-                returnMes = "order by PASSWORD";
-                break;
-            }
-            case 5: {
-                returnMes = "order by GOLD desc";
-                break;
-            }
-            case 6: {
-                returnMes = "order by GRADE desc";
-                break;
-            }
-            case 7: {
-                returnMes = "order by HP desc";
-                break;
-            }
-            case 8: {
-                returnMes = "order by MP desc";
-                break;
-            }
-            case 9: {
-                returnMes = "order by CODECARD desc";
-                break;
-            }
-            case 10: {
-                returnMes = "order by PAYINTEGRATION desc";
-                break;
-            }
+        switch (type) {
+            case "1":
+                return "order by rolename";
+            case "2":
+                return "order by LOCALNAME";
+            case "3":
+                return "order by QID";
+            case "4":
+                return "order by PASSWORD";
+            case "5":
+                return "order by GOLD desc";
+            case "6":
+                return "order by GRADE desc";
+            case "7":
+                return "order by HP desc";
+            case "10":
+                return "order by MP desc";
+            case "11":
+                return "order by CODECARD desc";
+            case "12":
+                return "order by PAYINTEGRATION desc";
+            case "0":
+            default:
+                return "";
         }
-        return returnMes;
     }
 }

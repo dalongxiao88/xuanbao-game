@@ -1372,12 +1372,12 @@ public class Battlefield {
         try {
             Map<String, FightingStatistics> fightingStatisticsMap = this.battleData.getFightingForesee().getFightingStatisticsMap(this);
             if (fightingStatisticsMap != null) {
-                fightingStatisticsMap.forEach((k, v)/* java.lang.String,come.tool.Battle.FightingStatistics, */ -> {
+                // TRACE[S2-02][2026-03-13]: 清理战场统计回调中的反编译器类型注释残留。
+                fightingStatisticsMap.forEach((k, v) -> {
                     if (v != null) {
                         v.setPetNum(0);
                         v.setLingNum(0);
                     }
-                    return;
                 });
             }
         } catch (Exception e) {
@@ -6801,7 +6801,7 @@ public class Battlefield {
     private static String getPetSkillswlLevel(String petSkillswl, String skillId) {
         try {
             String[] split = petSkillswl.split("\\|");
-            Optional<String> first = Arrays.stream(split).filter(item/* java.lang.String, */ -> item.contains(skillId)).findFirst();
+            Optional<String> first = Arrays.stream(split).filter(item -> item.contains(skillId)).findFirst();
             if (first != null) {
                 String s = first.get();
                 return s.split("=")[1];

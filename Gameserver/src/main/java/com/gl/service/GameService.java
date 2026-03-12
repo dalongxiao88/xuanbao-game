@@ -171,10 +171,8 @@ public class GameService
             }
         }
         Map<String, Long> result = new LinkedHashMap<>();
-        fileList.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEachOrdered(x/* java.util.Map.Entry, */ -> {
-            Long n = (Long)result.put(x.getKey(), x.getValue());
-            return;
-        });
+        // TRACE[S2-04][2026-03-13]: 清理流式排序回调中的反编译器类型注释残留。
+        fileList.entrySet().stream().sorted(Map.Entry.comparingByKey()).forEachOrdered(x -> result.put(x.getKey(), x.getValue()));
         return result;
     }
     //配置文件下载（单个）

@@ -2101,11 +2101,12 @@ public class LoginResult
             }
             StringBuffer os = new StringBuffer("ED=");
             if (CollectionUtils.isNotEmpty(this.ed)) {
-                this.ed.forEach(e/* java.lang.Integer, */ -> os.append(e + ","));
+                // TRACE[S2-07][2026-03-13]: 清理登录结果导出逻辑中的反编译器类型注释残留。
+                this.ed.forEach(e -> os.append(e + ","));
             }
             os.append("&LQ=");
             if (CollectionUtils.isNotEmpty(this.lq)) {
-                this.lq.forEach(e/* java.lang.Integer, */ -> os.append(e + ","));
+                this.lq.forEach(e -> os.append(e + ","));
             }
             return os.toString().substring(0, os.length() - 1);
         }

@@ -49,7 +49,8 @@ public class PetDepositAction implements IAction
             AllServiceUtil.getRoleSummoningService().updateRoleSummoning(exRoleSummoning);
             RoleData roleData = RolePool.getRoleData(roleInfo.getRole_id());
             if (roleData.getPets() != null && roleData.getPets().size() > 0) {
-                IntStream.range(0, roleData.getPets().size()).filter(i/* int, */ -> ((Hang)roleData.getPets().get(i)).getId().equals(exRoleSummoning.getSid())).boxed().findFirst().map(i/* java.lang.Integer, */ -> (Hang)roleData.getPets().remove((int)i));
+                // TRACE[S2-16][2026-03-13]: 清理召唤兽寄存流式链中的反编译器类型注释残留。
+                IntStream.range(0, roleData.getPets().size()).filter(i -> ((Hang)roleData.getPets().get(i)).getId().equals(exRoleSummoning.getSid())).boxed().findFirst().map(i -> (Hang)roleData.getPets().remove((int)i));
             }
             AssetUpdate assetUpdate = new AssetUpdate();
             assetUpdate.setType(99);

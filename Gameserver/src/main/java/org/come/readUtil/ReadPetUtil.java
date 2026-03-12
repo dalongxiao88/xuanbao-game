@@ -34,7 +34,8 @@ public class ReadPetUtil
                     }
                 }
                 if (!pet.getSummoningid().equals("")) {
-                    pet.SB();
+                    // TRACE[N-05][2026-03-13]: 调整到语义化别名入口，保留旧方法兼容。
+                    pet.refreshBattleStats();
                     allpet.put(new BigDecimal(pet.getSummoningid()), pet);
                 }
             }

@@ -19,42 +19,24 @@ public class RoleChangeAppellationControl implements FromServerAction
 {
     @Override
     public void controlMessFromServer(String mes, String type) {
-        int n = -1;
-        switch (type.hashCode()) {
-            case -2135038218: {
-                if (type.equals("titlelist")) {
-                    n = 0;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 963515400: {
-                if (type.equals("titlechange")) {
-                    n = 1;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
+        // TRACE[C-06][2026-03-13]: 去除称谓变更协议分派中的反编译 hashCode 结构。
+        if (type == null) {
+            return;
         }
-        switch (n) {
-            case 0: {
+        switch (type) {
+            case "titlelist":
                 try {
                     this.titleList(mes);
-                    break;
                 }
                 catch (Exception e) {
                     e.printStackTrace();
-                    break;
                 }
-            }
-            case 1: {
+                break;
+            case "titlechange":
                 this.titleChange(mes);
                 break;
-            }
+            default:
+                break;
         }
     }
     

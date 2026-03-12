@@ -96,7 +96,8 @@ public class RoleMsgBtn extends MoBanBtn implements MouseListener
                 }
                 else if (this.caozuo == 7) {
                     PlayerMonitor.addFriend(role_id, rolename);
-                    new Thread(()/*  */ -> {
+                    // TRACE[L-06][2026-03-13]: 清理角色消息按钮线程中的反编译空注释 lambda 残留。
+                    new Thread(() -> {
                         try {
                             Thread.sleep(500L);
                         }

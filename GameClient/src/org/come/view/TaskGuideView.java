@@ -158,6 +158,14 @@ public class TaskGuideView extends JComponent implements MouseInputListener
     }
     
     public void DJ(int x, int y) {
+        this.setDragAnchor(x, y);
+    }
+
+    /**
+     * TRACE[N-02][2026-03-13]: 为任务引导视图补充语义化拖拽锚点方法。
+     * 旧名 `DJ` 缺少语义，这里补充行为化别名并保留兼容入口。
+     */
+    public void setDragAnchor(int x, int y) {
         this.first_x = x;
         this.first_y = y;
     }

@@ -245,7 +245,8 @@ public class GetLiangHaoTwoJpanel extends JPanel
             }
         }).setVerticalAlignment(0);
         this.labpage.setHorizontalAlignment(0);
-        SwingUtilities.invokeLater(()/*  */ -> this.labpage.repaint());
+        // TRACE[L-07][2026-03-13]: 清理良号面板回调中的反编译空注释 lambda 残留。
+        SwingUtilities.invokeLater(() -> this.labpage.repaint());
         this.labpage.setForeground(Color.white);
         this.labpage.setBackground(UIUtils.Color_BACK);
         this.labpage.setBorder(BorderFactory.createEmptyBorder());

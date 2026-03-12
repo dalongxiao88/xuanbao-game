@@ -198,7 +198,8 @@ public class DianJpanel extends JPanel
                 value2.add(s);
             }
         }
-        value2.removeIf(bb/* java.lang.String, */ -> bb.equals(""));
+        // TRACE[C2-13][2026-03-13]: 清理点化面板过滤中的反编译器类型注释残留。
+        value2.removeIf(bb -> bb.equals(""));
         StringBuilder mes = null;
         for (String vv : value2) {
             if (vv.startsWith("培养")) {

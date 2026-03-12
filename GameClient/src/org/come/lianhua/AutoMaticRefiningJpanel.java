@@ -421,7 +421,8 @@ public class AutoMaticRefiningJpanel extends JPanel
                 if (this.start.getText().equals("运行")) {
                     return;
                 }
-                long count = Arrays.stream(res).filter(item/* java.lang.Integer, */ -> (int)item == 1).count();
+                // TRACE[C2-08][2026-03-13]: 清理自动炼化统计流中的反编译器类型注释残留。
+                long count = Arrays.stream(res).filter(item -> (int)item == 1).count();
                 if (count == (long)collect.size()) {
                     this.start.setText("运行");
                     return;
@@ -464,7 +465,7 @@ public class AutoMaticRefiningJpanel extends JPanel
                 }
             }
         }
-        long sum = Arrays.stream(res).filter(item/* java.lang.Integer, */ -> (int)item == 1).count();
+        long sum = Arrays.stream(res).filter(item -> (int)item == 1).count();
         if (sum == (long)collect.size()) {
             this.start.setText("运行");
             return;
@@ -553,7 +554,7 @@ public class AutoMaticRefiningJpanel extends JPanel
                 if (this.start.getText().equals("运行")) {
                     return;
                 }
-                long count = Arrays.stream(res).filter(item/* java.lang.Integer, */ -> (int)item == 1).count();
+                long count = Arrays.stream(res).filter(item -> (int)item == 1).count();
                 if (count == (long)collect.size()) {
                     this.start.setText("运行");
                     return;
@@ -596,7 +597,7 @@ public class AutoMaticRefiningJpanel extends JPanel
                 }
             }
         }
-        long sum = Arrays.stream(res).filter(item/* java.lang.Integer, */ -> (int)item == 1).count();
+        long sum = Arrays.stream(res).filter(item -> (int)item == 1).count();
         if (sum == (long)collect.size()) {
             this.start.setText("运行");
             return;
@@ -698,7 +699,7 @@ public class AutoMaticRefiningJpanel extends JPanel
                 if (this.start.getText().equals("运行")) {
                     return;
                 }
-                long count = Arrays.stream(res).filter(item/* java.lang.Integer, */ -> (int)item == 1).count();
+                long count = Arrays.stream(res).filter(item -> (int)item == 1).count();
                 if (count == (long)collect.size()) {
                     this.start.setText("运行");
                     return;
@@ -741,7 +742,7 @@ public class AutoMaticRefiningJpanel extends JPanel
                 }
             }
         }
-        long sum = Arrays.stream(res).filter(item/* java.lang.Integer, */ -> (int)item == 1).count();
+        long sum = Arrays.stream(res).filter(item -> (int)item == 1).count();
         if (sum == (long)collect.size()) {
             this.start.setText("运行");
             return;
@@ -793,7 +794,7 @@ public class AutoMaticRefiningJpanel extends JPanel
                 if (this.start.getText().equals("运行")) {
                     return;
                 }
-                long count = Arrays.stream(res).filter(item/* java.lang.Integer, */ -> (int)item == 1).count();
+                long count = Arrays.stream(res).filter(item -> (int)item == 1).count();
                 if (count >= (long)collect.size()) {
                     this.start.setText("运行");
                     return;
@@ -841,7 +842,7 @@ public class AutoMaticRefiningJpanel extends JPanel
                 }
             }
         }
-        long sum = Arrays.stream(res).filter(item/* java.lang.Integer, */ -> (int)item == 1).count();
+        long sum = Arrays.stream(res).filter(item -> (int)item == 1).count();
         if (sum == (long)collect.size()) {
             this.start.setText("运行");
             return;
@@ -887,7 +888,7 @@ public class AutoMaticRefiningJpanel extends JPanel
                 if (this.start.getText().equals("运行")) {
                     return;
                 }
-                long count = Arrays.stream(res).filter(item/* java.lang.Integer, */ -> (int)item == 1).count();
+                long count = Arrays.stream(res).filter(item -> (int)item == 1).count();
                 if (count == (long)collect.size()) {
                     this.start.setText("运行");
                     return;
@@ -930,7 +931,7 @@ public class AutoMaticRefiningJpanel extends JPanel
                 }
             }
         }
-        long sum = Arrays.stream(res).filter(item/* java.lang.Integer, */ -> (int)item == 1).count();
+        long sum = Arrays.stream(res).filter(item -> (int)item == 1).count();
         if (sum == (long)collect.size()) {
             this.start.setText("运行");
             return;

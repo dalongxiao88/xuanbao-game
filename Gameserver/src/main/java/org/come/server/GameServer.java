@@ -1210,143 +1210,59 @@ public class GameServer implements ServletContextListener
             sum = 0;
             GodStone godStone = (GodStone)godStones.get(j);
             String type = godStone.getType();
+            /**
+             * TRACE[S-05][2026-03-13]: 去除神石类型匹配中的反编译 hashCode 分派。
+             * 这里只恢复类型到编号的分派语义，不改后续业务匹配逻辑，避免扩大改动范围。
+             */
             int n = -1;
-            switch (type.hashCode()) {
-                case 703706: {
-                    if (type.equals("反震")) {
-                        n = 0;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 1167975: {
-                    if (type.equals("速度")) {
-                        n = 1;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 1220110: {
-                    if (type.equals("附毒")) {
-                        n = 2;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 30509553: {
-                    if (type.equals("破物理")) {
-                        n = 3;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case -896861679: {
-                    if (type.equals("双忽视仙法")) {
-                        n = 4;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 664218690: {
-                    if (type.equals("双抗水火")) {
-                        n = 5;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 664582516: {
-                    if (type.equals("双抗风雷")) {
-                        n = 6;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 663156425: {
-                    if (type.equals("双强人法")) {
-                        n = 7;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 24907314: {
-                    if (type.equals("抗人法")) {
-                        n = 8;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 1214068: {
-                    if (type.equals("附吸")) {
-                        n = 9;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 803969: {
-                    if (type.equals("抗吸")) {
-                        n = 10;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 24687059: {
-                    if (type.equals("强鬼法")) {
-                        n = 11;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 25514480: {
-                    if (type.equals("抗鬼法")) {
-                        n = 12;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 1238746: {
-                    if (type.equals("霹雳")) {
-                        n = 13;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 807057: {
-                    if (type.equals("扶摇")) {
-                        n = 14;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
+            switch (type) {
+                case "反震":
+                    n = 0;
+                    break;
+                case "速度":
+                    n = 1;
+                    break;
+                case "附毒":
+                    n = 2;
+                    break;
+                case "破物理":
+                    n = 3;
+                    break;
+                case "双忽视仙法":
+                    n = 4;
+                    break;
+                case "双抗水火":
+                    n = 5;
+                    break;
+                case "双抗风雷":
+                    n = 6;
+                    break;
+                case "双强人法":
+                    n = 7;
+                    break;
+                case "抗人法":
+                    n = 8;
+                    break;
+                case "附吸":
+                    n = 9;
+                    break;
+                case "抗吸":
+                    n = 10;
+                    break;
+                case "强鬼法":
+                    n = 11;
+                    break;
+                case "抗鬼法":
+                    n = 12;
+                    break;
+                case "霹雳":
+                    n = 13;
+                    break;
+                case "扶摇":
+                    n = 14;
+                    break;
+                default:
+                    break;
             }
             switch (n) {
                 case 0: {

@@ -4,57 +4,16 @@ import org.come.entity.Goodstable;
 
 public class RefiningUtil
 {
+    /**
+     * TRACE[C-02][2026-03-13]: 去除炼化类型判断中的反编译 hashCode 分派。
+     * 保留原有类型到材料槽位判断的业务语义，不扩大改动面。
+     */
     public static boolean DJ(String type, int i, Goodstable good) {
-        int n = -1;
-        switch (type.hashCode()) {
-            case 881316924: {
-                if (type.equals("炼化装备")) {
-                    n = 0;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 880856585: {
-                if (type.equals("炼化仙器")) {
-                    n = 1;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 881192753: {
-                if (type.equals("炼化神兵")) {
-                    n = 2;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 817448089: {
-                if (type.equals("普通打造")) {
-                    n = 3;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 783469: {
-                if (type.equals("巫铸")) {
-                    n = 4;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
+        if (type == null) {
+            return false;
         }
-        switch (n) {
-            case 0: {
+        switch (type) {
+            case "炼化装备": {
                 if (i == 0) {
                     return Goodtype.OrdinaryEquipment((long)good.getType());
                 }
@@ -66,25 +25,25 @@ public class RefiningUtil
                 }
                 return i == 3 && (long)good.getType() == 497L;
             }
-            case 1: {
+            case "炼化仙器": {
                 if (i == 0) {
                     return Goodtype.GodEquipment_xian((long)good.getType()) || Goodtype.GodEquipment_Ding((long)good.getType());
                 }
                 return i == 1 && (Goodtype.GodEquipment_xian((long)good.getType()) || Goodtype.GodEquipment_Ding((long)good.getType()) || (long)good.getType() == 7005L);
             }
-            case 2: {
+            case "炼化神兵": {
                 if (i == 0) {
                     return Goodtype.GodEquipment_God((long)good.getType());
                 }
                 return i == 1 && (long)good.getType() == 191L;
             }
-            case 3: {
+            case "普通打造": {
                 if (i == 0) {
                     return Goodtype.OrdinaryEquipment((long)good.getType());
                 }
                 return i == 1 && Goodtype.Ore((long)good.getType());
             }
-            case 4: {
+            case "巫铸": {
                 if (i == 0) {
                     return Goodtype.OrdinaryEquipment((long)good.getType());
                 }

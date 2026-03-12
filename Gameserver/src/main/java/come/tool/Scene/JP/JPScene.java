@@ -46,7 +46,8 @@ public class JPScene implements Scene
     }
     
     public void open() {
-        GameServer.getAllAuctionGoodsExchange().getAllAuctionAuctionExchange().forEach((k, v)/* java.lang.Integer,org.come.model.AuctionExchange, */ -> {
+        // TRACE[S2-05][2026-03-13]: 清理拍卖场景回调中的反编译器类型注释残留。
+        GameServer.getAllAuctionGoodsExchange().getAllAuctionAuctionExchange().forEach((k, v) -> {
             String s = withinTheTimeFrame(v);
             if (s == null) {
                 Integer type = (Integer)this.auctionExchangeMap.get(k);
@@ -64,7 +65,6 @@ public class JPScene implements Scene
                     SendMessage.sendMessageToAllRoles(msg);
                 }
             }
-            return;
         });
     }
     
@@ -103,7 +103,7 @@ public class JPScene implements Scene
     }
     
     public void end() {
-        this.auctionExchangeMap.forEach((k, v)/* java.lang.Integer,java.lang.Integer, */ -> {
+        this.auctionExchangeMap.forEach((k, v) -> {
             if ((int)v == 1 || (int)v == 3) {
                 AuctionExchange auctionExchange = (AuctionExchange)GameServer.getAllAuctionGoodsExchange().getAllAuctionAuctionExchange().get(k);
                 if (auctionExchange != null) {
@@ -248,7 +248,7 @@ public class JPScene implements Scene
     }
     
     public void accident() {
-        this.auctionExchangeMap.forEach((k, v)/* java.lang.Integer,java.lang.Integer, */ -> {
+        this.auctionExchangeMap.forEach((k, v) -> {
             if ((int)v == 1) {
                 AuctionExchange auctionExchange = (AuctionExchange)GameServer.getAllAuctionGoodsExchange().getAllAuctionAuctionExchange().get(k);
                 Integer moneyType = auctionExchange.getMoneyType();

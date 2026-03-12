@@ -340,7 +340,8 @@ public class Skill implements Cloneable {
 
     private String getPetSkillswlLevel(String petSkillswl, String skillId) {
         String[] split = petSkillswl.split("\\|");
-        Optional<String> first = Arrays.stream(split).filter(item/* java.lang.String, */ -> item.contains(skillId)).findFirst();
+        // TRACE[S2-11][2026-03-13]: 清理技能配置解析流中的反编译器类型注释残留。
+        Optional<String> first = Arrays.stream(split).filter(item -> item.contains(skillId)).findFirst();
         if (first != null) {
             String s = (String) first.get();
             return s.split("=")[1];

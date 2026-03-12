@@ -1504,7 +1504,8 @@ public class GoodsListFromServerUntil {
         for (int j = GoodsListFromServerUntil.Pagenumber * 24; j < (GoodsListFromServerUntil.Pagenumber + 1) * 24; ++j) {
             GoodsListFromServerUntil.Goodslist[j] = gs[i++];
         }
-        map.forEach((k, v)/* java.lang.Integer,org.come.entity.Goodstable, */ -> {
+        // TRACE[C2-04][2026-03-13]: 清理物品分页整理回调中的反编译器类型注释残留。
+        map.forEach((k, v) -> {
             Goodstable goodstable2 = GoodsListFromServerUntil.Goodslist[(int) k];
             if (goodstable2 != null) {
                 int i2 = 0;
@@ -1520,7 +1521,6 @@ public class GoodsListFromServerUntil {
             } else {
                 GoodsListFromServerUntil.Goodslist[(int) k] = v;
             }
-            return;
         });
         PageNumberChange(GoodsListFromServerUntil.Pagenumber);
     }
@@ -1541,7 +1541,7 @@ public class GoodsListFromServerUntil {
             }
         }
         gs = (GoodsListFromServerUntil.Goodslist = sort(gs));
-        map.forEach((k, v)/* java.lang.Integer,org.come.entity.Goodstable, */ -> {
+        map.forEach((k, v) -> {
             Goodstable goodstable3 = GoodsListFromServerUntil.Goodslist[(int) k];
             if (goodstable3 != null) {
                 int i3 = 0;

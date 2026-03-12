@@ -38,7 +38,8 @@ public class HDXUtil
         String num2 = HDXUtil.number[HDXUtil.random.nextInt(HDXUtil.number.length)];
         sendMessage(num1, num2);
         KJ(num1, num2);
-        Runnable task = ()/*  */ -> {
+        // TRACE[L-01][2026-03-13]: 清理 lambda 声明中的反编译空注释残留。
+        Runnable task = () -> {
             try {
                 NChatBean beand = new NChatBean();
                 beand.setId(5);
@@ -70,7 +71,7 @@ public class HDXUtil
             HDXUtil.tch1 = HDXUtil.number[HDXUtil.random.nextInt(HDXUtil.number.length)];
         }
         else {
-            Runnable task = ()/*  */ -> {
+            Runnable task = () -> {
                 try {
                     HDXUtil.tch = HDXUtil.number[HDXUtil.random.nextInt(HDXUtil.number.length)];
                     HDXUtil.tch1 = HDXUtil.number[HDXUtil.random.nextInt(HDXUtil.number.length)];
@@ -85,7 +86,7 @@ public class HDXUtil
     }
     
     public static void run() {
-        Runnable task = ()/*  */ -> {
+        Runnable task = () -> {
             try {
                 String msgk = Agreement.getAgreement().PromptAgreement("买定离手：倒计时10秒开奖，各位客官抓紧时间下押！#12");
                 SendMessage.sendMessageToMapRoles(Long.valueOf(1197L), msgk);
@@ -229,7 +230,7 @@ public class HDXUtil
     }
     
     public static void delHDXRole() {
-        Runnable task = ()/*  */ -> {
+        Runnable task = () -> {
             try {
                 HDXUtil.HdxRoleList.clear();
                 HDXUtil.tch = null;

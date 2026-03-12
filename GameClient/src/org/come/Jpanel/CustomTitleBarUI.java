@@ -127,7 +127,8 @@ public class CustomTitleBarUI extends JPanel
         this.titlelBtns.clear();
         int[] j = { 0 };
         AtomicInteger i = new AtomicInteger();
-        jFrame.games.forEach((k, v)/* java.lang.Integer,java.lang.Process, */ -> {
+        // TRACE[C2-14][2026-03-13]: 清理自定义标题栏遍历中的反编译器类型注释残留。
+        jFrame.games.forEach((k, v) -> {
             TitlelBtn delBtn = new TitlelBtn("inkImg/background/title-7.png", 1, "", 100 + (int)k);
             TitlelBtn titlelBtn2 = new TitlelBtn("inkImg/background/titleBtn2.png", 1, "", (int)k, Boolean.valueOf(true), delBtn) {
                 ImageIcon head;

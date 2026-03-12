@@ -105,7 +105,8 @@ public class GoodsService
     public Map<String, String> goodsMap() {
         ConcurrentHashMap<BigDecimal, Goodstable> map = GameServer.getAllGoodsMap();
         Map<String, String> goodsMap = new ConcurrentHashMap<>();
-        map.forEach((k, v)/* java.math.BigDecimal,org.come.entity.Goodstable, */ -> goodsMap.put(v.getGoodsname() + "(" + v.getGoodsid() + ")", v.getGoodsid().longValue() + ""));
+        // TRACE[S2-03][2026-03-13]: 清理 lambda 中的反编译器类型注释残留。
+        map.forEach((k, v) -> goodsMap.put(v.getGoodsname() + "(" + v.getGoodsid() + ")", v.getGoodsid().longValue() + ""));
         return goodsMap;
     }
     //给玩家发送物品

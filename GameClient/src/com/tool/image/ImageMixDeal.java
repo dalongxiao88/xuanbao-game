@@ -112,12 +112,12 @@ public class ImageMixDeal
                 value.move(DieTime);
             }
         }
-        ImageMixDeal.petMap.forEach((k, v)/* java.lang.String,java.util.List, */ -> {
+        // TRACE[C2-07][2026-03-13]: 清理图像混合处理回调中的反编译器类型注释残留。
+        ImageMixDeal.petMap.forEach((k, v) -> {
             ManimgAttribute manimgAttribute = huoquLogin(k);
             if (manimgAttribute != null) {
                 manimgAttribute.movePet(v);
             }
-            return;
         });
         if (ImageMixDeal.userimg != null) {
             if (Util.ZOU) {

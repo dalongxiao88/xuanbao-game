@@ -721,23 +721,12 @@ public class qhfyAction implements SpellAction
         }
         if (skill.getSkilltype().equals(type)) {
             List<ManData> enemyUnits = new ArrayList<>();
-            int n = -1;
-            switch (type.hashCode()) {
-                case 892762: {
-                    if (type.equals("混乱")) {
-                        n = 0;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-            }
-            switch (n) {
-                case 0: {
-                    enemyUnits = getEnemyUnit(myData, ren, battlefield, skillType);
-                    break;
-                }
+            /**
+             * TRACE[S-07][2026-03-13]: 去除战斗 spell 分支中的反编译 hashCode 单 case 结构。
+             * 当前仅保留已确认存在的“混乱”类型行为，不扩展额外业务分支。
+             */
+            if ("混乱".equals(type)) {
+                enemyUnits = getEnemyUnit(myData, ren, battlefield, skillType);
             }
             FightingEvents events = new FightingEvents();
             List<FightingState> zls = new ArrayList<>();

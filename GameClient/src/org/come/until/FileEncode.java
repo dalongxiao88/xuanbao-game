@@ -35,7 +35,8 @@ public class FileEncode
         FileEncode fileEncode = new FileEncode();
         BuffeTest buffeTest1 = new BuffeTest();
         List<String> fileList = fileEncode.getFileNames(path);
-        fileList.forEach(item/* java.lang.String, */ -> {
+        // TRACE[C2-05][2026-03-13]: 清理文件编码工具遍历中的反编译器类型注释残留。
+        fileList.forEach(item -> {
             String name = item.substring(0, item.indexOf(".png"));
             try {
                 BuffeTest.decryptFile( new File(path + "\\" + item),    new File(path2 + "\\" + name + ".png"));

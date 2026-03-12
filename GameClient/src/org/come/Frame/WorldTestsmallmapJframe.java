@@ -44,7 +44,7 @@ public class WorldTestsmallmapJframe extends JInternalFrame
             @Override
             public void mouseReleased(MouseEvent e) {
                 if (e.getButton() == 1) {
-                    WorldTestsmallmapJframe this$0 = WorldTestsmallmapJframe.this;
+                    // TRACE[C-10][2026-03-13]: 去除小地图回调中的反编译 this$0 合成变量残留。
                     WorldTestsmallmapJframe.getWorldTestsmallmapJpanel().pathPoints = ImageMixDeal.userimg.getRoleShow().getPlayer_Paths();
                     int ditubianma = WorldMapJpanel.ditubianma;
                     WorldMapJpanel.iWantToFly(ditubianma + ",1," + (int)WorldTestsmallmapJframe.this.smalx * 20 + "," + (int)WorldTestsmallmapJframe.this.smaly * 20);
@@ -89,9 +89,7 @@ public class WorldTestsmallmapJframe extends JInternalFrame
                 WorldTestsmallmapJframe.this.smalx = (double)e.getX() * WorldMapJpanel.mapmodel.getBili_x();
                 WorldTestsmallmapJframe.this.smaly = (double)(e.getY() - 35) * WorldMapJpanel.mapmodel.getBili_y();
                 if (WorldTestsmallmapJframe.this.smalx >= 0.0 && WorldTestsmallmapJframe.this.smaly >= 0.0 && WorldTestsmallmapJframe.this.smalx <= (double)WorldMapJpanel.mapmodel.getW() && WorldTestsmallmapJframe.this.smaly <= (double)WorldMapJpanel.mapmodel.getH()) {
-                    WorldTestsmallmapJframe this$0 = WorldTestsmallmapJframe.this;
                     WorldTestsmallmapJframe.getWorldTestsmallmapJpanel().setDx(e.getX());
-                    WorldTestsmallmapJframe this$2 = WorldTestsmallmapJframe.this;
                     WorldTestsmallmapJframe.getWorldTestsmallmapJpanel().setDy(e.getY());
                     int x = (int)WorldTestsmallmapJframe.getWorldTestsmallmapJframe().smalx;
                     int y = (int)WorldTestsmallmapJframe.getWorldTestsmallmapJframe().smaly;
@@ -100,9 +98,8 @@ public class WorldTestsmallmapJframe extends JInternalFrame
                     }
                 }
                 else {
-                    WorldTestsmallmapJframe this$3 = WorldTestsmallmapJframe.this;
+                    // TRACE[C-10-R][2026-03-13]: 复扫补点，清理小地图面板中遗漏的 this$N 合成变量残留。
                     WorldTestsmallmapJframe.getWorldTestsmallmapJpanel().setDx(2000);
-                    WorldTestsmallmapJframe this$4 = WorldTestsmallmapJframe.this;
                     WorldTestsmallmapJframe.getWorldTestsmallmapJpanel().setDy(2000);
                 }
             }

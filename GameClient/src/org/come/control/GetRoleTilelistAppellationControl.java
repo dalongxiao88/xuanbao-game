@@ -18,29 +18,21 @@ public class GetRoleTilelistAppellationControl implements FromServerAction
 {
     @Override
     public void controlMessFromServer(String mes, String type) {
-        int n = -1;
-        switch (type.hashCode()) {
-            case 146356320: {
-                if (type.equals("gettitlelist")) {
-                    n = 0;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
+        // TRACE[C-03][2026-03-13]: 去除称谓列表协议分派中的反编译 hashCode 结构。
+        if (type == null) {
+            return;
         }
-        switch (n) {
-            case 0: {
+        switch (type) {
+            case "gettitlelist":
                 try {
                     this.gettitlelist(mes);
-                    break;
                 }
                 catch (Exception e) {
                     e.printStackTrace();
                 }
                 break;
-            }
+            default:
+                break;
         }
     }
     

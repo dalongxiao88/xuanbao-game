@@ -145,7 +145,8 @@ public class LanderJPanel extends JPanel
         this.sb = new ArrayList<>();
         this.jfxPanel = new JFXPanel();
         this.jfxPanel = new JFXPanel();
-        Platform.runLater(()/*  */ -> {
+        // TRACE[L-04][2026-03-13]: 清理登录面板 UI 回调中的反编译空注释 lambda 残留。
+        Platform.runLater(() -> {
             WebView webView = new WebView();
             webView.getEngine().load(UpdateMain.linkUrl);
             WebEngine webEngine = webView.getEngine();

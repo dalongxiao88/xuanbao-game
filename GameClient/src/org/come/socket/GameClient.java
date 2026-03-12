@@ -122,7 +122,7 @@ public class GameClient
                         public void run() {
                             try {
                                 if (GameClient.this.a <= 30) {
-                                    GameClient this$0 = GameClient.this;
+                                    // TRACE[C-01][2026-03-13]: 去除匿名回调中的反编译 this$0 合成变量残留。
                                     ++GameClient.this.a;
                                     GameClient.this.doConnect();
                                 }

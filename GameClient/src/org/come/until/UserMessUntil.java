@@ -425,7 +425,8 @@ public class UserMessUntil
             }
         });
         sortMap.putAll(map);
-        sortMap.forEach((key, value)/* java.math.BigDecimal,org.come.entity.Goodstable, */ -> {
+        // TRACE[C2-01][2026-03-13]: 清理客户端物品消息遍历中的反编译器类型注释残留。
+        sortMap.forEach((key, value) -> {
             if (key.compareTo(new BigDecimal(745)) == 0) {
                 System.out.println(1111);
             }
@@ -433,7 +434,6 @@ public class UserMessUntil
                 System.out.println(1111);
             }
             System.out.println(key + "-" + value.getGoodsname() + "-");
-            return;
         });
     }
     

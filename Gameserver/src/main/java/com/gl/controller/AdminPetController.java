@@ -286,14 +286,14 @@ public class AdminPetController
         if (StringUtils.isNotBlank(param.getNds())) {
             String[] split2 = param.getNds().split("\\|");
             for (String nd : split2) {
-                GameServer.getAllGoodsMap().forEach((k, v)/* java.math.BigDecimal,org.come.entity.Goodstable, */ -> {
+                // TRACE[S2-09][2026-03-13]: 清理后台宠物控制器回调中的反编译器类型注释残留。
+                GameServer.getAllGoodsMap().forEach((k, v) -> {
                     if (v.getGoodsname().equals(nd)) {
                         String[] split5 = v.getValue().split("\\|");
                         if (split5.length > 2) {
                             this.nds.put(nd, v);
                         }
                     }
-                    return;
                 });
             }
             if (StringUtils.isNotBlank(roleSummoning.getInnerGoods())) {
@@ -534,61 +534,26 @@ public class AdminPetController
         String rolename = param.getValue2();
         BigDecimal roleId = new BigDecimal(param.getValue1());
         if (type != null) {
-            int n = -1;
-            switch (type.hashCode()) {
-                case 76: {
-                    if (type.equals("L")) {
-                        n = 0;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 83: {
-                    if (type.equals("S")) {
-                        n = 1;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 77: {
-                    if (type.equals("MMMM")) {
-                        n = 2;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-                case 66: {
-                    if (type.equals("B")) {
-                        n = 3;
-                        break;
-                    }
-                    else {
-                        break;
-                    }
-                }
-            }
-            switch (n) {
-                case 0: {
+            /**
+             * TRACE[S-06][2026-03-13]: 去除后台满级处理入口中的反编译 hashCode 分派。
+             * 这里严格保留原行为：`L` 分支会继续贯穿执行 `S` 分支里的召唤兽处理。
+             */
+            switch (type) {
+                case "L":
                     this.fullLingbao(roleId);
-                }
-                case 1: {
-                    this.zhs(roleId);
+                    this.fullRoleSummonings(roleId);
                     break;
-                }
-                case 2: {
+                case "S":
+                    this.fullRoleSummonings(roleId);
+                    break;
+                case "MMMM":
                     this.fullMount(roleId);
                     break;
-                }
-                case 3: {
+                case "B":
                     this.fullBaby(roleId);
                     break;
-                }
+                default:
+                    break;
             }
             if (GameServer.getRoleNameMap().get(rolename) != null) {
                 SendMessage.sendMessageByRoleName(rolename, Agreement.getAgreement().serverstopAgreement());
@@ -694,7 +659,11 @@ public class AdminPetController
         }
     }
     
-    private void zhs(BigDecimal roleId) {
+    /**
+     * TRACE[N-04][2026-03-13]: 为后台满级处理中的召唤兽分支补充语义化别名。
+     * 旧名 `zhs` 缺少行为语义，这里明确为“批量处理角色召唤兽满级/转生”逻辑。
+     */
+    private void fullRoleSummonings(BigDecimal roleId) {
         List<RoleSummoning> roleSummonings = AllServiceUtil.getRoleSummoningService().selectRoleSummoningsByRoleID(roleId);
         if (CollectionUtils.isNotEmpty(roleSummonings)) {
             List<RoleSummoning> collect = roleSummonings.stream().filter(f/* org.come.entity.RoleSummoning, */ -> (int)f.getGrade() != Integer.parseInt("744")).collect(Collectors.toList());
@@ -702,6 +671,11 @@ public class AdminPetController
                 this.mockZs(r, roleId);
             }
         }
+    }
+
+    /** 兼容旧命名：批量处理角色召唤兽满级/转生。 */
+    private void zhs(BigDecimal roleId) {
+        this.fullRoleSummonings(roleId);
     }
     
     private void mockZs(RoleSummoning pet, BigDecimal roleId) {

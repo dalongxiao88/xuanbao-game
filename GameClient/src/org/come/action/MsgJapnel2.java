@@ -55,6 +55,14 @@ public class MsgJapnel2 extends JPanel
     }
     
     public void LX(String name, String msg) {
+        this.showFloatingMessage(name, msg);
+    }
+
+    /**
+     * TRACE[N-03][2026-03-13]: 为悬浮消息面板补充语义化显示入口。
+     * 旧名 `LX` 缺少语义，这里补充“显示悬浮消息”别名并保留兼容入口。
+     */
+    public void showFloatingMessage(String name, String msg) {
         this.box.removemsg();
         this.vc = name;
         this.open = false;

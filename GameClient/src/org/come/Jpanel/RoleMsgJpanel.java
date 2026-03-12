@@ -110,7 +110,8 @@ public class RoleMsgJpanel extends JPanel
             RoleMsgBtn.role_bean = null;
             String msg = Agreement.getAgreement().searcahChatRoleIdAgreement(id.toString());
             SendMessageUntil.toServer(msg);
-            ThreadUtil.execAsync(new Thread(()/*  */ -> {
+            // TRACE[L-08][2026-03-13]: 清理角色消息面板线程中的反编译空注释 lambda 残留。
+            ThreadUtil.execAsync(new Thread(() -> {
                 try {
                     Role_bean role_bean;
                     for (role_bean = RoleMsgBtn.role_bean; role_bean == null; role_bean = RoleMsgBtn.role_bean) {

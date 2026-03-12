@@ -256,10 +256,8 @@ public class OpenSkillGridJpanel extends JPanel
 
                 @Override
                 public void mousePressed(MouseEvent e) {
-                    OpenSkillGridJpanel this$0 = OpenSkillGridJpanel.this;
+                    // TRACE[C-11][2026-03-13]: 去除技能格子面板中的反编译 this$0 合成变量残留。
                     if (OpenSkillGridJpanel.listGoods.getSelectedIndex() != -1) {
-                        OpenSkillGridJpanel this$2 = OpenSkillGridJpanel.this;
-                        OpenSkillGridJpanel this$3 = OpenSkillGridJpanel.this;
                         OpenSkillGridJpanel.this.goodstable = (Goodstable) OpenSkillGridJpanel.listGoods.getSelectedValue();
                     }
                 }
@@ -715,10 +713,7 @@ public class OpenSkillGridJpanel extends JPanel
 
                 @Override
                 public void mousePressed(MouseEvent e) {
-                    OpenSkillGridJpanel this$0 = OpenSkillGridJpanel.this;
                     if (OpenSkillGridJpanel.listGoods.getSelectedIndex() != -1) {
-                        OpenSkillGridJpanel this$2 = OpenSkillGridJpanel.this;
-                        OpenSkillGridJpanel this$3 = OpenSkillGridJpanel.this;
                         OpenSkillGridJpanel.this.goodstable = (Goodstable) OpenSkillGridJpanel.listGoods.getSelectedValue();
                     }
                 }

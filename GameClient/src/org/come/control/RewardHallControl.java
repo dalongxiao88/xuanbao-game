@@ -19,49 +19,22 @@ public class RewardHallControl implements FromServerAction
 {
     @Override
     public void controlMessFromServer(String mes, String type) {
-        int n = -1;
-        switch (type.hashCode()) {
-            case -1418618703: {
-                if (type.equals("obtainarticle")) {
-                    n = 0;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 674506326: {
-                if (type.equals("drawnitems")) {
-                    n = 1;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case 178053748: {
-                if (type.equals("drawnitemsfail")) {
-                    n = 2;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
+        // TRACE[C-07][2026-03-13]: 去除奖励大厅协议分派中的反编译 hashCode 结构。
+        if (type == null) {
+            return;
         }
-        switch (n) {
-            case 0: {
+        switch (type) {
+            case "obtainarticle":
                 this.obtainArticle(mes);
                 break;
-            }
-            case 1: {
+            case "drawnitems":
                 this.drawnItems(mes);
                 break;
-            }
-            case 2: {
+            case "drawnitemsfail":
                 this.drawnitemsFail(mes);
                 break;
-            }
+            default:
+                break;
         }
     }
     

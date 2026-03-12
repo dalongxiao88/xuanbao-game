@@ -385,10 +385,11 @@ public class UpdateNewFile
             LanderJPanel.labtext1.setText("0%");
             AtomicReference<Boolean> b = new AtomicReference(Boolean.valueOf(false));
             String finalIn = in;
-            map.forEach((k, v)/* java.lang.Object,java.lang.Object, */ -> {
+            // TRACE[C2-06][2026-03-13]: 清理更新器映射遍历中的反编译器类型注释残留。
+            map.forEach((k, v) -> {
                 if ((boolean)b.get()) {
                     LinkedTreeMap s = (LinkedTreeMap)v;
-                    s.forEach((k1, v1)/* java.lang.Object,java.lang.Object, */ -> {
+                    s.forEach((k1, v1) -> {
                         if (k1.toString().startsWith("tcp")) {
                             ArrayList<String> tcps = (ArrayList)v1;
                             Iterator iterator = tcps.iterator();

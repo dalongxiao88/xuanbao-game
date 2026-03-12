@@ -330,11 +330,11 @@ public class AdminController
             String[] items = this.agentGoodsIds.split("\\|");
             Map<String, String> AgentGoodsMap = new ConcurrentHashMap<>();
             for (String item : items) {
-                goodsMap.forEach((k, v)/* java.lang.String,java.lang.String, */ -> {
+                // TRACE[S2-10][2026-03-13]: 清理后台控制器物品映射回调中的反编译器类型注释残留。
+                goodsMap.forEach((k, v) -> {
                     if (v.equals(item)) {
                         AgentGoodsMap.put(k, v);
                     }
-                    return;
                 });
             }
             return ResultFactory.success(AgentGoodsMap);
@@ -709,11 +709,10 @@ public class AdminController
         if (StringUtils.isNotBlank(param.getNds())) {
             String[] split2 = param.getNds().split("\\|");
             for (String nd : split2) {
-                GameServer.getAllGoodsMap().forEach((k, v)/* java.math.BigDecimal,org.come.entity.Goodstable, */ -> {
+                GameServer.getAllGoodsMap().forEach((k, v) -> {
                     if (v.getGoodsname().equals(nd)) {
                         this.nds.put(nd, v);
                     }
-                    return;
                 });
             }
             if (StringUtils.isNotBlank(roleSummoning.getInnerGoods())) {

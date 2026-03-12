@@ -47,7 +47,8 @@ public class Main
         Main.tabJFrame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                Main.tabJFrame.games.forEach((k, p)/* java.lang.Integer,java.lang.Process, */ -> p.destroy());
+                // TRACE[C2-03][2026-03-13]: 清理多开主入口回调中的反编译器类型注释残留。
+                Main.tabJFrame.games.forEach((k, p) -> p.destroy());
                 Main.exit = true;
                 new Timer().schedule(new TimerTask() {
                     @Override
@@ -63,12 +64,13 @@ public class Main
                 User32.INSTANCE.AttachThreadInput(new WinDef.DWORD((long)User32.INSTANCE.GetWindowThreadProcessId(Main.ts, null)), new WinDef.DWORD((long)User32.INSTANCE.GetWindowThreadProcessId(Main.showHWND, null)), true);
             }
         });
-        Runtime.getRuntime().addShutdownHook(new Thread(()/*  */ -> {
-            Main.tabJFrame.games.forEach((k, p)/* java.lang.Integer,java.lang.Process, */ -> p.destroy());
+        // TRACE[L-03][2026-03-13]: 清理多开主入口线程中的反编译空注释 lambda 残留。
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            Main.tabJFrame.games.forEach((k, p) -> p.destroy());
             Main.exit = true;
             return;
         }));
-        new Thread(()/*  */ -> {
+        new Thread(() -> {
             while (!Main.exit) {
                 Main.tabJFrame.customTitleBarUI.repaint();
                 try {
@@ -94,7 +96,7 @@ public class Main
                         Main.ts = User32.INSTANCE.FindWindow("SunAwtFrame", Main.title);
                     }
                     if (Main.hwnds.containsValue(null)) {
-                        Main.hwnds.forEach((k, v)/* java.lang.Integer,com.sun.jna.platform.win32.WinDef.HWND, */ -> {
+                        Main.hwnds.forEach((k, v) -> {
                             WinDef.HWND hWnd = User32.INSTANCE.FindWindow("SunAwtFrame", GameClient.BT + k + Main.tabName);
                             if (hWnd != null) {
                                 User32.INSTANCE.SetParent(hWnd, Main.ts);

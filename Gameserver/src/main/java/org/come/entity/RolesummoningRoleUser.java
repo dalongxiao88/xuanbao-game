@@ -115,11 +115,20 @@ public class RolesummoningRoleUser {
         return 0;
     }
     
-    public void SB() {
+    /**
+     * TRACE[N-01][2026-03-13]: 为后台召唤兽视图对象补充语义化别名。
+     * 旧名 `SB` 缺少业务语义，这里补充“刷新战斗属性”别名并保留兼容入口。
+     */
+    public void refreshBattleStats() {
         this.setHp(this.hp);
         this.setMp(this.mp);
         this.setAp(this.ap);
         this.setSp(this.sp);
+    }
+
+    /** 兼容旧命名：刷新战斗属性。 */
+    public void SB() {
+        this.refreshBattleStats();
     }
     
     public int getPetlock() {

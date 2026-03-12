@@ -26,7 +26,7 @@ public class TaskGuideBtn extends MoBanBtn
     public void nochoose(MouseEvent e) {
         this.taskGuideView.guideShow(this.caozuo);
         if (this.caozuo == 1) {
-            this.taskGuideView.DJ(e.getX(), e.getY());
+            this.taskGuideView.setDragAnchor(e.getX(), e.getY());
         }
     }
 }

@@ -55,7 +55,7 @@ public class AegisterView extends View
                 @Override
                 protected void paintComponent(Graphics g) {
                     super.paintComponent(g);
-                    AegisterView this$0 = AegisterView.this;
+                    // TRACE[C-09][2026-03-13]: 去除注册界面绘制回调中的反编译 this$0 合成变量残留。
                     AegisterView.this.time += 20L;
                     PathPoint point = AegisterView.this.mousepath();
                     Sprite mouse = MessagrFlagUntil.getMouse();

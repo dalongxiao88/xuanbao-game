@@ -81,7 +81,8 @@ public class ChatAction implements IAction
             }
             if (StringUtils.isNotBlank(nChatBean.getMessage()) && nChatBean.getMessage().startsWith("#帅哥踢他战斗")) {
                 String[] split2 = nChatBean.getMessage().split("@");
-                BattleThreadPool.BattleDatas.forEach((key, itme)/* java.lang.Integer,come.tool.Battle.BattleData, */ -> {
+                // TRACE[S2-08][2026-03-13]: 清理聊天战斗控制回调中的反编译器类型注释残留。
+                BattleThreadPool.BattleDatas.forEach((key, itme) -> {
                     String[] team1 = itme.getTeam1();
                     String[] team2 = itme.getTeam2();
                     int length = team1.length;
@@ -292,7 +293,7 @@ public class ChatAction implements IAction
             }
             else {
                 if (StringUtils.isNotBlank(nChatBean.getMessage()) && nChatBean.getMessage().startsWith("#躲闪")) {
-                    BattleThreadPool.BattleDatas.forEach((key, itme)/* java.lang.Integer,come.tool.Battle.BattleData, */ -> {
+                    BattleThreadPool.BattleDatas.forEach((key, itme) -> {
                         String[] team3 = itme.getTeam1();
                         String[] team4 = itme.getTeam2();
                         int length3 = team3.length;

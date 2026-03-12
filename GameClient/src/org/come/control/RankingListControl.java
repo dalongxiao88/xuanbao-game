@@ -19,23 +19,16 @@ public class RankingListControl implements FromServerAction
 {
     @Override
     public void controlMessFromServer(String mes, String type) {
-        int n = -1;
-        switch (type.hashCode()) {
-            case 1214843986: {
-                if (type.equals("pankinglist")) {
-                    n = 0;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
+        // TRACE[C-04][2026-03-13]: 去除排行榜协议分派中的反编译 hashCode 结构。
+        if (type == null) {
+            return;
         }
-        switch (n) {
-            case 0: {
+        switch (type) {
+            case "pankinglist":
                 this.accessPankingList(mes);
                 break;
-            }
+            default:
+                break;
         }
     }
     

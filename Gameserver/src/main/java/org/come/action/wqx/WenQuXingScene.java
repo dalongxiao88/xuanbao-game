@@ -173,7 +173,8 @@ public class WenQuXingScene implements Scene
     
     public void ClearingQuestions() {
         this.kjThread.b = Boolean.valueOf(true);
-        this.examineeRoles.forEach((k, v)/* java.math.BigDecimal,org.come.action.wqx.KJRole, */ -> {
+        // TRACE[S2-13][2026-03-13]: 清理文曲星场景回调中的反编译器类型注释残留。
+        this.examineeRoles.forEach((k, v) -> {
             if (v.getCorrect() == 1) {
                 ChannelHandlerContext channelHandlerContext = (ChannelHandlerContext)GameServer.getRoleNameMap().get(v.getRoleName());
                 if (channelHandlerContext != null && v.getCorrect() == 1 && (int)this.ssErrorCount <= 7) {
@@ -182,7 +183,6 @@ public class WenQuXingScene implements Scene
                     this.sendReward(Boolean.valueOf(false), channelHandlerContext, v, (LoginResult)GameServer.getAllLoginRole().get(channelHandlerContext));
                 }
             }
-            return;
         });
         if (this.list.size() > 0) {
             NChatBean bean = new NChatBean();

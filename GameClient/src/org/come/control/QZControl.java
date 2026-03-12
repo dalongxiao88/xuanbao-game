@@ -12,58 +12,22 @@ public class QZControl implements NpcMenuAction
 {
     @Override
     public void menuControl(String type) {
-        int n = -1;
-        switch (type.hashCode()) {
-            case 1188767303: {
-                if (type.equals("我的钱太多了，想存起来")) {
-                    n = 0;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case -720856178: {
-                if (type.equals("我没有钱花了，想把存款拿出来")) {
-                    n = 1;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case -1269916788: {
-                if (type.equals("查看我的保险箱")) {
-                    n = 2;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
-            case -764423533: {
-                if (type.equals("我什么也不做")) {
-                    n = 3;
-                    break;
-                }
-                else {
-                    break;
-                }
-            }
+        // TRACE[C-05][2026-03-13]: 去除钱庄菜单分派中的反编译 hashCode 结构。
+        if (type == null) {
+            return;
         }
-        switch (n) {
-            case 0: {
+        switch (type) {
+            case "我的钱太多了，想存起来":
                 this.Savemoney();
                 break;
-            }
-            case 1: {
+            case "我没有钱花了，想把存款拿出来":
                 this.Withdrawmoney();
                 break;
-            }
-            case 2: {
+            case "查看我的保险箱":
                 this.query();
                 break;
-            }
+            default:
+                break;
         }
     }
     

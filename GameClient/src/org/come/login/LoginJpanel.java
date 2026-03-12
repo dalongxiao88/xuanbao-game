@@ -851,7 +851,8 @@ public class LoginJpanel extends JPanel {
         int randomIndex = (int) (Math.random() * videoFiles.length);
         String selectedVideo = videoFiles[randomIndex];
 
-        SwingUtilities.invokeLater(()/*  */ -> {
+        // TRACE[L-09][2026-03-13]: 清理登录界面视频回调中的反编译空注释 lambda 残留。
+        SwingUtilities.invokeLater(() -> {
             Media media = new Media(new File(selectedVideo).toURI().toString());
             MediaPlayer mediaPlayer = new MediaPlayer(media);
             mediaPlayer.setCycleCount(-1);

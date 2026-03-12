@@ -440,14 +440,14 @@ public class DownLoadTxt {
                 ConcurrentHashMap titleColors = (ConcurrentHashMap) GsonUtil.getGsonUtil().getgson().fromJson(MesStr, ConcurrentHashMap.class);
                 ConcurrentHashMap<String, Color> stringColorConcurrentHashMap = new ConcurrentHashMap<>();
                 if (titleColors != null) {
-                    titleColors.forEach((k, v)/* java.lang.Object,java.lang.Object, */ -> {
+                    // TRACE[C2-09][2026-03-13]: 清理下载文本配置映射中的反编译器类型注释残留。
+                    titleColors.forEach((k, v) -> {
                         String v2 = (String) v;
                         if (StringUtils.isNotBlank(v2)) {
                             String[] v2s = v2.split(",");
                             Color color = new Color(Integer.parseInt(v2s[0]), Integer.parseInt(v2s[1]), Integer.parseInt(v2s[2]));
                             stringColorConcurrentHashMap.put((String) k, color);
                         }
-                        return;
                     });
                 }
                 UserMessUntil.setTitleColors(stringColorConcurrentHashMap);

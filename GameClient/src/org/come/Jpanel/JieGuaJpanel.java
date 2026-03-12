@@ -136,7 +136,8 @@ public class JieGuaJpanel extends JPanel
             this.updateState(false);
             this.update(0, 4);
             this.count = (int)(time / 30L);
-            (this.timer = new Timer(30, e/* java.awt.event.ActionEvent, */ -> {
+            // TRACE[C2-12][2026-03-13]: 清理解卦面板计时回调中的反编译器类型注释残留。
+            (this.timer = new Timer(30, e -> {
                 if (this.count % 6 == 0) {
                     this.update(this.yangIndex + 1, this.yinIndex - 1);
                 }

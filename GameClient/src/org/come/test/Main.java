@@ -79,7 +79,8 @@ public class Main
         GameClient.potAndIpStrings = GameClient.getServerIpAndPort();
         Main.frame = new LoginFrame();
         if (!a.equals("D")) {
-            new Thread(()/*  */ -> {
+            // TRACE[L-05][2026-03-13]: 清理测试入口线程中的反编译空注释 lambda 残留。
+            new Thread(() -> {
                 Scanner scanner = new Scanner(System.in);
                 while (true) {
                     try {

@@ -1598,22 +1598,19 @@ public class CopyOfSkillTYCPanel extends JPanel
             if (sum <= 24) {
                 switch ((int)skillTYC.tycPointBean.getRow()) {
                     case 2: {
-                        CopyOfSkillTYCPanel this$0 = CopyOfSkillTYCPanel.this;
+                        // TRACE[C-08][2026-03-13]: 去除技能面板中的反编译 this$0 合成变量残留。
                         CopyOfSkillTYCPanel.this.issum += (int)skillTYC.tycPointBean.getNowPoint();
                         break;
                     }
                     case 3: {
-                        CopyOfSkillTYCPanel this$2 = CopyOfSkillTYCPanel.this;
                         CopyOfSkillTYCPanel.this.issum1 += (int)skillTYC.tycPointBean.getNowPoint();
                         break;
                     }
                     case 4: {
-                        CopyOfSkillTYCPanel this$3 = CopyOfSkillTYCPanel.this;
                         CopyOfSkillTYCPanel.this.issum2 += (int)skillTYC.tycPointBean.getNowPoint();
                         break;
                     }
                     case 5: {
-                        CopyOfSkillTYCPanel this$4 = CopyOfSkillTYCPanel.this;
                         CopyOfSkillTYCPanel.this.issum3 += (int)skillTYC.tycPointBean.getNowPoint();
                         break;
                     }
@@ -1622,22 +1619,19 @@ public class CopyOfSkillTYCPanel extends JPanel
             if (sum >= 25) {
                 switch ((int)skillTYC.tycPointBean.getRow()) {
                     case 2: {
-                        CopyOfSkillTYCPanel this$5 = CopyOfSkillTYCPanel.this;
+                        // TRACE[C-08-R][2026-03-13]: 复扫补点，清理技能面板中遗漏的 this$N 合成变量残留。
                         CopyOfSkillTYCPanel.this.issum4 += (int)skillTYC.tycPointBean.getNowPoint();
                         break;
                     }
                     case 3: {
-                        CopyOfSkillTYCPanel this$6 = CopyOfSkillTYCPanel.this;
                         CopyOfSkillTYCPanel.this.issum5 += (int)skillTYC.tycPointBean.getNowPoint();
                         break;
                     }
                     case 4: {
-                        CopyOfSkillTYCPanel this$7 = CopyOfSkillTYCPanel.this;
                         CopyOfSkillTYCPanel.this.issum6 += (int)skillTYC.tycPointBean.getNowPoint();
                         break;
                     }
                     case 5: {
-                        CopyOfSkillTYCPanel this$8 = CopyOfSkillTYCPanel.this;
                         CopyOfSkillTYCPanel.this.issum7 += (int)skillTYC.tycPointBean.getNowPoint();
                         break;
                     }
